@@ -6,8 +6,6 @@ import TopBar from './components/layouts/TopBar'
 import Footer from './components/layouts/Footer'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
     <TopBar />
@@ -15,7 +13,7 @@ function App() {
     <Home />
     <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
