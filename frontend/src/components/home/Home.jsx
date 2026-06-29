@@ -4,25 +4,28 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 /**
  * Hero — AutoLuxe
  *
- * Signature element: a muted detailing video (polish / ceramic sheeting)
- * sits behind the headline, with a thin golden sweep that crosses the
- * headline once on load — echoing the "reveal the shine" moment the
- * brand actually sells, rather than a generic gradient blob.
+ * Background video: royalty-free from Mixkit (no download needed, direct CDN URL)
+ * Fallback poster: thumbnail from same source
  *
- * Fonts:
- *  - Headline / eyebrow / CTAs: 'Bai Jamjuree'
- *  - Subhead / body: serif
- *
- * Replace VIDEO_SRC and POSTER_SRC with your own asset paths.
- * Video should be silent, loopable, and ideally < 6MB (compressed mp4/webm).
+ * Fonts: 'Bai Jamjuree' (load in index.html)
+ * Colors: Black #0A0A0A | Gold #D4AF37 | White #F5F5F0
  */
 
-const VIDEO_SRC = "/videos/detailing-loop.mp4";
-const POSTER_SRC = "/images/hero-poster.jpg";
+// ✅ Free royalty-free video — Mixkit License (no attribution required)
+// "Man carefully polishing the front of a shiny car"
+const VIDEO_SRC   = "https://assets.mixkit.co/videos/47834/47834-360.mp4";
+const POSTER_SRC  = "https://assets.mixkit.co/videos/47834/47834-thumb-360-3.jpg";
+
+// Stat strip — edit as needed
+const STATS = [
+  { value: "5+",   label: "Years of excellence" },
+  { value: "4",    label: "Cities served" },
+  { value: "100%", label: "In-house craftsmanship" },
+];
 
 export default function Hero() {
-  const videoRef = useRef(null);
-  const [loaded, setLoaded] = useState(false);
+  const videoRef        = useRef(null);
+  const [loaded, setLoaded]               = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -38,12 +41,12 @@ export default function Hero() {
       className="relative flex min-h-[92vh] w-full items-center overflow-hidden bg-[#0A0A0A] font-serif"
       aria-label="Hero"
     >
-      {/* Video / poster background */}
+      {/* ── Video / poster background ── */}
       <div className="absolute inset-0 z-0">
         {!reducedMotion ? (
           <video
             ref={videoRef}
-            className={`h-full w-full object-cover transition-opacity duration-[1200ms] ${
+            className={`h-full w-full object-cover transition-opacity duration-[1400ms] ${
               loaded ? "opacity-100" : "opacity-0"
             }`}
             src={VIDEO_SRC}
@@ -57,51 +60,97 @@ export default function Hero() {
         ) : (
           <img
             src={POSTER_SRC}
-            alt="Detailed luxury vehicle finished with ceramic coating"
+            alt="Car polishing and detailing at AutoLuxe"
             className="h-full w-full object-cover"
           />
         )}
 
-        {/* Tint + readability gradient */}
-        <div className="absolute inset-0 bg-[#0A0A0A]/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-[#0A0A0A]/70" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/80 via-transparent to-[#0A0A0A]/40" />
+        {/* Multi-layer tint for text readability */}
+        <div className="absolute inset-0 bg-[#0A0A0A]/65" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/35 to-[#0A0A0A]/60" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/85 via-transparent to-[#0A0A0A]/30" />
       </div>
 
-      {/* Ambient golden vignette, signature element support */}
-      <div className="pointer-events-none absolute -left-32 top-1/3 z-[1] h-[480px] w-[480px] rounded-full bg-[#D4AF37]/10 blur-[120px]" />
+      {/* Ambient golden glow — left side */}
+      <div
+        className="pointer-events-none absolute -left-32 top-1/3 z-[1] h-[500px] w-[500px] rounded-full blur-[120px]"
+        style={{ background: "rgba(212,175,55,0.09)" }}
+      />
+      {/* Subtle gold vignette bottom-right */}
+      <div
+        className="pointer-events-none absolute -bottom-20 -right-20 z-[1] h-[340px] w-[340px] rounded-full blur-[100px]"
+        style={{ background: "rgba(212,175,55,0.06)" }}
+      />
 
-      {/* Content */}
+      {/* ── Content ── */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
         <div className="max-w-2xl">
+
           {/* Eyebrow */}
           <div
-            className="mb-5 flex items-center gap-3 opacity-0 animate-[fadeUp_0.8s_ease-out_0.1s_forwards]"
-            style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
+            className="mb-5 flex items-center gap-3"
+            style={{
+              fontFamily: "'Bai Jamjuree', sans-serif",
+              opacity: 0,
+              animation: "fadeUp 0.8s ease-out 0.1s forwards",
+            }}
           >
             <span className="h-px w-10 bg-[#D4AF37]" />
-            <span className="text-[13px] font-medium uppercase tracking-[0.25em] text-[#D4AF37]">
+            <span
+              style={{
+                fontSize: 12,
+                fontWeight: 500,
+                letterSpacing: "0.25em",
+                textTransform: "uppercase",
+                color: "#D4AF37",
+              }}
+            >
               Detailing &amp; Performance Studio
             </span>
           </div>
 
-          {/* Headline with golden sweep */}
+          {/* Headline */}
           <h1
-            className="relative overflow-hidden text-4xl font-semibold leading-[1.08] text-[#F5F5F0] sm:text-5xl lg:text-[3.4rem]"
-            style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
+            style={{
+              fontFamily: "'Bai Jamjuree', sans-serif",
+              position: "relative",
+              overflow: "hidden",
+            }}
+            className="text-4xl font-semibold leading-[1.08] text-[#F5F5F0] sm:text-5xl lg:text-[3.4rem]"
           >
-            <span className="opacity-0 animate-[fadeUp_0.8s_ease-out_0.25s_forwards]">
+            <span
+              style={{
+                display: "block",
+                opacity: 0,
+                animation: "fadeUp 0.8s ease-out 0.25s forwards",
+              }}
+            >
               Every car has a finish
             </span>
-            <br />
-            <span className="opacity-0 animate-[fadeUp_0.8s_ease-out_0.4s_forwards]">
+            <span
+              style={{
+                display: "block",
+                opacity: 0,
+                animation: "fadeUp 0.8s ease-out 0.4s forwards",
+              }}
+            >
               it was{" "}
-              <span className="relative inline-block text-[#D4AF37]">
+              <span style={{ position: "relative", display: "inline-block", color: "#D4AF37" }}>
                 built to wear
                 {!reducedMotion && (
                   <span
                     aria-hidden="true"
-                    className="absolute inset-y-0 -left-full w-full skew-x-[-20deg] bg-gradient-to-r from-transparent via-white/70 to-transparent animate-[sweep_1.4s_ease-in_1.1s_forwards]"
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      bottom: 0,
+                      left: "-100%",
+                      width: "100%",
+                      transform: "skewX(-20deg)",
+                      background:
+                        "linear-gradient(to right, transparent, rgba(255,255,255,0.65), transparent)",
+                      animation: "sweep 1.4s ease-in 1.1s forwards",
+                    }}
                   />
                 )}
               </span>
@@ -111,7 +160,11 @@ export default function Hero() {
 
           {/* Subhead */}
           <p
-            className="mt-6 max-w-md text-[15.5px] leading-relaxed text-[#F5F5F0]/70 opacity-0 animate-[fadeUp_0.8s_ease-out_0.55s_forwards] sm:text-base"
+            className="mt-6 max-w-md text-[15.5px] leading-relaxed text-[#F5F5F0]/70 sm:text-base"
+            style={{
+              opacity: 0,
+              animation: "fadeUp 0.8s ease-out 0.55s forwards",
+            }}
           >
             From ceramic coating to full restoration, body kits to remapped
             performance — we bring out the car underneath the car.
@@ -119,32 +172,47 @@ export default function Hero() {
 
           {/* CTAs */}
           <div
-            className="mt-9 flex flex-col gap-3.5 opacity-0 animate-[fadeUp_0.8s_ease-out_0.7s_forwards] sm:flex-row sm:items-center"
-            style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
+            className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center"
+            style={{
+              fontFamily: "'Bai Jamjuree', sans-serif",
+              opacity: 0,
+              animation: "fadeUp 0.8s ease-out 0.7s forwards",
+            }}
           >
             <a
               href="#contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#D4AF37] px-7 py-3.5 text-[14.5px] font-medium tracking-wide text-[#0A0A0A] transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.45)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4AF37]"
+              className="group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[14.5px] font-medium tracking-wide text-[#0A0A0A] transition-all duration-300"
+              style={{
+                background: "#D4AF37",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.boxShadow = "0 0 30px rgba(212,175,55,0.5)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.boxShadow = "none";
+              }}
             >
               Book a Service
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
               href="#services"
-              className="inline-flex items-center justify-center rounded-full border border-[#F5F5F0]/25 px-7 py-3.5 text-[14.5px] font-medium tracking-wide text-[#F5F5F0] transition-all duration-300 hover:border-[#D4AF37] hover:text-[#D4AF37]"
+              className="inline-flex items-center justify-center rounded-full border px-7 py-3.5 text-[14.5px] font-medium tracking-wide text-[#F5F5F0] transition-all duration-300 hover:border-[#D4AF37] hover:text-[#D4AF37]"
+              style={{ borderColor: "rgba(245,245,240,0.25)" }}
             >
               Explore Services
             </a>
           </div>
 
-          {/* Stat strip — only meaningful, no invented numbers as filler */}
+          {/* Stat strip */}
           <div
-            className="mt-12 flex flex-wrap gap-x-10 gap-y-4 border-t border-white/10 pt-6 opacity-0 animate-[fadeUp_0.8s_ease-out_0.85s_forwards]"
+            className="mt-12 flex flex-wrap gap-x-10 gap-y-4 border-t border-white/10 pt-6"
+            style={{
+              opacity: 0,
+              animation: "fadeUp 0.8s ease-out 0.85s forwards",
+            }}
           >
-            {[
-              { value: "5", label: "Core services" },
-              { value: "100%", label: "In-house craftsmanship" },
-            ].map((stat) => (
+            {STATS.map((stat) => (
               <div key={stat.label}>
                 <div
                   className="text-2xl font-semibold text-[#D4AF37]"
@@ -152,12 +220,13 @@ export default function Hero() {
                 >
                   {stat.value}
                 </div>
-                <div className="mt-0.5 text-[12.5px] text-[#F5F5F0]/55">
+                <div className="mt-0.5 text-[12px] text-[#F5F5F0]/50">
                   {stat.label}
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </div>
 
@@ -170,18 +239,18 @@ export default function Hero() {
         <ChevronDown className="h-5 w-5 animate-bounce" />
       </a>
 
-      {/* Keyframes (scoped, no Tailwind config needed) */}
+      {/* Keyframes */}
       <style>{`
         @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(16px); }
-          to { opacity: 1; transform: translateY(0); }
+          from { opacity: 0; transform: translateY(18px); }
+          to   { opacity: 1; transform: translateY(0); }
         }
         @keyframes sweep {
           from { left: -100%; }
-          to { left: 130%; }
+          to   { left: 130%; }
         }
         @media (prefers-reduced-motion: reduce) {
-          [class*="animate-["] { animation: none !important; opacity: 1 !important; }
+          [style*="animation"] { animation: none !important; opacity: 1 !important; }
         }
       `}</style>
     </section>
