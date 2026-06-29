@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ChevronDown, Menu, X, Sparkles } from "lucide-react";
 
 /**
@@ -12,34 +13,46 @@ import { ChevronDown, Menu, X, Sparkles } from "lucide-react";
  *  - Black   #0A0A0A (header background)
  *  - White   #F5F5F0 (text on dark)
  *
- * Load Bai Jamjuree in your index.html head, e.g.:
- * <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+ * Load Bai Jamjuree in your layout.tsx/layout.js head, e.g.:
+ * <link to="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap" rel="stylesheet" />
  */
 
 const SERVICES = [
   {
     name: "PPF / Ceramic Coating",
     desc: "Paint protection that keeps the shine permanent.",
+    path: "/services/ppf-ceramic",
   },
   {
     name: "Refurbish Vehicle / Restore",
     desc: "Bring tired metal back to factory-fresh form.",
+    path: "/services/refurbish",
   },
   {
     name: "Upholstery / Paints",
     desc: "Interior trim and full-body paint, done by hand.",
+    path: "/services/upholstery-paints",
   },
   {
     name: "Car Body Kits / Exhaust",
     desc: "Aggressive lines and a sound to match.",
+    path: "/services/body-kits-exhaust",
   },
   {
     name: "Tuning & Mapping / Accessories",
     desc: "Tuned performance, fitted exactly to you.",
+    path: "/services/tuning-accessories",
   },
 ];
 
-const NAV_LINKS = ["Home", "About", "Services", "Blogs", "Franchise", "Contact"];
+const NAV_LINKS = [
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Services", path: "/services" },
+  { name: "Blogs", path: "/blogs" },
+  { name: "Franchise", path: "/franchise" },
+  { name: "Contact", path: "/contact" },
+];
 
 export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -78,8 +91,8 @@ export default function Header() {
 
       <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8 lg:px-10">
         {/* Logo */}
-        <a
-          href="#home"
+        <Link
+          to="/"
           className="group flex items-center gap-2.5 outline-none"
           aria-label="Go to homepage"
         >
@@ -97,7 +110,7 @@ export default function Header() {
           >
             AUTO<span className="text-[#D4AF37]">LUXE</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <nav
@@ -105,9 +118,9 @@ export default function Header() {
           style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
         >
           {NAV_LINKS.map((link) =>
-            link === "Services" ? (
+            link.name === "Services" ? (
               <div
-                key={link}
+                key={link.name}
                 className="relative"
                 onMouseEnter={openServices}
                 onMouseLeave={scheduleClose}
@@ -149,14 +162,14 @@ export default function Header() {
                   <ul className="relative max-h-[70vh] overflow-auto py-2">
                     {SERVICES.map((service, i) => (
                       <li key={service.name}>
-                        <a
-                          href={`#${service.name
-                            .toLowerCase()
-                            .replace(/[^a-z0-9]+/g, "-")}`}
+                        <Link
+                          to={service.path}
                           role="menuitem"
                           className="group/item flex flex-col gap-0.5 px-5 py-3 transition-colors duration-200 hover:bg-[#D4AF37]/[0.07] focus-visible:bg-[#D4AF37]/10 focus-visible:outline-none"
                           style={{
-                            animationDelay: servicesOpen ? `${i * 35}ms` : "0ms",
+                            animationDelay: servicesOpen
+                              ? `${i * 35}ms`
+                              : "0ms",
                           }}
                         >
                           <span
@@ -168,7 +181,7 @@ export default function Header() {
                           <span className="font-serif text-[12.5px] leading-snug text-[#F5F5F0]/50">
                             {service.desc}
                           </span>
-                        </a>
+                        </Link>
                         {i < SERVICES.length - 1 && (
                           <div className="mx-5 h-px bg-white/5" />
                         )}
@@ -178,26 +191,26 @@ export default function Header() {
                 </div>
               </div>
             ) : (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
+              <Link
+                key={link.name}
+                to={link.path}
                 className="group relative py-2 text-[15px] font-medium tracking-wide text-[#F5F5F0]/90 transition-colors duration-300 hover:text-[#D4AF37] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4AF37]"
               >
-                {link}
+                {link.name}
                 <span className="absolute -bottom-[1px] left-0 h-[1.5px] w-0 bg-[#D4AF37] transition-all duration-300 group-hover:w-full" />
-              </a>
-            )
+              </Link>
+            ),
           )}
         </nav>
 
         {/* CTA (desktop) */}
-        <a
-          href="#contact"
+        <Link
+          to="/contact"
           className="hidden rounded-full border border-[#D4AF37] px-5 py-2 text-[14px] font-medium tracking-wide text-[#D4AF37] transition-all duration-300 hover:bg-[#D4AF37] hover:text-[#0A0A0A] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] lg:inline-block"
           style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
         >
           Book Now
-        </a>
+        </Link>
 
         {/* Mobile toggle */}
         <button
@@ -206,7 +219,11 @@ export default function Header() {
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
           aria-expanded={mobileOpen}
         >
-          {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {mobileOpen ? (
+            <X className="h-5 w-5" />
+          ) : (
+            <Menu className="h-5 w-5" />
+          )}
         </button>
       </div>
 
@@ -222,8 +239,8 @@ export default function Header() {
           style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
         >
           {NAV_LINKS.map((link) =>
-            link === "Services" ? (
-              <div key={link} className="border-b border-white/5">
+            link.name === "Services" ? (
+              <div key={link.name} className="border-b border-white/5">
                 <button
                   onClick={() => setMobileServicesOpen((v) => !v)}
                   className="flex w-full items-center justify-between py-3.5 text-[15px] font-medium text-[#F5F5F0]/90"
@@ -239,42 +256,42 @@ export default function Header() {
                 <div
                   className={[
                     "overflow-hidden transition-all duration-300 ease-in-out",
-                    mobileServicesOpen ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0",
+                    mobileServicesOpen
+                      ? "max-h-[600px] opacity-100"
+                      : "max-h-0 opacity-0",
                   ].join(" ")}
                 >
                   <ul className="pb-2 pl-2">
                     {SERVICES.map((service) => (
                       <li key={service.name}>
-                        <a
-                          href={`#${service.name
-                            .toLowerCase()
-                            .replace(/[^a-z0-9]+/g, "-")}`}
+                        <Link
+                          to={service.path}
                           className="block rounded-md py-2.5 pl-3 pr-2 text-[13.5px] text-[#F5F5F0]/70 transition-colors duration-200 hover:bg-[#D4AF37]/[0.08] hover:text-[#D4AF37]"
                           style={{ fontFamily: "Georgia, serif" }}
                         >
                           {service.name}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
             ) : (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
+              <Link
+                key={link.name}
+                to={link.path}
                 className="border-b border-white/5 py-3.5 text-[15px] font-medium text-[#F5F5F0]/90 transition-colors duration-200 hover:text-[#D4AF37]"
               >
-                {link}
-              </a>
-            )
+                {link.name}
+              </Link>
+            ),
           )}
-          <a
-            href="#contact"
+          <Link
+            to="/contact"
             className="my-4 rounded-full border border-[#D4AF37] py-2.5 text-center text-[14px] font-medium text-[#D4AF37] transition-all duration-300 hover:bg-[#D4AF37] hover:text-[#0A0A0A]"
           >
             Book Now
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
