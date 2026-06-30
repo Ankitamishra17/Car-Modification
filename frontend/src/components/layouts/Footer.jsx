@@ -26,7 +26,7 @@ const SERVICES = [
 
 const QUICK_LINKS = [
   { label: "Home",      href: "#home" },
-  { label: "About Us",  href: "#about-us" },
+  { label: "About Us",  href: "#about" },
   { label: "Blog",      href: "#blog" },
   { label: "Franchise", href: "#franchise" },
   { label: "Contact",   href: "#contact" },

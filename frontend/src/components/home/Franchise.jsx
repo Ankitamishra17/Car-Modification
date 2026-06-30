@@ -1,23 +1,5 @@
 import { Banknote, Ruler, TrendingUp, GraduationCap, Megaphone, Boxes, ArrowRight } from "lucide-react";
 
-/**
- * Franchise — AutoLuxe
- *
- * Structure:
- *  1. Heading + studio image — split layout, image grounds the pitch in a real space
- *  2. Investment highlights — three concrete numbers, not invented filler
- *  3. Benefits — what franchisees actually get (training, support, branding),
- *     each card carries a supporting photo instead of a flat icon-only tile
- *  4. Process — a real ordered sequence, so numbering is earned here
- *
- * Fonts: headings 'Bai Jamjuree', body serif — matches Header/Hero.
- *
- * Images below are free-license stock photos (Unsplash) wired in as
- * placeholders so the section works out of the box. Swap them for your
- * own studio/work photography whenever you have it — same IMAGES object,
- * same dimensions (1600px wide for studio, 1200px wide for the rest).
- */
-
 const IMAGES = {
   studio:
     "https://images.unsplash.com/photo-1632823469850-2f77dd9c7f93?q=80&w=1600&auto=format&fit=crop",
@@ -30,9 +12,9 @@ const IMAGES = {
 };
 
 const INVESTMENT = [
-  { icon: Banknote, value: "₹18–35L", label: "Total investment" },
-  { icon: Ruler, value: "1,200+ sq.ft", label: "Minimum space" },
-  { icon: TrendingUp, value: "18–24 mo", label: "Avg. payback period" },
+  { icon: Banknote,   value: "₹18–35L",      label: "Total investment"    },
+  { icon: Ruler,      value: "1,200+ sq.ft",  label: "Minimum space"       },
+  { icon: TrendingUp, value: "18–24 mo",      label: "Avg. payback period" },
 ];
 
 const BENEFITS = [
@@ -82,37 +64,40 @@ const PROCESS = [
 export default function Franchise() {
   return (
     <section
-      className="relative bg-[#0A0A0A] py-20 font-serif sm:py-28"
+      id="franchise"
+      className="relative bg-[#0A0A0A] py-12 font-serif sm:py-16 lg:py-24 overflow-hidden"
     >
-      {/* ambient glow, consistent with Hero's signature treatment */}
-      <div className="pointer-events-none absolute -right-32 top-20 h-[420px] w-[420px] rounded-full bg-[#D4AF37]/10 blur-[120px]" />
+      {/* Ambient glow */}
+      <div className="pointer-events-none absolute -right-32 top-20 h-[300px] w-[300px] rounded-full bg-[#D4AF37]/10 blur-[100px] sm:h-[420px] sm:w-[420px]" />
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
-        {/* Heading + studio image, split layout */}
-        <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8 lg:px-10">
+
+        {/* ── Heading + studio image ── */}
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
           <div>
             <div
-              className="mb-5 flex items-center gap-3"
+              className="mb-4 flex items-center gap-3"
               style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
             >
               <span className="h-px w-10 bg-[#D4AF37]" />
-              <span className="text-[13px] font-medium uppercase tracking-[0.25em] text-[#D4AF37]">
+              <span className="text-[12px] font-medium uppercase tracking-[0.25em] text-[#D4AF37] sm:text-[13px]">
                 Franchise
               </span>
             </div>
             <h2
-              className="text-3xl font-semibold leading-tight text-[#F5F5F0] sm:text-4xl"
+              className="text-2xl font-semibold leading-tight text-[#F5F5F0] sm:text-3xl lg:text-4xl"
               style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
             >
               Bring AutoLuxe to your city
             </h2>
-            <p className="mt-4 max-w-md text-[15px] leading-relaxed text-[#F5F5F0]/65">
+            <p className="mt-3 max-w-md text-[14px] leading-relaxed text-[#F5F5F0]/65 sm:text-[15px]">
               A proven studio model — training, supply, and marketing built
               in, so you focus on running the business.
             </p>
           </div>
 
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-[#D4AF37]/20 lg:aspect-[16/11]">
+          {/* Studio image — tighter aspect on mobile */}
+          <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-[#D4AF37]/20 sm:rounded-2xl lg:aspect-[16/11]">
             <img
               src={IMAGES.studio}
               alt="AutoLuxe franchise studio storefront"
@@ -120,9 +105,9 @@ export default function Franchise() {
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 via-transparent to-transparent" />
-            <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-5 py-4">
+            <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-4 py-3">
               <span
-                className="text-[12.5px] font-medium uppercase tracking-[0.18em] text-[#F5F5F0]/80"
+                className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#F5F5F0]/80 sm:text-[12.5px]"
                 style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
               >
                 A live AutoLuxe studio
@@ -132,36 +117,88 @@ export default function Franchise() {
           </div>
         </div>
 
-        {/* Investment highlights */}
-        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-[#D4AF37]/20 sm:grid-cols-3">
-          {INVESTMENT.map(({ icon: Icon, value, label }, i) => (
-            <div
-              key={label}
-              className={`flex flex-col items-start gap-3 bg-[#0E0E0E] p-7 sm:p-8 ${
-                i !== 0 ? "sm:border-l sm:border-[#D4AF37]/15" : ""
-              }`}
-            >
-              <Icon className="h-6 w-6 text-[#D4AF37]" strokeWidth={1.75} />
+        {/* ── Investment highlights ── */}
+        {/* Mobile: horizontal scroll row | sm+: 3-col grid */}
+        <div className="mt-8 sm:mt-10">
+          {/* Mobile scrollable row */}
+          <div className="flex gap-3 overflow-x-auto pb-1 sm:hidden">
+            {INVESTMENT.map(({ icon: Icon, value, label }) => (
               <div
-                className="text-2xl font-semibold text-[#F5F5F0] sm:text-3xl"
-                style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
+                key={label}
+                className="flex min-w-[140px] flex-col gap-2 rounded-xl border border-[#D4AF37]/20 bg-[#0E0E0E] p-4"
               >
-                {value}
+                <Icon className="h-5 w-5 text-[#D4AF37]" strokeWidth={1.75} />
+                <div
+                  className="text-xl font-semibold text-[#F5F5F0]"
+                  style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
+                >
+                  {value}
+                </div>
+                <div className="text-[12px] text-[#F5F5F0]/55">{label}</div>
               </div>
-              <div className="text-[13px] text-[#F5F5F0]/55">{label}</div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* sm+ grid */}
+          <div className="hidden sm:grid sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#D4AF37]/20">
+            {INVESTMENT.map(({ icon: Icon, value, label }, i) => (
+              <div
+                key={label}
+                className={`flex flex-col items-start gap-3 bg-[#0E0E0E] p-7 sm:p-8 ${
+                  i !== 0 ? "border-l border-[#D4AF37]/15" : ""
+                }`}
+              >
+                <Icon className="h-6 w-6 text-[#D4AF37]" strokeWidth={1.75} />
+                <div
+                  className="text-2xl font-semibold text-[#F5F5F0] sm:text-3xl"
+                  style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
+                >
+                  {value}
+                </div>
+                <div className="text-[13px] text-[#F5F5F0]/55">{label}</div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Benefits */}
-        <div className="mt-20">
+        {/* ── Benefits ── */}
+        <div className="mt-12 sm:mt-16">
           <h3
-            className="text-xl font-semibold text-[#F5F5F0] sm:text-2xl"
+            className="text-lg font-semibold text-[#F5F5F0] sm:text-xl lg:text-2xl"
             style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
           >
             What you get
           </h3>
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+
+          {/* Mobile: horizontal scroll | sm+: 3-col grid */}
+          <div className="mt-5 flex gap-4 overflow-x-auto pb-1 sm:hidden">
+            {BENEFITS.map(({ icon: Icon, image, title, desc }) => (
+              <div
+                key={title}
+                className="group min-w-[260px] overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]"
+              >
+                <div className="relative h-32 w-full overflow-hidden">
+                  <img src={image} alt={title} className="h-full w-full object-cover" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent" />
+                  <div className="absolute bottom-3 left-3 flex h-9 w-9 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-[#0A0A0A]/80">
+                    <Icon className="h-4 w-4 text-[#D4AF37]" strokeWidth={1.75} />
+                  </div>
+                </div>
+                <div className="p-4">
+                  <h4
+                    className="text-[14px] font-medium text-[#F5F5F0]"
+                    style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
+                  >
+                    {title}
+                  </h4>
+                  <p className="mt-1.5 text-[12.5px] leading-relaxed text-[#F5F5F0]/60">{desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* sm+ grid */}
+          <div className="mt-6 hidden gap-5 sm:grid sm:grid-cols-3">
             {BENEFITS.map(({ icon: Icon, image, title, desc }) => (
               <div
                 key={title}
@@ -169,42 +206,70 @@ export default function Franchise() {
               >
                 <div className="relative h-36 w-full overflow-hidden">
                   <img
-                    src={image}
-                    alt={title}
+                    src={image} alt={title}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent" />
                   <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-[#0A0A0A]/80 backdrop-blur-sm transition-colors duration-300 group-hover:border-[#D4AF37]">
-                    <Icon className="h-4.5 w-4.5 text-[#D4AF37]" strokeWidth={1.75} />
+                    <Icon className="h-4 w-4 text-[#D4AF37]" strokeWidth={1.75} />
                   </div>
                 </div>
-                <div className="p-6">
+                <div className="p-5">
                   <h4
-                    className="text-[15.5px] font-medium text-[#F5F5F0]"
+                    className="text-[15px] font-medium text-[#F5F5F0]"
                     style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
                   >
                     {title}
                   </h4>
-                  <p className="mt-2 text-[13.5px] leading-relaxed text-[#F5F5F0]/60">
-                    {desc}
-                  </p>
+                  <p className="mt-2 text-[13.5px] leading-relaxed text-[#F5F5F0]/60">{desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Process — real sequence, numbering earns its place here */}
-        <div className="mt-20">
+        {/* ── Process ── */}
+        <div className="mt-12 sm:mt-16">
           <h3
-            className="text-xl font-semibold text-[#F5F5F0] sm:text-2xl"
+            className="text-lg font-semibold text-[#F5F5F0] sm:text-xl lg:text-2xl"
             style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
           >
             How it works
           </h3>
 
-          <div className="mt-8 grid grid-cols-1 gap-0 sm:grid-cols-4">
+          {/* Mobile: vertical stacked list with left border accent */}
+          <div className="mt-5 flex flex-col gap-0 sm:hidden">
+            {PROCESS.map((item, i) => (
+              <div key={item.step} className="flex gap-4 pb-6">
+                {/* Left: step number + connecting line */}
+                <div className="flex flex-col items-center">
+                  <div
+                    className="text-lg font-semibold text-[#D4AF37]/50 leading-none"
+                    style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
+                  >
+                    {item.step}
+                  </div>
+                  {i < PROCESS.length - 1 && (
+                    <div className="mt-2 flex-1 w-px bg-[#D4AF37]/15" />
+                  )}
+                </div>
+                {/* Right: content */}
+                <div className="pb-2">
+                  <h4
+                    className="text-[14px] font-medium text-[#F5F5F0]"
+                    style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
+                  >
+                    {item.title}
+                  </h4>
+                  <p className="mt-1 text-[12.5px] leading-relaxed text-[#F5F5F0]/60">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* sm+: horizontal 4-col grid */}
+          <div className="mt-6 hidden sm:grid sm:grid-cols-4 gap-0">
             {PROCESS.map((item, i) => (
               <div key={item.step} className="relative pr-4">
                 <div
@@ -219,11 +284,7 @@ export default function Franchise() {
                 >
                   {item.title}
                 </h4>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-[#F5F5F0]/60">
-                  {item.desc}
-                </p>
-
-                {/* connector line — desktop only, between steps */}
+                <p className="mt-2 text-[13.5px] leading-relaxed text-[#F5F5F0]/60">{item.desc}</p>
                 {i < PROCESS.length - 1 && (
                   <div className="absolute right-0 top-[18px] hidden h-px w-4 bg-[#D4AF37]/25 sm:block" />
                 )}
@@ -232,20 +293,21 @@ export default function Franchise() {
           </div>
         </div>
 
-        {/* CTA */}
-        <div className="mt-16 flex flex-col items-start gap-5 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-md text-[14.5px] leading-relaxed text-[#F5F5F0]/65">
+        {/* ── CTA ── */}
+        <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-8 sm:mt-14 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+          <p className="text-[13.5px] leading-relaxed text-[#F5F5F0]/65 sm:max-w-md sm:text-[14.5px]">
             Limited territories open per city to protect franchisee margins.
           </p>
           <a
             href="#contact"
-            className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#D4AF37] px-7 py-3.5 text-[14.5px] font-medium tracking-wide text-[#0A0A0A] transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.45)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#D4AF37]"
+            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#D4AF37] px-6 py-3 text-[14px] font-medium tracking-wide text-[#0A0A0A] transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.45)] sm:w-auto sm:px-7 sm:py-3.5 sm:text-[14.5px]"
             style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
           >
             Enquire About Franchise
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
+
       </div>
     </section>
   );

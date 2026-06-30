@@ -24,11 +24,11 @@ const SERVICES = [
 
 const NAV_LINKS = [
   { label: "Home",      href: "/home" },
-  { label: "About Us",  href: "/about-us" },
+  { label: "About Us",  href: "/about" },
   { label: "Services",  href: null },       // has dropdown
-  { label: "Blog",      href: "#blog" },
-  { label: "Franchise", href: "#franchise" },
-  { label: "Contact",   href: "#contact" },
+  { label: "Blog",      href: "/blog" },
+  { label: "Franchise", href: "/franchise" },
+  { label: "Contact",   href: "/contact" },
 ];
 
 export default function Header() {

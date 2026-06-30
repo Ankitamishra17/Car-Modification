@@ -8,12 +8,14 @@ import Services from "../components/home/Services";
 export function Home() {
   return (
     <>
+    <section id="home">
     <Hero />
     <About />
     <Services />
     <Blog />
     <Franchise />
     <CTA />
+    </section>
     </>
   );
 }
