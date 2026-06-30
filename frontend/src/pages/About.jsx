@@ -10,6 +10,7 @@ import CDATASection from "../components/about/CTASection"
 function About() {
   return (
     <>
+    <section id="about">
       <AboutHero />
       <FounderStory />
       <MilestoneStats />
@@ -17,7 +18,7 @@ function About() {
       <ValuesSection />
       <ExperienceCallout/>
       <CDATASection/>
-     
+    </section>
     </>
   );
 }
