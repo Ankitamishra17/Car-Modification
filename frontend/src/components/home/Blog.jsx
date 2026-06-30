@@ -111,7 +111,6 @@ export default function Blog() {
 
   return (
     <section
-      id="blog"
       style={{
         background: "#0A0A0A",
         position: "relative",

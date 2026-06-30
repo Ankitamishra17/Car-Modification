@@ -6,13 +6,15 @@ import { motion, useInView } from "framer-motion";
  * Fixed: image collage layout with proper z-index and positioning
  */
 
-const IMG_MAIN  = "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=900";
-const IMG_SMALL = "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=500";
+const IMG_MAIN =
+  "https://images.pexels.com/photos/3802510/pexels-photo-3802510.jpeg?auto=compress&cs=tinysrgb&w=900";
+const IMG_SMALL =
+  "https://images.pexels.com/photos/3807517/pexels-photo-3807517.jpeg?auto=compress&cs=tinysrgb&w=500";
 
 const STATS = [
   { value: "9,000+", label: "Automobiles Detailed" },
-  { value: "25+",    label: "Years of Expertise" },
-  { value: "2020",   label: "Studio Established" },
+  { value: "25+", label: "Years of Expertise" },
+  { value: "2020", label: "Studio Established" },
 ];
 
 const PARAS = [
@@ -21,20 +23,72 @@ const PARAS = [
   "Since our establishment, we have had the privilege of detailing, restoring and protecting more than 9,000 automobiles. This milestone is not measured simply by numbers, but by the confidence our clients continue to place in our work.",
 ];
 
-const fadeUp   = (delay = 0) => ({ hidden: { opacity: 0, y: 28 }, visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.4,0,0.2,1], delay } } });
-const fadeLeft = (delay = 0) => ({ hidden: { opacity: 0, x: -36 }, visible: { opacity: 1, x: 0, transition: { duration: 0.85, ease: [0.4,0,0.2,1], delay } } });
-const fadeRight= (delay = 0) => ({ hidden: { opacity: 0, x: 36  }, visible: { opacity: 1, x: 0, transition: { duration: 0.85, ease: [0.4,0,0.2,1], delay } } });
+const fadeUp = (delay = 0) => ({
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.75, ease: [0.4, 0, 0.2, 1], delay },
+  },
+});
+const fadeLeft = (delay = 0) => ({
+  hidden: { opacity: 0, x: -36 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.85, ease: [0.4, 0, 0.2, 1], delay },
+  },
+});
+const fadeRight = (delay = 0) => ({
+  hidden: { opacity: 0, x: 36 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.85, ease: [0.4, 0, 0.2, 1], delay },
+  },
+});
 
 export default function About() {
   const sectionRef = useRef(null);
-  const inView     = useInView(sectionRef, { once: true, margin: "-80px" });
+  const inView = useInView(sectionRef, { once: true, margin: "-80px" });
 
   return (
-    <section ref={sectionRef} id="about" style={{ background: "#0A0A0A", position: "relative", overflow: "hidden", padding: "100px 0 110px" }}>
-
+    <section
+      ref={sectionRef}
+      style={{
+        background: "#0A0A0A",
+        position: "relative",
+        overflow: "hidden",
+        padding: "100px 0 110px",
+      }}
+    >
       {/* ambient glows */}
-      <div style={{ position:"absolute", right:"-100px", top:"10%", width:500, height:500, borderRadius:"50%", background:"rgba(212,175,55,0.055)", filter:"blur(120px)", pointerEvents:"none" }} />
-      <div style={{ position:"absolute", left:"-60px", bottom:"5%", width:340, height:340, borderRadius:"50%", background:"rgba(212,175,55,0.04)", filter:"blur(90px)", pointerEvents:"none" }} />
+      <div
+        style={{
+          position: "absolute",
+          right: "-100px",
+          top: "10%",
+          width: 500,
+          height: 500,
+          borderRadius: "50%",
+          background: "rgba(212,175,55,0.055)",
+          filter: "blur(120px)",
+          pointerEvents: "none",
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          left: "-60px",
+          bottom: "5%",
+          width: 340,
+          height: 340,
+          borderRadius: "50%",
+          background: "rgba(212,175,55,0.04)",
+          filter: "blur(90px)",
+          pointerEvents: "none",
+        }}
+      />
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
@@ -262,7 +316,6 @@ export default function About() {
       `}</style>
 
       <div className="abt-inner">
-
         {/* ══ LEFT — Collage ══ */}
         <motion.div
           className="collage-outer"
@@ -304,7 +357,9 @@ export default function About() {
               initial="hidden"
               animate={inView ? "visible" : "hidden"}
             >
-              Since<br />1999
+              Since
+              <br />
+              1999
             </motion.div>
           </div>
 
@@ -326,50 +381,114 @@ export default function About() {
 
         {/* ══ RIGHT — Text ══ */}
         <div>
-          <motion.div className="abt-eyebrow" variants={fadeRight(0.1)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+          <motion.div
+            className="abt-eyebrow"
+            variants={fadeRight(0.1)}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          >
             <span className="abt-eyebrow-line" />
             <span className="abt-eyebrow-text">La Nostra Storia</span>
           </motion.div>
 
-          <motion.p className="abt-italian" variants={fadeRight(0.18)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+          <motion.p
+            className="abt-italian"
+            variants={fadeRight(0.18)}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          >
             La nostra storia
           </motion.p>
-          <motion.h2 className="abt-heading" variants={fadeRight(0.24)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+          <motion.h2
+            className="abt-heading"
+            variants={fadeRight(0.24)}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          >
             About <span>Us</span>
           </motion.h2>
 
-          <motion.p className="abt-subtitle" variants={fadeUp(0.3)} initial="hidden" animate={inView ? "visible" : "hidden"}>
-            Every remarkable automobile tells a story.<br />Our purpose is to preserve it.
+          <motion.p
+            className="abt-subtitle"
+            variants={fadeUp(0.3)}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          >
+            Every remarkable automobile tells a story.
+            <br />
+            Our purpose is to preserve it.
           </motion.p>
 
           {PARAS.map((p, i) => (
-            <motion.p key={i} className="abt-para" variants={fadeUp(0.36 + i * 0.1)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+            <motion.p
+              key={i}
+              className="abt-para"
+              variants={fadeUp(0.36 + i * 0.1)}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+            >
               {p}
             </motion.p>
           ))}
 
-          <motion.div className="abt-divider" variants={fadeUp(0.66)} initial="hidden" animate={inView ? "visible" : "hidden"} />
+          <motion.div
+            className="abt-divider"
+            variants={fadeUp(0.66)}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          />
 
-          <motion.div className="abt-philosophy" variants={fadeUp(0.72)} initial="hidden" animate={inView ? "visible" : "hidden"}>
-            <div className="abt-philosophy-it">L'eccellenza è nei dettagli.</div>
-            <div className="abt-philosophy-en">Excellence resides in the details.</div>
+          <motion.div
+            className="abt-philosophy"
+            variants={fadeUp(0.72)}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          >
+            <div className="abt-philosophy-it">
+              L'eccellenza è nei dettagli.
+            </div>
+            <div className="abt-philosophy-en">
+              Excellence resides in the details.
+            </div>
           </motion.div>
 
-          <motion.div className="abt-closing" variants={fadeUp(0.8)} initial="hidden" animate={inView ? "visible" : "hidden"}>
-            <p><span>It is crafted.</span> &nbsp;It is refined. &nbsp;It is preserved.</p>
-            <p style={{ marginTop: 4 }}>Benvenuti a <span>Dettagli Auto.</span></p>
+          <motion.div
+            className="abt-closing"
+            variants={fadeUp(0.8)}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          >
+            <p>
+              <span>It is crafted.</span> &nbsp;It is refined. &nbsp;It is
+              preserved.
+            </p>
+            <p style={{ marginTop: 4 }}>
+              Benvenuti a <span>Dettagli Auto.</span>
+            </p>
           </motion.div>
 
-          <motion.div variants={fadeUp(0.88)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+          <motion.div
+            variants={fadeUp(0.88)}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"}
+          >
             <a href="#services" className="abt-cta">
               Explore Our Services
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
+              <svg
+                width="15"
+                height="15"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
           </motion.div>
         </div>
-
       </div>
     </section>
   );

@@ -82,7 +82,6 @@ const PROCESS = [
 export default function Franchise() {
   return (
     <section
-      id="franchise"
       className="relative bg-[#0A0A0A] py-20 font-serif sm:py-28"
     >
       {/* ambient glow, consistent with Hero's signature treatment */}

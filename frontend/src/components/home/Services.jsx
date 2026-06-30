@@ -126,7 +126,6 @@ export default function Services() {
 
   return (
     <section
-      id="services"
       style={{
         background: "#0A0A0A",
         position: "relative",

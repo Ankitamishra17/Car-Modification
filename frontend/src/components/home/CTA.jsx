@@ -44,7 +44,6 @@ const TRUST = [
 export default function CTA() {
   return (
     <section
-      id="contact"
       className="relative bg-[#0A0A0A] py-20 font-serif sm:py-28 overflow-hidden"
     >
       {/* Ambient glow — left side (mirrors Franchise's right-side glow) */}

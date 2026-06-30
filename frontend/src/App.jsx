@@ -4,6 +4,7 @@ import Header from './components/layouts/Header'
 import { Home } from './pages/Home'
 import TopBar from './components/layouts/TopBar'
 import Footer from './components/layouts/Footer'
+import About from './pages/About'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
     <TopBar />
     <Header />
     <Home />
+    <About />
     <Footer />
     </>
   );
