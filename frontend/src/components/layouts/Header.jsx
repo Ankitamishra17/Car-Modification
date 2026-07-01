@@ -26,27 +26,27 @@ import { ChevronDown, Menu, X, Phone } from "lucide-react";
 const SERVICES = [
   {
     name: "PPF / Ceramic Coating",
-    href: "#ppf-ceramic-coating",
+    href: "/services/ppf-ceramic-coating",
     desc: "Paint protection that keeps the shine permanent.",
   },
   {
     name: "Refurbish Vehicle / Restore",
-    href: "#refurbish-vehicle-restore",
+    href: "/services/refurbish-vehicle-restore",
     desc: "Bring tired metal back to factory-fresh form.",
   },
   {
     name: "Upholstery / Paints",
-    href: "#upholstery-paints",
+    href: "/services/upholstery-paints",
     desc: "Interior trim and full-body paint, done by hand.",
   },
   {
     name: "Car Body Kits / Exhaust",
-    href: "#car-body-kits-exhaust",
+    href: "/services/car-body-kits-exhaust",
     desc: "Aggressive lines and a sound to match.",
   },
   {
     name: "Tuning & Mapping / Accessories",
-    href: "#tuning-mapping-accessories",
+    href: "/services/tuning-mapping-accessories",
     desc: "Tuned performance, fitted exactly to you.",
   },
 ];
