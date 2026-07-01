@@ -1,12 +1,35 @@
-// ===== EXPERIENCE SECTION =====
 import React from "react";
 import { motion } from "framer-motion";
 
+/**
+ * ExperienceCallout — AutoLuxe
+ *
+ * Palette (fixed):
+ *   Primary BG      #0B0B0B
+ *   Borders         #3D3D3D
+ *   Primary Text    #FFFFFF
+ *   Secondary Text  #B8B8B8
+ *   Accent          #8C8C8C (metallic silver)
+ *
+ * Type system:
+ *   Main heading    Bebas Neue
+ *   Title/labels     DM Sans
+ *   Sub/body text    Jost
+ */
+
 export default function ExperienceCallout() {
   return (
-    <section className="w-full bg-[#0A0A0A] py-24 px-5 sm:px-8 lg:px-10 relative overflow-hidden">
+    <section className="w-full bg-[#0B0B0B] py-24 px-5 sm:px-8 lg:px-10 relative overflow-hidden">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
+
+        .exc-heading { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.01em; }
+        .exc-title   { font-family: 'DM Sans', sans-serif; }
+        .exc-sub     { font-family: 'Jost', sans-serif; }
+      `}</style>
+
       {/* Gradient background */}
-      <div className="absolute inset-0 opacity-10 bg-gradient-to-r from-[#D4AF37] via-transparent to-[#D4AF37]" />
+      <div className="absolute inset-0 opacity-[0.07] bg-gradient-to-r from-[#8C8C8C] via-transparent to-[#8C8C8C]" />
 
       <div className="mx-auto max-w-5xl relative z-10">
         <motion.div
@@ -16,22 +39,27 @@ export default function ExperienceCallout() {
           viewport={{ once: true }}
           className="text-center space-y-6"
         >
-          <h2 className="text-5xl md:text-6xl font-light text-[#F5EBE0]" style={{ fontFamily: "Georgia, serif" }}>
-            We believe that <span className="text-[#D4AF37]">preserving</span> a vehicle is about more than maintaining its appearance.
+          <h2 className="exc-heading text-[3rem] md:text-[4.2rem] leading-[0.97] text-white">
+            WE BELIEVE THAT{" "}
+            <span className="text-[#8C8C8C]">PRESERVING</span> A VEHICLE IS
+            ABOUT MORE THAN MAINTAINING ITS APPEARANCE.
           </h2>
 
-          <p className="text-xl text-[#F5EBE0]/75 leading-relaxed max-w-3xl mx-auto pt-6" style={{ fontFamily: "Georgia, serif" }}>
-            It is about safeguarding its character, protecting its value and honouring the engineering behind every automobile, whether it is a cherished daily driver, a grand tourer, a supercar or a collector's masterpiece.
+          <p className="exc-sub text-xl font-light text-[#B8B8B8] leading-relaxed max-w-3xl mx-auto pt-6">
+            It is about safeguarding its character, protecting its value and
+            honouring the engineering behind every automobile, whether it is a
+            cherished daily driver, a grand tourer, a supercar or a collector's
+            masterpiece.
           </p>
 
           <div className="pt-12">
-            <p className="text-[#D4AF37] text-sm font-medium tracking-widest uppercase" style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}>
+            <p className="exc-title text-[#8C8C8C] text-sm font-semibold tracking-widest uppercase">
               Since 1999
             </p>
-            <p className="text-3xl md:text-4xl font-light text-[#F5EBE0] mt-3" style={{ fontFamily: "Georgia, serif" }}>
-              Because perfection is never accidental.
+            <p className="exc-heading text-[2rem] md:text-[2.6rem] text-white mt-3">
+              BECAUSE PERFECTION IS NEVER ACCIDENTAL.
             </p>
-            <div className="flex flex-col items-center gap-2 mt-4 text-[#F5EBE0]/70" style={{ fontFamily: "Georgia, serif" }}>
+            <div className="exc-sub flex flex-col items-center gap-2 mt-4 font-light text-[#B8B8B8]">
               <p>It is crafted.</p>
               <p>It is refined.</p>
               <p>It is preserved.</p>
