@@ -3,8 +3,10 @@ import './App.css'
 import TopBar from './components/layouts/TopBar'
 import Header from './components/layouts/Header'
 import Footer from './components/layouts/Footer'
-import { Home } from './pages/Home'
+import Home from './pages/Home'
 import About from './pages/About'
+import Blogs from './pages/Blogs'
+import Contact from './pages/Contact'
 
 function App() {
   return (
@@ -12,8 +14,10 @@ function App() {
       <TopBar />
       <Header />
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/blog" element={<Blogs />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </>

@@ -1,4 +1,30 @@
-import { Banknote, Ruler, TrendingUp, GraduationCap, Megaphone, Boxes, ArrowRight } from "lucide-react";
+import {
+  Banknote,
+  Ruler,
+  TrendingUp,
+  GraduationCap,
+  Megaphone,
+  Boxes,
+  ArrowRight,
+} from "lucide-react";
+
+/**
+ * Franchise — AutoLuxe
+ *
+ * Palette (fixed):
+ *   Primary BG      #0B0B0B
+ *   Secondary BG    #1A1A1A
+ *   Section BG      #2A2A2A
+ *   Borders         #3D3D3D
+ *   Primary Text    #FFFFFF
+ *   Secondary Text  #B8B8B8
+ *   Accent          #8C8C8C (metallic silver)
+ *
+ * Type system:
+ *   Main heading    Bebas Neue
+ *   Title/labels     DM Sans
+ *   Sub/body text    Jost
+ */
 
 const IMAGES = {
   studio:
@@ -12,9 +38,9 @@ const IMAGES = {
 };
 
 const INVESTMENT = [
-  { icon: Banknote,   value: "₹18–35L",      label: "Total investment"    },
-  { icon: Ruler,      value: "1,200+ sq.ft",  label: "Minimum space"       },
-  { icon: TrendingUp, value: "18–24 mo",      label: "Avg. payback period" },
+  { icon: Banknote, value: "₹18–35L", label: "Total investment" },
+  { icon: Ruler, value: "1,200+ sq.ft", label: "Minimum space" },
+  { icon: TrendingUp, value: "18–24 mo", label: "Avg. payback period" },
 ];
 
 const BENEFITS = [
@@ -65,54 +91,52 @@ export default function Franchise() {
   return (
     <section
       id="franchise"
-      className="relative bg-[#0A0A0A] py-12 font-serif sm:py-16 lg:py-24 overflow-hidden"
+      className="relative bg-[#0B0B0B] py-12 sm:py-16 lg:py-24 overflow-hidden"
     >
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
+
+        .fr-heading { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.01em; }
+        .fr-title   { font-family: 'DM Sans', sans-serif; }
+        .fr-sub     { font-family: 'Jost', sans-serif; }
+      `}</style>
+
       {/* Ambient glow */}
-      <div className="pointer-events-none absolute -right-32 top-20 h-[300px] w-[300px] rounded-full bg-[#D4AF37]/10 blur-[100px] sm:h-[420px] sm:w-[420px]" />
+      <div className="pointer-events-none absolute -right-32 top-20 h-[300px] w-[300px] rounded-full bg-[#8C8C8C]/[0.08] blur-[100px] sm:h-[420px] sm:w-[420px]" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-8 lg:px-10">
-
         {/* ── Heading + studio image ── */}
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
           <div>
-            <div
-              className="mb-4 flex items-center gap-3"
-              style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-            >
-              <span className="h-px w-10 bg-[#D4AF37]" />
-              <span className="text-[12px] font-medium uppercase tracking-[0.25em] text-[#D4AF37] sm:text-[13px]">
+            <div className="fr-title mb-4 flex items-center gap-3">
+              <span className="h-px w-10 bg-[#8C8C8C]" />
+              <span className="text-[12px] font-medium uppercase tracking-[0.25em] text-[#B8B8B8] sm:text-[13px]">
                 Franchise
               </span>
             </div>
-            <h2
-              className="text-2xl font-semibold leading-tight text-[#F5F5F0] sm:text-3xl lg:text-4xl"
-              style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-            >
-              Bring AutoLuxe to your city
+            <h2 className="fr-heading text-[2.2rem] leading-[0.95] text-white sm:text-[2.8rem] lg:text-[3.4rem]">
+              BRING AUTOLUXE TO YOUR CITY
             </h2>
-            <p className="mt-3 max-w-md text-[14px] leading-relaxed text-[#F5F5F0]/65 sm:text-[15px]">
-              A proven studio model — training, supply, and marketing built
-              in, so you focus on running the business.
+            <p className="fr-sub mt-3 max-w-md text-[14px] font-light leading-relaxed text-[#B8B8B8] sm:text-[15px]">
+              A proven studio model — training, supply, and marketing built in,
+              so you focus on running the business.
             </p>
           </div>
 
           {/* Studio image — tighter aspect on mobile */}
-          <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-[#D4AF37]/20 sm:rounded-2xl lg:aspect-[16/11]">
+          <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-[#3D3D3D] sm:rounded-2xl lg:aspect-[16/11]">
             <img
               src={IMAGES.studio}
               alt="AutoLuxe franchise studio storefront"
               className="h-full w-full object-cover"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/60 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-4 py-3">
-              <span
-                className="text-[11px] font-medium uppercase tracking-[0.18em] text-[#F5F5F0]/80 sm:text-[12.5px]"
-                style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-              >
+              <span className="fr-title text-[11px] font-medium uppercase tracking-[0.18em] text-white/80 sm:text-[12.5px]">
                 A live AutoLuxe studio
               </span>
-              <span className="h-1.5 w-1.5 rounded-full bg-[#D4AF37]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-[#8C8C8C]" />
             </div>
           </div>
         </div>
@@ -125,37 +149,31 @@ export default function Franchise() {
             {INVESTMENT.map(({ icon: Icon, value, label }) => (
               <div
                 key={label}
-                className="flex min-w-[140px] flex-col gap-2 rounded-xl border border-[#D4AF37]/20 bg-[#0E0E0E] p-4"
+                className="flex min-w-[140px] flex-col gap-2 rounded-xl border border-[#3D3D3D] bg-[#1A1A1A] p-4"
               >
-                <Icon className="h-5 w-5 text-[#D4AF37]" strokeWidth={1.75} />
-                <div
-                  className="text-xl font-semibold text-[#F5F5F0]"
-                  style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-                >
+                <Icon className="h-5 w-5 text-[#8C8C8C]" strokeWidth={1.75} />
+                <div className="fr-heading text-2xl text-white">
                   {value}
                 </div>
-                <div className="text-[12px] text-[#F5F5F0]/55">{label}</div>
+                <div className="fr-sub text-[12px] text-[#B8B8B8]">{label}</div>
               </div>
             ))}
           </div>
 
           {/* sm+ grid */}
-          <div className="hidden sm:grid sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#D4AF37]/20">
+          <div className="hidden sm:grid sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#3D3D3D]">
             {INVESTMENT.map(({ icon: Icon, value, label }, i) => (
               <div
                 key={label}
-                className={`flex flex-col items-start gap-3 bg-[#0E0E0E] p-7 sm:p-8 ${
-                  i !== 0 ? "border-l border-[#D4AF37]/15" : ""
+                className={`flex flex-col items-start gap-3 bg-[#1A1A1A] p-7 sm:p-8 ${
+                  i !== 0 ? "border-l border-[#3D3D3D]" : ""
                 }`}
               >
-                <Icon className="h-6 w-6 text-[#D4AF37]" strokeWidth={1.75} />
-                <div
-                  className="text-2xl font-semibold text-[#F5F5F0] sm:text-3xl"
-                  style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-                >
+                <Icon className="h-6 w-6 text-[#8C8C8C]" strokeWidth={1.75} />
+                <div className="fr-heading text-3xl text-white sm:text-4xl">
                   {value}
                 </div>
-                <div className="text-[13px] text-[#F5F5F0]/55">{label}</div>
+                <div className="fr-sub text-[13px] text-[#B8B8B8]">{label}</div>
               </div>
             ))}
           </div>
@@ -163,11 +181,8 @@ export default function Franchise() {
 
         {/* ── Benefits ── */}
         <div className="mt-12 sm:mt-16">
-          <h3
-            className="text-lg font-semibold text-[#F5F5F0] sm:text-xl lg:text-2xl"
-            style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-          >
-            What you get
+          <h3 className="fr-heading text-2xl text-white sm:text-3xl">
+            WHAT YOU GET
           </h3>
 
           {/* Mobile: horizontal scroll | sm+: 3-col grid */}
@@ -175,23 +190,30 @@ export default function Franchise() {
             {BENEFITS.map(({ icon: Icon, image, title, desc }) => (
               <div
                 key={title}
-                className="group min-w-[260px] overflow-hidden rounded-xl border border-white/10 bg-white/[0.02]"
+                className="group min-w-[260px] overflow-hidden rounded-xl border border-[#3D3D3D] bg-[#1A1A1A]"
               >
                 <div className="relative h-32 w-full overflow-hidden">
-                  <img src={image} alt={title} className="h-full w-full object-cover" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent" />
-                  <div className="absolute bottom-3 left-3 flex h-9 w-9 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-[#0A0A0A]/80">
-                    <Icon className="h-4 w-4 text-[#D4AF37]" strokeWidth={1.75} />
+                  <img
+                    src={image}
+                    alt={title}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/20 to-transparent" />
+                  <div className="absolute bottom-3 left-3 flex h-9 w-9 items-center justify-center rounded-full border border-[#8C8C8C]/50 bg-[#0B0B0B]/80">
+                    <Icon
+                      className="h-4 w-4 text-[#8C8C8C]"
+                      strokeWidth={1.75}
+                    />
                   </div>
                 </div>
                 <div className="p-4">
-                  <h4
-                    className="text-[14px] font-medium text-[#F5F5F0]"
-                    style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-                  >
+                  <h4 className="fr-sub text-[14px] font-medium text-white">
                     {title}
                   </h4>
-                  <p className="mt-1.5 text-[12.5px] leading-relaxed text-[#F5F5F0]/60">{desc}</p>
+                  <p className="fr-sub mt-1.5 text-[12.5px] font-light leading-relaxed text-[#B8B8B8]">
+                    {desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -202,27 +224,30 @@ export default function Franchise() {
             {BENEFITS.map(({ icon: Icon, image, title, desc }) => (
               <div
                 key={title}
-                className="group overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] transition-all duration-300 hover:border-[#D4AF37]/40"
+                className="group overflow-hidden rounded-xl border border-[#3D3D3D] bg-[#1A1A1A] transition-all duration-300 hover:border-[#8C8C8C]"
               >
                 <div className="relative h-36 w-full overflow-hidden">
                   <img
-                    src={image} alt={title}
+                    src={image}
+                    alt={title}
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/20 to-transparent" />
-                  <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-full border border-[#D4AF37]/50 bg-[#0A0A0A]/80 backdrop-blur-sm transition-colors duration-300 group-hover:border-[#D4AF37]">
-                    <Icon className="h-4 w-4 text-[#D4AF37]" strokeWidth={1.75} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/20 to-transparent" />
+                  <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-full border border-[#8C8C8C]/50 bg-[#0B0B0B]/80 backdrop-blur-sm transition-colors duration-300 group-hover:border-[#8C8C8C]">
+                    <Icon
+                      className="h-4 w-4 text-[#8C8C8C]"
+                      strokeWidth={1.75}
+                    />
                   </div>
                 </div>
                 <div className="p-5">
-                  <h4
-                    className="text-[15px] font-medium text-[#F5F5F0]"
-                    style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-                  >
+                  <h4 className="fr-sub text-[15px] font-medium text-white">
                     {title}
                   </h4>
-                  <p className="mt-2 text-[13.5px] leading-relaxed text-[#F5F5F0]/60">{desc}</p>
+                  <p className="fr-sub mt-2 text-[13.5px] font-light leading-relaxed text-[#B8B8B8]">
+                    {desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -231,11 +256,8 @@ export default function Franchise() {
 
         {/* ── Process ── */}
         <div className="mt-12 sm:mt-16">
-          <h3
-            className="text-lg font-semibold text-[#F5F5F0] sm:text-xl lg:text-2xl"
-            style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-          >
-            How it works
+          <h3 className="fr-heading text-2xl text-white sm:text-3xl">
+            HOW IT WORKS
           </h3>
 
           {/* Mobile: vertical stacked list with left border accent */}
@@ -244,25 +266,21 @@ export default function Franchise() {
               <div key={item.step} className="flex gap-4 pb-6">
                 {/* Left: step number + connecting line */}
                 <div className="flex flex-col items-center">
-                  <div
-                    className="text-lg font-semibold text-[#D4AF37]/50 leading-none"
-                    style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-                  >
+                  <div className="fr-heading text-xl text-[#8C8C8C]/60 leading-none">
                     {item.step}
                   </div>
                   {i < PROCESS.length - 1 && (
-                    <div className="mt-2 flex-1 w-px bg-[#D4AF37]/15" />
+                    <div className="mt-2 flex-1 w-px bg-[#3D3D3D]" />
                   )}
                 </div>
                 {/* Right: content */}
                 <div className="pb-2">
-                  <h4
-                    className="text-[14px] font-medium text-[#F5F5F0]"
-                    style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-                  >
+                  <h4 className="fr-sub text-[14px] font-medium text-white">
                     {item.title}
                   </h4>
-                  <p className="mt-1 text-[12.5px] leading-relaxed text-[#F5F5F0]/60">{item.desc}</p>
+                  <p className="fr-sub mt-1 text-[12.5px] font-light leading-relaxed text-[#B8B8B8]">
+                    {item.desc}
+                  </p>
                 </div>
               </div>
             ))}
@@ -272,21 +290,17 @@ export default function Franchise() {
           <div className="mt-6 hidden sm:grid sm:grid-cols-4 gap-0">
             {PROCESS.map((item, i) => (
               <div key={item.step} className="relative pr-4">
-                <div
-                  className="text-3xl font-semibold text-[#D4AF37]/30"
-                  style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-                >
+                <div className="fr-heading text-4xl text-[#8C8C8C]/40">
                   {item.step}
                 </div>
-                <h4
-                  className="mt-3 text-[15px] font-medium text-[#F5F5F0]"
-                  style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-                >
+                <h4 className="fr-sub mt-3 text-[15px] font-medium text-white">
                   {item.title}
                 </h4>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-[#F5F5F0]/60">{item.desc}</p>
+                <p className="fr-sub mt-2 text-[13.5px] font-light leading-relaxed text-[#B8B8B8]">
+                  {item.desc}
+                </p>
                 {i < PROCESS.length - 1 && (
-                  <div className="absolute right-0 top-[18px] hidden h-px w-4 bg-[#D4AF37]/25 sm:block" />
+                  <div className="absolute right-0 top-[18px] hidden h-px w-4 bg-[#3D3D3D] sm:block" />
                 )}
               </div>
             ))}
@@ -294,20 +308,18 @@ export default function Franchise() {
         </div>
 
         {/* ── CTA ── */}
-        <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-8 sm:mt-14 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-          <p className="text-[13.5px] leading-relaxed text-[#F5F5F0]/65 sm:max-w-md sm:text-[14.5px]">
+        <div className="mt-10 flex flex-col gap-4 border-t border-[#2A2A2A] pt-8 sm:mt-14 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+          <p className="fr-sub text-[13.5px] font-light leading-relaxed text-[#B8B8B8] sm:max-w-md sm:text-[14.5px]">
             Limited territories open per city to protect franchisee margins.
           </p>
           <a
             href="#contact"
-            className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#D4AF37] px-6 py-3 text-[14px] font-medium tracking-wide text-[#0A0A0A] transition-all duration-300 hover:shadow-[0_0_30px_rgba(212,175,55,0.45)] sm:w-auto sm:px-7 sm:py-3.5 sm:text-[14.5px]"
-            style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
+            className="fr-title group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#8C8C8C] px-6 py-3 text-[14px] font-semibold tracking-wide text-[#0B0B0B] transition-all duration-300 hover:bg-white sm:w-auto sm:px-7 sm:py-3.5 sm:text-[14.5px]"
           >
             Enquire About Franchise
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
           </a>
         </div>
-
       </div>
     </section>
   );

@@ -2,16 +2,24 @@ import React, { useState, useEffect } from "react";
 
 /**
  * TopBar — Auto Detailing Brand
- * Colors: Black #0A0A0A bg, Orange #D4AF37 accent icons, White #F5F5F0 text
- * Fonts: Bai Jamjuree (load in index.html)
  *
- * Add to index.html:
- * <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600&display=swap" rel="stylesheet" />
+ * Palette (fixed):
+ *   Primary BG      #0B0B0B
+ *   Secondary BG    #1A1A1A
+ *   Section BG      #2A2A2A
+ *   Borders         #3D3D3D
+ *   Primary Text    #FFFFFF
+ *   Secondary Text  #B8B8B8
+ *   Accent          #8C8C8C (metallic silver — icons / hover)
+ *
+ * Type system:
+ *   Main heading   Bebas Neue
+ *   Title/labels    DM Sans
+ *   Sub/body text   Jost
  */
 
 const LOCATIONS = ["Delhi", "Noida", "Gurugram", "Patna"];
 
-// Custom SVGs for social icons (no dependency needed)
 const FacebookIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
@@ -50,7 +58,6 @@ export default function TopBar() {
   const [visible, setVisible] = useState(true);
   const [lastY, setLastY] = useState(0);
 
-  // Hide topbar on scroll down, show on scroll up
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
@@ -64,12 +71,12 @@ export default function TopBar() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
         .topbar-root {
-          font-family: 'Bai Jamjuree', sans-serif;
-          background: #060606;
-          border-bottom: 1px solid rgba(212,175,55,0.15);
+          font-family: 'Jost', sans-serif;
+          background: #0B0B0B;
+          border-bottom: 1px solid #2A2A2A;
           transition: transform 0.35s cubic-bezier(0.4,0,0.2,1), opacity 0.35s;
           transform: translateY(0);
           opacity: 1;
@@ -81,40 +88,36 @@ export default function TopBar() {
           opacity: 0;
           pointer-events: none;
         }
+
+        /* 3-column grid: left | center | right — each takes equal width so center is truly centered */
         .topbar-inner {
           max-width: 1280px;
-          margin: 0 auto;
+          margin: 0;
           padding: 0 20px;
-          display: flex;
+          display: grid;
+          grid-template-columns: 1fr auto 1fr;
           align-items: center;
-          justify-content: space-between;
-          gap: 12px;
           height: 38px;
-          flex-wrap: nowrap;
-          overflow: hidden;
         }
+
+        /* LEFT — email */
         .topbar-left {
           display: flex;
           align-items: center;
-          gap: 0;
-          flex-shrink: 0;
+          justify-content: flex-start;
         }
         .topbar-item {
           display: flex;
           align-items: center;
           gap: 6px;
-          font-size: 12.5px;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 12px;
           font-weight: 400;
-          color: rgba(245,245,240,0.75);
+          color: #B8B8B8;
           white-space: nowrap;
-          padding: 0 14px;
-          border-right: 1px solid rgba(255,255,255,0.08);
-        }
-        .topbar-item:first-child {
-          padding-left: 0;
         }
         .topbar-item svg {
-          color: #D4AF37;
+          color: #8C8C8C;
           flex-shrink: 0;
         }
         .topbar-item a {
@@ -122,39 +125,38 @@ export default function TopBar() {
           text-decoration: none;
           transition: color 0.2s;
         }
-        .topbar-item a:hover { color: #D4AF37; }
+        .topbar-item a:hover { color: #FFFFFF; }
 
+        /* CENTER — cities */
         .topbar-locations {
           display: flex;
           align-items: center;
           gap: 0;
-          flex: 1;
-          overflow: hidden;
         }
         .topbar-loc {
           display: flex;
           align-items: center;
           gap: 5px;
-          font-size: 12.5px;
-          color: rgba(245,245,240,0.75);
+          font-family: 'DM Sans', sans-serif;
+          font-size: 12px;
+          color: #B8B8B8;
           white-space: nowrap;
           padding: 0 12px;
-          border-right: 1px solid rgba(255,255,255,0.08);
+          border-right: 1px solid #2A2A2A;
         }
-        .topbar-loc:last-child {
-          border-right: none;
+        .topbar-loc:first-child {
+          border-left: 1px solid #2A2A2A;
         }
         .topbar-loc svg {
-          color: #D4AF37;
+          color: #8C8C8C;
         }
 
+        /* RIGHT — socials */
         .topbar-right {
           display: flex;
           align-items: center;
           gap: 4px;
-          flex-shrink: 0;
-          padding-left: 12px;
-          border-left: 1px solid rgba(255,255,255,0.08);
+          justify-content: flex-end;
         }
         .social-btn {
           display: flex;
@@ -163,30 +165,31 @@ export default function TopBar() {
           width: 28px;
           height: 28px;
           border-radius: 6px;
-          color: rgba(245,245,240,0.6);
+          color: #B8B8B8;
           text-decoration: none;
           transition: color 0.2s, background 0.2s;
         }
         .social-btn:hover {
-          color: #D4AF37;
-          background: rgba(212,175,55,0.1);
+          color: #FFFFFF;
+          background: #1A1A1A;
         }
 
-        /* Responsive */
+        /* Mobile fallback */
+        .topbar-mobile-info {
+          display: none;
+        }
+
         @media (max-width: 1024px) {
           .topbar-locations {
             display: none;
           }
-          .topbar-item.timing {
-            display: none;
+          .topbar-inner {
+            grid-template-columns: auto 1fr auto;
           }
         }
         @media (max-width: 640px) {
           .topbar-inner {
-            justify-content: space-between;
-          }
-          .topbar-item.email {
-            display: none;
+            grid-template-columns: auto 1fr auto;
           }
           .topbar-left {
             display: none;
@@ -195,39 +198,33 @@ export default function TopBar() {
             display: flex !important;
             align-items: center;
             gap: 6px;
+            font-family: 'DM Sans', sans-serif;
             font-size: 12px;
-            color: rgba(245,245,240,0.7);
+            color: #B8B8B8;
           }
           .topbar-mobile-info svg {
-            color: #D4AF37;
+            color: #8C8C8C;
           }
-        }
-        .topbar-mobile-info {
-          display: none;
         }
       `}</style>
 
       <div className={`topbar-root${visible ? "" : " hidden-bar"}`}>
         <div className="topbar-inner">
-          {/* Left: email + timing */}
+
+          {/* LEFT — email */}
           <div className="topbar-left">
             <div className="topbar-item email">
               <EmailIcon />
               <a href="mailto:carstylein02@gmail.com">carstylein02@gmail.com</a>
             </div>
-            <div className="topbar-item timing">
-              <ClockIcon />
-              <span>10:00 A.M to 7:00 P.M</span>
+            {/* Mobile fallback */}
+            <div className="topbar-mobile-info">
+              <ClockIcon size={13} />
+              <span>10:00 AM – 7:00 PM</span>
             </div>
           </div>
 
-          {/* Mobile fallback info */}
-          <div className="topbar-mobile-info">
-            <ClockIcon size={13} />
-            <span>10:00 AM – 7:00 PM</span>
-          </div>
-
-          {/* Locations */}
+          {/* CENTER — cities */}
           <div className="topbar-locations">
             {LOCATIONS.map((loc) => (
               <div className="topbar-loc" key={loc}>
@@ -237,7 +234,7 @@ export default function TopBar() {
             ))}
           </div>
 
-          {/* Socials */}
+          {/* RIGHT — socials */}
           <div className="topbar-right">
             {SOCIALS.map(({ Icon, href, label }) => (
               <a key={label} href={href} aria-label={label} className="social-btn">
@@ -245,6 +242,7 @@ export default function TopBar() {
               </a>
             ))}
           </div>
+
         </div>
       </div>
     </>
@@ -254,7 +252,7 @@ export default function TopBar() {
 /* Inline icon components */
 function EmailIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width="14" height="14" style={{ color: "#D4AF37" }}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width="14" height="14" style={{ color: "#8C8C8C" }}>
       <rect x="2" y="4" width="20" height="16" rx="2" />
       <polyline points="2,4 12,13 22,4" />
     </svg>
@@ -263,7 +261,7 @@ function EmailIcon() {
 
 function ClockIcon({ size = 14 }) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width={size} height={size} style={{ color: "#D4AF37" }}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width={size} height={size} style={{ color: "#8C8C8C" }}>
       <circle cx="12" cy="12" r="10" />
       <polyline points="12,6 12,12 16,14" />
     </svg>
@@ -272,7 +270,7 @@ function ClockIcon({ size = 14 }) {
 
 function PinIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width="13" height="13" style={{ color: "#D4AF37" }}>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" width="13" height="13" style={{ color: "#8C8C8C" }}>
       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
       <circle cx="12" cy="10" r="3" />
     </svg>

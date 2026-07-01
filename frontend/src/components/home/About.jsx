@@ -2,8 +2,18 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
 /**
- * About — AutoLuxe / Dettagli Auto
- * Fixed: image collage layout with proper z-index and positioning
+ * About — CarStyle / Dettagli Auto
+ *
+ * Colors:
+ *   Primary BG      #0B0B0B
+ *   Primary Text    #F0F0F0
+ *   Silver Accent   #C0C0C0
+ *   Muted Silver    #8C8C8C
+ *
+ * Font system (consistent across site):
+ *   Main heading    Bebas Neue
+ *   Labels/CTAs     DM Sans
+ *   Body/sub        Jost
  */
 
 const IMG_MAIN =
@@ -13,8 +23,8 @@ const IMG_SMALL =
 
 const STATS = [
   { value: "9,000+", label: "Automobiles Detailed" },
-  { value: "25+", label: "Years of Expertise" },
-  { value: "2020", label: "Studio Established" },
+  { value: "25+",    label: "Years of Expertise" },
+  { value: "2020",   label: "Studio Established" },
 ];
 
 const PARAS = [
@@ -25,27 +35,15 @@ const PARAS = [
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 28 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.75, ease: [0.4, 0, 0.2, 1], delay },
-  },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.75, ease: [0.4, 0, 0.2, 1], delay } },
 });
 const fadeLeft = (delay = 0) => ({
   hidden: { opacity: 0, x: -36 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.85, ease: [0.4, 0, 0.2, 1], delay },
-  },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.85, ease: [0.4, 0, 0.2, 1], delay } },
 });
 const fadeRight = (delay = 0) => ({
   hidden: { opacity: 0, x: 36 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.85, ease: [0.4, 0, 0.2, 1], delay },
-  },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.85, ease: [0.4, 0, 0.2, 1], delay } },
 });
 
 export default function About() {
@@ -55,257 +53,157 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
-      style={{
-        background: "#0A0A0A",
-        position: "relative",
-        overflow: "hidden",
-        padding: "100px 0 110px",
-      }}
+      style={{ background: "#0B0B0B", position: "relative", overflow: "hidden", padding: "100px 0 110px" }}
     >
-      {/* ambient glows */}
-      <div
-        style={{
-          position: "absolute",
-          right: "-100px",
-          top: "10%",
-          width: 500,
-          height: 500,
-          borderRadius: "50%",
-          background: "rgba(212,175,55,0.055)",
-          filter: "blur(120px)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          left: "-60px",
-          bottom: "5%",
-          width: 340,
-          height: 340,
-          borderRadius: "50%",
-          background: "rgba(212,175,55,0.04)",
-          filter: "blur(90px)",
-          pointerEvents: "none",
-        }}
-      />
-
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
         .abt-inner {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 24px;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 80px;
-          align-items: start;
+          max-width: 1100px; margin: 0 auto; padding: 0 24px;
+          display: grid; grid-template-columns: 1fr 1fr;
+          gap: 72px; align-items: start;
         }
-        @media (max-width: 1023px) {
-          .abt-inner { grid-template-columns: 1fr; gap: 56px; }
-        }
-        @media (max-width: 520px) {
-          .abt-inner { padding: 0 16px; gap: 44px; }
-        }
+        @media (max-width: 1023px) { .abt-inner { grid-template-columns: 1fr; gap: 56px; } }
+        @media (max-width: 520px)  { .abt-inner { padding: 0 16px; gap: 44px; } }
 
-        /* ── LEFT COLLAGE ── */
-        /* Outer wrapper — defines total height including stat strip below */
-        .collage-outer {
-          display: flex;
-          flex-direction: column;
-          gap: 0;
-        }
-
-        /* The actual image collage box */
         .collage-box {
           position: relative;
-          /* padding-right makes room for small image that pokes out right */
           padding-right: 52px;
-          /* padding-bottom makes room for small image that pokes down */
           padding-bottom: 80px;
         }
-
-        /* Gold offset frame — sits BEHIND main image */
         .collage-frame {
           position: absolute;
-          top: 20px;
-          left: -18px;
-          right: 70px;
-          bottom: 98px;
-          border: 1.5px solid rgba(212,175,55,0.32);
-          border-radius: 4px;
-          z-index: 0;
-          pointer-events: none;
+          top: 20px; left: -18px; right: 70px; bottom: 98px;
+          border: 1.5px solid rgba(192,192,192,0.22);
+          border-radius: 4px; z-index: 0; pointer-events: none;
         }
-
-        /* Main image */
         .collage-main {
-          position: relative;
-          z-index: 1;
-          width: 100%;
-          display: block;
-          border-radius: 4px;
-          object-fit: cover;
-          aspect-ratio: 4/5;
-          max-height: 520px;
+          position: relative; z-index: 1;
+          width: 100%; display: block;
+          border-radius: 4px; object-fit: cover;
+          aspect-ratio: 4/5; max-height: 520px;
+          filter: grayscale(15%);
         }
-
-        /* Small image — overlaps bottom-right corner of main */
         .collage-small-wrap {
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          width: 52%;
-          z-index: 2;
-          border: 3px solid #0A0A0A;
-          border-radius: 4px;
-          overflow: hidden;
-          box-shadow: 0 16px 48px rgba(0,0,0,0.65);
+          position: absolute; bottom: 0; right: 0;
+          width: 52%; z-index: 2;
+          border: 3px solid #0B0B0B;
+          border-radius: 4px; overflow: hidden;
         }
         .collage-small {
-          display: block;
-          width: 100%;
-          aspect-ratio: 4/3;
-          object-fit: cover;
+          display: block; width: 100%;
+          aspect-ratio: 4/3; object-fit: cover;
+          filter: grayscale(15%);
         }
-
-        /* "Since 1999" badge — top right of main image */
         .collage-badge {
-          position: absolute;
-          top: 0;
-          right: 0;
-          z-index: 3;
-          background: #D4AF37;
-          color: #0A0A0A;
-          padding: 10px 16px;
-          border-radius: 4px;
-          font-family: 'Bai Jamjuree', sans-serif;
-          font-size: 11px;
-          font-weight: 700;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          line-height: 1.4;
-          text-align: center;
-          box-shadow: 0 8px 24px rgba(212,175,55,0.4);
+          position: absolute; top: 0; right: 0; z-index: 3;
+          background: #C0C0C0; color: #0B0B0B;
+          padding: 10px 16px; border-radius: 4px;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 11px; font-weight: 700;
+          letter-spacing: 0.12em; text-transform: uppercase;
+          line-height: 1.4; text-align: center;
         }
 
-        /* Stat strip — sits below collage box, full width of left col */
         .abt-stats {
-          display: flex;
-          margin-top: 28px;
-          border: 1px solid rgba(212,175,55,0.15);
-          border-radius: 6px;
-          overflow: hidden;
+          display: flex; margin-top: 26px;
+          border: 1px solid rgba(192,192,192,0.13);
+          border-radius: 4px; overflow: hidden;
         }
         .abt-stat {
-          flex: 1;
-          padding: 16px 10px;
-          border-right: 1px solid rgba(212,175,55,0.12);
+          flex: 1; padding: 16px 10px;
+          border-right: 1px solid rgba(192,192,192,0.1);
           background: rgba(255,255,255,0.02);
           text-align: center;
         }
         .abt-stat:last-child { border-right: none; }
         .abt-stat-val {
-          font-family: 'Bai Jamjuree', sans-serif;
-          font-size: 20px;
-          font-weight: 700;
-          color: #D4AF37;
-          line-height: 1;
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 24px; color: #C0C0C0; line-height: 1;
         }
         .abt-stat-lbl {
-          font-size: 9.5px;
-          color: rgba(245,245,240,0.4);
-          margin-top: 5px;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          font-family: 'Bai Jamjuree', sans-serif;
+          font-family: 'Jost', sans-serif;
+          font-size: 9.5px; font-weight: 400;
+          color: rgba(240,240,240,0.35);
+          margin-top: 5px; letter-spacing: 0.08em; text-transform: uppercase;
         }
 
-        /* ── RIGHT TEXT ── */
-        .abt-eyebrow {
-          display: flex;
-          align-items: center;
-          gap: 12px;
-          margin-bottom: 16px;
-        }
-        .abt-eyebrow-line { width:36px; height:1.5px; background:#D4AF37; flex-shrink:0; }
+        .abt-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+        .abt-eyebrow-line { width: 34px; height: 1px; background: #8C8C8C; flex-shrink: 0; }
         .abt-eyebrow-text {
-          font-family: 'Bai Jamjuree', sans-serif;
-          font-size: 11px;
-          font-weight: 600;
-          letter-spacing: 0.24em;
-          text-transform: uppercase;
-          color: #D4AF37;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 11px; font-weight: 600;
+          letter-spacing: 0.26em; text-transform: uppercase; color: #8C8C8C;
         }
-        .abt-italian {
-          font-family: 'Bai Jamjuree', sans-serif;
-          font-style: italic;
-          font-size: clamp(22px, 3.5vw, 34px);
-          font-weight: 400;
-          color: rgba(245,245,240,0.12);
-          letter-spacing: 0.02em;
-          line-height: 1.1;
-          margin: 0 0 4px;
+        .abt-ghost-text {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: clamp(28px, 4vw, 44px);
+          color: rgba(240,240,240,0.06);
+          letter-spacing: 0.04em; line-height: 1; margin: 0 0 2px;
         }
         .abt-heading {
-          font-family: 'Bai Jamjuree', sans-serif;
-          font-size: clamp(28px, 4vw, 42px);
-          font-weight: 700;
-          color: #F5F5F0;
-          line-height: 1.1;
-          margin: 0 0 24px;
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: clamp(34px, 5vw, 52px);
+          color: #F0F0F0; line-height: 1;
+          margin: 0 0 20px; letter-spacing: 0.01em;
         }
-        .abt-heading span { color: #D4AF37; }
+        .abt-heading span { color: #C0C0C0; }
         .abt-subtitle {
-          font-family: Georgia, serif;
-          font-size: 15px;
-          font-style: italic;
-          color: rgba(245,245,240,0.5);
-          margin-bottom: 26px;
-          line-height: 1.65;
+          font-family: 'Jost', sans-serif;
+          font-size: 15px; font-weight: 300; font-style: italic;
+          color: rgba(240,240,240,0.45);
+          margin-bottom: 24px; line-height: 1.65;
         }
         .abt-para {
-          font-family: Georgia, 'Times New Roman', serif;
-          font-size: 15px;
-          line-height: 1.85;
-          color: rgba(245,245,240,0.62);
-          margin-bottom: 16px;
+          font-family: 'Jost', sans-serif;
+          font-size: 14.5px; font-weight: 300;
+          line-height: 1.85; color: rgba(240,240,240,0.58);
+          margin-bottom: 14px;
         }
-        .abt-divider { width:44px; height:1.5px; background:linear-gradient(to right,#D4AF37,transparent); margin:26px 0; }
-        .abt-philosophy {
-          border-left: 2px solid #D4AF37;
-          padding: 13px 18px;
-          background: rgba(212,175,55,0.04);
-          border-radius: 0 5px 5px 0;
+        .abt-divider {
+          width: 40px; height: 1px;
+          background: linear-gradient(to right, #8C8C8C, transparent);
           margin: 24px 0;
         }
-        .abt-philosophy-it { font-family:'Bai Jamjuree',sans-serif; font-style:italic; font-size:16.5px; font-weight:500; color:#D4AF37; margin-bottom:4px; }
-        .abt-philosophy-en { font-family:Georgia,serif; font-size:12.5px; color:rgba(245,245,240,0.4); letter-spacing:0.04em; }
-        .abt-closing { margin-top:28px; padding-top:24px; border-top:1px solid rgba(255,255,255,0.07); }
-        .abt-closing p { font-family:'Bai Jamjuree',sans-serif; font-size:12px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(245,245,240,0.32); line-height:2.1; }
-        .abt-closing p span { color:rgba(212,175,55,0.75); }
-        .abt-cta {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          margin-top: 28px;
-          padding: 13px 26px;
-          border-radius: 4px;
-          background: transparent;
-          border: 1px solid #D4AF37;
-          color: #D4AF37;
-          font-family: 'Bai Jamjuree', sans-serif;
-          font-size: 12.5px;
-          font-weight: 600;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          text-decoration: none;
-          transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+        .abt-philosophy {
+          border-left: 2px solid #8C8C8C;
+          padding: 12px 18px;
+          background: rgba(192,192,192,0.04);
+          border-radius: 0 4px 4px 0;
+          margin: 22px 0;
         }
-        .abt-cta:hover { background:#D4AF37; color:#0A0A0A; box-shadow:0 0 24px rgba(212,175,55,0.35); }
-        .abt-cta:hover svg { transform: translateX(4px); }
-        .abt-cta svg { transition: transform 0.3s; }
+        .abt-philosophy-main {
+          font-family: 'Jost', sans-serif;
+          font-style: italic; font-size: 16px; font-weight: 400;
+          color: #C0C0C0; margin-bottom: 4px;
+        }
+        .abt-philosophy-sub {
+          font-family: 'Jost', sans-serif;
+          font-size: 12px; font-weight: 300;
+          color: rgba(240,240,240,0.35); letter-spacing: 0.04em;
+        }
+        .abt-closing { margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.07); }
+        .abt-closing p {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 11.5px; font-weight: 600;
+          letter-spacing: 0.1em; text-transform: uppercase;
+          color: rgba(240,240,240,0.28); line-height: 2.2;
+        }
+        .abt-closing p span { color: rgba(192,192,192,0.7); }
+        .abt-cta {
+          display: inline-flex; align-items: center; gap: 8px;
+          margin-top: 26px; padding: 12px 26px;
+          border-radius: 3px; background: transparent;
+          border: 1px solid #8C8C8C; color: #C0C0C0;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 12.5px; font-weight: 600;
+          letter-spacing: 0.1em; text-transform: uppercase;
+          text-decoration: none;
+          transition: background 0.25s, color 0.25s;
+        }
+        .abt-cta:hover { background: #C0C0C0; color: #0B0B0B; }
+        .abt-cta:hover .cta-arrow { transform: translateX(4px); }
+        .cta-arrow { transition: transform 0.25s; }
 
         @media (max-width: 520px) {
           .collage-box { padding-right: 36px; padding-bottom: 64px; }
@@ -315,61 +213,26 @@ export default function About() {
         }
       `}</style>
 
+      {/* Ambient glows — silver tint */}
+      <div style={{ position: "absolute", right: -100, top: "10%", width: 460, height: 460, borderRadius: "50%", background: "rgba(160,160,160,0.055)", filter: "blur(120px)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", left: -60, bottom: "5%", width: 320, height: 320, borderRadius: "50%", background: "rgba(160,160,160,0.04)", filter: "blur(90px)", pointerEvents: "none" }} />
+
       <div className="abt-inner">
+
         {/* ══ LEFT — Collage ══ */}
-        <motion.div
-          className="collage-outer"
-          variants={fadeLeft(0)}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-        >
+        <motion.div variants={fadeLeft(0)} initial="hidden" animate={inView ? "visible" : "hidden"}>
           <div className="collage-box">
-            {/* Gold frame — z-index 0, behind everything */}
             <div className="collage-frame" />
-
-            {/* Main image — z-index 1 */}
-            <img
-              src={IMG_MAIN}
-              alt="Professional car polishing at AutoLuxe studio"
-              className="collage-main"
-              loading="lazy"
-            />
-
-            {/* Small overlay image — z-index 2 */}
-            <motion.div
-              className="collage-small-wrap"
-              variants={fadeUp(0.4)}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-            >
-              <img
-                src={IMG_SMALL}
-                alt="Ceramic coating application close-up"
-                className="collage-small"
-                loading="lazy"
-              />
+            <img src={IMG_MAIN} alt="Professional car polishing" className="collage-main" loading="lazy" />
+            <motion.div className="collage-small-wrap" variants={fadeUp(0.4)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+              <img src={IMG_SMALL} alt="Ceramic coating close-up" className="collage-small" loading="lazy" />
             </motion.div>
-
-            {/* Badge — z-index 3 */}
-            <motion.div
-              className="collage-badge"
-              variants={fadeUp(0.55)}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-            >
-              Since
-              <br />
-              1999
+            <motion.div className="collage-badge" variants={fadeUp(0.55)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+              Since<br />1999
             </motion.div>
           </div>
 
-          {/* Stat strip — outside collage-box so it never overlaps images */}
-          <motion.div
-            className="abt-stats"
-            variants={fadeUp(0.65)}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
+          <motion.div className="abt-stats" variants={fadeUp(0.65)} initial="hidden" animate={inView ? "visible" : "hidden"}>
             {STATS.map((s) => (
               <div className="abt-stat" key={s.label}>
                 <div className="abt-stat-val">{s.value}</div>
@@ -381,114 +244,52 @@ export default function About() {
 
         {/* ══ RIGHT — Text ══ */}
         <div>
-          <motion.div
-            className="abt-eyebrow"
-            variants={fadeRight(0.1)}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
+          <motion.div className="abt-eyebrow" variants={fadeRight(0.1)} initial="hidden" animate={inView ? "visible" : "hidden"}>
             <span className="abt-eyebrow-line" />
-            <span className="abt-eyebrow-text">La Nostra Storia</span>
+            <span className="abt-eyebrow-text">Our Story</span>
           </motion.div>
 
-          <motion.p
-            className="abt-italian"
-            variants={fadeRight(0.18)}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
-            La nostra storia
-          </motion.p>
-          <motion.h2
-            className="abt-heading"
-            variants={fadeRight(0.24)}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
+          <motion.div className="abt-ghost-text" variants={fadeRight(0.18)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+            OUR STORY
+          </motion.div>
+
+          <motion.h2 className="abt-heading" variants={fadeRight(0.24)} initial="hidden" animate={inView ? "visible" : "hidden"}>
             About <span>Us</span>
           </motion.h2>
 
-          <motion.p
-            className="abt-subtitle"
-            variants={fadeUp(0.3)}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
-            Every remarkable automobile tells a story.
-            <br />
+          <motion.p className="abt-subtitle" variants={fadeUp(0.3)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+            Every remarkable automobile tells a story.<br />
             Our purpose is to preserve it.
           </motion.p>
 
           {PARAS.map((p, i) => (
-            <motion.p
-              key={i}
-              className="abt-para"
-              variants={fadeUp(0.36 + i * 0.1)}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-            >
+            <motion.p key={i} className="abt-para" variants={fadeUp(0.36 + i * 0.1)} initial="hidden" animate={inView ? "visible" : "hidden"}>
               {p}
             </motion.p>
           ))}
 
-          <motion.div
-            className="abt-divider"
-            variants={fadeUp(0.66)}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          />
+          <motion.div className="abt-divider" variants={fadeUp(0.66)} initial="hidden" animate={inView ? "visible" : "hidden"} />
 
-          <motion.div
-            className="abt-philosophy"
-            variants={fadeUp(0.72)}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
-            <div className="abt-philosophy-it">
-              L'eccellenza è nei dettagli.
-            </div>
-            <div className="abt-philosophy-en">
-              Excellence resides in the details.
-            </div>
+          <motion.div className="abt-philosophy" variants={fadeUp(0.72)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+            <div className="abt-philosophy-main">Excellence resides in the details.</div>
+            <div className="abt-philosophy-sub">Every surface examined. Every procedure executed without compromise.</div>
           </motion.div>
 
-          <motion.div
-            className="abt-closing"
-            variants={fadeUp(0.8)}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
-            <p>
-              <span>It is crafted.</span> &nbsp;It is refined. &nbsp;It is
-              preserved.
-            </p>
-            <p style={{ marginTop: 4 }}>
-              Benvenuti a <span>Dettagli Auto.</span>
-            </p>
+          <motion.div className="abt-closing" variants={fadeUp(0.8)} initial="hidden" animate={inView ? "visible" : "hidden"}>
+            <p><span>It is crafted.</span>&nbsp; It is refined.&nbsp; It is preserved.</p>
+            <p style={{ marginTop: 4 }}>Welcome to <span>Dettagli Auto.</span></p>
           </motion.div>
 
-          <motion.div
-            variants={fadeUp(0.88)}
-            initial="hidden"
-            animate={inView ? "visible" : "hidden"}
-          >
+          <motion.div variants={fadeUp(0.88)} initial="hidden" animate={inView ? "visible" : "hidden"}>
             <a href="#services" className="abt-cta">
               Explore Our Services
-              <svg
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
+              <svg className="cta-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
           </motion.div>
         </div>
+
       </div>
     </section>
   );
