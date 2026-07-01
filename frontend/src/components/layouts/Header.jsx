@@ -15,27 +15,47 @@ import { ChevronDown, Menu, X, Phone } from "lucide-react";
  */
 
 const SERVICES = [
-  { name: "PPF / Ceramic Coating",          href: "#ppf-ceramic-coating",          desc: "Paint protection that keeps the shine permanent." },
-  { name: "Refurbish Vehicle / Restore",    href: "#refurbish-vehicle-restore",    desc: "Bring tired metal back to factory-fresh form." },
-  { name: "Upholstery / Paints",            href: "#upholstery-paints",            desc: "Interior trim and full-body paint, done by hand." },
-  { name: "Car Body Kits / Exhaust",        href: "#car-body-kits-exhaust",        desc: "Aggressive lines and a sound to match." },
-  { name: "Tuning & Mapping / Accessories", href: "#tuning-mapping-accessories",   desc: "Tuned performance, fitted exactly to you." },
+  {
+    name: "PPF / Ceramic Coating",
+    href: "#ppf-ceramic-coating",
+    desc: "Paint protection that keeps the shine permanent.",
+  },
+  {
+    name: "Refurbish Vehicle / Restore",
+    href: "#refurbish-vehicle-restore",
+    desc: "Bring tired metal back to factory-fresh form.",
+  },
+  {
+    name: "Upholstery / Paints",
+    href: "#upholstery-paints",
+    desc: "Interior trim and full-body paint, done by hand.",
+  },
+  {
+    name: "Car Body Kits / Exhaust",
+    href: "#car-body-kits-exhaust",
+    desc: "Aggressive lines and a sound to match.",
+  },
+  {
+    name: "Tuning & Mapping / Accessories",
+    href: "#tuning-mapping-accessories",
+    desc: "Tuned performance, fitted exactly to you.",
+  },
 ];
 
 const NAV_LINKS = [
-  { label: "Home",      href: "/home" },
-  { label: "About Us",  href: "/about" },
-  { label: "Services",  href: null },       // has dropdown
-  { label: "Blog",      href: "/blog" },
+  { label: "Home", href: "/home" },
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: null }, // has dropdown
+  { label: "Blog", href: "/blog" },
   { label: "Franchise", href: "/franchise" },
-  { label: "Contact",   href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export default function Header() {
-  const [servicesOpen, setServicesOpen]   = useState(false);
-  const [mobileOpen, setMobileOpen]       = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSvcOpen, setMobileSvcOpen] = useState(false);
-  const [scrolled, setScrolled]           = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const svcTimer = useRef(null);
 
   useEffect(() => {
@@ -45,14 +65,21 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const onResize = () => { if (window.innerWidth >= 1024) setMobileOpen(false); };
+    const onResize = () => {
+      if (window.innerWidth >= 1024) setMobileOpen(false);
+    };
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
   const svcHover = {
-    onMouseEnter: () => { clearTimeout(svcTimer.current); setServicesOpen(true); },
-    onMouseLeave: () => { svcTimer.current = setTimeout(() => setServicesOpen(false), 150); },
+    onMouseEnter: () => {
+      clearTimeout(svcTimer.current);
+      setServicesOpen(true);
+    },
+    onMouseLeave: () => {
+      svcTimer.current = setTimeout(() => setServicesOpen(false), 150);
+    },
   };
 
   // Smooth scroll to section ID, close menus
@@ -291,9 +318,13 @@ export default function Header() {
             aria-label="AutoLuxe home"
             onClick={(e) => handleNav(e, "#home")}
           >
-            <div className="hdr-logo-shield"><ShieldIcon /></div>
+            <div className="hdr-logo-shield">
+              <ShieldIcon />
+            </div>
             <div className="hdr-logo-text">
-              <div className="hdr-logo-name">AUTO<span>LUXE</span></div>
+              <div className="hdr-logo-name">
+                AUTO<span>LUXE</span>
+              </div>
               <div className="hdr-logo-tagline">Beyond The Luxury</div>
             </div>
           </a>
@@ -303,7 +334,11 @@ export default function Header() {
             {NAV_LINKS.map((link) => {
               if (link.label === "Services") {
                 return (
-                  <div key="Services" className="hdr-dropdown-wrap" {...svcHover}>
+                  <div
+                    key="Services"
+                    className="hdr-dropdown-wrap"
+                    {...svcHover}
+                  >
                     <button
                       className="hdr-nav-link"
                       data-open={servicesOpen}
@@ -312,9 +347,16 @@ export default function Header() {
                       aria-haspopup="true"
                     >
                       Services
-                      <ChevronDown className="chevron" size={14} strokeWidth={2.5} />
+                      <ChevronDown
+                        className="chevron"
+                        size={14}
+                        strokeWidth={2.5}
+                      />
                     </button>
-                    <div className={`hdr-dropdown${servicesOpen ? " open" : ""}`} role="menu">
+                    <div
+                      className={`hdr-dropdown${servicesOpen ? " open" : ""}`}
+                      role="menu"
+                    >
                       <ul className="hdr-dropdown-list">
                         {SERVICES.map((svc, i) => (
                           <li className="hdr-dropdown-item" key={svc.name}>
@@ -326,7 +368,9 @@ export default function Header() {
                               <span className="di-name">{svc.name}</span>
                               <span className="di-desc">{svc.desc}</span>
                             </a>
-                            {i < SERVICES.length - 1 && <div className="hdr-dropdown-divider" />}
+                            {i < SERVICES.length - 1 && (
+                              <div className="hdr-dropdown-divider" />
+                            )}
                           </li>
                         ))}
                       </ul>
@@ -351,7 +395,15 @@ export default function Header() {
           {/* Right: Phone + mobile buttons */}
           <div className="hdr-right">
             <div className="hdr-phone">
-              <a href="tel:+917271939393" style={{ display: "flex", alignItems: "center", gap: 10, textDecoration: "none" }}>
+              <a
+                href="tel:+917271939393"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 10,
+                  textDecoration: "none",
+                }}
+              >
                 <div className="hdr-phone-icon">
                   <Phone size={18} strokeWidth={2.5} color="#0A0A0A" />
                 </div>
@@ -363,7 +415,11 @@ export default function Header() {
             </div>
 
             <div className="hdr-cta-strip">
-              <a href="tel:+917271939393" className="hdr-book-btn" aria-label="Call us">
+              <a
+                href="tel:+917271939393"
+                className="hdr-book-btn"
+                aria-label="Call us"
+              >
                 <Phone size={18} strokeWidth={2.5} />
               </a>
             </div>
@@ -392,9 +448,16 @@ export default function Header() {
                       aria-expanded={mobileSvcOpen}
                     >
                       Services
-                      <ChevronDown className="chevron" size={16} strokeWidth={2.5} color="#D4AF37" />
+                      <ChevronDown
+                        className="chevron"
+                        size={16}
+                        strokeWidth={2.5}
+                        color="#D4AF37"
+                      />
                     </button>
-                    <div className={`hdr-mob-sub${mobileSvcOpen ? " open" : ""}`}>
+                    <div
+                      className={`hdr-mob-sub${mobileSvcOpen ? " open" : ""}`}
+                    >
                       <ul>
                         {SERVICES.map((svc) => (
                           <li key={svc.name}>
