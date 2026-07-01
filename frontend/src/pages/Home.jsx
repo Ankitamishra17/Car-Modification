@@ -5,17 +5,15 @@ import Franchise from "../components/home/Franchise";
 import Hero from "../components/home/Home";
 import Services from "../components/home/Services";
 
-export function Home() {
+export default function Home() {
   return (
     <>
-    <section id="home">
     <Hero />
     <About />
     <Services />
     <Blog />
     <Franchise />
     <CTA />
-    </section>
     </>
   );
 }

@@ -4,11 +4,22 @@ import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 /**
  * Footer — AutoLuxe
  *
- * Design system matches Header.jsx exactly:
- *   bg #0A0A0A | gold #D4AF37 | text #F5F5F0 | font 'Bai Jamjuree'
+ * Palette (fixed):
+ *   Primary BG      #0B0B0B
+ *   Secondary BG    #1A1A1A
+ *   Section BG      #2A2A2A
+ *   Borders         #3D3D3D
+ *   Primary Text    #FFFFFF
+ *   Secondary Text  #B8B8B8
+ *   Accent          #8C8C8C (metallic silver — buttons / hover)
+ *
+ * Type system:
+ *   Main heading / logo   Bebas Neue
+ *   Title / labels         DM Sans
+ *   Sub headings / body    Jost
  *
  * Structure:
- *   1. Gold top hairline (mirrors Header's top-line)
+ *   1. Silver top hairline (mirrors Header's top-line)
  *   2. Main grid — Logo+tagline | Services | Quick Links | Contact
  *   3. Social bar — SVG icons (Instagram, YouTube, Facebook, WhatsApp, X/Twitter)
  *   4. Bottom strip — copyright + legal links
@@ -27,7 +38,7 @@ const SERVICES = [
 const QUICK_LINKS = [
   { label: "Home",      href: "#home" },
   { label: "About Us",  href: "#about" },
-  { label: "Blog",      href: "#blog" },
+  { label: "Blogs",      href: "#blog" },
   { label: "Franchise", href: "#franchise" },
   { label: "Contact",   href: "#contact" },
 ];
@@ -105,14 +116,14 @@ function ShieldIcon() {
     <svg viewBox="0 0 32 36" fill="none" width="26" height="26">
       <path
         d="M16 2L3 7v10c0 8.3 5.6 15.7 13 18 7.4-2.3 13-9.7 13-18V7L16 2z"
-        fill="rgba(212,175,55,0.15)"
-        stroke="#D4AF37"
+        fill="#1A1A1A"
+        stroke="#8C8C8C"
         strokeWidth="1.5"
         strokeLinejoin="round"
       />
       <path
         d="M10 18l4 4 8-8"
-        stroke="#D4AF37"
+        stroke="#8C8C8C"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -127,22 +138,26 @@ export default function Footer() {
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
         .ftr-root *, .ftr-root *::before, .ftr-root *::after { box-sizing: border-box; }
 
         .ftr-root {
-          font-family: 'Bai Jamjuree', sans-serif;
-          background: #0A0A0A;
+          font-family: 'Jost', sans-serif;
+          background: #0B0B0B;
           width: 100%;
           position: relative;
           overflow: hidden;
         }
 
-        /* ── Gold top hairline — mirrors Header ── */
+        .ftr-heading { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.01em; }
+        .ftr-title   { font-family: 'DM Sans', sans-serif; }
+        .ftr-sub     { font-family: 'Jost', sans-serif; }
+
+        /* ── Silver top hairline — mirrors Header ── */
         .ftr-top-line {
           height: 2px;
-          background: linear-gradient(to right, transparent, #D4AF37, transparent);
+          background: linear-gradient(to right, transparent, #8C8C8C, transparent);
           opacity: 0.55;
         }
 
@@ -151,7 +166,7 @@ export default function Footer() {
           pointer-events: none;
           position: absolute;
           border-radius: 50%;
-          background: rgba(212,175,55,0.09);
+          background: rgba(140,140,140,0.08);
           filter: blur(100px);
         }
         .ftr-glow-left  { width: 360px; height: 360px; top: 0; left: -80px; }
@@ -187,59 +202,62 @@ export default function Footer() {
         }
         .ftr-logo-shield {
           width: 46px; height: 46px;
-          border: 2px solid #D4AF37;
+          border: 2px solid #8C8C8C;
           border-radius: 6px;
           display: flex; align-items: center; justify-content: center;
-          background: rgba(212,175,55,0.07);
+          background: #1A1A1A;
           flex-shrink: 0;
         }
         .ftr-logo-name {
-          font-size: 22px; font-weight: 700;
-          letter-spacing: 0.06em;
-          color: #F5F5F0; text-transform: uppercase; line-height: 1;
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 26px; font-weight: 400;
+          letter-spacing: 0.04em;
+          color: #FFFFFF; text-transform: uppercase; line-height: 1;
         }
-        .ftr-logo-name span { color: #D4AF37; }
+        .ftr-logo-name span { color: #8C8C8C; }
         .ftr-logo-tagline {
+          font-family: 'DM Sans', sans-serif;
           font-size: 9px; letter-spacing: 0.22em;
-          color: rgba(212,175,55,0.7);
-          text-transform: uppercase; margin-top: 3px;
+          color: #B8B8B8;
+          text-transform: uppercase; margin-top: 4px;
         }
 
         .ftr-brand-desc {
-          font-family: Georgia, serif;
+          font-family: 'Jost', sans-serif;
+          font-weight: 300;
           font-size: 13.5px; line-height: 1.7;
-          color: rgba(245,245,240,0.55);
+          color: #B8B8B8;
           max-width: 300px; margin-bottom: 24px;
         }
 
         /* Newsletter strip */
         .ftr-newsletter {
           display: flex;
-          border: 1px solid rgba(212,175,55,0.25);
+          border: 1px solid #3D3D3D;
           border-radius: 8px;
           overflow: hidden;
           max-width: 300px;
         }
         .ftr-newsletter input {
           flex: 1;
-          background: rgba(255,255,255,0.04);
+          background: #1A1A1A;
           border: none; outline: none;
           padding: 10px 14px;
           font-size: 13px;
-          color: #F5F5F0;
-          font-family: 'Bai Jamjuree', sans-serif;
+          color: #FFFFFF;
+          font-family: 'Jost', sans-serif;
         }
-        .ftr-newsletter input::placeholder { color: rgba(245,245,240,0.35); }
+        .ftr-newsletter input::placeholder { color: #6E6E6E; }
         .ftr-newsletter button {
-          background: #D4AF37;
+          background: #8C8C8C;
           border: none; cursor: pointer;
           padding: 0 14px;
           display: flex; align-items: center; justify-content: center;
-          color: #0A0A0A;
+          color: #0B0B0B;
           transition: background 0.2s;
           flex-shrink: 0;
         }
-        .ftr-newsletter button:hover { background: #c9a030; }
+        .ftr-newsletter button:hover { background: #FFFFFF; }
 
         /* ── Column heading ── */
         .ftr-col-head {
@@ -247,12 +265,13 @@ export default function Footer() {
           margin-bottom: 18px;
         }
         .ftr-col-head-line {
-          height: 1px; width: 20px; background: #D4AF37; flex-shrink: 0;
+          height: 1px; width: 20px; background: #8C8C8C; flex-shrink: 0;
         }
         .ftr-col-head-text {
+          font-family: 'DM Sans', sans-serif;
           font-size: 11px; font-weight: 700;
           letter-spacing: 0.24em; text-transform: uppercase;
-          color: #D4AF37;
+          color: #B8B8B8;
         }
 
         /* ── Link lists ── */
@@ -262,19 +281,19 @@ export default function Footer() {
         }
         .ftr-link-list li a {
           display: inline-flex; align-items: center; gap: 6px;
-          font-size: 13.5px; color: rgba(245,245,240,0.6);
+          font-family: 'Jost', sans-serif;
+          font-size: 13.5px; font-weight: 300; color: #B8B8B8;
           text-decoration: none;
           padding: 5px 0;
           transition: color 0.2s;
-          font-family: Georgia, serif;
         }
         .ftr-link-list li a .fl-dot {
           width: 4px; height: 4px; border-radius: 50%;
-          background: #D4AF37; opacity: 0;
+          background: #8C8C8C; opacity: 0;
           flex-shrink: 0;
           transition: opacity 0.2s;
         }
-        .ftr-link-list li a:hover { color: #D4AF37; }
+        .ftr-link-list li a:hover { color: #FFFFFF; }
         .ftr-link-list li a:hover .fl-dot { opacity: 1; }
 
         /* ── Contact column ── */
@@ -290,32 +309,32 @@ export default function Footer() {
         }
         .ftr-contact-icon {
           width: 34px; height: 34px; border-radius: 50%;
-          border: 1px solid rgba(212,175,55,0.3);
-          background: rgba(212,175,55,0.07);
+          border: 1px solid #3D3D3D;
+          background: #1A1A1A;
           display: flex; align-items: center; justify-content: center;
           flex-shrink: 0;
           transition: border-color 0.2s, background 0.2s;
-          color: #D4AF37;
+          color: #8C8C8C;
         }
         .ftr-contact-item a:hover .ftr-contact-icon {
-          border-color: #D4AF37;
-          background: rgba(212,175,55,0.15);
+          border-color: #8C8C8C;
+          background: #2A2A2A;
         }
         .ftr-contact-value {
-          font-size: 13.5px;
-          color: rgba(245,245,240,0.65);
-          font-family: Georgia, serif;
+          font-family: 'Jost', sans-serif;
+          font-size: 13.5px; font-weight: 300;
+          color: #B8B8B8;
           line-height: 1.5;
           padding-top: 6px;
           transition: color 0.2s;
         }
-        .ftr-contact-item a:hover .ftr-contact-value { color: #D4AF37; }
+        .ftr-contact-item a:hover .ftr-contact-value { color: #FFFFFF; }
 
         /* ── Divider ── */
         .ftr-divider {
           margin: 48px 0 0;
           height: 1px;
-          background: linear-gradient(to right, transparent, rgba(212,175,55,0.2), transparent);
+          background: linear-gradient(to right, transparent, #3D3D3D, transparent);
         }
 
         /* ── Social + copyright strip ── */
@@ -344,49 +363,51 @@ export default function Footer() {
         .ftr-social-btn {
           width: 38px; height: 38px;
           border-radius: 8px;
-          border: 1px solid rgba(212,175,55,0.25);
-          background: rgba(212,175,55,0.05);
+          border: 1px solid #3D3D3D;
+          background: #1A1A1A;
           display: flex; align-items: center; justify-content: center;
-          color: rgba(245,245,240,0.55);
+          color: #B8B8B8;
           text-decoration: none;
           transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.25s;
         }
         .ftr-social-btn:hover {
-          color: #D4AF37;
-          border-color: #D4AF37;
-          background: rgba(212,175,55,0.12);
+          color: #FFFFFF;
+          border-color: #8C8C8C;
+          background: #2A2A2A;
           transform: translateY(-2px);
         }
 
         /* Copyright */
         .ftr-copy {
+          font-family: 'Jost', sans-serif;
           font-size: 12px;
-          color: rgba(245,245,240,0.35);
+          color: #6E6E6E;
           letter-spacing: 0.04em;
         }
         .ftr-copy a {
-          color: rgba(212,175,55,0.6);
+          color: #B8B8B8;
           text-decoration: none;
           transition: color 0.2s;
         }
-        .ftr-copy a:hover { color: #D4AF37; }
+        .ftr-copy a:hover { color: #FFFFFF; }
 
         /* Legal links */
         .ftr-legal {
           display: flex; gap: 20px;
         }
         .ftr-legal a {
+          font-family: 'DM Sans', sans-serif;
           font-size: 11.5px;
-          color: rgba(245,245,240,0.35);
+          color: #6E6E6E;
           text-decoration: none;
           letter-spacing: 0.06em;
           text-transform: uppercase;
           transition: color 0.2s;
         }
-        .ftr-legal a:hover { color: #D4AF37; }
+        .ftr-legal a:hover { color: #FFFFFF; }
 
         @media (max-width: 400px) {
-          .ftr-logo-name { font-size: 18px; }
+          .ftr-logo-name { font-size: 20px; }
           .ftr-logo-shield { width: 38px; height: 38px; }
         }
       `}</style>
@@ -417,17 +438,6 @@ export default function Footer() {
                 India's premium auto detailing studio — PPF, ceramic coatings,
                 restoration, and performance upgrades. We protect what moves you.
               </p>
-
-              {/* Newsletter */}
-              <div className="ftr-newsletter">
-                <input type="email" placeholder="Your email address" />
-                <button aria-label="Subscribe">
-                  <ArrowRight size={16} strokeWidth={2.5} />
-                </button>
-              </div>
-              <div style={{ fontSize: 11, color: "rgba(245,245,240,0.3)", marginTop: 8, letterSpacing: "0.05em" }}>
-                Studio news &amp; exclusive offers — no spam.
-              </div>
             </div>
 
             {/* ── Col 2: Services ── */}

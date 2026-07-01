@@ -1,22 +1,23 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, ChevronDown } from "lucide-react";
 
 /**
- * Hero — AutoLuxe
+ * Hero — CarStyle
  *
- * Background video: royalty-free from Mixkit (no download needed, direct CDN URL)
- * Fallback poster: thumbnail from same source
+ * Colors:
+ *   Primary BG      #0B0B0B
+ *   Primary Text    #F0F0F0
+ *   Silver Accent   #C0C0C0
+ *   Muted Silver    #8C8C8C
  *
- * Fonts: 'Bai Jamjuree' (load in index.html)
- * Colors: Black #0A0A0A | Gold #D4AF37 | White #F5F5F0
+ * Font system (same as TopBar & CategoryShowcase):
+ *   Main heading    Bebas Neue
+ *   Labels/CTAs     DM Sans
+ *   Body/sub        Jost
  */
 
-// ✅ Free royalty-free video — Mixkit License (no attribution required)
-// "Man carefully polishing the front of a shiny car"
-const VIDEO_SRC   = "https://assets.mixkit.co/videos/47834/47834-360.mp4";
-const POSTER_SRC  = "https://assets.mixkit.co/videos/47834/47834-thumb-360-3.jpg";
+const VIDEO_SRC  = "https://assets.mixkit.co/videos/47834/47834-360.mp4";
+const POSTER_SRC = "https://assets.mixkit.co/videos/47834/47834-thumb-360-3.jpg";
 
-// Stat strip — edit as needed
 const STATS = [
   { value: "5+",   label: "Years of excellence" },
   { value: "4",    label: "Cities served" },
@@ -24,7 +25,7 @@ const STATS = [
 ];
 
 export default function Hero() {
-  const videoRef        = useRef(null);
+  const videoRef = useRef(null);
   const [loaded, setLoaded]               = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
 
@@ -38,189 +39,253 @@ export default function Hero() {
 
   return (
     <section
-      className="relative flex min-h-[92vh] w-full items-center overflow-hidden bg-[#0A0A0A] font-serif"
+      style={{
+        position: "relative",
+        minHeight: "92vh",
+        width: "100%",
+        display: "flex",
+        alignItems: "center",
+        background: "#0B0B0B",
+        overflow: "hidden",
+      }}
       aria-label="Hero"
     >
-      {/* ── Video / poster background ── */}
-      <div className="absolute inset-0 z-0">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
+
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(16px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        @keyframes scrollPulse {
+          0%, 100% { opacity: 0.15; }
+          50% { opacity: 0.5; }
+        }
+        @keyframes dotPulse {
+          0%, 100% { opacity: 0.5; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.35); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          [style*="animation"] { animation: none !important; opacity: 1 !important; }
+        }
+
+        .hero-btn-primary {
+          display: inline-flex; align-items: center; gap: 8px;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 13.5px; font-weight: 600;
+          letter-spacing: 0.04em;
+          padding: 13px 28px; border-radius: 3px;
+          background: #C0C0C0;
+          color: #0B0B0B;
+          border: none; cursor: pointer; text-decoration: none;
+          transition: background 0.2s, transform 0.2s;
+        }
+        .hero-btn-primary:hover { background: #D8D8D8; transform: translateY(-1px); }
+        .hero-btn-primary:hover .hero-arrow { transform: translateX(3px); }
+        .hero-arrow { transition: transform 0.2s; }
+
+        .hero-btn-ghost {
+          display: inline-flex; align-items: center; gap: 8px;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 13.5px; font-weight: 500;
+          letter-spacing: 0.04em;
+          padding: 12px 28px; border-radius: 3px;
+          background: transparent;
+          color: rgba(240,240,240,0.72);
+          border: 1px solid rgba(255,255,255,0.18);
+          cursor: pointer; text-decoration: none;
+          transition: border-color 0.2s, color 0.2s;
+        }
+        .hero-btn-ghost:hover { border-color: #8C8C8C; color: #C0C0C0; }
+
+        .hero-accent-word {
+          color: #C0C0C0;
+          position: relative;
+          display: inline-block;
+        }
+        .hero-accent-word::after {
+          content: '';
+          position: absolute;
+          left: 0; right: 0; bottom: 3px;
+          height: 2px;
+          background: linear-gradient(to right, #8C8C8C, transparent);
+        }
+
+        .hero-scroll-line {
+          width: 1px; height: 36px;
+          background: rgba(255,255,255,0.15);
+          animation: scrollPulse 2s ease-in-out infinite;
+        }
+        .hero-badge-dot {
+          width: 6px; height: 6px; border-radius: 50%;
+          background: #C0C0C0;
+          animation: dotPulse 2s ease-in-out infinite;
+          flex-shrink: 0;
+        }
+      `}</style>
+
+      {/* ── Background ── */}
+      <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
         {!reducedMotion ? (
           <video
             ref={videoRef}
-            className={`h-full w-full object-cover transition-opacity duration-[1400ms] ${
-              loaded ? "opacity-100" : "opacity-0"
-            }`}
+            style={{
+              width: "100%", height: "100%", objectFit: "cover",
+              filter: "grayscale(40%) brightness(0.6)",
+              opacity: loaded ? 1 : 0,
+              transition: "opacity 1.4s ease",
+            }}
             src={VIDEO_SRC}
             poster={POSTER_SRC}
-            autoPlay
-            muted
-            loop
-            playsInline
+            autoPlay muted loop playsInline
             onLoadedData={() => setLoaded(true)}
           />
         ) : (
           <img
             src={POSTER_SRC}
-            alt="Car polishing and detailing at AutoLuxe"
-            className="h-full w-full object-cover"
+            alt="Car detailing studio"
+            style={{ width: "100%", height: "100%", objectFit: "cover", filter: "grayscale(40%) brightness(0.6)" }}
           />
         )}
-
-        {/* Multi-layer tint for text readability */}
-        <div className="absolute inset-0 bg-[#0A0A0A]/65" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/35 to-[#0A0A0A]/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/85 via-transparent to-[#0A0A0A]/30" />
+        {/* Tints */}
+        <div style={{ position: "absolute", inset: 0, background: "rgba(11,11,11,0.62)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(11,11,11,0.92) 0%, rgba(11,11,11,0.55) 55%, rgba(11,11,11,0.22) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(11,11,11,0.98) 0%, transparent 45%)" }} />
       </div>
 
-      {/* Ambient golden glow — left side */}
-      <div
-        className="pointer-events-none absolute -left-32 top-1/3 z-[1] h-[500px] w-[500px] rounded-full blur-[120px]"
-        style={{ background: "rgba(212,175,55,0.09)" }}
-      />
-      {/* Subtle gold vignette bottom-right */}
-      <div
-        className="pointer-events-none absolute -bottom-20 -right-20 z-[1] h-[340px] w-[340px] rounded-full blur-[100px]"
-        style={{ background: "rgba(212,175,55,0.06)" }}
-      />
+      {/* Silver ambient glow */}
+      <div style={{
+        position: "absolute", top: "25%", left: -120, zIndex: 1,
+        width: 420, height: 420, borderRadius: "50%",
+        background: "rgba(180,180,180,0.07)",
+        filter: "blur(100px)",
+        pointerEvents: "none",
+      }} />
+
+      {/* Live badge */}
+      <div style={{
+        position: "absolute", top: 28, right: 28, zIndex: 3,
+        display: "flex", alignItems: "center", gap: 8,
+        border: "1px solid rgba(192,192,192,0.2)",
+        borderRadius: 2, padding: "8px 14px",
+        background: "rgba(11,11,11,0.5)",
+        backdropFilter: "blur(8px)",
+        opacity: 0,
+        animation: "fadeIn 0.8s ease-out 1s forwards",
+      }}>
+        <div className="hero-badge-dot" />
+        <span style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: 10, fontWeight: 600,
+          letterSpacing: "0.18em", textTransform: "uppercase",
+          color: "rgba(192,192,192,0.75)",
+        }}>Bookings Open</span>
+      </div>
 
       {/* ── Content ── */}
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10">
-        <div className="max-w-2xl">
+      <div style={{
+        position: "relative", zIndex: 2,
+        maxWidth: 1280, width: "100%",
+        margin: "0 auto", padding: "56px 40px 80px",
+      }}>
+        <div style={{ maxWidth: 580 }}>
 
           {/* Eyebrow */}
-          <div
-            className="mb-5 flex items-center gap-3"
-            style={{
-              fontFamily: "'Bai Jamjuree', sans-serif",
-              opacity: 0,
-              animation: "fadeUp 0.8s ease-out 0.1s forwards",
-            }}
-          >
-            <span className="h-px w-10 bg-[#D4AF37]" />
-            <span
-              style={{
-                fontSize: 12,
-                fontWeight: 500,
-                letterSpacing: "0.25em",
-                textTransform: "uppercase",
-                color: "#D4AF37",
-              }}
-            >
+          <div style={{
+            display: "flex", alignItems: "center", gap: 12,
+            marginBottom: 18,
+            opacity: 0,
+            animation: "fadeUp 0.7s ease-out 0.1s forwards",
+          }}>
+            <span style={{ width: 36, height: 1, background: "#8C8C8C", display: "block", flexShrink: 0 }} />
+            <span style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: 11, fontWeight: 600,
+              letterSpacing: "0.28em", textTransform: "uppercase",
+              color: "#8C8C8C",
+            }}>
               Detailing &amp; Performance Studio
             </span>
           </div>
 
-          {/* Headline */}
-          <h1
-            style={{
-              fontFamily: "'Bai Jamjuree', sans-serif",
-              position: "relative",
-              overflow: "hidden",
-            }}
-            className="text-4xl font-semibold leading-[1.08] text-[#F5F5F0] sm:text-5xl lg:text-[3.4rem]"
-          >
-            <span
-              style={{
-                display: "block",
-                opacity: 0,
-                animation: "fadeUp 0.8s ease-out 0.25s forwards",
-              }}
-            >
-              Every car has a finish
+          {/* H1 */}
+          <h1 style={{
+            fontFamily: "'Bebas Neue', sans-serif",
+            fontSize: "clamp(52px, 7vw, 76px)",
+            lineHeight: 0.95,
+            color: "#F0F0F0",
+            margin: "0 0 22px",
+            letterSpacing: "0.01em",
+          }}>
+            <span style={{ display: "block", opacity: 0, animation: "fadeUp 0.75s ease-out 0.22s forwards" }}>
+              Every car has
             </span>
-            <span
-              style={{
-                display: "block",
-                opacity: 0,
-                animation: "fadeUp 0.8s ease-out 0.4s forwards",
-              }}
-            >
-              it was{" "}
-              <span style={{ position: "relative", display: "inline-block", color: "#D4AF37" }}>
-                built to wear
-                {!reducedMotion && (
-                  <span
-                    aria-hidden="true"
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      bottom: 0,
-                      left: "-100%",
-                      width: "100%",
-                      transform: "skewX(-20deg)",
-                      background:
-                        "linear-gradient(to right, transparent, rgba(255,255,255,0.65), transparent)",
-                      animation: "sweep 1.4s ease-in 1.1s forwards",
-                    }}
-                  />
-                )}
-              </span>
-              .
+            <span style={{ display: "block", opacity: 0, animation: "fadeUp 0.75s ease-out 0.38s forwards" }}>
+              a finish it was{" "}
+              <span className="hero-accent-word">built to wear</span>.
             </span>
           </h1>
 
-          {/* Subhead */}
-          <p
-            className="mt-6 max-w-md text-[15.5px] leading-relaxed text-[#F5F5F0]/70 sm:text-base"
-            style={{
-              opacity: 0,
-              animation: "fadeUp 0.8s ease-out 0.55s forwards",
-            }}
-          >
+          {/* Subheading — Jost */}
+          <p style={{
+            fontFamily: "'Jost', sans-serif",
+            fontSize: 15.5, fontWeight: 300,
+            lineHeight: 1.75,
+            color: "rgba(240,240,240,0.60)",
+            maxWidth: 400,
+            margin: "0 0 34px",
+            opacity: 0,
+            animation: "fadeUp 0.75s ease-out 0.54s forwards",
+          }}>
             From ceramic coating to full restoration, body kits to remapped
             performance — we bring out the car underneath the car.
           </p>
 
           {/* CTAs */}
-          <div
-            className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center"
-            style={{
-              fontFamily: "'Bai Jamjuree', sans-serif",
-              opacity: 0,
-              animation: "fadeUp 0.8s ease-out 0.7s forwards",
-            }}
-          >
-            <a
-              href="#contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-[14.5px] font-medium tracking-wide text-[#0A0A0A] transition-all duration-300"
-              style={{
-                background: "#D4AF37",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = "0 0 30px rgba(212,175,55,0.5)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
+          <div style={{
+            display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap",
+            opacity: 0,
+            animation: "fadeUp 0.75s ease-out 0.68s forwards",
+          }}>
+            <a href="#contact" className="hero-btn-primary">
               Book a Service
-              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <svg className="hero-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
             </a>
-            <a
-              href="#services"
-              className="inline-flex items-center justify-center rounded-full border px-7 py-3.5 text-[14.5px] font-medium tracking-wide text-[#F5F5F0] transition-all duration-300 hover:border-[#D4AF37] hover:text-[#D4AF37]"
-              style={{ borderColor: "rgba(245,245,240,0.25)" }}
-            >
+            <a href="#services" className="hero-btn-ghost">
               Explore Services
             </a>
           </div>
 
-          {/* Stat strip */}
-          <div
-            className="mt-12 flex flex-wrap gap-x-10 gap-y-4 border-t border-white/10 pt-6"
-            style={{
-              opacity: 0,
-              animation: "fadeUp 0.8s ease-out 0.85s forwards",
-            }}
-          >
+          {/* Stats */}
+          <div style={{
+            display: "flex", gap: 36, flexWrap: "wrap",
+            marginTop: 44,
+            paddingTop: 28,
+            borderTop: "1px solid rgba(255,255,255,0.09)",
+            opacity: 0,
+            animation: "fadeUp 0.75s ease-out 0.82s forwards",
+          }}>
             {STATS.map((stat) => (
               <div key={stat.label}>
-                <div
-                  className="text-2xl font-semibold text-[#D4AF37]"
-                  style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
-                >
+                <div style={{
+                  fontFamily: "'Bebas Neue', sans-serif",
+                  fontSize: 32, color: "#C0C0C0", lineHeight: 1,
+                }}>
                   {stat.value}
                 </div>
-                <div className="mt-0.5 text-[12px] text-[#F5F5F0]/50">
+                <div style={{
+                  fontFamily: "'Jost', sans-serif",
+                  fontSize: 11.5, fontWeight: 400,
+                  color: "rgba(240,240,240,0.38)",
+                  marginTop: 5, letterSpacing: "0.04em",
+                }}>
                   {stat.label}
                 </div>
               </div>
@@ -234,25 +299,24 @@ export default function Hero() {
       <a
         href="#about"
         aria-label="Scroll to next section"
-        className="absolute bottom-7 left-1/2 z-10 -translate-x-1/2 text-[#F5F5F0]/50 transition-colors duration-300 hover:text-[#D4AF37]"
+        style={{
+          position: "absolute", bottom: 28, left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 3,
+          display: "flex", flexDirection: "column", alignItems: "center", gap: 7,
+          textDecoration: "none",
+          opacity: 0,
+          animation: "fadeIn 1s ease-out 1.4s forwards",
+        }}
       >
-        <ChevronDown className="h-5 w-5 animate-bounce" />
+        <span style={{
+          fontFamily: "'DM Sans', sans-serif",
+          fontSize: 9.5, fontWeight: 600,
+          letterSpacing: "0.25em", textTransform: "uppercase",
+          color: "rgba(255,255,255,0.28)",
+        }}>Scroll</span>
+        <div className="hero-scroll-line" />
       </a>
-
-      {/* Keyframes */}
-      <style>{`
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(18px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes sweep {
-          from { left: -100%; }
-          to   { left: 130%; }
-        }
-        @media (prefers-reduced-motion: reduce) {
-          [style*="animation"] { animation: none !important; opacity: 1 !important; }
-        }
-      `}</style>
     </section>
   );
 }
