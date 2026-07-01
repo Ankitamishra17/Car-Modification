@@ -52,10 +52,10 @@ const SERVICES = [
 ];
 
 const NAV_LINKS = [
-  { label: "Home",      href: "/home" },
-  { label: "About Us",  href: "/about" },
-  { label: "Services",  href: null },       // has dropdown
-  { label: "Blog",      href: "/blog" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: null }, // has dropdown
+  { label: "Blog", href: "/blog" },
   { label: "Franchise", href: "/franchise" },
   { label: "Contact", href: "/contact" },
 ];
@@ -457,7 +457,12 @@ export default function Header() {
                       aria-expanded={mobileSvcOpen}
                     >
                       Services
-                      <ChevronDown className="chevron" size={16} strokeWidth={2.5} color="#D4AF37" />
+                      <ChevronDown
+                        className="chevron"
+                        size={16}
+                        strokeWidth={2.5}
+                        color="#D4AF37"
+                      />
                     </button>
                     <div
                       className={`hdr-mob-sub${mobileSvcOpen ? " open" : ""}`}
