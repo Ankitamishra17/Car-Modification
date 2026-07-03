@@ -4,25 +4,25 @@ const CONTACT = [
   {
     icon: Phone,
     label: "Call us",
-    value: "+91 98765 43210",
-    href: "tel:+919876543210",
+    value: "+968 9123 4567",
+    href: "tel:+96891234567",
   },
   {
     icon: Mail,
     label: "Email us",
-    value: "hello@autoluxe.in",
-    href: "mailto:hello@autoluxe.in",
+    value: "hello@autoluxe.om",
+    href: "mailto:hello@autoluxe.om",
   },
   {
     icon: MapPin,
     label: "Find a studio",
-    value: "12 cities across India",
+    value: "6 cities across Oman",
     href: "#locations",
   },
 ];
 
 const TRUST = [
-  { value: "12+", label: "Studios across India" },
+  { value: "6+", label: "Studios across Oman" },
   { value: "8 yrs", label: "In the industry" },
   { value: "40,000+", label: "Cars protected" },
 ];
@@ -75,7 +75,7 @@ export default function CTA() {
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#booking"
-                className="cta-title group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#8C8C8C] px-7 py-3.5 text-[14.5px] font-semibold tracking-wide text-[#0B0B0B] transition-all duration-300 hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8C8C8C]"
+                className="cta-title group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-br from-[#E4E4E4] to-[#A8A8A8] px-7 py-3.5 text-[14.5px] font-semibold tracking-wide text-[#0B0B0B] shadow-[0_8px_24px_-8px_rgba(200,200,200,0.35)] transition-all duration-300 hover:shadow-[0_12px_32px_-8px_rgba(200,200,200,0.5)] hover:-translate-y-0.5 hover:from-white hover:to-[#C0C0C0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8C8C8C]"
               >
                 Book a free consultation
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -97,7 +97,7 @@ export default function CTA() {
               <a
                 key={label}
                 href={href}
-                className="group flex items-center gap-5 rounded-xl border border-[#3D3D3D] bg-[#1A1A1A] px-6 py-5 transition-all duration-300 hover:border-[#8C8C8C] hover:bg-[#202020]"
+                className="group flex items-center gap-5 rounded-xl border border-[#3D3D3D] bg-[#1A1A1A] px-6 py-5 shadow-[0_4px_20px_-8px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#8C8C8C] hover:bg-[#202020] hover:shadow-[0_10px_28px_-8px_rgba(0,0,0,0.6)]"
               >
                 {/* Icon circle */}
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-[#3D3D3D] bg-[#2A2A2A] transition-colors duration-300 group-hover:border-[#8C8C8C] group-hover:bg-[#2A2A2A]">
@@ -122,7 +122,7 @@ export default function CTA() {
         </div>
 
         {/* Trust strip */}
-        <div className="mt-16 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#3D3D3D] sm:mt-20">
+        <div className="mt-16 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#3D3D3D] shadow-[0_20px_50px_-24px_rgba(0,0,0,0.7)] sm:mt-20">
           {TRUST.map(({ value, label }, i) => (
             <div
               key={label}

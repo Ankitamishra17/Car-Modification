@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-
 const VIDEO_SRC = "/video.mp4";
 const POSTER_SRC =
   "https://assets.mixkit.co/videos/47834/47834-thumb-360-3.jpg";
@@ -65,13 +64,18 @@ export default function Hero() {
           font-family: 'DM Sans', sans-serif;
           font-size: 13.5px; font-weight: 600;
           letter-spacing: 0.04em;
-          padding: 13px 28px; border-radius: 3px;
-          background: #C0C0C0;
+          padding: 14px 30px; border-radius: 3px;
+          background: linear-gradient(135deg, #E4E4E4 0%, #B8B8B8 100%);
           color: #0B0B0B;
           border: none; cursor: pointer; text-decoration: none;
-          transition: background 0.2s, transform 0.2s;
+          box-shadow: 0 8px 24px -8px rgba(200,200,200,0.35);
+          transition: box-shadow 0.25s, transform 0.25s, background 0.25s;
         }
-        .hero-btn-primary:hover { background: #D8D8D8; transform: translateY(-1px); }
+        .hero-btn-primary:hover {
+          background: linear-gradient(135deg, #F5F5F5 0%, #D0D0D0 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 12px 32px -8px rgba(200,200,200,0.5);
+        }
         .hero-btn-primary:hover .hero-arrow { transform: translateX(3px); }
         .hero-arrow { transition: transform 0.2s; }
 
@@ -80,27 +84,14 @@ export default function Hero() {
           font-family: 'DM Sans', sans-serif;
           font-size: 13.5px; font-weight: 500;
           letter-spacing: 0.04em;
-          padding: 12px 28px; border-radius: 3px;
-          background: transparent;
-          color: rgba(240,240,240,0.72);
+          padding: 13px 30px; border-radius: 3px;
+          background: rgba(255,255,255,0.02);
+          color: rgba(240,240,240,0.75);
           border: 1px solid rgba(255,255,255,0.18);
           cursor: pointer; text-decoration: none;
-          transition: border-color 0.2s, color 0.2s;
+          transition: border-color 0.2s, color 0.2s, background 0.2s;
         }
-        .hero-btn-ghost:hover { border-color: #8C8C8C; color: #C0C0C0; }
-
-        .hero-accent-word {
-          color: #C0C0C0;
-          position: relative;
-          display: inline-block;
-        }
-        .hero-accent-word::after {
-          content: '';
-          position: absolute;
-          left: 0; right: 0; bottom: 3px;
-          height: 2px;
-          background: linear-gradient(to right, #8C8C8C, transparent);
-        }
+        .hero-btn-ghost:hover { border-color: #8C8C8C; color: #E4E4E4; background: rgba(255,255,255,0.05); }
 
         .hero-scroll-line {
           width: 1px; height: 36px;
@@ -113,32 +104,35 @@ export default function Hero() {
           animation: dotPulse 2s ease-in-out infinite;
           flex-shrink: 0;
         }
+
+        .hero-stats { display: flex; gap: 36px; flex-wrap: wrap; }
+        .hero-stat { display: flex; flex-direction: column; gap: 4px; }
+        .hero-stat-value {
+          font-family: 'Bebas Neue', sans-serif;
+          font-size: 34px; line-height: 1; letter-spacing: 0.01em;
+          color: #F0F0F0;
+          background: linear-gradient(135deg, #F5F5F5 0%, #9A9A9A 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .hero-stat-label {
+          font-family: 'DM Sans', sans-serif;
+          font-size: 10.5px; font-weight: 500;
+          letter-spacing: 0.08em; text-transform: uppercase;
+          color: rgba(240,240,240,0.42);
+        }
+
+        @media (max-width: 520px) {
+          .hero-stats { gap: 24px; }
+          .hero-stat-value { font-size: 27px; }
+        }
       `}</style>
 
       {/* ── Background ── */}
       <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
-        {!reducedMotion ? (
-          <video
-            ref={videoRef}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              filter: "grayscale(40%) brightness(0.6)",
-              opacity: loaded ? 1 : 0,
-              transition: "opacity 1.4s ease",
-            }}
-            src={VIDEO_SRC}
-            poster={POSTER_SRC}
-            autoPlay
-            muted
-            loop
-            playsInline
-            onLoadedData={() => setLoaded(true)}
-          />
-        ) : (
-          <img
-            src={POSTER_SRC}
+        <img
+            src="/banner/2.png"
             alt="Car detailing studio"
             style={{
               width: "100%",
@@ -147,11 +141,7 @@ export default function Hero() {
               filter: "grayscale(40%) brightness(0.6)",
             }}
           />
-        )}
-        {/* Tints */}
-        {/* <div style={{ position: "absolute", inset: 0, background: "rgba(11,11,11,0.62)" }} /> */}
-        {/* <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to right, rgba(11,11,11,0.92) 0%, rgba(11,11,11,0.55) 55%, rgba(11,11,11,0.22) 100%)" }} /> */}
-        {/* <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(11,11,11,0.98) 0%, transparent 45%)" }} /> */}
+
       </div>
 
       {/* Silver ambient glow */}
@@ -164,7 +154,7 @@ export default function Hero() {
           width: 420,
           height: 420,
           borderRadius: "50%",
-          background: "rgba(180,180,180,0.07)",
+          background: "rgba(180,180,180,0.09)",
           filter: "blur(100px)",
           pointerEvents: "none",
         }}
@@ -259,21 +249,13 @@ export default function Hero() {
               margin: 0,
             }}
           >
-            <span style={{ color: "transparent", display: "block",WebkitTextStroke: "2px rgba(255,255,255,0.8)", }}>
+            <span style={{ color: "transparent", display: "block", WebkitTextStroke: "2px rgba(255,255,255,0.85)" }}>
               EVERY CAR HAS
             </span>
-
-            <span
-              style={{
-                WebkitTextStroke: "2px rgba(255,255,255,0.8)",
-                color: "transparent",
-                display: "block",
-              }}
-            >
+            <span style={{ color: "#F0F0F0", display: "block" }}>
               A FINISH IT WAS
             </span>
-
-            <span style={{ color: "transparent", display: "block",WebkitTextStroke: "2px rgba(255,255,255,0.8)", }}>
+            <span style={{ color: "transparent", display: "block", WebkitTextStroke: "2px rgba(255,255,255,0.85)" }}>
               BUILT TO WEAR
             </span>
           </h1>
@@ -285,9 +267,9 @@ export default function Hero() {
               fontSize: 15.5,
               fontWeight: 300,
               lineHeight: 1.75,
-              color: "rgba(240,240,240,0.60)",
+              color: "rgba(240,240,240,0.62)",
               maxWidth: 400,
-              margin: "0 0 34px",
+              margin: "22px 0 34px",
               opacity: 0,
               animation: "fadeUp 0.75s ease-out 0.54s forwards",
             }}
@@ -331,17 +313,22 @@ export default function Hero() {
 
           {/* Stats */}
           <div
+            className="hero-stats"
             style={{
-              display: "flex",
-              gap: 36,
-              flexWrap: "wrap",
               marginTop: 44,
               paddingTop: 28,
               borderTop: "1px solid rgba(255,255,255,0.09)",
               opacity: 0,
               animation: "fadeUp 0.75s ease-out 0.82s forwards",
             }}
-          ></div>
+          >
+            {STATS.map((s) => (
+              <div className="hero-stat" key={s.label}>
+                <span className="hero-stat-value">{s.value}</span>
+                <span className="hero-stat-label">{s.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
