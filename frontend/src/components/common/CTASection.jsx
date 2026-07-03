@@ -37,7 +37,7 @@ export default function BottomCTA({
   };
 
   return (
-    <section className="bg-[#0B0B0B] border-t border-[#3D3D3D]/30 px-4 py-16 sm:px-8 lg:px-16 relative overflow-hidden">
+    <section className="bg-[#0B0B0B] border-t border-[#3D3D3D]/30 px-4 py-16 sm:px-8 lg:px-18 relative overflow-hidden">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
@@ -46,11 +46,11 @@ export default function BottomCTA({
         .cta-sub     { font-family: 'Jost', sans-serif; }
       `}</style>
 
-      <div className="mx-auto max-w-7xl relative z-10 bg-[#141414] border border-[#3D3D3D]/40">
-        <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+      <div className="mx-auto max-w-7xl  relative z-10 bg-[#141414] border border-[#3D3D3D]/40">
+        <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch ">
           
           {/* LEFT SIDE: Full Height Visual Banner Image Section */}
-          <div className="col-span-1 lg:col-span-5 relative min-h-[250px] sm:min-h-[350px] lg:min-h-full overflow-hidden group">
+          <div className="col-span-1 lg:col-span-5 relative min-h-[250px] sm:min-h-[350px]  lg:min-h-full overflow-hidden group">
             <img 
               src="https://i.pinimg.com/1200x/00/7b/8b/007b8b156fbca8623030243e22ad5371.jpg" 
               alt="Studio Showcase Showcase" 

@@ -45,7 +45,7 @@ export default function Process({
         .proc-sub     { font-family: 'Jost', sans-serif; }
       `}</style>
 
-      <div className="mx-auto max-w-7xl relative z-10">
+      <div className="mx-auto max-w-7xl relative z-10 px-12">
 
         {/* Dynamic Header Block */}
         <div className="mb-24 space-y-4 max-w-5xl">

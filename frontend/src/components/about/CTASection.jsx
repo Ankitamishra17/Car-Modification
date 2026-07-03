@@ -35,7 +35,7 @@ export default function CTA() {
       `}</style>
 
       {/* Overlay — slightly darker to suit greyscale palette */}
-      <div className="absolute inset-0 bg-black/75" />
+      <div className="absolute inset-0 bg-black/75 px-15" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-5 text-center">
         <span className="cta2-title text-[#8C8C8C] uppercase tracking-[4px] text-sm font-semibold">
