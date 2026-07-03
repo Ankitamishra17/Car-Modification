@@ -130,7 +130,7 @@ export default function Blog() {
           border: 1px solid rgba(192,192,192,0.25);
           border-radius: 3px; padding: 10px 20px;
           text-decoration: none;
-          transition: background 0.25s, color 0.25s;
+          transition: background 0.25s, color 0.25s, border-color 0.25s;
           white-space: nowrap; align-self: flex-end; flex-shrink: 0;
         }
         .blog-viewall:hover { background: #C0C0C0; color: #0B0B0B; border-color: #C0C0C0; }
@@ -158,7 +158,8 @@ export default function Blog() {
           border-radius: 8px; overflow: hidden;
           display: flex; flex-direction: column;
           position: relative;
-          transition: border-color 0.3s, transform 0.3s;
+          box-shadow: 0 4px 20px -10px rgba(0,0,0,0.5);
+          transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
           cursor: pointer;
         }
         .blog-card::before {
@@ -167,7 +168,11 @@ export default function Blog() {
           background: linear-gradient(to right, transparent, #8C8C8C, transparent);
           opacity: 0; transition: opacity 0.3s; z-index: 2;
         }
-        .blog-card:hover { border-color: rgba(192,192,192,0.28); transform: translateY(-5px); }
+        .blog-card:hover {
+          border-color: rgba(192,192,192,0.28);
+          transform: translateY(-6px);
+          box-shadow: 0 20px 40px -16px rgba(0,0,0,0.65);
+        }
         .blog-card:hover::before { opacity: 1; }
         .blog-card.featured { grid-row: span 2; }
 

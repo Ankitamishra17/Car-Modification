@@ -21,7 +21,7 @@ const IMAGES = {
 };
 
 const INVESTMENT = [
-  { icon: Banknote, value: "₹18–35L", label: "Total investment" },
+  { icon: Banknote, value: "OMR 18K–35K", label: "Total investment" },
   { icon: Ruler, value: "1,200+ sq.ft", label: "Minimum space" },
   { icon: TrendingUp, value: "18–24 mo", label: "Avg. payback period" },
 ];
@@ -74,7 +74,7 @@ export default function Franchise() {
   return (
     <section
       id="franchise"
-      className="relative bg-[#0B0B0B] py-12 sm:py-16 lg:py-24 overflow-hidden"
+      className="relative bg-[#1A1A1A] py-12 sm:py-16 lg:py-24 overflow-hidden"
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
@@ -144,7 +144,7 @@ export default function Franchise() {
           </div>
 
           {/* sm+ grid */}
-          <div className="hidden sm:grid sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#3D3D3D]">
+          <div className="hidden sm:grid sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#3D3D3D] shadow-[0_20px_50px_-24px_rgba(0,0,0,0.7)]">
             {INVESTMENT.map(({ icon: Icon, value, label }, i) => (
               <div
                 key={label}
@@ -207,7 +207,7 @@ export default function Franchise() {
             {BENEFITS.map(({ icon: Icon, image, title, desc }) => (
               <div
                 key={title}
-                className="group overflow-hidden rounded-xl border border-[#3D3D3D] bg-[#1A1A1A] transition-all duration-300 hover:border-[#8C8C8C]"
+                className="group overflow-hidden rounded-xl border border-[#3D3D3D] bg-[#1A1A1A] shadow-[0_4px_20px_-8px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 hover:border-[#8C8C8C] hover:shadow-[0_16px_36px_-12px_rgba(0,0,0,0.65)]"
               >
                 <div className="relative h-36 w-full overflow-hidden">
                   <img
@@ -297,7 +297,7 @@ export default function Franchise() {
           </p>
           <a
             href="#contact"
-            className="fr-title group inline-flex w-full items-center justify-center gap-2 rounded-full bg-[#8C8C8C] px-6 py-3 text-[14px] font-semibold tracking-wide text-[#0B0B0B] transition-all duration-300 hover:bg-white sm:w-auto sm:px-7 sm:py-3.5 sm:text-[14.5px]"
+            className="fr-title group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-br from-[#E4E4E4] to-[#A8A8A8] px-6 py-3 text-[14px] font-semibold tracking-wide text-[#0B0B0B] shadow-[0_8px_24px_-8px_rgba(200,200,200,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:from-white hover:to-[#C0C0C0] hover:shadow-[0_12px_32px_-8px_rgba(200,200,200,0.5)] sm:w-auto sm:px-7 sm:py-3.5 sm:text-[14.5px]"
           >
             Enquire About Franchise
             <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
