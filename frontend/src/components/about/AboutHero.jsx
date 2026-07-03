@@ -14,13 +14,13 @@ import { motion } from "framer-motion";
  *
  * Type system:
  *   Main heading    Bebas Neue
- *   Title/labels     DM Sans
- *   Sub/body text    Jost
+ *   Title/labels    DM Sans
+ *   Sub/body text   Jost
  */
 
 export default function AboutHero() {
   return (
-    <section className="relative w-full bg-[#0B0B0B] pt-32 pb-20 px-5 sm:px-8 lg:px-10 overflow-hidden">
+    <section className="relative w-full min-h-screen overflow-hidden bg-[#0B0B0B]">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
@@ -30,47 +30,106 @@ export default function AboutHero() {
       `}</style>
 
       {/* Silver hairline top */}
-      <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-[#8C8C8C] to-transparent opacity-50" />
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#8C8C8C] to-transparent opacity-50" />
 
+      {/* Background image */}
       <div className="absolute inset-0">
         <img
           src="/banner/8.png"
-          alt="Contact Us"
-          className="h-full w-full object-cover "
+          alt="Our Story"
+          className="h-full w-full object-cover"
         />
-        {/* Left-side readability gradient over the image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0B]/85 via-[#0B0B0B]/40 to-transparent" />
       </div>
 
-      <div className="pointer-events-none relative z-10 flex min-h-[420px] items-center justify-start overflow-hidden">
-        <div className="max-w-2xl">
+      {/* Ghost background text — desktop only */}
+      <div className="pointer-events-none absolute inset-0 hidden lg:flex items-center justify-end overflow-hidden pr-10">
+        <h2
+          className="ah-heading text-[16rem] leading-none uppercase tracking-wider opacity-[0.05] select-none"
+          style={{
+            WebkitTextStroke: "1px rgba(255,255,255,0.25)",
+            color: "transparent",
+          }}
+        >
+          STORY
+        </h2>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl items-center px-5 sm:px-8 lg:px-10">
+        <div className="max-w-3xl py-32">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-left"
           >
-            <p className="ah-title text-[#B8B8B8] text-sm font-semibold tracking-widest uppercase mb-6">
-              La Nostra Storia
-            </p>
+            {/* Eyebrow */}
+            <div className="mb-6 flex items-center gap-3">
+              <span className="h-px w-12 bg-[#8C8C8C]" />
+              <span className="ah-title text-[4px] sm:text-sm font-semibold uppercase tracking-[0.35em] text-[#B8B8B8]">
+                La Nostra Storia
+              </span>
+            </div>
 
-            <h1 className="ah-heading text-[4rem] md:text-[5.5rem] leading-[0.95] text-white mb-8">
-              OUR <span className="text-[#8C8C8C]">STORY</span>
+            {/* Heading */}
+            <h1 className="ah-heading uppercase leading-[0.9] whitespace-nowrap">
+              <span className="text-[2.5rem] sm:text-[4.5rem] lg:text-[6rem] text-white">
+                OUR{" "}
+              </span>
+              <span
+                className="text-[2.5rem] sm:text-[4.5rem] lg:text-[6rem]"
+                style={{
+                  WebkitTextStroke: "2px #8C8C8C",
+                  color: "transparent",
+                }}
+              >
+                STORY
+              </span>
             </h1>
 
-            <p className="ah-sub text-lg font-light text-[#B8B8B8] max-w-2xl leading-relaxed">
+            {/* Description */}
+            <p className="ah-sub mt-5 max-w-lg text-sm sm:text-base lg:text-lg font-light leading-relaxed text-[#B8B8B8]">
               Every remarkable automobile tells a story. Our purpose is to
-              preserve it.
+              preserve it — through craftsmanship, precision, and an unwavering
+              respect for the machines that define generations.
             </p>
           </motion.div>
 
-          {/* Decorative line */}
+          {/* Decorative line + stats */}
           <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="mt-16 h-px w-full origin-left bg-gradient-to-r from-[#3D3D3D] via-[#3D3D3D] to-transparent"
-          />
+            className="mt-12 sm:mt-16"
+          >
+            <div className="h-px w-full origin-left bg-gradient-to-r from-[#3D3D3D] via-[#3D3D3D] to-transparent" />
+
+            <div className="mt-8 flex flex-wrap gap-x-10 gap-y-6">
+              <div>
+                <p className="ah-heading text-3xl sm:text-4xl text-white">
+                  15+
+                </p>
+                <p className="ah-title text-[11px] sm:text-xs uppercase tracking-widest text-[#B8B8B8] mt-1">
+                  Years of Excellence
+                </p>
+              </div>
+              <div>
+                <p className="ah-heading text-3xl sm:text-4xl text-white">
+                  2K+
+                </p>
+                <p className="ah-title text-[11px] sm:text-xs uppercase tracking-widest text-[#B8B8B8] mt-1">
+                  Vehicles Restored
+                </p>
+              </div>
+              <div>
+                <p className="ah-heading text-3xl sm:text-4xl text-white">
+                  100%
+                </p>
+                <p className="ah-title text-[11px] sm:text-xs uppercase tracking-widest text-[#B8B8B8] mt-1">
+                  Craftsmanship
+                </p>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>

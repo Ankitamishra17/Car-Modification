@@ -20,7 +20,7 @@ import { ArrowRight } from "lucide-react";
 export default function CTA() {
   return (
     <section
-      className="relative bg-fixed bg-center bg-cover py-32"
+      className="relative w-full bg-fixed bg-center bg-cover py-32"
       style={{
         backgroundImage:
           "url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=2070')",
@@ -63,41 +63,6 @@ export default function CTA() {
               className="group-hover:translate-x-1 transition"
             />
           </a>
-        </div>
-      </div>
-
-      {/* Bottom Contact Strip */}
-      <div className="relative z-10 mt-24 border-t border-[#3D3D3D] bg-[#0B0B0B]/85 backdrop-blur-sm">
-        <div className="max-w-7xl mx-auto px-5 py-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
-            <div>
-              <h4 className="cta2-title text-[#8C8C8C] font-semibold text-sm uppercase tracking-widest">
-                Call Us
-              </h4>
-              <p className="cta2-sub text-white mt-2 font-light">+91 98765 43210</p>
-            </div>
-
-            <div>
-              <h4 className="cta2-title text-[#8C8C8C] font-semibold text-sm uppercase tracking-widest">
-                Email Us
-              </h4>
-              <p className="cta2-sub text-white mt-2 font-light">info@yourdomain.com</p>
-            </div>
-
-            <div>
-              <h4 className="cta2-title text-[#8C8C8C] font-semibold text-sm uppercase tracking-widest">
-                Visit Us
-              </h4>
-              <p className="cta2-sub text-white mt-2 font-light">Delhi NCR, India</p>
-            </div>
-
-            <div>
-              <h4 className="cta2-title text-[#8C8C8C] font-semibold text-sm uppercase tracking-widest">
-                Working Hours
-              </h4>
-              <p className="cta2-sub text-white mt-2 font-light">Mon - Sat : 9AM - 7PM</p>
-            </div>
-          </div>
         </div>
       </div>
     </section>
