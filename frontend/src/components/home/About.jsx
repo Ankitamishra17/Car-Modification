@@ -1,21 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-/**
- * About — CarStyle / Dettagli Auto (Editorial Timeline redesign v2)
- *
- * Colors:
- *   Primary BG      #0B0B0B
- *   Primary Text    #F0F0F0
- *   Silver Accent   #C0C0C0
- *   Muted Silver    #8C8C8C
- *
- * Font system (consistent across site):
- *   Main heading    Bebas Neue
- *   Labels/CTAs     DM Sans
- *   Body/sub        Jost
- */
-
 const IMG_MAIN =
   "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=1000";
 
