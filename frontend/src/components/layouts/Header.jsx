@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronDown, Menu, X, Phone } from "lucide-react";
-
+import { SERVICES } from "../../data/services";
 /**
  * Header — AutoLuxe
  * Palette (fixed):
@@ -23,63 +23,63 @@ import { ChevronDown, Menu, X, Phone } from "lucide-react";
  * Smooth scroll: handleNav() scrolls to section & closes mobile menu.
  */
 
-const SERVICES = [
-  {
-    name: "PPF ",
-    href: "/services/ppf-ceramic-coating",
-    desc: "Paint protection that keeps the shine permanent.",
-  },
+// const SERVICES = [
+//   {
+//     name: "PPF ",
+//     href: "/services/ppf-ceramic-coating",
+//     desc: "Paint protection that keeps the shine permanent.",
+//   },
   
 
-   {
-    name: "Ceramic Coating",
-    href: "/services/ppf-ceramic-coating",
-    desc: "Paint protection that keeps the shine permanent.",
-  },
+//    {
+//     name: "Ceramic Coating",
+//     href: "/services/ppf-ceramic-coating",
+//     desc: "Paint protection that keeps the shine permanent.",
+//   },
   
   
-  {
-    name: "Refurbish Vehicle ",
-    href: "/services/refurbish-vehicle-restore",
-    desc: "Bring tired metal back to factory-fresh form.",
-  },
-  {
-    name:"Restore",
-    href: "/services/refurbish-vehicle-restore",
-    desc: "Bring tired metal back to factory-fresh form.",
-  },
+//   {
+//     name: "Refurbish Vehicle ",
+//     href: "/services/refurbish-vehicle-restore",
+//     desc: "Bring tired metal back to factory-fresh form.",
+//   },
+//   {
+//     name:"Restore",
+//     href: "/services/refurbish-vehicle-restore",
+//     desc: "Bring tired metal back to factory-fresh form.",
+//   },
 
-  {
-    name: "Upholstery ",
-    href: "/services/upholstery-paints",
-    desc: "Interior trim and full-body paint, done by hand.",
-  },
-  {
-    name:"Paints",
-    href: "/services/upholstery-paints",
-    desc: "Interior trim and full-body paint, done by hand.",
-  },
-  {
-    name: "Car Body Kits ",
-    href: "/services/car-body-kits-exhaust",
-    desc: "Aggressive lines and a sound to match.",
-  },
-  {
-    name:"Exhaust",
-    href: "/services/car-body-kits-exhaust",
-    desc: "Aggressive lines and a sound to match."
-  },
-  {
-    name: "Tuning & Mapping",
-    href: "/services/tuning-mapping-accessories",
-    desc: "Tuned performance, fitted exactly to you.",
-  },
-  {
-    name:"Accessories",
-    href: "/services/tuning-mapping-accessories",
-    desc: "Tuned performance, fitted exactly to you.",
-  }
-];
+//   {
+//     name: "Upholstery ",
+//     href: "/services/upholstery-paints",
+//     desc: "Interior trim and full-body paint, done by hand.",
+//   },
+//   {
+//     name:"Paints",
+//     href: "/services/upholstery-paints",
+//     desc: "Interior trim and full-body paint, done by hand.",
+//   },
+//   {
+//     name: "Car Body Kits ",
+//     href: "/services/car-body-kits-exhaust",
+//     desc: "Aggressive lines and a sound to match.",
+//   },
+//   {
+//     name:"Exhaust",
+//     href: "/services/car-body-kits-exhaust",
+//     desc: "Aggressive lines and a sound to match."
+//   },
+//   {
+//     name: "Tuning & Mapping",
+//     href: "/services/tuning-mapping-accessories",
+//     desc: "Tuned performance, fitted exactly to you.",
+//   },
+//   {
+//     name:"Accessories",
+//     href: "/services/tuning-mapping-accessories",
+//     desc: "Tuned performance, fitted exactly to you.",
+//   }
+// ];
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
