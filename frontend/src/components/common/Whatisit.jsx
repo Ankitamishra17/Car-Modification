@@ -46,7 +46,7 @@ export default function WhatIsIt({ subtitle, heading, tabs }) {
   };
 
   return (
-    <section className="bg-[#0B0B0B] px-4 py-24 sm:px-8 lg:px-16 relative overflow-hidden">
+    <section className="bg-[#0B0B0B] px-4 py-10 sm:px-8 lg:px-16 relative overflow-hidden">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
