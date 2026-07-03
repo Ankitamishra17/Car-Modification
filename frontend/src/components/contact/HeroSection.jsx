@@ -6,13 +6,11 @@ export default function ContactHero() {
       {/* Background */}
       <div className="absolute inset-0">
         <img
-          src="/banner/8.png"
+          src="/banner/9.png"
           alt="Contact Us"
-          className="h-full w-full object-cover opacity-25"
+          className="h-full w-full object-cover "
         />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0B] via-[#0B0B0B]/90 to-[#0B0B0B]/50" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-[#0B0B0B]/40" />
       </div>
 
       {/* Huge Ghost Text */}
@@ -59,10 +57,10 @@ export default function ContactHero() {
           </h1>
 
           {/* Description */}
-          <p className="mt-8 max-w-2xl font-[Jost] text-base sm:text-lg leading-relaxed text-[#B8B8B8]">
+          <p className="mt-8 max-w-xl font-[Jost] text-sm sm:text-lg leading-relaxed text-[#B8B8B8]">
             Got a project in mind? Whether it's protection, performance,
-            restoration, detailing, or a complete custom build, our specialists
-            are ready to transform your vision into reality.
+            {/* restoration, detailing, or a complete custom build, our specialists
+            are ready to transform your vision into reality. */}
           </p>
 
           {/* CTA Buttons */}
