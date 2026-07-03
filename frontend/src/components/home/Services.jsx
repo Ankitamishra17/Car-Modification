@@ -115,7 +115,7 @@ export default function Services() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
-        .svc-inner { max-width: 960px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+        .svc-inner { max-width: 1280px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
 
         .svc-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
         .svc-eyebrow-line { width: 32px; height: 1px; background: #8C8C8C; flex-shrink: 0; }

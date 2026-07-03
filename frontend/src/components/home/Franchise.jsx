@@ -104,7 +104,7 @@ export default function Franchise() {
       {/* Ambient glow */}
       <div className="pointer-events-none absolute -right-32 top-20 h-[300px] w-[300px] rounded-full bg-[#8C8C8C]/[0.08] blur-[100px] sm:h-[420px] sm:w-[420px]" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-8 lg:px-10">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-8 lg:px-8">
         {/* ── Heading + studio image ── */}
         <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
           <div>
