@@ -22,8 +22,8 @@ function App() {
         <Route path="/blog" element={<Blogs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/franchise" element={<Franchise />}/>
-        <Route path="/services/services_1_2" element={<Services_1_2 />} />
-        <Route path="/services/services_3_4" element={<Services_3_4 />} />
+        <Route path="/services/ppf-ceramic-coating" element={<Services_1_2 />} />
+        <Route path="/services/refurbish-vehicle-restore" element={<Services_3_4 />} />
       </Routes>
       <Footer />
     </>
