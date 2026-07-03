@@ -357,15 +357,8 @@ export default function Header() {
             aria-label="AutoLuxe home"
             onClick={(e) => handleNav(e, "#home")}
           >
-            <div className="hdr-logo-shield">
-              <ShieldIcon />
-            </div>
-            <div className="hdr-logo-text">
-              <div className="hdr-logo-name">
-                AUTO<span>LUXE</span>
-              </div>
-              <div className="hdr-logo-tagline">Beyond The Luxury</div>
-            </div>
+            <img src="/logo.png" alt="AutoLuxe logo" className="h-20 w-35" />
+           
           </a>
 
           {/* Desktop Nav */}
