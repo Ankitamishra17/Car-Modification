@@ -26,7 +26,7 @@ import { Search, ArrowRight, ChevronDown } from "lucide-react";
 // Direct CDN links from Pexels (royalty-free, no attribution needed for web use)
 const VIDEO_SOURCES = [
   {
-    src: "https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4",
+    src: "",
     type: "video/mp4",
   },
   {

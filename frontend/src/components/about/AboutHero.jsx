@@ -32,34 +32,46 @@ export default function AboutHero() {
       {/* Silver hairline top */}
       <div className="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-[#8C8C8C] to-transparent opacity-50" />
 
-      <div className="mx-auto max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center"
-        >
-          <p className="ah-title text-[#B8B8B8] text-sm font-semibold tracking-widest uppercase mb-6">
-            La Nostra Storia
-          </p>
-
-          <h1 className="ah-heading text-[4rem] md:text-[5.5rem] leading-[0.95] text-white mb-8">
-            OUR <span className="text-[#8C8C8C]">STORY</span>
-          </h1>
-
-          <p className="ah-sub text-lg font-light text-[#B8B8B8] max-w-2xl mx-auto leading-relaxed">
-            Every remarkable automobile tells a story. Our purpose is to
-            preserve it.
-          </p>
-        </motion.div>
-
-        {/* Decorative line */}
-        <motion.div
-          initial={{ scaleX: 0 }}
-          animate={{ scaleX: 1 }}
-          transition={{ delay: 0.4, duration: 0.8 }}
-          className="mt-16 h-px bg-gradient-to-r from-transparent via-[#3D3D3D] to-transparent"
+      <div className="absolute inset-0">
+        <img
+          src="/banner/8.png"
+          alt="Contact Us"
+          className="h-full w-full object-cover "
         />
+        {/* Left-side readability gradient over the image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0B]/85 via-[#0B0B0B]/40 to-transparent" />
+      </div>
+
+      <div className="pointer-events-none relative z-10 flex min-h-[420px] items-center justify-start overflow-hidden">
+        <div className="max-w-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
+          >
+            <p className="ah-title text-[#B8B8B8] text-sm font-semibold tracking-widest uppercase mb-6">
+              La Nostra Storia
+            </p>
+
+            <h1 className="ah-heading text-[4rem] md:text-[5.5rem] leading-[0.95] text-white mb-8">
+              OUR <span className="text-[#8C8C8C]">STORY</span>
+            </h1>
+
+            <p className="ah-sub text-lg font-light text-[#B8B8B8] max-w-2xl leading-relaxed">
+              Every remarkable automobile tells a story. Our purpose is to
+              preserve it.
+            </p>
+          </motion.div>
+
+          {/* Decorative line */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="mt-16 h-px w-full origin-left bg-gradient-to-r from-[#3D3D3D] via-[#3D3D3D] to-transparent"
+          />
+        </div>
       </div>
     </section>
   );
