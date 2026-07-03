@@ -123,7 +123,7 @@ export const SERVICES = [
    processSection: {
     subtitle: "How it works",
 
-    heading: "WHAT HAPPENS TO YOUR CAR.",
+    heading: "WHAT HAPPENS TO YOUR CAR?",
 
     process: [
       {
