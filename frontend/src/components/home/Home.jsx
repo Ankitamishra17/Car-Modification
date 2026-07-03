@@ -132,7 +132,7 @@ export default function Hero() {
       {/* ── Background ── */}
       <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
         <img
-            src="/banner/2.png"
+            src="/banner/banner.png"
             alt="Car detailing studio"
             style={{
               width: "100%",
@@ -249,15 +249,15 @@ export default function Hero() {
               margin: 0,
             }}
           >
-            <span style={{ color: "transparent", display: "block", WebkitTextStroke: "2px rgba(255,255,255,0.85)" }}>
+            <span style={{ color: "#F0F0F0", display: "block", WebkitTextStroke: "2px rgba(255,255,255,0.85)" }}>
               EVERY CAR HAS
             </span>
             <span style={{ color: "#F0F0F0", display: "block" }}>
               A FINISH IT WAS
             </span>
-            <span style={{ color: "transparent", display: "block", WebkitTextStroke: "2px rgba(255,255,255,0.85)" }}>
+            {/* <span style={{ color: "transparent", display: "block", WebkitTextStroke: "2px rgba(255,255,255,0.85)" }}>
               BUILT TO WEAR
-            </span>
+            </span> */}
           </h1>
 
           {/* Subheading — Jost */}

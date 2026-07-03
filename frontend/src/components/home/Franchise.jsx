@@ -8,7 +8,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-
 const IMAGES = {
   studio:
     "https://images.unsplash.com/photo-1632823469850-2f77dd9c7f93?q=80&w=1600&auto=format&fit=crop",
@@ -70,6 +69,27 @@ const PROCESS = [
   },
 ];
 
+function SectionLabel({ eyebrow, title, sub }) {
+  return (
+    <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <div className="fr-title mb-3 flex items-center gap-3">
+          <span className="h-px w-10 bg-[#8C8C8C]" />
+          <span className="text-[11px] font-medium uppercase tracking-[0.25em] text-[#B8B8B8] sm:text-[12px]">
+            {eyebrow}
+          </span>
+        </div>
+        <h3 className="fr-heading text-2xl text-white sm:text-3xl">{title}</h3>
+      </div>
+      {sub && (
+        <p className="fr-sub max-w-xs text-[13px] font-light leading-relaxed text-[#B8B8B8] sm:text-right sm:text-[13.5px]">
+          {sub}
+        </p>
+      )}
+    </div>
+  );
+}
+
 export default function Franchise() {
   return (
     <section
@@ -106,7 +126,7 @@ export default function Franchise() {
             </p>
           </div>
 
-          {/* Studio image — tighter aspect on mobile */}
+          {/* Studio image */}
           <div className="relative aspect-[16/9] overflow-hidden rounded-xl border border-[#3D3D3D] sm:rounded-2xl lg:aspect-[16/11]">
             <img
               src={IMAGES.studio}
@@ -124,9 +144,8 @@ export default function Franchise() {
           </div>
         </div>
 
-        {/* ── Investment highlights ── */}
-        {/* Mobile: horizontal scroll row | sm+: 3-col grid */}
-        <div className="mt-8 sm:mt-10">
+        {/* ── Floating investment plate — bridges hero and body ── */}
+        <div className="relative z-10 mt-6 sm:-mt-10 sm:mt-0">
           {/* Mobile scrollable row */}
           <div className="flex gap-3 overflow-x-auto pb-1 sm:hidden">
             {INVESTMENT.map(({ icon: Icon, value, label }) => (
@@ -135,24 +154,25 @@ export default function Franchise() {
                 className="flex min-w-[140px] flex-col gap-2 rounded-xl border border-[#3D3D3D] bg-[#1A1A1A] p-4"
               >
                 <Icon className="h-5 w-5 text-[#8C8C8C]" strokeWidth={1.75} />
-                <div className="fr-heading text-2xl text-white">
-                  {value}
-                </div>
+                <div className="fr-heading text-2xl text-white">{value}</div>
                 <div className="fr-sub text-[12px] text-[#B8B8B8]">{label}</div>
               </div>
             ))}
           </div>
 
-          {/* sm+ grid */}
-          <div className="hidden sm:grid sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#3D3D3D] shadow-[0_20px_50px_-24px_rgba(0,0,0,0.7)]">
+          {/* sm+ glass plate, floats over the seam between hero and body */}
+          <div className="hidden sm:grid sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#3D3D3D] bg-[#3D3D3D] shadow-[0_24px_60px_-20px_rgba(0,0,0,0.75)] backdrop-blur-sm">
             {INVESTMENT.map(({ icon: Icon, value, label }, i) => (
               <div
                 key={label}
-                className={`flex flex-col items-start gap-3 bg-[#1A1A1A] p-7 sm:p-8 ${
-                  i !== 0 ? "border-l border-[#3D3D3D]" : ""
-                }`}
+                className="flex flex-col items-start gap-3 bg-[#141414]/95 p-7 sm:p-8"
               >
-                <Icon className="h-6 w-6 text-[#8C8C8C]" strokeWidth={1.75} />
+                <div className="flex w-full items-center justify-between">
+                  <Icon className="h-6 w-6 text-[#8C8C8C]" strokeWidth={1.75} />
+                  <span className="fr-title text-[10px] font-medium tracking-[0.14em] text-[#8C8C8C]/50">
+                    0{i + 1}
+                  </span>
+                </div>
                 <div className="fr-heading text-3xl text-white sm:text-4xl">
                   {value}
                 </div>
@@ -163,17 +183,19 @@ export default function Franchise() {
         </div>
 
         {/* ── Benefits ── */}
-        <div className="mt-12 sm:mt-16">
-          <h3 className="fr-heading text-2xl text-white sm:text-3xl">
-            WHAT YOU GET
-          </h3>
+        <div className="mt-14 sm:mt-20">
+          <SectionLabel
+            eyebrow="What's Included"
+            title="WHAT YOU GET"
+            sub="Everything a new studio needs to open with confidence, on day one."
+          />
 
-          {/* Mobile: horizontal scroll | sm+: 3-col grid */}
+          {/* Mobile: horizontal scroll */}
           <div className="mt-5 flex gap-4 overflow-x-auto pb-1 sm:hidden">
-            {BENEFITS.map(({ icon: Icon, image, title, desc }) => (
+            {BENEFITS.map(({ icon: Icon, image, title, desc }, i) => (
               <div
                 key={title}
-                className="group min-w-[260px] overflow-hidden rounded-xl border border-[#3D3D3D] bg-[#1A1A1A]"
+                className="group relative min-w-[260px] overflow-hidden rounded-xl border border-[#3D3D3D] bg-[#1A1A1A]"
               >
                 <div className="relative h-32 w-full overflow-hidden">
                   <img
@@ -184,11 +206,11 @@ export default function Franchise() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/20 to-transparent" />
                   <div className="absolute bottom-3 left-3 flex h-9 w-9 items-center justify-center rounded-full border border-[#8C8C8C]/50 bg-[#0B0B0B]/80">
-                    <Icon
-                      className="h-4 w-4 text-[#8C8C8C]"
-                      strokeWidth={1.75}
-                    />
+                    <Icon className="h-4 w-4 text-[#8C8C8C]" strokeWidth={1.75} />
                   </div>
+                  <span className="fr-heading absolute right-3 top-3 text-lg text-white/25">
+                    0{i + 1}
+                  </span>
                 </div>
                 <div className="p-4">
                   <h4 className="fr-sub text-[14px] font-medium text-white">
@@ -204,10 +226,10 @@ export default function Franchise() {
 
           {/* sm+ grid */}
           <div className="mt-6 hidden gap-5 sm:grid sm:grid-cols-3">
-            {BENEFITS.map(({ icon: Icon, image, title, desc }) => (
+            {BENEFITS.map(({ icon: Icon, image, title, desc }, i) => (
               <div
                 key={title}
-                className="group overflow-hidden rounded-xl border border-[#3D3D3D] bg-[#1A1A1A] shadow-[0_4px_20px_-8px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 hover:border-[#8C8C8C] hover:shadow-[0_16px_36px_-12px_rgba(0,0,0,0.65)]"
+                className="group relative overflow-hidden rounded-xl border border-[#3D3D3D] bg-[#1A1A1A] shadow-[0_4px_20px_-8px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-1 hover:border-[#8C8C8C] hover:shadow-[0_16px_36px_-12px_rgba(0,0,0,0.65)]"
               >
                 <div className="relative h-36 w-full overflow-hidden">
                   <img
@@ -218,11 +240,11 @@ export default function Franchise() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/20 to-transparent" />
                   <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-full border border-[#8C8C8C]/50 bg-[#0B0B0B]/80 backdrop-blur-sm transition-colors duration-300 group-hover:border-[#8C8C8C]">
-                    <Icon
-                      className="h-4 w-4 text-[#8C8C8C]"
-                      strokeWidth={1.75}
-                    />
+                    <Icon className="h-4 w-4 text-[#8C8C8C]" strokeWidth={1.75} />
                   </div>
+                  <span className="fr-heading absolute right-4 top-3 text-2xl text-white/20">
+                    0{i + 1}
+                  </span>
                 </div>
                 <div className="p-5">
                   <h4 className="fr-sub text-[15px] font-medium text-white">
@@ -238,26 +260,28 @@ export default function Franchise() {
         </div>
 
         {/* ── Process ── */}
-        <div className="mt-12 sm:mt-16">
-          <h3 className="fr-heading text-2xl text-white sm:text-3xl">
-            HOW IT WORKS
-          </h3>
+        <div className="mt-14 sm:mt-20">
+          <SectionLabel
+            eyebrow="The Journey"
+            title="HOW IT WORKS"
+            sub="From first enquiry to opening day — a guided path, start to finish."
+          />
 
-          {/* Mobile: vertical stacked list with left border accent */}
-          <div className="mt-5 flex flex-col gap-0 sm:hidden">
+          {/* Mobile: vertical stacked list with connecting line + node dots */}
+          <div className="mt-6 flex flex-col gap-0 sm:hidden">
             {PROCESS.map((item, i) => (
               <div key={item.step} className="flex gap-4 pb-6">
-                {/* Left: step number + connecting line */}
                 <div className="flex flex-col items-center">
-                  <div className="fr-heading text-xl text-[#8C8C8C]/60 leading-none">
-                    {item.step}
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full border border-[#8C8C8C]/40 bg-[#1A1A1A]">
+                    <span className="fr-heading text-[11px] text-[#8C8C8C]">
+                      {item.step}
+                    </span>
                   </div>
                   {i < PROCESS.length - 1 && (
-                    <div className="mt-2 flex-1 w-px bg-[#3D3D3D]" />
+                    <div className="mt-2 flex-1 w-px bg-gradient-to-b from-[#3D3D3D] to-transparent" />
                   )}
                 </div>
-                {/* Right: content */}
-                <div className="pb-2">
+                <div className="pb-2 pt-0.5">
                   <h4 className="fr-sub text-[14px] font-medium text-white">
                     {item.title}
                   </h4>
@@ -269,29 +293,32 @@ export default function Franchise() {
             ))}
           </div>
 
-          {/* sm+: horizontal 4-col grid */}
-          <div className="mt-6 hidden sm:grid sm:grid-cols-4 gap-0">
-            {PROCESS.map((item, i) => (
-              <div key={item.step} className="relative pr-4">
-                <div className="fr-heading text-4xl text-[#8C8C8C]/40">
-                  {item.step}
+          {/* sm+: horizontal rail with node markers connecting each step */}
+          <div className="relative mt-10 hidden sm:block">
+            <div className="absolute left-0 right-0 top-[15px] h-px bg-[#3D3D3D]" />
+            <div className="grid sm:grid-cols-4 gap-8">
+              {PROCESS.map((item) => (
+                <div key={item.step} className="relative pr-2">
+                  <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full border border-[#8C8C8C]/50 bg-[#1A1A1A]">
+                    <span className="h-1.5 w-1.5 rounded-full bg-[#8C8C8C]" />
+                  </div>
+                  <span className="fr-heading absolute right-2 top-[-6px] text-4xl text-[#8C8C8C]/[0.15]">
+                    {item.step}
+                  </span>
+                  <h4 className="fr-sub mt-4 text-[15px] font-medium text-white">
+                    {item.title}
+                  </h4>
+                  <p className="fr-sub mt-2 text-[13.5px] font-light leading-relaxed text-[#B8B8B8]">
+                    {item.desc}
+                  </p>
                 </div>
-                <h4 className="fr-sub mt-3 text-[15px] font-medium text-white">
-                  {item.title}
-                </h4>
-                <p className="fr-sub mt-2 text-[13.5px] font-light leading-relaxed text-[#B8B8B8]">
-                  {item.desc}
-                </p>
-                {i < PROCESS.length - 1 && (
-                  <div className="absolute right-0 top-[18px] hidden h-px w-4 bg-[#3D3D3D] sm:block" />
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
 
         {/* ── CTA ── */}
-        <div className="mt-10 flex flex-col gap-4 border-t border-[#2A2A2A] pt-8 sm:mt-14 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+        <div className="mt-10 flex flex-col gap-4 border-t border-[#2A2A2A] pt-8 sm:mt-16 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
           <p className="fr-sub text-[13.5px] font-light leading-relaxed text-[#B8B8B8] sm:max-w-md sm:text-[14.5px]">
             Limited territories open per city to protect franchisee margins.
           </p>
