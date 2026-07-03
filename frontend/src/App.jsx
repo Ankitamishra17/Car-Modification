@@ -8,7 +8,7 @@ import About from './pages/About'
 import Blogs from './pages/Blogs'
 import Contact from './pages/Contact'
 import Franchise from './pages/Franchise'
-import Services_1_2 from './pages/services/Service_1_2'
+import Services_1_2 from './pages/services/Sercice_1_2'
 import Services_3_4 from './pages/services/Service_3_4'
 
 function App() {

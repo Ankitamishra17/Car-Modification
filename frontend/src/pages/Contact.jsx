@@ -1,14 +1,16 @@
-import ContactHero from "../components/contact/Home";
+import ContactForm from "../components/contact/ContactForm";
 import ContactLocation from "../components/contact/Location";
+import HeroSection from "../components/contact/HeroSection";
 
 
 export default function Contact() {
   return (
     <>
-    <section id="contact">
-    <ContactHero />
+    
+    <HeroSection/>
+    <ContactForm />
     <ContactLocation />
-    </section>
+   
     </>
   );
 }
