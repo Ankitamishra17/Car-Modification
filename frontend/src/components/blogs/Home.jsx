@@ -24,21 +24,9 @@ import { Search, ArrowRight, ChevronDown } from "lucide-react";
 
 // ── Pexels free stock video — cinematic car / detailing ──
 // Direct CDN links from Pexels (royalty-free, no attribution needed for web use)
-const VIDEO_SOURCES = [
-  {
-    src: "https://videos.pexels.com/video-files/3045163/3045163-uhd_2560_1440_25fps.mp4",
-    type: "video/mp4",
-  },
-  {
-    // Smaller fallback (SD) in case UHD is slow
-    src: "https://videos.pexels.com/video-files/3045163/3045163-hd_1920_1080_25fps.mp4",
-    type: "video/mp4",
-  },
-];
 
-// Poster shown while video loads
-const VIDEO_POSTER =
-  "https://images.pexels.com/videos/3045163/pictures/preview-0.jpg";
+
+
 
 const CATEGORIES = ["All", "PPF & Coatings", "Restoration", "Tuning", "Body Kits", "Tips & Tricks"];
 
@@ -50,18 +38,16 @@ export default function BlogHero() {
     <section className="relative min-h-[88vh] overflow-hidden bg-[#0B0B0B] flex flex-col">
 
       {/* ── Background video ── */}
-      <video
-        className="absolute inset-0 h-full w-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-        poster={VIDEO_POSTER}
-      >
-        {VIDEO_SOURCES.map((s) => (
-          <source key={s.src} src={s.src} type={s.type} />
-        ))}
-      </video>
+      <div className="absolute inset-0">
+        <img
+          src="/banner/9.png"
+          alt="Contact Us"
+          className="h-full w-full object-cover "
+        />
+
+      </div>
+        
+      
 
       {/* ── Overlays on top of video ── */}
       <div className="pointer-events-none absolute inset-0">
@@ -187,21 +173,7 @@ export default function BlogHero() {
           everything in between — written by the people who do the work.
         </p>
 
-        {/* Stats strip */}
-        <div className="bh-anim-4 mt-8 flex flex-wrap items-center gap-6 sm:gap-10">
-          {[
-            { value: "120+", label: "Articles" },
-            { value: "8",    label: "Categories" },
-            { value: "Weekly", label: "New posts" },
-          ].map(({ value, label }, i) => (
-            <div key={i} className="flex items-baseline gap-2">
-              <span className="bh-heading text-2xl text-[#8C8C8C] sm:text-3xl">
-                {value}
-              </span>
-              <span className="bh-title text-[12px] text-[#B8B8B8]/70 uppercase tracking-widest">{label}</span>
-            </div>
-          ))}
-        </div>
+        
 
         {/* Search bar */}
         <div className="bh-anim-5 mt-8">
