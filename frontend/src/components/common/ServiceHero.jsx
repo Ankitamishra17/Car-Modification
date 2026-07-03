@@ -42,18 +42,18 @@ export default function ServiceHero({
         transition={{ duration: 1.4, ease: "easeOut" }}
         src={image}
         alt={title}
-        className="absolute inset-0 w-full h-full object-cover grayscale"
+        className="absolute inset-0 w-full h-full object-cover "
       />
 
       {/* Cinematic Graduated Overlays for Legibility */}
-      <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/75 to-transparent z-[1]" />
+      {/* <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/75 to-transparent z-[1]" /> */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0B]/90 via-[#0B0B0B]/40 to-transparent z-[1]" />
 
       {/* Decorative Grid Line Anchor */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#3D3D3D]/30 to-transparent z-[2]" />
 
       <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-8 lg:px-16 pb-16 pt-36 sm:pb-24 flex flex-col justify-end">
-        <div className="max-w-4xl space-y-6">
+        <div className="max-w-4xl -mt-18 space-y-6">
           
           {/* Breadcrumb Eyebrow Layout */}
           <motion.div 
@@ -75,7 +75,7 @@ export default function ServiceHero({
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="sh-heading text-[3.25rem] sm:text-[5.5rem] lg:text-[7rem] leading-[0.9] text-white tracking-tight uppercase"
           >
-            {title}{" "}
+            {title}{" "} <br className="hidden md:block" />
             <span 
               className="inline-block" 
               style={{ WebkitTextStroke: "1px #8C8C8C", color: "transparent" }}
