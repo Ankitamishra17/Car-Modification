@@ -1,21 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 
-/**
- * Blog — CarStyle / Dettagli Auto
- *
- * Colors:
- *   Primary BG      #0B0B0B
- *   Primary Text    #F0F0F0
- *   Silver Accent   #C0C0C0
- *   Muted Silver    #8C8C8C
- *
- * Font system (consistent across site):
- *   Main heading    Bebas Neue
- *   Labels/CTAs     DM Sans
- *   Body/sub        Jost
- */
-
 const BLOGS = [
   {
     id: 1,

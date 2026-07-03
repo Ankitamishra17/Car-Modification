@@ -1,19 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 
-/**
- * Hero — CarStyle
- *
- * Colors:
- *   Primary BG      #0B0B0B
- *   Primary Text    #F0F0F0
- *   Silver Accent   #C0C0C0
- *   Muted Silver    #8C8C8C
- *
- * Font system (same as TopBar & CategoryShowcase):
- *   Main heading    Bebas Neue
- *   Labels/CTAs     DM Sans
- *   Body/sub        Jost
- */
 
 const VIDEO_SRC = "/video.mp4";
 const POSTER_SRC =

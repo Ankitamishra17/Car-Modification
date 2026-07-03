@@ -1,46 +1,31 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
 
-/**
- * Services — CarStyle / Dettagli Auto
- *
- * Colors:
- *   Primary BG      #0B0B0B
- *   Primary Text    #F0F0F0
- *   Silver Accent   #C0C0C0
- *   Muted Silver    #8C8C8C
- *
- * Font system (consistent across site):
- *   Main heading    Bebas Neue
- *   Labels/CTAs     DM Sans
- *   Body/sub        Jost
- */
-
 const SERVICES = [
   {
     id: 1,
-    title: "PPF / Ceramic Coating",
+    title: "PPF ",
     desc: "Paint protection that keeps the shine permanent. Our nano-ceramic technology bonds to your paintwork at a molecular level, delivering hydrophobic protection that lasts years.",
     tag: "Protection",
     img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1200&q=80&auto=format&fit=crop",
   },
   {
     id: 2,
-    title: "Refurbish & Restore",
+    title: "Restore",
     desc: "Bring tired metal back to factory-fresh form. From rust treatment to full panel restoration, we return every vehicle to its original glory — or better.",
     tag: "Restoration",
     img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80&auto=format&fit=crop",
   },
   {
     id: 3,
-    title: "Upholstery / Paints",
+    title: "Upholstery",
     desc: "Interior trim and full-body paint, done by hand. Custom leather stitching, premium paint correction and colour-matched refinishing for a truly bespoke result.",
     tag: "Interior & Exterior",
     img: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80&auto=format&fit=crop",
   },
   {
     id: 4,
-    title: "Car Body Kits / Exhaust",
+    title: "Car Body Kits",
     desc: "Aggressive lines and a sound to match. We design and fit custom body kits, splitters, diffusers and exhaust systems that transform your vehicle's presence.",
     tag: "Styling",
     img: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1200&q=80&auto=format&fit=crop",
@@ -73,6 +58,35 @@ const SERVICES = [
     tag: "Detailing",
     img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop",
   },
+  {
+    id:9,
+    title: "Exhaust",
+    desc: "Exhaust cleaning and restoration. We remove soot, rust and corrosion to restore the original colour and function of your exhaust system.",
+    tag: "Maintenance",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 10,
+    title: " Paints",
+    desc: "We use the highest quality paints and materials to ensure a perfect finish. We offer a range of services including paint correction, touch ups and full repaints.",
+    tag: "Paint",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 11,
+    title: "Refurbish ",
+    desc: "We offer a range of services including paint correction, touch ups and full repaints.",
+    tag: "Refurbish",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop",
+  },
+  {
+    id: 12,
+    title: "Ceramic Coating",
+    desc: "We offer a range of services including paint correction, touch ups and full repaints.",
+    tag: "Ceramic Coating",
+    img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop",
+  }
+
 ];
 
 const AUTO_INTERVAL = 3400;

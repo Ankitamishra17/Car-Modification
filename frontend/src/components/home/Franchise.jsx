@@ -8,23 +8,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-/**
- * Franchise — AutoLuxe
- *
- * Palette (fixed):
- *   Primary BG      #0B0B0B
- *   Secondary BG    #1A1A1A
- *   Section BG      #2A2A2A
- *   Borders         #3D3D3D
- *   Primary Text    #FFFFFF
- *   Secondary Text  #B8B8B8
- *   Accent          #8C8C8C (metallic silver)
- *
- * Type system:
- *   Main heading    Bebas Neue
- *   Title/labels     DM Sans
- *   Sub/body text    Jost
- */
 
 const IMAGES = {
   studio:
