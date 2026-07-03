@@ -52,8 +52,8 @@ export default function ServiceHero({
       {/* Decorative Grid Line Anchor */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#3D3D3D]/30 to-transparent z-[2]" />
 
-      <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-8 lg:px-16 pb-16 pt-36 sm:pb-24 flex flex-col justify-end">
-        <div className="max-w-4xl -mt-18 space-y-6">
+      <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-8 lg:px-16 pb-16 pt-10 sm:pb-40 flex flex-col justify-end">
+        <div className="max-w-4xl space-y-6">
           
           {/* Breadcrumb Eyebrow Layout */}
           <motion.div 
