@@ -194,13 +194,13 @@ export default function Header() {
           position: relative; display: flex; align-items: center; gap: 4px;
           padding: 6px 10px; font-size: 13.5px; font-weight: 600;
           letter-spacing: 0.06em; text-transform: uppercase;
-          color: #B8B8B8; text-decoration: none;
+          color: #ffffff; text-decoration: none;
           background: none; border: none; cursor: pointer;
           transition: color 0.25s; white-space: nowrap; font-family: inherit;
         }
         .hdr-nav-link::after {
           content: ''; position: absolute; bottom: 0; left: 10px; right: 10px;
-          height: 2px; background: #8C8C8C;
+          height: 2px; background: #B8B8B8;
           transform: scaleX(0); transform-origin: center;
           transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
         }

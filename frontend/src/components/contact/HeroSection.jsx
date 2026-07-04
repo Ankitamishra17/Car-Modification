@@ -6,13 +6,17 @@ export default function ContactHero() {
       {/* Background */}
       <div className="absolute inset-0">
         <img
-          src="/banner/9.png"
+          src="/banner/3.png"
           alt="Contact Us"
           className="h-full w-full object-cover "
         />
-
       </div>
-
+      <div className="absolute inset-0 bg-[#0B0B0B]/60" />
+      {/* Silver gradient — left side depth */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0B]/80 via-[#0B0B0B]/30 to-transparent" />
+      {/* Subtle silver radial glow top-left */}
+      <div className="absolute -left-20 top-0 h-[400px] w-[400px] rounded-full bg-[#8C8C8C]/10 blur-[100px]" />
+     
       {/* Huge Ghost Text */}
       <div className="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden">
         <h2
@@ -52,8 +56,6 @@ export default function ContactHero() {
             >
               SOMETHING
             </span>
-
-            
           </h1>
 
           {/* Description */}
@@ -83,8 +85,6 @@ export default function ContactHero() {
               Book Consultation
             </a>
           </div>
-
-          
         </div>
       </div>
     </section>

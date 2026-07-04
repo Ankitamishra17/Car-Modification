@@ -40,7 +40,7 @@ export default function BlogHero() {
       {/* ── Background video ── */}
       <div className="absolute inset-0">
         <img
-          src="/banner/9.png"
+          src="/banner/4.png"
           alt="Contact Us"
           className="h-full w-full object-cover "
         />

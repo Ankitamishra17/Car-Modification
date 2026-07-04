@@ -542,7 +542,7 @@ export const SERVICES = [
     description:
       "Complete restoration for classic and modern vehicles.",
 
-    image: "/banner/restore.jpg",
+    image: "/banner/refurbish.png",
 
      whatIsIt: {
       subtitle: "What's the difference",
@@ -715,7 +715,7 @@ export const SERVICES = [
     description:
       "Complete restoration for classic and modern vehicles.",
 
-    image: "/banner/restore.jpg",
+    image: "/banner/upholstery.png",
      whatIsIt: {
       subtitle: "What's the difference",
       heading: "PPF OR CERAMIC — OR BOTH?",
@@ -1059,7 +1059,7 @@ export const SERVICES = [
     description:
       "Complete restoration for classic and modern vehicles.",
 
-    image: "/banner/restore.jpg",
+    image: "/banner/body kits.png",
      whatIsIt: {
       subtitle: "What's the difference",
       heading: "PPF OR CERAMIC — OR BOTH?",
@@ -1575,7 +1575,7 @@ export const SERVICES = [
     description:
       "Complete restoration for classic and modern vehicles.",
 
-    image: "/banner/restore.jpg",
+    image: "/banner/accessories.png",
      whatIsIt: {
       subtitle: "What's the difference",
       heading: "PPF OR CERAMIC — OR BOTH?",
