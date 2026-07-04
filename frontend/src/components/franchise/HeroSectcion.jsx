@@ -189,7 +189,7 @@ export default function FranchisePage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="mt-5 sm:mt-8 text-[#C0C0C0] text-sm sm:text-base md:text-lg max-w-lg border-l-2 border-[#C8102E]/70 pl-4 sm:pl-5"
+              className="mt-5 sm:mt-8 text-[#C0C0C0] text-sm sm:text-base md:text-lg max-w-lg border-l-2 border-white/70 pl-4 sm:pl-5"
               style={body}
             >
               If you're passionate about automobiles and seeking a promising

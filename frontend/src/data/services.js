@@ -188,7 +188,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+968 XXXXXXXX",
+      phone: "+080-77976595",
     },
   },
 
@@ -378,7 +378,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+968 XXXXXXXX",
+      phone: "+080-77976595",
     },
   },
 
@@ -569,7 +569,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+968 XXXXXXXX",
+      phone: "+080-77976595",
     },
   },
 
@@ -759,7 +759,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+968 XXXXXXXX",
+      phone: "+080-77976595",
     },
   },
   {
@@ -948,7 +948,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+968 XXXXXXXX",
+      phone: "+080-77976595",
     },
   },
   {
@@ -1137,7 +1137,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+968 XXXXXXXX",
+      phone: "+080-77976595",
     },
   },
   {
@@ -1306,7 +1306,7 @@ export const SERVICES = [
         "Book a consultation with our styling specialists and discover a bespoke body styling solution tailored to your vehicle.",
       buttonText: "Book a Consultation",
       buttonLink: "/contact",
-      phone: "+968 XXXXXXXX",
+      phone: "+080-77976595",
     },
   },
   {
@@ -1495,7 +1495,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+968 XXXXXXXX",
+      phone: "+080-77976595",
     },
   },
   {
@@ -1684,7 +1684,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+968 XXXXXXXX",
+      phone: "+080-77976595",
     },
   },
   {
@@ -1873,7 +1873,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+968 XXXXXXXX",
+      phone: "+080-77976595",
     },
   },
 ];
