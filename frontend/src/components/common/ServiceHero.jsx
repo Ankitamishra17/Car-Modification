@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /**
  * ServiceHero — AutoLuxe (Premium Redesign)
@@ -54,9 +55,8 @@ export default function ServiceHero({
 
       <div className="relative z-10 mx-auto max-w-7xl w-full px-4 sm:px-8 lg:px-16 pb-16 pt-10 sm:pb-40 flex flex-col justify-end">
         <div className="max-w-4xl space-y-6">
-          
           {/* Breadcrumb Eyebrow Layout */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: -15 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -69,15 +69,15 @@ export default function ServiceHero({
           </motion.div>
 
           {/* Main Title Split */}
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: 35 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="sh-heading text-[3.25rem] sm:text-[5.5rem] lg:text-[7rem] leading-[0.9] text-white tracking-tight uppercase"
           >
-            {title}{" "} <br className="hidden md:block" />
-            <span 
-              className="inline-block" 
+            {title} <br className="hidden md:block" />
+            <span
+              className="inline-block"
               style={{ WebkitTextStroke: "1px #8C8C8C", color: "transparent" }}
             >
               {highlight}
@@ -85,7 +85,7 @@ export default function ServiceHero({
           </motion.h1>
 
           {/* Paragraph Description */}
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -95,30 +95,32 @@ export default function ServiceHero({
           </motion.p>
 
           {/* Premium Call to Actions */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
             className="pt-6 flex flex-wrap gap-4 items-center"
           >
             {/* Primary Filled Metallic Button */}
-            <a 
-              href="#packages" 
+            <Link
+              to="/contact"
               className="sh-title group relative overflow-hidden bg-white text-black text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-none transition-all duration-300 flex items-center gap-2 hover:bg-[#8C8C8C] hover:text-white"
             >
               View Packages
-              <ArrowRight size={14} className="transform transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+              <ArrowRight
+                size={14}
+                className="transform transition-transform duration-300 group-hover:translate-x-1"
+              />
+            </Link>
 
             {/* Ghost Border Custom Button */}
-            <a 
-              href="#contact" 
+            <a
+              href="tel:08077976595"
               className="sh-title relative border border-[#3D3D3D] text-white text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-none transition-all duration-300 bg-transparent hover:border-white hover:bg-white/5"
             >
               Book Free Consultation
             </a>
           </motion.div>
-
         </div>
       </div>
     </section>
