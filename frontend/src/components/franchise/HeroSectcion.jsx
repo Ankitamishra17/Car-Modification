@@ -267,7 +267,7 @@ export default function FranchisePage() {
                   i !== specs.length - 1 ? "border-b border-[#8C8C8C]/20" : ""
                 }`}
               >
-                <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#C8102E] -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+                <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
                 <span
                   className="flex items-center gap-4 text-[#8C8C8C] uppercase text-xs tracking-[0.2em]"
                   style={label}

@@ -337,7 +337,7 @@ export default function About() {
             <p className="da-subtitle">
            Ogni automobile d'eccezione racconta una storia. La nostra missione è preservarla.
             </p>
-            <a href="#services" className="da-cta">
+            <a href="/services/ppf" className="da-cta">
               Explore Our Services
               <svg
                 className="da-arrow"

@@ -1,8 +1,6 @@
-import { useEffect, useRef, useState } from "react";
 
-const VIDEO_SRC = "/video.mp4";
-const POSTER_SRC =
-  "https://assets.mixkit.co/videos/47834/47834-thumb-360-3.jpg";
+
+import { useEffect, useRef, useState } from "react";
 
 const STATS = [
   { value: "5+", label: "Years of excellence" },
@@ -25,9 +23,10 @@ export default function Hero() {
 
   return (
     <section
+      className="hero-section"
       style={{
         position: "relative",
-        minHeight: "92vh",
+        minHeight: "100vh",
         width: "100%",
         display: "flex",
         alignItems: "center",
@@ -127,21 +126,58 @@ export default function Hero() {
           .hero-stats { gap: 24px; }
           .hero-stat-value { font-size: 27px; }
         }
+
+        /* ── Mobile-only overrides ── */
+        .hero-bg-desktop { display: block; }
+        .hero-bg-mobile { display: none; }
+        .hero-subtitle { display: block; }
+
+        @media (max-width: 768px) {
+          .hero-bg-desktop { display: none; }
+          .hero-bg-mobile { display: block; }
+          .hero-subtitle { display: none; }
+          .hero-stats { display: none; }
+          .hero-eyebrow { display: none !important; }
+          .hero-badge { display: none !important; }
+          .hero-btn-ghost { display: none; }
+          .hero-btn-primary {
+            background: transparent;
+            color: #F0F0F0;
+            border: 1px solid rgba(255,255,255,0.4);
+            box-shadow: none;
+          }
+          .hero-btn-primary:hover {
+            background: rgba(255,255,255,0.08);
+            box-shadow: none;
+          }
+          .hero-section { min-height: 100vh; }
+        }
       `}</style>
 
       {/* ── Background ── */}
       <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
         <img
-            src="/banner/banner.png"
-            alt="Car detailing studio"
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              filter: "grayscale(40%) brightness(0.6)",
-            }}
-          />
-
+          className="hero-bg-desktop"
+          src="/banner/banner.png"
+          alt="Car detailing studio"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            filter: "grayscale(40%) brightness(0.6)",
+          }}
+        />
+        <img
+          className="hero-bg-mobile"
+          src="/banner/M BANNER.png"
+          alt="Car detailing studio"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            filter: "grayscale(40%) brightness(0.6)",
+          }}
+        />
       </div>
 
       {/* Silver ambient glow */}
@@ -162,6 +198,7 @@ export default function Hero() {
 
       {/* Live badge */}
       <div
+        className="hero-badge"
         style={{
           position: "absolute",
           top: 28,
@@ -203,13 +240,12 @@ export default function Hero() {
           width: "100%",
           margin: "0 auto",
           padding: "56px 40px 80px",
-                         
-
         }}
       >
-        <div style={{ maxWidth: 580,  fontStyle:"itallic" }}>
+        <div style={{ maxWidth: 580, fontStyle: "itallic" }}>
           {/* Eyebrow */}
           <div
+            className="hero-eyebrow"
             style={{
               display: "flex",
               alignItems: "center",
@@ -250,10 +286,15 @@ export default function Hero() {
               fontSize: "clamp(52px, 7vw, 90px)",
               lineHeight: 0.95,
               margin: 0,
-              
             }}
           >
-            <span style={{ color: "#F0F0F0", display: "block", WebkitTextStroke: "2px rgba(255,255,255,0.85)" }}>
+            <span
+              style={{
+                color: "#F0F0F0",
+                display: "block",
+                WebkitTextStroke: "2px rgba(255,255,255,0.85)",
+              }}
+            >
               EVERY CAR HAS
             </span>
             <span style={{ color: "#F0F0F0", display: "block" }}>
@@ -266,6 +307,7 @@ export default function Hero() {
 
           {/* Subheading — Jost */}
           <p
+            className="hero-subtitle"
             style={{
               fontFamily: "'Jost', sans-serif",
               fontSize: 15.5,
@@ -291,6 +333,7 @@ export default function Hero() {
               flexWrap: "wrap",
               opacity: 0,
               animation: "fadeUp 0.75s ease-out 0.68s forwards",
+              marginTop:8
             }}
           >
             <a href="#contact" className="hero-btn-primary">

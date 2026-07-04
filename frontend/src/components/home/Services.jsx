@@ -69,7 +69,11 @@ const SERVICES = [
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1], delay } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1], delay },
+  },
 });
 
 // ===== 3D tilt config =====
@@ -86,13 +90,18 @@ export default function Services() {
 
   const tags = useMemo(() => {
     const seen = [];
-    SERVICES.forEach((s) => { if (!seen.includes(s.tag)) seen.push(s.tag); });
+    SERVICES.forEach((s) => {
+      if (!seen.includes(s.tag)) seen.push(s.tag);
+    });
     return ["All", ...seen];
   }, []);
 
   const filtered = useMemo(
-    () => (activeTag === "All" ? SERVICES : SERVICES.filter((s) => s.tag === activeTag)),
-    [activeTag]
+    () =>
+      activeTag === "All"
+        ? SERVICES
+        : SERVICES.filter((s) => s.tag === activeTag),
+    [activeTag],
   );
 
   const pad = (n) => String(n).padStart(2, "0");
@@ -115,7 +124,9 @@ export default function Services() {
     const el = trackRef.current;
     if (!el) return;
     const card = el.querySelector(".svc-card");
-    const step = card ? card.getBoundingClientRect().width + 20 : el.clientWidth * 0.8;
+    const step = card
+      ? card.getBoundingClientRect().width + 20
+      : el.clientWidth * 0.8;
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
@@ -146,7 +157,14 @@ export default function Services() {
   }, []);
 
   return (
-    <section style={{ background: "#1A1A1A", position: "relative", overflow: "hidden", padding: "100px 0 110px" }}>
+    <section
+      style={{
+        background: "#1A1A1A",
+        position: "relative",
+        overflow: "hidden",
+        padding: "100px 0 110px",
+      }}
+    >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
@@ -159,7 +177,7 @@ export default function Services() {
           column-gap: 48px; align-items: end;
           margin-bottom: 40px;
         }
-        @media (max-width: 900px) { .svc-headrow { grid-template-columns: 1fr; row-gap: 18px; } }
+        @media (max-width: 900px) { .svc-headrow { grid-template-columns: 1fr; row-gap: 18px; margin-bottom: 28px; } }
 
         .svc-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
         .svc-eyebrow-line { width: 32px; height: 1px; background: #8C8C8C; flex-shrink: 0; }
@@ -190,6 +208,7 @@ export default function Services() {
           color: rgba(240,240,240,0.4);
           max-width: 440px; margin: 0 0 4px;
         }
+        @media (max-width: 520px) { .svc-subtitle { font-size: 13px; } }
         .svc-count {
           font-family: 'DM Sans', sans-serif;
           font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em;
@@ -199,10 +218,17 @@ export default function Services() {
 
         /* ===== Filter chips ===== */
         .svc-chips {
-          display: flex; flex-wrap: wrap; gap: 10px;
+          display: flex; flex-wrap: nowrap; gap: 10px;
           margin-bottom: 32px;
           padding-bottom: 28px;
           border-bottom: 1px solid rgba(192,192,192,0.1);
+          overflow-x: auto;
+          scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
+        }
+        .svc-chips::-webkit-scrollbar { display: none; }
+        @media (max-width: 640px) {
+          .svc-chips { flex-wrap: nowrap; margin-bottom: 24px; padding-bottom: 20px; margin-left: -16px; margin-right: -16px; padding-left: 16px; padding-right: 16px; }
         }
         .svc-chip {
           font-family: 'DM Sans', sans-serif;
@@ -211,21 +237,31 @@ export default function Services() {
           color: rgba(240,240,240,0.5);
           background: transparent;
           border: 1px solid rgba(192,192,192,0.18);
-          border-radius: 20px; padding: 8px 16px;
+          border-radius: 0px; padding: 8px 16px;
           cursor: pointer; white-space: nowrap;
+          flex-shrink: 0;
           transition: background 0.2s, border-color 0.2s, color 0.2s;
         }
         .svc-chip:hover { border-color: rgba(192,192,192,0.5); color: #F0F0F0; }
         .svc-chip.active { background: #C0C0C0; border-color: #C0C0C0; color: #0B0B0B; }
 
-        /* ===== Filmstrip ===== */
+        /* ===== Filmstrip wrapper (holds track + floating arrows) ===== */
+        .svc-track-wrap { position: relative; }
+        @media (max-width: 640px) {
+          .svc-track-wrap { margin-left: -16px; margin-right: -16px; }
+        }
+
         .svc-track {
           display: flex; gap: 20px;
           overflow-x: auto; scroll-snap-type: x mandatory;
           padding: 20px 4px 28px;
           scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
         }
         .svc-track::-webkit-scrollbar { display: none; }
+        @media (max-width: 640px) {
+          .svc-track { padding-left: 16px; padding-right: 16px; }
+        }
 
         /* Wrapper gives each card its own 3D perspective context */
         .svc-card-wrap {
@@ -320,13 +356,36 @@ export default function Services() {
           transform: translateZ(20px);
         }
 
+        /* ===== Floating overlay arrows (mobile-focused, sits on track) ===== */
+        .svc-float-arrow {
+          position: absolute; top: 50%; transform: translateY(-50%);
+          width: 38px; height: 38px; border-radius: 4px;
+          border: 1px solid rgba(192,192,192,0.3);
+          background: rgba(11,11,11,0.55);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          color: #F0F0F0;
+          display: none;
+          align-items: center; justify-content: center;
+          cursor: pointer; z-index: 3;
+          transition: background 0.25s, border-color 0.25s, opacity 0.25s;
+        }
+        .svc-float-arrow.left { left: 8px; }
+        .svc-float-arrow.right { right: 8px; }
+        .svc-float-arrow:disabled { opacity: 0; pointer-events: none; }
+        .svc-float-arrow:active { background: #C0C0C0; color: #0B0B0B; }
+
+        @media (max-width: 900px) {
+          .svc-float-arrow { display: flex; }
+        }
+
         /* ===== Controls: progress rail + arrows ===== */
         .svc-controls {
           display: grid; grid-template-columns: 1fr auto;
           align-items: center; gap: 24px;
           margin-top: 28px;
         }
-        @media (max-width: 560px) { .svc-controls { grid-template-columns: 1fr; gap: 16px; } }
+        @media (max-width: 640px) { .svc-controls { grid-template-columns: 1fr; gap: 14px; margin-top: 20px; } }
 
         .svc-rail { position: relative; height: 2px; background: rgba(192,192,192,0.12); border-radius: 2px; }
         .svc-rail-fill {
@@ -336,15 +395,17 @@ export default function Services() {
         }
 
         .svc-navrow { display: flex; align-items: center; gap: 14px; justify-content: flex-end; }
-        @media (max-width: 560px) { .svc-navrow { justify-content: space-between; } }
+        @media (max-width: 640px) { .svc-navrow { justify-content: center; } }
         .svc-counter {
           font-family: 'DM Sans', sans-serif;
           font-size: 12px; font-weight: 600;
           letter-spacing: 0.1em; color: rgba(192,192,192,0.45);
           min-width: 52px; text-align: center;
         }
+
+        /* Hide the bottom round arrow buttons on mobile since floating arrows already handle nav */
         .svc-arrow {
-          width: 40px; height: 40px; border-radius: 50%;
+          width: 40px; height: 40px; border-radius: 4px;
           border: 1px solid rgba(192,192,192,0.25);
           background: rgba(192,192,192,0.04);
           color: #8C8C8C;
@@ -356,25 +417,41 @@ export default function Services() {
         .svc-arrow:hover { background: #C0C0C0; border-color: #C0C0C0; color: #0B0B0B; }
         .svc-arrow:disabled { opacity: 0.3; cursor: default; }
         .svc-arrow:disabled:hover { background: rgba(192,192,192,0.04); border-color: rgba(192,192,192,0.25); color: #8C8C8C; }
+        @media (max-width: 900px) { .svc-arrow { display: none; } }
       `}</style>
 
       <div className="svc-inner">
         {/* Header */}
         <div ref={headRef} className="svc-headrow">
           <div>
-            <motion.div className="svc-eyebrow" variants={fadeUp(0)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
+            <motion.div
+              className="svc-eyebrow"
+              variants={fadeUp(0)}
+              initial="hidden"
+              animate={headInView ? "visible" : "hidden"}
+            >
               <span className="svc-eyebrow-line" />
               <span className="svc-eyebrow-text">What We Offer</span>
             </motion.div>
             <motion.p className="svc-title-ghost" variants={fadeUp(0.06)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
               PREMIUM PROTECTION
             </motion.p>
-            <motion.h2 className="svc-title" variants={fadeUp(0.12)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
+            <motion.h2
+              className="svc-title"
+              variants={fadeUp(0.12)}
+              initial="hidden"
+              animate={headInView ? "visible" : "hidden"}
+            >
               Our <span>Services</span>
             </motion.h2>
           </div>
 
-          <motion.div className="svc-headmeta" variants={fadeUp(0.2)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
+          <motion.div
+            className="svc-headmeta"
+            variants={fadeUp(0.2)}
+            initial="hidden"
+            animate={headInView ? "visible" : "hidden"}
+          >
             <p className="svc-subtitle">
 Dodici discipline. Un solo standard, senza compromessi. Ogni intervento è eseguito con precisione assoluta e nel massimo rispetto dell'automobile.            </p>
             <span className="svc-count"><b>{pad(filtered.length)}</b> services{activeTag !== "All" ? ` — ${activeTag}` : ""}</span>
@@ -382,7 +459,12 @@ Dodici discipline. Un solo standard, senza compromessi. Ogni intervento è esegu
         </div>
 
         {/* Filter chips */}
-        <motion.div className="svc-chips" variants={fadeUp(0.26)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
+        <motion.div
+          className="svc-chips"
+          variants={fadeUp(0.26)}
+          initial="hidden"
+          animate={headInView ? "visible" : "hidden"}
+        >
           {tags.map((t) => (
             <button
               key={t}
@@ -428,17 +510,51 @@ Dodici discipline. Un solo standard, senza compromessi. Ogni intervento è esegu
           {/* Controls */}
           <div className="svc-controls">
             <div className="svc-rail">
-              <div className="svc-rail-fill" style={{ width: `${Math.max(6, progress * 100)}%` }} />
+              <div
+                className="svc-rail-fill"
+                style={{ width: `${Math.max(6, progress * 100)}%` }}
+              />
             </div>
             <div className="svc-navrow">
-              <span className="svc-counter">{pad(Math.round(progress * (filtered.length - 1)) + 1)} / {pad(filtered.length)}</span>
-              <button className="svc-arrow" onClick={() => scrollByCards(-1)} disabled={progress <= 0.01} aria-label="Scroll left">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <span className="svc-counter">
+                {pad(Math.round(progress * (filtered.length - 1)) + 1)} /{" "}
+                {pad(filtered.length)}
+              </span>
+              <button
+                className="svc-arrow"
+                onClick={() => scrollByCards(-1)}
+                disabled={progress <= 0.01}
+                aria-label="Scroll left"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M19 12H5M12 19l-7-7 7-7" />
                 </svg>
               </button>
-              <button className="svc-arrow" onClick={() => scrollByCards(1)} disabled={progress >= 0.99} aria-label="Scroll right">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <button
+                className="svc-arrow"
+                onClick={() => scrollByCards(1)}
+                disabled={progress >= 0.99}
+                aria-label="Scroll right"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
