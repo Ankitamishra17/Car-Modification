@@ -150,7 +150,7 @@ export default function ContactLocation() {
             </div>
 
             {/* Hours card */}
-            <div className="cl-card w-full max-w-full flex-shrink-0 sm:max-w-xs">
+            {/* <div className="cl-card w-full max-w-full flex-shrink-0 sm:max-w-xs">
               <div className="mb-3 flex items-center gap-2">
                 <Clock size={14} color="#8C8C8C" />
                 <span className="cl-title text-[11px] font-semibold uppercase tracking-[0.15em] text-[#B8B8B8]">
@@ -173,7 +173,7 @@ export default function ContactLocation() {
                   +91 98765 43210
                 </span>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
