@@ -93,7 +93,7 @@ export default function FranchisePage() {
 
     <div className="bg-[#0B0B0B] text-[#F0F0F0] min-h-screen " style={body}>
       {/* ---------------- HERO / BANNER ---------------- */}
-      <section className="relative overflow-hidden min-h-[92vh] md:min-h-screen flex items-end max-w-7xl mx-auto">
+      <section className="relative overflow-hidden min-h-[92vh] md:min-h-screen flex items-end ">
         {/* Background photograph */}
         <div className="absolute inset-0">
           <img
@@ -118,7 +118,7 @@ export default function FranchisePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="absolute top-10 right-10 md:top-14 md:right-14 hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-[#8C8C8C]"
+          className="absolute top-10 right-10 md:top-14 md:right-14 hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-[#8C8C8C] max-w-7xl mx-auto"
           style={label}
         >
           <FiActivity size={12} className="text-[#C8102E]" />

@@ -51,7 +51,7 @@ export default function Packages({
         .pkg-sub     { font-family: 'Jost', sans-serif; }
       `}</style>
 
-      <div className="mx-auto max-w-7xl relative z-10 px-12">
+      <div className="mx-auto max-w-7xl relative z-10 px-2">
 
         {/* Dynamic Header Block */}
         <div className="mb-16 space-y-4 max-w-5xl">
@@ -74,7 +74,7 @@ export default function Packages({
         {/* Dynamic Responsive Grid Layout */}
         <div className={`grid grid-cols-1 gap-8 items-stretch
           ${packages.length === 1 ? "max-w-md mx-auto" : ""}
-          ${packages.length === 2 ? "md:grid-cols-2 max-w-4xl mx-auto" : ""}
+          ${packages.length === 2 ? "md:grid-cols-2 max-w-7xl mx-auto" : ""}
           ${packages.length >= 3 ? "md:grid-cols-3" : ""}
         `}>
           {packages.map((pkg, i) => (

@@ -42,7 +42,7 @@ export default function AboutHero() {
       </div>
 
       {/* Ghost background text — desktop only */}
-      <div className="pointer-events-none absolute inset-0 hidden lg:flex items-center justify-end overflow-hidden pr-10">
+      <div className="pointer-events-none absolute -mt-18 inset-0 hidden lg:flex items-center justify-end overflow-hidden pr-10">
         <h2
           className="ah-heading text-[16rem] leading-none uppercase tracking-wider opacity-[0.05] select-none"
           style={{
@@ -63,7 +63,7 @@ export default function AboutHero() {
             transition={{ duration: 0.8 }}
           >
             {/* Eyebrow */}
-            <div className="mb-6 flex items-center gap-3">
+            <div className="mb-6 flex items-center -mt-14 gap-3">
               <span className="h-px w-12 bg-[#8C8C8C]" />
               <span className="ah-title text-[4px] sm:text-sm font-semibold uppercase tracking-[0.35em] text-[#B8B8B8]">
                 La Nostra Storia

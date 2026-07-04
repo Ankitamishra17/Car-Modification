@@ -441,7 +441,7 @@ export default function Header() {
                   <Phone size={18} strokeWidth={2.5} color="#0B0B0B" />
                 </div>
                 <div className="hdr-phone-text">
-                  <div className="hdr-phone-label">Need Help</div>
+              
                   <div className="hdr-phone-num">+91-72-71-939393</div>
                 </div>
               </a>
