@@ -118,7 +118,7 @@ export default function FranchisePage() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="absolute top-10 right-10 md:top-14 md:right-14 hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-[#8C8C8C] max-w-7xl mx-auto"
+          className="absolute top-10 right-10 md:top-14 md:right-14 hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-[#8C8C8C] "
           style={label}
         >
           <FiActivity size={12} className="text-[#C8102E]" />
@@ -130,12 +130,12 @@ export default function FranchisePage() {
         </motion.div>
 
         {/* Copy block */}
-        <div className="relative max-w-7xl mx-auto px-36 md:px-12 pt-10 pb-40 md:pb-48 w-full">
+        <div className="relative max-w-7xl mx-auto px-36 md:px-12 pt-10 pb-40 md:pb-48  w-full">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-2xl"
+            className="max-w-2xl pl-15"
           >
             <motion.p
               initial={{ opacity: 0, y: 10 }}
