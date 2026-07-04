@@ -4,6 +4,7 @@ import CTA from "../components/home/CTA";
 import Franchise from "../components/home/Franchise";
 import Hero from "../components/home/Home";
 import Services from "../components/home/Services";
+import Testimonials from "../components/home/Testimonials";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
     <Blog />
     <Franchise />
     <CTA />
+    <Testimonials/>
     </>
   );
 }

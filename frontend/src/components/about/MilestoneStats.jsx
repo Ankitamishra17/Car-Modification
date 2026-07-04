@@ -21,7 +21,7 @@ import { motion } from "framer-motion";
 export default function MilestoneStats() {
   // Screenshot ke matching content ke hisaab se order and data mapping
   const stats = [
-    { id: "01", number: "25+", label: "Years of Expertise", tag: "SINCE 1999" },
+    { id: "01", number: "5+", label: "Years of Expertise", tag: "SINCE 1999" },
     { id: "02", number: "2020", label: "Studio Established", tag: "FOUNDED" },
     { id: "03", number: "9,000+", label: "Automobiles Detailed", tag: "TO DATE" },
   ];

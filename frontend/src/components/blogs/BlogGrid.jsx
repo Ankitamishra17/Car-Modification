@@ -23,7 +23,7 @@ export default function BlogGrid() {
   };
 
   return (
-    <section className="bg-[#0B0B0B] text-white px-4 xs:px-5 sm:px-8 lg:px-12 py-14 sm:py-18 lg:py-24 select-none">
+    <section className="bg-[#0B0B0B] text-white px-4 xs:px-5 sm:px-8 lg:px-6 py-14 sm:py-18 lg:py-24 select-none">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=Jost:wght@300;400;500&display=swap');
         
@@ -36,7 +36,7 @@ export default function BlogGrid() {
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
 
-      <div className="mx-auto max-w-7xl px-0 sm:px-6 lg:px-12">
+      <div className="mx-auto max-w-7xl px-0 sm:px-6 lg:px-6">
         {/* ── SECTION HEADER ── */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#222] pb-5 sm:pb-6 mb-8 sm:mb-12 gap-4">
           <div>

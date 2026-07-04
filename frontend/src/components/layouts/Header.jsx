@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ChevronDown, Menu, X, Phone } from "lucide-react";
+import { ChevronDown, ChevronRight, Menu, X, Phone } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { SERVICES } from "../../data/services";
 import { Link } from "react-router-dom";
 /**
@@ -24,62 +25,6 @@ import { Link } from "react-router-dom";
  * Smooth scroll: handleNav() scrolls to section & closes mobile menu.
  */
 
-// const SERVICES = [
-//   {
-//     name: "PPF ",
-//     href: "/services/ppf-ceramic-coating",
-//     desc: "Paint protection that keeps the shine permanent.",
-//   },
-
-//    {
-//     name: "Ceramic Coating",
-//     href: "/services/ppf-ceramic-coating",
-//     desc: "Paint protection that keeps the shine permanent.",
-//   },
-
-//   {
-//     name: "Refurbish Vehicle ",
-//     href: "/services/refurbish-vehicle-restore",
-//     desc: "Bring tired metal back to factory-fresh form.",
-//   },
-//   {
-//     name:"Restore",
-//     href: "/services/refurbish-vehicle-restore",
-//     desc: "Bring tired metal back to factory-fresh form.",
-//   },
-
-//   {
-//     name: "Upholstery ",
-//     href: "/services/upholstery-paints",
-//     desc: "Interior trim and full-body paint, done by hand.",
-//   },
-//   {
-//     name:"Paints",
-//     href: "/services/upholstery-paints",
-//     desc: "Interior trim and full-body paint, done by hand.",
-//   },
-//   {
-//     name: "Car Body Kits ",
-//     href: "/services/car-body-kits-exhaust",
-//     desc: "Aggressive lines and a sound to match.",
-//   },
-//   {
-//     name:"Exhaust",
-//     href: "/services/car-body-kits-exhaust",
-//     desc: "Aggressive lines and a sound to match."
-//   },
-//   {
-//     name: "Tuning & Mapping",
-//     href: "/services/tuning-mapping-accessories",
-//     desc: "Tuned performance, fitted exactly to you.",
-//   },
-//   {
-//     name:"Accessories",
-//     href: "/services/tuning-mapping-accessories",
-//     desc: "Tuned performance, fitted exactly to you.",
-//   }
-// ];
-
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
@@ -89,12 +34,127 @@ const NAV_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
+/* ── Framer Motion variants ── */
+
+const headerVariants = {
+  hidden: { y: -80, opacity: 0 },
+  show: {
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const dropdownVariants = {
+  hidden: { opacity: 0, y: -8, scale: 0.97 },
+  show: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.28,
+      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.045,
+      delayChildren: 0.05,
+    },
+  },
+  exit: {
+    opacity: 0,
+    y: -8,
+    scale: 0.97,
+    transition: { duration: 0.18, ease: "easeIn" },
+  },
+};
+
+const dropdownItemVariants = {
+  hidden: { opacity: 0, x: -8 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.22, ease: "easeOut" } },
+};
+
+const overlayVariants = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 0.3 } },
+  exit: { opacity: 0, transition: { duration: 0.25 } },
+};
+
+const drawerVariants = {
+  hidden: { x: "100%" },
+  show: { x: 0, transition: { duration: 0.4, ease: [0.22, 1, 0.36, 1] } },
+  exit: { x: "100%", transition: { duration: 0.32, ease: [0.4, 0, 1, 1] } },
+};
+
+const drawerNavVariants = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.05, delayChildren: 0.15 } },
+};
+
+const drawerItemVariants = {
+  hidden: { opacity: 0, x: 24 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } },
+};
+
+const mobSubVariants = {
+  hidden: { height: 0, opacity: 0 },
+  show: { height: "auto", opacity: 1, transition: { duration: 0.32, ease: [0.22, 1, 0.36, 1] } },
+  exit: { height: 0, opacity: 0, transition: { duration: 0.25, ease: "easeIn" } },
+};
+
 export default function Header() {
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileSvcOpen, setMobileSvcOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const svcTimer = useRef(null);
+
+  // Sliding hover highlight for the services dropdown
+  const svcListRef = useRef(null);
+  const svcItemRefs = useRef([]);
+  const [svcHighlight, setSvcHighlight] = useState({ top: 0, height: 0, opacity: 0 });
+
+  const updateSvcHighlight = (idx) => {
+    const el = svcItemRefs.current[idx];
+    const list = svcListRef.current;
+    if (el && list) {
+      const elRect = el.getBoundingClientRect();
+      const listRect = list.getBoundingClientRect();
+      setSvcHighlight({
+        top: elRect.top - listRect.top,
+        height: elRect.height,
+        opacity: 1,
+      });
+    }
+  };
+  const hideSvcHighlight = () =>
+    setSvcHighlight((h) => ({ ...h, opacity: 0 }));
+
+  useEffect(() => {
+    if (!servicesOpen) setSvcHighlight((h) => ({ ...h, opacity: 0 }));
+  }, [servicesOpen]);
+
+  // Sliding hover/tap highlight for the mobile services accordion
+  const mobSvcListRef = useRef(null);
+  const mobSvcItemRefs = useRef([]);
+  const [mobSvcHighlight, setMobSvcHighlight] = useState({ top: 0, height: 0, opacity: 0 });
+
+  const updateMobSvcHighlight = (idx) => {
+    const el = mobSvcItemRefs.current[idx];
+    const list = mobSvcListRef.current;
+    if (el && list) {
+      const elRect = el.getBoundingClientRect();
+      const listRect = list.getBoundingClientRect();
+      setMobSvcHighlight({
+        top: elRect.top - listRect.top,
+        height: elRect.height,
+        opacity: 1,
+      });
+    }
+  };
+  const hideMobSvcHighlight = () =>
+    setMobSvcHighlight((h) => ({ ...h, opacity: 0 }));
+
+  useEffect(() => {
+    if (!mobileSvcOpen) setMobSvcHighlight((h) => ({ ...h, opacity: 0 }));
+  }, [mobileSvcOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -110,6 +170,27 @@ export default function Header() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  // Lock body scroll while the mobile drawer is open
+  useEffect(() => {
+    if (mobileOpen) {
+      const prev = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = prev;
+      };
+    }
+  }, [mobileOpen]);
+
+  // Close drawer on Escape key
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [mobileOpen]);
+
   const svcHover = {
     onMouseEnter: () => {
       clearTimeout(svcTimer.current);
@@ -123,10 +204,12 @@ export default function Header() {
   // Smooth scroll to section ID, close menus
   const handleNav = (e, href) => {
     if (!href) return;
-    const target = document.querySelector(href);
-    if (target) {
-      e.preventDefault();
-      target.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (href.startsWith("#")) {
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
     setMobileOpen(false);
     setServicesOpen(false);
@@ -215,18 +298,11 @@ export default function Header() {
         .hdr-dropdown-wrap { position: relative; }
         .hdr-dropdown {
           position: absolute; left: 50%; top: calc(100% + 10px);
-          transform: translateX(-50%) translateY(-6px) scaleY(0.95);
-          transform-origin: top center; width: 340px;
+          width: 340px;
           background: #1A1A1A; border: 1px solid #3D3D3D;
           border-radius: 12px;
           box-shadow: 0 20px 60px -10px rgba(0,0,0,0.7), 0 0 0 1px rgba(140,140,140,0.05);
-          opacity: 0; visibility: hidden;
-          transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
           z-index: 100;
-        }
-        .hdr-dropdown.open {
-          opacity: 1; visibility: visible;
-          transform: translateX(-50%) translateY(0) scaleY(1);
         }
         .hdr-dropdown::before {
           content: ''; position: absolute; top: -6px; left: 50%;
@@ -235,19 +311,38 @@ export default function Header() {
           border-left: 1px solid #3D3D3D;
           border-top: 1px solid #3D3D3D;
         }
-        .hdr-dropdown-list { list-style: none; margin: 0; padding: 8px 0; }
-        .hdr-dropdown-item a {
-          display: flex; flex-direction: column; gap: 2px;
-          padding: 11px 18px; text-decoration: none; transition: background 0.2s;
+        .hdr-dropdown-inner { position: relative; padding: 8px 0; }
+        .hdr-dropdown-highlight {
+          position: absolute; left: 8px; right: 8px;
+          border-radius: 8px;
+          background: linear-gradient(135deg, rgba(140,140,140,0.16), rgba(140,140,140,0.05));
+          border: 1px solid rgba(140,140,140,0.28);
+          pointer-events: none; z-index: 0;
         }
-        .hdr-dropdown-item a:hover { background: #2A2A2A; }
+        .hdr-dropdown-list { list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
+        .hdr-dropdown-item a {
+          position: relative;
+          display: flex; align-items: center; justify-content: space-between; gap: 12px;
+          padding: 11px 18px; text-decoration: none;
+        }
         .hdr-dropdown-item a:hover .di-name { color: #FFFFFF; }
-        .hdr-dropdown-divider { margin: 0 18px; height: 1px; background: #2A2A2A; }
+        .hdr-dropdown-divider { margin: 0 18px; height: 1px; background: #2A2A2A; position: relative; z-index: 1; }
+        .di-text {
+          display: flex; flex-direction: column; gap: 2px;
+          transition: transform 0.25s ease;
+        }
+        .hdr-dropdown-item a:hover .di-text { transform: translateX(3px); }
         .di-name {
           font-family: 'Bai Jamjuree', sans-serif; font-size: 13.5px; font-weight: 600;
           color: #FFFFFF; transition: color 0.2s; letter-spacing: 0.02em;
         }
         .di-desc { font-size: 11.5px; color: #B8B8B8; font-family: Georgia, serif; line-height: 1.4; }
+        .di-arrow {
+          flex-shrink: 0; color: #8C8C8C;
+          opacity: 0; transform: translateX(-6px);
+          transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease;
+        }
+        .hdr-dropdown-item a:hover .di-arrow { opacity: 1; transform: translateX(0); color: #FFFFFF; }
 
         /* ── Right area ── */
         .hdr-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
@@ -282,17 +377,46 @@ export default function Header() {
           border: 1px solid #3D3D3D; border-radius: 6px;
           color: #8C8C8C; cursor: pointer;
           transition: background 0.2s, border-color 0.2s; flex-shrink: 0;
+          position: relative; z-index: 210;
         }
         .hdr-hamburger:hover { background: #1A1A1A; border-color: #8C8C8C; }
         @media (min-width: 1024px) { .hdr-hamburger { display: none; } }
 
-        /* ── Mobile menu ── */
-        .hdr-mobile {
-          overflow: hidden; max-height: 0; opacity: 0;
-          transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
-          border-top: 1px solid #2A2A2A; background: #0B0B0B;
+        /* ── Mobile drawer (right-side slide-in) ── */
+        .hdr-mob-overlay {
+          position: fixed; inset: 0; z-index: 190;
+          background: rgba(0,0,0,0.6);
+          backdrop-filter: blur(2px);
         }
-        .hdr-mobile.open { max-height: 75vh; opacity: 1; overflow-y: auto; }
+
+        .hdr-mob-drawer {
+          position: fixed; top: 0; right: 0; bottom: 0; z-index: 200;
+          width: 85vw; max-width: 340px;
+          background: #0B0B0B;
+          border-left: 1px solid #3D3D3D;
+          box-shadow: -20px 0 60px -15px rgba(0,0,0,0.8);
+          display: flex; flex-direction: column;
+          overflow-y: auto;
+        }
+
+        .hdr-mob-drawer-head {
+          display: flex; align-items: center; justify-content: space-between;
+          padding: 18px 20px;
+          border-bottom: 1px solid #2A2A2A;
+          flex-shrink: 0;
+        }
+        .hdr-mob-drawer-title {
+          font-size: 12px; font-weight: 700; letter-spacing: 0.22em;
+          text-transform: uppercase; color: #8C8C8C;
+        }
+        .hdr-mob-close {
+          display: flex; align-items: center; justify-content: center;
+          width: 34px; height: 34px; border-radius: 6px;
+          border: 1px solid #3D3D3D; background: none; color: #B8B8B8;
+          cursor: pointer; transition: color 0.2s, border-color 0.2s;
+        }
+        .hdr-mob-close:hover { color: #FFFFFF; border-color: #8C8C8C; }
+
         .hdr-mobile-nav { display: flex; flex-direction: column; padding: 8px 20px 16px; }
 
         .hdr-mob-link {
@@ -316,16 +440,16 @@ export default function Header() {
         .hdr-mob-acc-btn.open .chevron { transform: rotate(180deg); }
         .hdr-mob-acc-btn.open { color: #FFFFFF; }
 
-        .hdr-mob-sub { overflow: hidden; max-height: 0; transition: max-height 0.3s ease; }
-        .hdr-mob-sub.open { max-height: 500px; }
-        .hdr-mob-sub ul { list-style: none; padding: 4px 0 10px 12px; margin: 0; }
-        .hdr-mob-sub ul li a {
-          display: block; padding: 9px 10px; font-size: 13px;
-          color: #B8B8B8; text-decoration: none;
-          border-radius: 6px; transition: color 0.2s, background 0.2s;
-          font-family: Georgia, serif;
+        .hdr-mob-sub { overflow: hidden; }
+        .hdr-mob-svc-inner { position: relative; padding: 4px 0 8px; }
+        .hdr-mob-svc-highlight {
+          position: absolute; left: 4px; right: 4px;
+          border-radius: 8px;
+          background: linear-gradient(135deg, rgba(140,140,140,0.16), rgba(140,140,140,0.05));
+          border: 1px solid rgba(140,140,140,0.28);
+          pointer-events: none; z-index: 0;
         }
-        .hdr-mob-sub ul li a:hover { color: #FFFFFF; background: #1A1A1A; }
+        .hdr-mob-svc-list { position: relative; z-index: 1; }
 
         .hdr-mob-cta {
           margin-top: 14px; display: flex; align-items: center; gap: 10px;
@@ -345,19 +469,24 @@ export default function Header() {
         }
       `}</style>
 
-      <header className={`hdr-root${scrolled ? " scrolled" : ""}`}>
+      <motion.header
+        className={`hdr-root${scrolled ? " scrolled" : ""}`}
+        variants={headerVariants}
+        initial="hidden"
+        animate="show"
+      >
         <div className="hdr-top-line" />
 
         <div className="hdr-inner">
           {/* Logo */}
-          <a
-            href="#home"
+          <Link to
+            ="/"
             className="hdr-logo"
             aria-label="AutoLuxe home"
             onClick={(e) => handleNav(e, "#home")}
           >
             <img src="/logo.png" alt="AutoLuxe logo" className="h-20 w-35" />
-          </a>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hdr-nav" aria-label="Primary navigation">
@@ -383,28 +512,70 @@ export default function Header() {
                         strokeWidth={2.5}
                       />
                     </button>
-                    <div
-                      className={`hdr-dropdown${servicesOpen ? " open" : ""}`}
-                      role="menu"
-                    >
-                      <ul className="hdr-dropdown-list">
-                        {SERVICES.map((svc, i) => (
-                          <li className="hdr-dropdown-item" key={svc.name}>
-                            <Link
-                              to={svc.href}
-                              role="menuitem"
-                              onClick={(e) => handleNav(e, svc.href)}
-                            >
-                              <span className="di-name">{svc.name}</span>
-                              <span className="di-desc">{svc.desc}</span>
-                            </Link>
-                            {i < SERVICES.length - 1 && (
-                              <div className="hdr-dropdown-divider" />
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <AnimatePresence>
+                      {servicesOpen && (
+                        <motion.div
+                          className="hdr-dropdown"
+                          style={{ x: "-50%" }}
+                          variants={dropdownVariants}
+                          initial="hidden"
+                          animate="show"
+                          exit="exit"
+                          role="menu"
+                        >
+                          <div
+                            className="hdr-dropdown-inner"
+                            ref={svcListRef}
+                            onPointerLeave={hideSvcHighlight}
+                          >
+                            <motion.div
+                              className="hdr-dropdown-highlight"
+                              animate={{
+                                top: svcHighlight.top,
+                                height: svcHighlight.height,
+                                opacity: svcHighlight.opacity,
+                              }}
+                              transition={{
+                                type: "spring",
+                                stiffness: 500,
+                                damping: 38,
+                                mass: 0.6,
+                              }}
+                            />
+                            <ul className="hdr-dropdown-list">
+                              {SERVICES.map((svc, i) => (
+                                <motion.li
+                                  className="hdr-dropdown-item"
+                                  key={svc.name}
+                                  variants={dropdownItemVariants}
+                                >
+                                  <Link
+                                    to={svc.href}
+                                    role="menuitem"
+                                    ref={(el) => (svcItemRefs.current[i] = el)}
+                                    onPointerEnter={() => updateSvcHighlight(i)}
+                                    onClick={(e) => handleNav(e, svc.href)}
+                                  >
+                                    <span className="di-text">
+                                      <span className="di-name">{svc.name}</span>
+                                      <span className="di-desc">{svc.desc}</span>
+                                    </span>
+                                    <ChevronRight
+                                      className="di-arrow"
+                                      size={16}
+                                      strokeWidth={2}
+                                    />
+                                  </Link>
+                                  {i < SERVICES.length - 1 && (
+                                    <div className="hdr-dropdown-divider" />
+                                  )}
+                                </motion.li>
+                              ))}
+                            </ul>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 );
               }
@@ -441,7 +612,6 @@ export default function Header() {
                   <Phone size={18} strokeWidth={2.5} color="#0B0B0B" />
                 </div>
                 <div className="hdr-phone-text">
-              
                   <div className="hdr-phone-num">080-77976595</div>
                 </div>
               </a>
@@ -468,70 +638,158 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        <div className={`hdr-mobile${mobileOpen ? " open" : ""}`}>
-          <nav className="hdr-mobile-nav">
-            {NAV_LINKS.map((link) => {
-              if (link.label === "Services") {
-                return (
-                  <div className="hdr-mob-accordion" key="Services">
-                    <button
-                      className={`hdr-mob-acc-btn${mobileSvcOpen ? " open" : ""}`}
-                      onClick={() => setMobileSvcOpen((v) => !v)}
-                      aria-expanded={mobileSvcOpen}
-                    >
-                      Services
-                      <ChevronDown
-                        className="chevron"
-                        size={16}
-                        strokeWidth={2.5}
-                        color="#D4AF37"
-                      />
-                    </button>
-                    <div
-                      className={`hdr-mob-sub${mobileSvcOpen ? " open" : ""}`}
-                    >
-                      <ul>
-                        {SERVICES.map((svc) => (
-                          <li key={svc.name}>
-                            <Link
-                              to={svc.href}
-                              onClick={(e) => handleNav(e, svc.href)}
-                            >
-                              {svc.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                );
-              }
+        {/* Mobile Drawer (right-side) */}
+        <AnimatePresence>
+          {mobileOpen && (
+            <React.Fragment>
+              <motion.div
+                className="hdr-mob-overlay"
+                variants={overlayVariants}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                onClick={() => setMobileOpen(false)}
+              />
+              <motion.div
+                className="hdr-mob-drawer"
+                variants={drawerVariants}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                role="dialog"
+                aria-modal="true"
+              >
+                <div className="hdr-mob-drawer-head">
+                  <span className="hdr-mob-drawer-title">Menu</span>
+                  <button
+                    className="hdr-mob-close"
+                    onClick={() => setMobileOpen(false)}
+                    aria-label="Close menu"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
 
-              return (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  className="hdr-mob-link"
-                  onClick={() => setMobileOpen(false)}
+                <motion.nav
+                  className="hdr-mobile-nav"
+                  variants={drawerNavVariants}
+                  initial="hidden"
+                  animate="show"
                 >
-                  {link.label}
-                </Link>
-              );
-            })}
+                  {NAV_LINKS.map((link) => {
+                    if (link.label === "Services") {
+                      return (
+                        <motion.div
+                          className="hdr-mob-accordion"
+                          key="Services"
+                          variants={drawerItemVariants}
+                        >
+                          <button
+                            className={`hdr-mob-acc-btn${mobileSvcOpen ? " open" : ""}`}
+                            onClick={() => setMobileSvcOpen((v) => !v)}
+                            aria-expanded={mobileSvcOpen}
+                          >
+                            Services
+                            <ChevronDown
+                              className="chevron"
+                              size={16}
+                              strokeWidth={2.5}
+                            />
+                          </button>
+                          <AnimatePresence initial={false}>
+                            {mobileSvcOpen && (
+                              <motion.div
+                                className="hdr-mob-sub"
+                                variants={mobSubVariants}
+                                initial="hidden"
+                                animate="show"
+                                exit="exit"
+                              >
+                                <div
+                                  className="hdr-mob-svc-inner"
+                                  ref={mobSvcListRef}
+                                  onPointerLeave={hideMobSvcHighlight}
+                                >
+                                  <motion.div
+                                    className="hdr-mob-svc-highlight"
+                                    animate={{
+                                      top: mobSvcHighlight.top,
+                                      height: mobSvcHighlight.height,
+                                      opacity: mobSvcHighlight.opacity,
+                                    }}
+                                    transition={{
+                                      type: "spring",
+                                      stiffness: 500,
+                                      damping: 38,
+                                      mass: 0.6,
+                                    }}
+                                  />
+                                  <ul className="hdr-dropdown-list hdr-mob-svc-list">
+                                    {SERVICES.map((svc, i) => (
+                                      <li className="hdr-dropdown-item" key={svc.name}>
+                                        <Link
+                                          to={svc.href}
+                                          ref={(el) => (mobSvcItemRefs.current[i] = el)}
+                                          onPointerEnter={() => updateMobSvcHighlight(i)}
+                                          onPointerDown={() => updateMobSvcHighlight(i)}
+                                          onClick={(e) => handleNav(e, svc.href)}
+                                        >
+                                          <span className="di-text">
+                                            <span className="di-name">{svc.name}</span>
+                                            <span className="di-desc">{svc.desc}</span>
+                                          </span>
+                                          <ChevronRight
+                                            className="di-arrow"
+                                            size={16}
+                                            strokeWidth={2}
+                                          />
+                                        </Link>
+                                        {i < SERVICES.length - 1 && (
+                                          <div className="hdr-dropdown-divider" />
+                                        )}
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </motion.div>
+                      );
+                    }
 
-            <a href="tel:080-77976595" className="hdr-mob-cta">
-              <div className="hdr-mob-cta-icon">
-                <Phone size={16} strokeWidth={2.5} color="#0B0B0B" />
-              </div>
-              <div className="hdr-mob-cta-text">
-                <label>Need Help</label>
-                <span>080-77976595</span>
-              </div>
-            </a>
-          </nav>
-        </div>
-      </header>
+                    return (
+                      <motion.div key={link.label} variants={drawerItemVariants}>
+                        <Link
+                          to={link.href}
+                          className="hdr-mob-link"
+                          onClick={() => setMobileOpen(false)}
+                        >
+                          {link.label}
+                        </Link>
+                      </motion.div>
+                    );
+                  })}
+
+                  <motion.a
+                    href="tel:080-77976595"
+                    className="hdr-mob-cta"
+                    variants={drawerItemVariants}
+                  >
+                    <div className="hdr-mob-cta-icon">
+                      <Phone size={16} strokeWidth={2.5} color="#0B0B0B" />
+                    </div>
+                    <div className="hdr-mob-cta-text">
+                      <label>Need Help</label>
+                      <span>080-77976595</span>
+                    </div>
+                  </motion.a>
+                </motion.nav>
+              </motion.div>
+            </React.Fragment>
+          )}
+        </AnimatePresence>
+      </motion.header>
     </>
   );
 }

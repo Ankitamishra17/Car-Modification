@@ -152,7 +152,7 @@ export default function BlogHero() {
         <div className="bh-anim-1 bh-title mb-5 flex items-center gap-3">
           <span className="h-px w-10 bg-[#8C8C8C]" />
           <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#B8B8B8] sm:text-[12px]">
-            AutoLuxe Journal
+          Dettagli Auto
           </span>
         </div>
 
