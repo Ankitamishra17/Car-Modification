@@ -102,45 +102,30 @@ export default function OurStory() {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-24">
           {/* Workflow Layout Split Container */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-            {/* Left Column: Fixed/Sticky Navigation Context Block */}
-            <div className="lg:col-span-4 lg:sticky lg:top-24 flex flex-col justify-between h-auto lg:h-[calc(100vh-12rem)] overflow-hidden">
-              {/* Top Content Group */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <span className="h-px w-6 bg-[#C8102E]" />
-                  <span
-                    className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#C8102E]"
-                    style={label}
-                  >
-                    History / Phase Log
-                  </span>
-                </div>
-                <h2
-                  className="text-4xl md:text-5xl lg:text-6xl tracking-wide uppercase text-white leading-none"
-                  style={display}
-                >
-                  THE BUILD LOG.
-                </h2>
-                <p
-                  className="text-xs text-[#555555] uppercase tracking-widest leading-relaxed max-w-xs"
+            {/* Left Column: Minimal Workflow Navigation Block */}
+            <div className="lg:col-span-4 lg:sticky lg:top-24 flex flex-col justify-start h-auto lg:h-[calc(100vh-12rem)] overflow-hidden">
+              {/* Eyebrow Label (Optional: Keeps the mechanical anchor, remove if not needed) */}
+              <div className="flex items-center gap-3 mb-6 lg:mb-12">
+                <span className="h-px w-6 bg-[#C8102E]" />
+                <span
+                  className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#C8102E]"
                   style={label}
                 >
-                  Mechanical progression matrix tracking infrastructure scale
-                  and studio benchmarks.
-                </p>
+                  Log Matrix
+                </span>
               </div>
 
-              {/* Bottom Outlined Vertical Text (Exact match to image_74db45.png alignment) */}
-              <div className="hidden lg:block select-none pointer-events-none pt-12 pl-1">
+              {/* Outlined Vertical Text Layout */}
+              <div className="select-none pointer-events-none pl-1">
                 <div
-                  className="text-[120px] font-black tracking-[0.12em] text-transparent uppercase leading-none origin-left rotate-90 whitespace-nowrap translate-y-4"
+                  className="text-[80px] md:text-[100px] lg:text-[110px] font-black tracking-[0.12em] text-transparent uppercase leading-none whitespace-nowrap"
                   style={{
                     ...display,
-                    WebkitTextStroke: "1px rgba(255, 255, 255, 0.33)",
-                    transformOrigin: "0 0", // Tight left hinge point mapping
+                    WebkitTextStroke: "1px rgba(255, 255, 255, 0.28)",
+                    writingMode: "vertical-lr", // Native vertical flow standard translation
                   }}
                 >
-                  HISTORY
+                  BUILD HISTORY
                 </div>
               </div>
             </div>
