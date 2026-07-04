@@ -28,11 +28,12 @@ import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
  */
 
 const SERVICES = [
-  "PPF / Ceramic Coating",
-  "Refurbish Vehicle / Restore",
-  "Upholstery / Paints",
-  "Car Body Kits / Exhaust",
-  "Tuning & Mapping / Accessories",
+ {svc:"PPF", href:"/ppf"},
+ {svc:"Restore", href:"/ppf"},
+ {svc:"Exhaust", href:"/ppf"},
+ {svc:"Paints", href:"/ppf"},
+ {svc:"Refurbish", href:"/ppf"},
+
 ];
 
 const QUICK_LINKS = [
@@ -439,9 +440,9 @@ export default function Footer() {
                 <div className="ftr-col-head-text">Services</div>
               </div>
               <ul className="ftr-link-list">
-                {SERVICES.map((svc) => (
+                {SERVICES.map(({svc , href}) => (
                   <li key={svc}>
-                    <a href={`#${svc.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}>
+                    <a href={href}>
                       <span className="fl-dot" />
                       {svc}
                     </a>

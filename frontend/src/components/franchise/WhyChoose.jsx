@@ -60,7 +60,7 @@ export default function WhyChoose() {
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="mb-16 max-w-7xl mx-auto px-12 py-12"
+          className="mb-16 max-w-7xl mx-auto px-12 pt-15"
           
         >
           <p
@@ -85,7 +85,7 @@ export default function WhyChoose() {
             <motion.div
               key={i}
               variants={fadeUp}
-              className="group relative bg-[#1A1A1A] p-8 overflow-hidden max-w-7xl mx-auto"
+              className="group relative bg-[#1A1A1A] px-8 py-12 overflow-hidden max-w-7xl mx-auto"
             >
               <Icon className="text-[#C0C0C0]" size={26} strokeWidth={1.5} />
               <h3
