@@ -63,15 +63,11 @@ function SignalBars({ strength = 5, max = 5, active = false }) {
         <span
           key={i}
           className={`w-[3px] rounded-sm transition-colors duration-300 ${
-<<<<<<< HEAD
-            i < strength ? "bg-[#ffffff]" : "bg-[#3D3D3D]"
-=======
             i < strength
               ? active
                 ? "bg-[#C8102E]"
                 : "bg-[#8C8C8C]"
               : "bg-[#3D3D3D]"
->>>>>>> d8f5f1e2a9a067f70cc3b637943c6f5e2d9e1d29
           }`}
           style={{ height: `${35 + i * 16}%` }}
         />

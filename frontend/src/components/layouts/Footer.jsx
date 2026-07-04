@@ -3,75 +3,118 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const SERVICES = [
- {svc:"PPF", href:"/services/paint-protection-film"},
- {svc:"Restore", href:"/services/restore"},
- {svc:"Exhaust", href:"/services/exhaust"},
- {svc:"Paints", href:"/services/paints"},
- {svc:"Refurbish", href:"/services/refurbish"},
+  { svc: "PPF", href: "/services/paint-protection-film" },
+  { svc: "Restore", href: "/services/restore" },
+  { svc: "Exhaust", href: "/services/exhaust" },
+  { svc: "Paints", href: "/services/paints" },
+  { svc: "Refurbish", href: "/services/refurbish" },
 ];
 
 const QUICK_LINKS = [
-  { label: "Home",      href: "/" },
-  { label: "About Us",  href: "/about" },
-  { label: "Blogs",     href: "/blog" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Blogs", href: "/blog" },
   { label: "Franchise", href: "/franchise" },
-  { label: "Contact",   href: "/contact" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const CONTACT_INFO = [
-  { icon: Phone,  value: "080-77976595", href: "tel:080-77976595" },
-  { icon: Mail,   value: "dettagliauto251@gmail.com", href: "mailto:dettagliauto251@gmail.com" },
-  { icon: MapPin, value: "C, 32, Block C, Lajpat Nagar II, Lajpat Nagar, New Delhi, Delhi 110024", href: "#locations" },
+  { icon: Phone, value: "080-77976595", href: "tel:080-77976595" },
+  {
+    icon: Mail,
+    value: "dettagliauto251@gmail.com",
+    href: "mailto:dettagliauto251@gmail.com",
+  },
+  {
+    icon: MapPin,
+    value:
+      "C, 32, Block C, Lajpat Nagar II, Lajpat Nagar, New Delhi, Delhi 110024",
+    href: "#locations",
+  },
 ];
 
 const SOCIALS = [
   {
     label: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/dettagli.auto?igsh=bG9rdm9yODdsODY3",
     svg: (
-      <svg viewBox="0 0 24 24" fill="none" width="18" height="18" aria-hidden="true">
-        <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="currentColor" strokeWidth="1.75"/>
-        <circle cx="12" cy="12" r="4.5" stroke="currentColor" strokeWidth="1.75"/>
-        <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        width="18"
+        height="18"
+        aria-hidden="true"
+      >
+        <rect
+          x="2"
+          y="2"
+          width="20"
+          height="20"
+          rx="5.5"
+          stroke="currentColor"
+          strokeWidth="1.75"
+        />
+        <circle
+          cx="12"
+          cy="12"
+          r="4.5"
+          stroke="currentColor"
+          strokeWidth="1.75"
+        />
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
       </svg>
     ),
   },
   {
     label: "YouTube",
-    href: "#",
+    href: "https://www.youtube.com/@dettagliauto1.618",
     svg: (
-      <svg viewBox="0 0 24 24" fill="none" width="18" height="18" aria-hidden="true">
-        <rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" strokeWidth="1.75"/>
-        <path d="M10 9l5 3-5 3V9z" fill="currentColor"/>
-      </svg>
-    ),
-  },
-  {
-    label: "Facebook",
-    href: "#",
-    svg: (
-      <svg viewBox="0 0 24 24" fill="none" width="18" height="18" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.75"/>
-        <path
-          d="M13.5 8H15V5.5h-1.5C12 5.5 10.5 7 10.5 8.5V10H9v2.5h1.5V19H13v-6.5h1.5L15 10h-2V8.5c0-.3.2-.5.5-.5z"
-          fill="currentColor"
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        width="18"
+        height="18"
+        aria-hidden="true"
+      >
+        <rect
+          x="2"
+          y="5"
+          width="20"
+          height="14"
+          rx="4"
+          stroke="currentColor"
+          strokeWidth="1.75"
         />
+        <path d="M10 9l5 3-5 3V9z" fill="currentColor" />
       </svg>
     ),
   },
- 
-  {
-    label: "X / Twitter",
-    href: "#",
-    svg: (
-      <svg viewBox="0 0 24 24" fill="none" width="18" height="18" aria-hidden="true">
-        <path
-          d="M4 4l6.5 7.5L4 20h2l5-5.7L15.5 20H20l-6.8-7.8L19.5 4h-2l-4.7 5.4L8.5 4H4z"
-          fill="currentColor"
-        />
-      </svg>
-    ),
-  },
+  // {
+  //   label: "Facebook",
+  //   href: "#",
+  //   svg: (
+  //     <svg viewBox="0 0 24 24" fill="none" width="18" height="18" aria-hidden="true">
+  //       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.75"/>
+  //       <path
+  //         d="M13.5 8H15V5.5h-1.5C12 5.5 10.5 7 10.5 8.5V10H9v2.5h1.5V19H13v-6.5h1.5L15 10h-2V8.5c0-.3.2-.5.5-.5z"
+  //         fill="currentColor"
+  //       />
+  //     </svg>
+  //   ),
+  // },
+
+  // {
+  //   label: "X / Twitter",
+  //   href: "#",
+  //   svg: (
+  //     <svg viewBox="0 0 24 24" fill="none" width="18" height="18" aria-hidden="true">
+  //       <path
+  //         d="M4 4l6.5 7.5L4 20h2l5-5.7L15.5 20H20l-6.8-7.8L19.5 4h-2l-4.7 5.4L8.5 4H4z"
+  //         fill="currentColor"
+  //       />
+  //     </svg>
+  //   ),
+  // },
 ];
 
 export default function Footer({ display, label, body }) {
@@ -279,15 +322,19 @@ export default function Footer({ display, label, body }) {
 
         <div className="ftr-inner">
           <div className="ftr-grid">
-
             {/* ── Col 1: Brand ── */}
             <div>
               <Link to="/" className="ftr-logo" aria-label="DETTAGLI AUTO home">
-                <img src="/logo.png" alt="DETTAGLI AUTO logo" className="h-16 w-auto object-contain" />
+                <img
+                  src="/logo.png"
+                  alt="DETTAGLI AUTO logo"
+                  className="h-16 w-auto object-contain"
+                />
               </Link>
               <p className="ftr-brand-desc" style={body}>
                 India's premium auto detailing studio — PPF, ceramic coatings,
-                restoration, and performance upgrades. We protect what moves you.
+                restoration, and performance upgrades. We protect what moves
+                you.
               </p>
             </div>
 
@@ -295,10 +342,12 @@ export default function Footer({ display, label, body }) {
             <div>
               <div className="ftr-col-head">
                 <div className="ftr-col-head-line" />
-                <div className="ftr-col-head-text" style={label}>Services</div>
+                <div className="ftr-col-head-text" style={label}>
+                  Services
+                </div>
               </div>
               <ul className="ftr-link-list">
-                {SERVICES.map(({svc , href}) => (
+                {SERVICES.map(({ svc, href }) => (
                   <li key={svc}>
                     <Link to={href} style={body}>
                       <span className="fl-dot" />
@@ -313,7 +362,9 @@ export default function Footer({ display, label, body }) {
             <div>
               <div className="ftr-col-head">
                 <div className="ftr-col-head-line" />
-                <div className="ftr-col-head-text" style={label}>Quick Links</div>
+                <div className="ftr-col-head-text" style={label}>
+                  Quick Links
+                </div>
               </div>
               <ul className="ftr-link-list">
                 {QUICK_LINKS.map(({ label: linkLabel, href }) => (
@@ -331,7 +382,9 @@ export default function Footer({ display, label, body }) {
             <div>
               <div className="ftr-col-head">
                 <div className="ftr-col-head-line" />
-                <div className="ftr-col-head-text" style={label}>Contact Us</div>
+                <div className="ftr-col-head-text" style={label}>
+                  Contact Us
+                </div>
               </div>
               <ul className="ftr-contact-list">
                 {CONTACT_INFO.map(({ icon: Icon, value, href }) => (
@@ -340,13 +393,14 @@ export default function Footer({ display, label, body }) {
                       <div className="ftr-contact-icon">
                         <Icon size={14} strokeWidth={2} />
                       </div>
-                      <div className="ftr-contact-value" style={body}>{value}</div>
+                      <div className="ftr-contact-value" style={body}>
+                        {value}
+                      </div>
                     </Link>
                   </li>
                 ))}
               </ul>
             </div>
-
           </div>
 
           <div className="ftr-divider" />
@@ -356,7 +410,11 @@ export default function Footer({ display, label, body }) {
         <div className="ftr-bottom">
           {/* Copyright */}
           <div className="ftr-copy" style={body}>
-            © {year} <a href="#home" style={label}>DETTAGLI AUTO</a>. All rights reserved.
+            © {year}{" "}
+            <a href="#home" style={label}>
+              DETTAGLI AUTO
+            </a>
+            . All rights reserved.
           </div>
 
           {/* Social icons */}
@@ -377,7 +435,9 @@ export default function Footer({ display, label, body }) {
 
           {/* Legal */}
           <div className="ftr-legal">
-            <a href="https://deboxtechnology.com/" style={label}>Developed by Debox Technology</a>
+            <a href="https://deboxtechnology.com/" style={label}>
+              Developed by Debox Technology
+            </a>
           </div>
         </div>
       </footer>

@@ -173,7 +173,7 @@ export const SERVICES = [
       images: [
         "https://images.pexels.com/photos/10126665/pexels-photo-10126665.jpeg",
 
-        "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/4489760/pexels-photo-4489760.jpeg",
 
         "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
@@ -361,9 +361,9 @@ export const SERVICES = [
       heading: "LASTING BRILLIANCE. EVERY DETAIL.",
 
       images: [
-        "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/36483359/pexels-photo-36483359.png",
 
-        "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/25189119/pexels-photo-25189119.jpeg",
 
         "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
@@ -554,7 +554,7 @@ export const SERVICES = [
       images: [
         "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
 
-        "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
 
         "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
@@ -744,7 +744,7 @@ export const SERVICES = [
       images: [
         "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
 
-        "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
 
         "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
@@ -933,8 +933,7 @@ export const SERVICES = [
       images: [
         "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
 
-        "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=800",
-
+"https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
         "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
     },
@@ -1120,11 +1119,11 @@ export const SERVICES = [
       heading: "A FINISH THAT LOOKS ORIGINAL.",
 
       images: [
-        "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/6870296/pexels-photo-6870296.jpeg",
 
-        "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/14615263/pexels-photo-14615263.jpeg",
 
-        "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/5233262/pexels-photo-5233262.jpeg",
       ],
     },
     ctaSection: {
@@ -1293,11 +1292,9 @@ export const SERVICES = [
       heading: "INDIVIDUALITY CRAFTED TO PERFECTION.",
 
       images: [
-        "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
-
-        "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=800",
-
-        "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
+       "https://images.pexels.com/photos/12463575/pexels-photo-12463575.jpeg",
+       "https://images.pexels.com/photos/18339945/pexels-photo-18339945.jpeg",
+       "https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
       ],
     },
     ctaSection: {
@@ -1480,7 +1477,7 @@ export const SERVICES = [
       images: [
         "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
 
-        "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
 
         "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
@@ -1669,7 +1666,7 @@ export const SERVICES = [
       images: [
         "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
 
-        "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
 
         "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
@@ -1858,7 +1855,7 @@ export const SERVICES = [
       images: [
         "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
 
-        "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
 
         "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
