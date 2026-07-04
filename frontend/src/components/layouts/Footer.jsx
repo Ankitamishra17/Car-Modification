@@ -18,9 +18,9 @@ const QUICK_LINKS = [
 ];
 
 const CONTACT_INFO = [
-  { icon: Phone,  value: "+91-72-71-939393", href: "tel:+917271939393" },
-  { icon: Mail,   value: "hello@DETTAGLI AUTO.in", href: "mailto:hello@DETTAGLI AUTO.in" },
-  { icon: MapPin, value: "12 cities across India", href: "#locations" },
+  { icon: Phone,  value: "080-77976595", href: "tel:080-77976595" },
+  { icon: Mail,   value: "dettagliauto251@gmail.com", href: "mailto:dettagliauto251@gmail.com" },
+  { icon: MapPin, value: "C, 32, Block C, Lajpat Nagar II, Lajpat Nagar, New Delhi, Delhi 110024", href: "#locations" },
 ];
 
 const SOCIALS = [
@@ -58,19 +58,7 @@ const SOCIALS = [
       </svg>
     ),
   },
-  {
-    label: "WhatsApp",
-    href: "#",
-    svg: (
-      <svg viewBox="0 0 24 24" fill="none" width="18" height="18" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.75"/>
-        <path
-          d="M16.5 14.5c-.3-.15-1.7-.85-1.97-.95-.27-.1-.46-.15-.65.15-.2.3-.75.95-.92 1.15-.17.2-.33.22-.62.07a7.8 7.8 0 01-2.3-1.42 8.6 8.6 0 01-1.6-1.98c-.17-.3-.02-.46.13-.6.13-.13.3-.33.44-.5.14-.17.19-.3.29-.5.1-.2.05-.37-.02-.52-.07-.15-.65-1.57-.89-2.15-.23-.56-.47-.48-.65-.49H7.5c-.2 0-.5.07-.76.37S6 8.95 6 9.9c0 .93.68 1.84.78 1.97.1.13 1.33 2.03 3.22 2.85 1.9.82 1.9.55 2.24.52.34-.03 1.1-.45 1.25-.88.16-.43.16-.8.11-.88-.05-.07-.18-.12-.38-.22z"
-          fill="currentColor"
-        />
-      </svg>
-    ),
-  },
+ 
   {
     label: "X / Twitter",
     href: "#",
@@ -96,7 +84,7 @@ export default function Footer({ display, label, body }) {
         .ftr-root *, .ftr-root *::before, .ftr-root *::after { box-sizing: border-box; }
 
         .ftr-root {
-          background: #0B0B0B;
+          background: #1A1A1A;
           width: 100%;
           position: relative;
           overflow: hidden;

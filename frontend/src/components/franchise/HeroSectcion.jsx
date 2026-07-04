@@ -135,7 +135,7 @@ export default function FranchisePage() {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-2xl pl-15"
+            className="max-w-2xl xl:pl-15 lg:pl-2 md:pl-1"
           >
             <motion.p
               initial={{ opacity: 0, y: 10 }}

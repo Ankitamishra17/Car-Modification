@@ -117,7 +117,7 @@ export default function ContactLocation() {
                 COME SEE THE<br />SHOP FLOOR.
               </h2>
               <p className="cl-sub mt-4 max-w-md text-[14.5px] font-light leading-relaxed text-[#B8B8B8]">
-                Sector 32 Industrial Area, Gurugram, Haryana 122001 — walk-ins
+                C, 32, Block C, Lajpat Nagar II, Lajpat Nagar, New Delhi, Delhi 110024
                 welcome, appointments get priority.
               </p>
               <button className="cl-cta mt-6">
@@ -141,7 +141,7 @@ export default function ContactLocation() {
               ))}
               <div className="mt-4 flex items-center gap-2 border-t border-[#2A2A2A] pt-4">
                 <Phone size={13} color="#8C8C8C" />
-                <span className="cl-sub text-[13px] text-[#B8B8B8]">+91 98765 43210</span>
+                <span className="cl-sub text-[13px] text-[#B8B8B8]">080779 76595</span>
               </div>
             </div>
           </div>

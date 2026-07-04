@@ -4,14 +4,14 @@ const CONTACT = [
   {
     icon: Phone,
     label: "Call us",
-    value: "+968 9123 4567",
-    href: "tel:+96891234567",
+    value: "080-77976595",
+    href: "tel:08077976595",
   },
   {
     icon: Mail,
     label: "Email us",
-    value: "hello@autoluxe.om",
-    href: "mailto:hello@autoluxe.om",
+    value: "dettagliauto251@gmail.com",
+    href: "mailto:dettagliauto251@gmail.com",
   },
   {
     icon: MapPin,
@@ -23,7 +23,7 @@ const CONTACT = [
 
 const TRUST = [
   { value: "6+", label: "Studios across Oman" },
-  { value: "8 yrs", label: "In the industry" },
+  { value: "6 yrs", label: "In the industry" },
   { value: "40,000+", label: "Cars protected" },
 ];
 

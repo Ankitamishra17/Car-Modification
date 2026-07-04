@@ -25,7 +25,7 @@ export function ExperienceCallout() {
 
           <div className="pt-12">
             <p className="text-[#D4AF37] text-sm font-medium tracking-widest uppercase" style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}>
-              Since 1999
+              Since 2020
             </p>
             <p className="text-3xl md:text-4xl font-light text-[#F5EBE0] mt-3" style={{ fontFamily: "Georgia, serif" }}>
               Because perfection is never accidental.
