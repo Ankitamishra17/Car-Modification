@@ -12,7 +12,7 @@ const BLOGS = [
     excerpt:
       "Both promise to protect your paintwork, but they solve very different problems. We break down the science, cost, and real-world performance so you can make the right call for your vehicle.",
     img: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=900&q=80&auto=format&fit=crop",
-    href: "#blog/ceramic-vs-ppf",
+    href: "/blog",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const BLOGS = [
     title: "The Truth About Swirl Marks — And How to Remove Them for Good",
     excerpt: "",
     img: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80&auto=format&fit=crop",
-    href: "#blog/swirl-marks",
+    href: "/blog",
   },
   {
     id: 3,
@@ -34,7 +34,7 @@ const BLOGS = [
     title: "ECU Remapping Explained — What Changes, What Doesn't",
     excerpt: "",
     img: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=600&q=80&auto=format&fit=crop",
-    href: "#blog/ecu-remapping",
+    href: "/blog",
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ const BLOGS = [
     title: "Interior Detailing: The Products Pros Actually Use",
     excerpt: "",
     img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&auto=format&fit=crop",
-    href: "#blog/interior-products",
+    href: "/blog",
   },
   {
     id: 5,
@@ -56,7 +56,7 @@ const BLOGS = [
     title: "Classic Car Restoration: How We Brought a 1987 BMW Back to Life",
     excerpt: "",
     img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80&auto=format&fit=crop",
-    href: "#blog/bmw-restoration",
+    href: "/blog",
   },
 ];
 
@@ -301,7 +301,7 @@ export default function Blog() {
 
           <motion.div className="blog-headmeta" variants={fadeUp(0.18)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
             <p className="blog-sub">Expert knowledge on paint, protection, and the art of the automobile.</p>
-            <a className="blog-viewall" href="#blog">
+            <a className="blog-viewall" href="/blog">
               View all articles <ArrowIcon />
             </a>
           </motion.div>

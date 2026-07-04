@@ -338,7 +338,7 @@ export default function About() {
               Every remarkable automobile tells a story. Our purpose is to
               preserve it.
             </p>
-            <a href="#services" className="da-cta">
+            <a href="/services/ppf" className="da-cta">
               Explore Our Services
               <svg
                 className="da-arrow"

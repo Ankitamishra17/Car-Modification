@@ -1,31 +1,5 @@
 import React from "react";
-import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
-
-/**
- * Footer — DETTAGLI AUTO
- *
- * Palette (fixed):
- *   Primary BG      #0B0B0B
- *   Secondary BG    #1A1A1A
- *   Section BG      #2A2A2A
- *   Borders         #3D3D3D
- *   Primary Text    #FFFFFF
- *   Secondary Text  #B8B8B8
- *   Accent          #8C8C8C (metallic silver — buttons / hover)
- *
- * Type system:
- *   Main heading / logo   Bebas Neue
- *   Title / labels         DM Sans
- *   Sub headings / body    Jost
- *
- * Structure:
- *   1. Silver top hairline (mirrors Header's top-line)
- *   2. Main grid — Logo+tagline | Services | Quick Links | Contact
- *   3. Social bar — SVG icons (Instagram, YouTube, Facebook, WhatsApp, X/Twitter)
- *   4. Bottom strip — copyright + legal links
- *
- * Social icons: all inline SVGs, no external icon lib dependency.
- */
+import { Phone, Mail, MapPin } from "lucide-react";
 
 const SERVICES = [
  {svc:"PPF", href:"/ppf"},
@@ -33,13 +7,12 @@ const SERVICES = [
  {svc:"Exhaust", href:"/ppf"},
  {svc:"Paints", href:"/ppf"},
  {svc:"Refurbish", href:"/ppf"},
-
 ];
 
 const QUICK_LINKS = [
   { label: "Home",      href: "#home" },
   { label: "About Us",  href: "#about" },
-  { label: "Blogs",      href: "#blog" },
+  { label: "Blogs",     href: "#blog" },
   { label: "Franchise", href: "#franchise" },
   { label: "Contact",   href: "#contact" },
 ];
@@ -112,28 +85,7 @@ const SOCIALS = [
   },
 ];
 
-function ShieldIcon() {
-  return (
-    <svg viewBox="0 0 32 36" fill="none" width="26" height="26">
-      <path
-        d="M16 2L3 7v10c0 8.3 5.6 15.7 13 18 7.4-2.3 13-9.7 13-18V7L16 2z"
-        fill="#1A1A1A"
-        stroke="#8C8C8C"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M10 18l4 4 8-8"
-        stroke="#8C8C8C"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-export default function Footer() {
+export default function Footer({ display, label, body }) {
   const year = new Date().getFullYear();
 
   return (
@@ -144,40 +96,24 @@ export default function Footer() {
         .ftr-root *, .ftr-root *::before, .ftr-root *::after { box-sizing: border-box; }
 
         .ftr-root {
-          font-family: 'Jost', sans-serif;
-          background: #1a1a1a;
+          background: #0B0B0B;
           width: 100%;
           position: relative;
           overflow: hidden;
         }
 
-        .ftr-heading { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.01em; }
-        .ftr-title   { font-family: 'DM Sans', sans-serif; }
-        .ftr-sub     { font-family: 'Jost', sans-serif; }
-
-        /* ── Silver top hairline — mirrors Header ── */
+        /* ── Silver top hairline ── */
         .ftr-top-line {
           height: 2px;
           background: linear-gradient(to right, transparent, #8C8C8C, transparent);
-          opacity: 0.55;
+          opacity: 0.35;
         }
-
-        /* ── Ambient glow ── */
-        .ftr-glow {
-          pointer-events: none;
-          position: absolute;
-          border-radius: 50%;
-          background: rgba(140,140,140,0.08);
-          filter: blur(100px);
-        }
-        .ftr-glow-left  { width: 360px; height: 360px; top: 0; left: -80px; }
-        .ftr-glow-right { width: 280px; height: 280px; bottom: 40px; right: -60px; }
 
         .ftr-inner {
           position: relative;
           max-width: 1240px;
           margin: 0 auto;
-          padding: 56px 20px 0;
+          padding: 64px 20px 0;
         }
 
         /* ── Main grid ── */
@@ -190,7 +126,7 @@ export default function Footer() {
           .ftr-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (min-width: 1024px) {
-          .ftr-grid { grid-template-columns: 2fr 1fr 1fr 1.4fr; gap: 48px; }
+          .ftr-grid { grid-template-columns: 2.2fr 1fr 1fr 1.3fr; gap: 48px; }
         }
 
         /* ── Brand column ── */
@@ -201,92 +137,40 @@ export default function Footer() {
           text-decoration: none;
           margin-bottom: 20px;
         }
-        .ftr-logo-shield {
-          width: 46px; height: 46px;
-          border: 2px solid #8C8C8C;
-          border-radius: 6px;
-          display: flex; align-items: center; justify-content: center;
-          background: #1A1A1A;
-          flex-shrink: 0;
-        }
-        .ftr-logo-name {
-          font-family: 'Bebas Neue', sans-serif;
-          font-size: 26px; font-weight: 400;
-          letter-spacing: 0.04em;
-          color: #FFFFFF; text-transform: uppercase; line-height: 1;
-        }
-        .ftr-logo-name span { color: #8C8C8C; }
-        .ftr-logo-tagline {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 9px; letter-spacing: 0.22em;
-          color: #B8B8B8;
-          text-transform: uppercase; margin-top: 4px;
-        }
 
         .ftr-brand-desc {
-          font-family: 'Jost', sans-serif;
-          font-weight: 300;
-          font-size: 13.5px; line-height: 1.7;
+          font-size: 14px;
+          line-height: 1.7;
           color: #B8B8B8;
-          max-width: 300px; margin-bottom: 24px;
+          max-width: 320px;
+          margin-bottom: 24px;
         }
-
-        /* Newsletter strip */
-        .ftr-newsletter {
-          display: flex;
-          border: 1px solid #3D3D3D;
-          border-radius: 8px;
-          overflow: hidden;
-          max-width: 300px;
-        }
-        .ftr-newsletter input {
-          flex: 1;
-          background: #1A1A1A;
-          border: none; outline: none;
-          padding: 10px 14px;
-          font-size: 13px;
-          color: #FFFFFF;
-          font-family: 'Jost', sans-serif;
-        }
-        .ftr-newsletter input::placeholder { color: #6E6E6E; }
-        .ftr-newsletter button {
-          background: #8C8C8C;
-          border: none; cursor: pointer;
-          padding: 0 14px;
-          display: flex; align-items: center; justify-content: center;
-          color: #0B0B0B;
-          transition: background 0.2s;
-          flex-shrink: 0;
-        }
-        .ftr-newsletter button:hover { background: #FFFFFF; }
 
         /* ── Column heading ── */
         .ftr-col-head {
           display: flex; align-items: center; gap: 10px;
-          margin-bottom: 18px;
+          margin-bottom: 22px;
         }
         .ftr-col-head-line {
-          height: 1px; width: 20px; background: #8C8C8C; flex-shrink: 0;
+          height: 1px; width: 16px; background: #8C8C8C; flex-shrink: 0;
         }
         .ftr-col-head-text {
-          font-family: 'DM Sans', sans-serif;
           font-size: 11px; font-weight: 700;
-          letter-spacing: 0.24em; text-transform: uppercase;
-          color: #B8B8B8;
+          letter-spacing: 0.25em; text-transform: uppercase;
+          color: #8C8C8C;
         }
 
         /* ── Link lists ── */
         .ftr-link-list {
           list-style: none; padding: 0; margin: 0;
-          display: flex; flex-direction: column; gap: 2px;
+          display: flex; flex-direction: column; gap: 4px;
         }
         .ftr-link-list li a {
-          display: inline-flex; align-items: center; gap: 6px;
-          font-family: 'Jost', sans-serif;
-          font-size: 13.5px; font-weight: 300; color: #B8B8B8;
+          display: inline-flex; align-items: center; gap: 8px;
+          font-size: 14px; font-weight: 400; color: #B8B8B8;
           text-decoration: none;
-          padding: 5px 0;
-          transition: color 0.2s;
+          padding: 6px 0;
+          transition: color 0.25s ease, transform 0.25s ease;
         }
         .ftr-link-list li a .fl-dot {
           width: 4px; height: 4px; border-radius: 50%;
@@ -294,22 +178,21 @@ export default function Footer() {
           flex-shrink: 0;
           transition: opacity 0.2s;
         }
-        .ftr-link-list li a:hover { color: #FFFFFF; }
+        .ftr-link-list li a:hover { color: #FFFFFF; transform: translateX(2px); }
         .ftr-link-list li a:hover .fl-dot { opacity: 1; }
 
         /* ── Contact column ── */
         .ftr-contact-list {
           list-style: none; padding: 0; margin: 0;
-          display: flex; flex-direction: column; gap: 14px;
+          display: flex; flex-direction: column; gap: 16px;
         }
         .ftr-contact-item a {
-          display: flex; align-items: flex-start; gap: 12px;
+          display: flex; align-items: center; gap: 12px;
           text-decoration: none;
-          transition: color 0.2s;
           color: inherit;
         }
         .ftr-contact-icon {
-          width: 34px; height: 34px; border-radius: 50%;
+          width: 34px; height: 34px; border-radius: 6px;
           border: 1px solid #3D3D3D;
           background: #1A1A1A;
           display: flex; align-items: center; justify-content: center;
@@ -318,34 +201,33 @@ export default function Footer() {
           color: #8C8C8C;
         }
         .ftr-contact-item a:hover .ftr-contact-icon {
-          border-color: #8C8C8C;
+          border-color: #FFFFFF;
           background: #2A2A2A;
+          color: #FFFFFF;
         }
         .ftr-contact-value {
-          font-family: 'Jost', sans-serif;
-          font-size: 13.5px; font-weight: 300;
+          font-size: 14px; font-weight: 400;
           color: #B8B8B8;
-          line-height: 1.5;
-          padding-top: 6px;
+          line-height: 1.4;
           transition: color 0.2s;
         }
         .ftr-contact-item a:hover .ftr-contact-value { color: #FFFFFF; }
 
         /* ── Divider ── */
         .ftr-divider {
-          margin: 48px 0 0;
+          margin: 56px 0 0;
           height: 1px;
           background: linear-gradient(to right, transparent, #3D3D3D, transparent);
         }
 
         /* ── Social + copyright strip ── */
         .ftr-bottom {
-          max-width: 1280px;
+          max-width: 1240px;
           margin: 0 auto;
-          padding: 24px 20px 32px;
+          padding: 28px 20px 36px;
           display: flex;
           flex-direction: column;
-          gap: 20px;
+          gap: 24px;
           align-items: center;
           text-align: center;
         }
@@ -363,60 +245,48 @@ export default function Footer() {
         }
         .ftr-social-btn {
           width: 38px; height: 38px;
-          border-radius: 8px;
+          border-radius: 6px;
           border: 1px solid #3D3D3D;
           background: #1A1A1A;
           display: flex; align-items: center; justify-content: center;
           color: #B8B8B8;
           text-decoration: none;
-          transition: color 0.25s, border-color 0.25s, background 0.25s, transform 0.25s;
+          transition: all 0.25s ease;
         }
         .ftr-social-btn:hover {
-          color: #FFFFFF;
-          border-color: #8C8C8C;
-          background: #2A2A2A;
+          color: #0B0B0B;
+          border-color: #FFFFFF;
+          background: #FFFFFF;
           transform: translateY(-2px);
         }
 
         /* Copyright */
         .ftr-copy {
-          font-family: 'Jost', sans-serif;
           font-size: 12px;
-          color: #6E6E6E;
+          color: #555555;
           letter-spacing: 0.04em;
         }
         .ftr-copy a {
-          color: #B8B8B8;
+          color: #8C8C8C;
           text-decoration: none;
           transition: color 0.2s;
         }
         .ftr-copy a:hover { color: #FFFFFF; }
 
         /* Legal links */
-        .ftr-legal {
-          display: flex; gap: 20px;
-        }
         .ftr-legal a {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 11.5px;
-          color: #6E6E6E;
+          font-size: 11px;
+          color: #555555;
           text-decoration: none;
-          letter-spacing: 0.06em;
+          letter-spacing: 0.08em;
           text-transform: uppercase;
           transition: color 0.2s;
         }
         .ftr-legal a:hover { color: #FFFFFF; }
-
-        @media (max-width: 400px) {
-          .ftr-logo-name { font-size: 20px; }
-          .ftr-logo-shield { width: 38px; height: 38px; }
-        }
       `}</style>
 
       <footer className="ftr-root">
         <div className="ftr-top-line" />
-
-     
 
         <div className="ftr-inner">
           <div className="ftr-grid">
@@ -424,10 +294,9 @@ export default function Footer() {
             {/* ── Col 1: Brand ── */}
             <div>
               <a href="#home" className="ftr-logo" aria-label="DETTAGLI AUTO home">
-              <img src="/logo.png" alt="DETTAGLI AUTO logo" className="h-20 w-35" />
+                <img src="/logo.png" alt="DETTAGLI AUTO logo" className="h-16 w-auto object-contain" />
               </a>
-
-              <p className="ftr-brand-desc">
+              <p className="ftr-brand-desc" style={body}>
                 India's premium auto detailing studio — PPF, ceramic coatings,
                 restoration, and performance upgrades. We protect what moves you.
               </p>
@@ -437,12 +306,12 @@ export default function Footer() {
             <div>
               <div className="ftr-col-head">
                 <div className="ftr-col-head-line" />
-                <div className="ftr-col-head-text">Services</div>
+                <div className="ftr-col-head-text" style={label}>Services</div>
               </div>
               <ul className="ftr-link-list">
                 {SERVICES.map(({svc , href}) => (
                   <li key={svc}>
-                    <a href={href}>
+                    <a href={href} style={body}>
                       <span className="fl-dot" />
                       {svc}
                     </a>
@@ -455,14 +324,14 @@ export default function Footer() {
             <div>
               <div className="ftr-col-head">
                 <div className="ftr-col-head-line" />
-                <div className="ftr-col-head-text">Quick Links</div>
+                <div className="ftr-col-head-text" style={label}>Quick Links</div>
               </div>
               <ul className="ftr-link-list">
-                {QUICK_LINKS.map(({ label, href }) => (
-                  <li key={label}>
-                    <a href={href}>
+                {QUICK_LINKS.map(({ label: linkLabel, href }) => (
+                  <li key={linkLabel}>
+                    <a href={href} style={body}>
                       <span className="fl-dot" />
-                      {label}
+                      {linkLabel}
                     </a>
                   </li>
                 ))}
@@ -473,16 +342,16 @@ export default function Footer() {
             <div>
               <div className="ftr-col-head">
                 <div className="ftr-col-head-line" />
-                <div className="ftr-col-head-text">Contact Us</div>
+                <div className="ftr-col-head-text" style={label}>Contact Us</div>
               </div>
               <ul className="ftr-contact-list">
                 {CONTACT_INFO.map(({ icon: Icon, value, href }) => (
                   <li className="ftr-contact-item" key={value}>
                     <a href={href}>
                       <div className="ftr-contact-icon">
-                        <Icon size={15} strokeWidth={1.75} />
+                        <Icon size={14} strokeWidth={2} />
                       </div>
-                      <div className="ftr-contact-value">{value}</div>
+                      <div className="ftr-contact-value" style={body}>{value}</div>
                     </a>
                   </li>
                 ))}
@@ -497,18 +366,18 @@ export default function Footer() {
         {/* ── Bottom strip ── */}
         <div className="ftr-bottom">
           {/* Copyright */}
-          <div className="ftr-copy">
-            © {year} <a href="#home">DETTAGLI AUTO</a>. All rights reserved.
+          <div className="ftr-copy" style={body}>
+            © {year} <a href="#home" style={label}>DETTAGLI AUTO</a>. All rights reserved.
           </div>
 
           {/* Social icons */}
           <div className="ftr-socials">
-            {SOCIALS.map(({ label, href, svg }) => (
+            {SOCIALS.map(({ label: socLabel, href, svg }) => (
               <a
-                key={label}
+                key={socLabel}
                 href={href}
                 className="ftr-social-btn"
-                aria-label={label}
+                aria-label={socLabel}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -519,7 +388,7 @@ export default function Footer() {
 
           {/* Legal */}
           <div className="ftr-legal">
-            <a href="https://deboxtechnology.com/">Developed by Debox Technology</a>
+            <a href="https://deboxtechnology.com/" style={label}>Developed by Debox Technology</a>
           </div>
         </div>
       </footer>
