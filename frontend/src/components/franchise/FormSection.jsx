@@ -81,13 +81,7 @@ export default function FormSection() {
       {/* ---------------- APPLICATION FORM ---------------- */}
       <section id="apply" className="border-t border-[#8C8C8C]/20 bg-[#0F0F0F] relative overflow-hidden">
         {/* faint ambient sheen across the banner */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-[0.05]"
-          style={{
-            background:
-              "radial-gradient(ellipse 60% 50% at 80% 20%, #C0C0C0, transparent)",
-          }}
-        />
+    
 
         <div className="max-w-7xl mx-auto px-12 py-28 relative">
           {/* Header row — eyebrow, headline, and the reference tag sit together

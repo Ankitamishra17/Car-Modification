@@ -323,7 +323,7 @@ export default function Franchise() {
             Limited territories open per city to protect franchisee margins.
           </p>
           <a
-            href="#contact"
+            href="/franchise"
             className="fr-title group inline-flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-br from-[#E4E4E4] to-[#A8A8A8] px-6 py-3 text-[14px] font-semibold tracking-wide text-[#0B0B0B] shadow-[0_8px_24px_-8px_rgba(200,200,200,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:from-white hover:to-[#C0C0C0] hover:shadow-[0_12px_32px_-8px_rgba(200,200,200,0.5)] sm:w-auto sm:px-7 sm:py-3.5 sm:text-[14.5px]"
           >
             Enquire About Franchise

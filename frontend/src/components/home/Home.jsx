@@ -689,7 +689,7 @@ export default function Hero() {
               animation: "fadeUp 0.75s ease-out 0.68s forwards",
             }}
           >
-            <a href="#contact" className="hero-btn-primary">
+            <a href="/contact" className="hero-btn-primary">
               Book a Service
               <svg
                 className="hero-arrow"
@@ -706,7 +706,7 @@ export default function Hero() {
                 <polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
-            <a href="#services" className="hero-btn-ghost">
+            <a href="/services/ppf" className="hero-btn-ghost">
               Explore Services
             </a>
           </div>
