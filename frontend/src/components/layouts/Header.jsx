@@ -391,7 +391,7 @@ export default function Header() {
                         {SERVICES.map((svc, i) => (
                           <li className="hdr-dropdown-item" key={svc.name}>
                             <Link
-                              href={svc.href}
+                              to={svc.href}
                               role="menuitem"
                               onClick={(e) => handleNav(e, svc.href)}
                             >
@@ -495,7 +495,7 @@ export default function Header() {
                         {SERVICES.map((svc) => (
                           <li key={svc.name}>
                             <Link
-                              href={svc.href}
+                              to={svc.href}
                               onClick={(e) => handleNav(e, svc.href)}
                             >
                               {svc.name}
