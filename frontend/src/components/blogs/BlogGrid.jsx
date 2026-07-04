@@ -1,167 +1,15 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { ArrowLeft, ArrowRight, Clock, ArrowUpRight } from "lucide-react";
-
-// Combined Featured items for an exact equal-size horizontal layout
-const FEATURED_SLIDES = [
-  {
-    category: "PPF",
-    title: "Self-Healing TPU Film vs Highway Gravel: 3 Years of Real-World Torture",
-    excerpt: "We peeled back the paint protection film from a client's daily-driven supercar to see if the factory clear coat actually survived.",
-    image: "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "12 min read",
-    date: "Jun 24, 2026",
-  },
-  {
-    category: "Tuning & Mapping",
-    title: "Stage 2 vs Stage 3 ECU Maps: When More Boost Stops Being Worth It",
-    excerpt: "Exploring ignition timing adjustments, fuel trim thresholds, and where standard engine internals reach their absolute limit.",
-    image: "https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "6 min read",
-    date: "Jun 21, 2026",
-  },
-  {
-    category: "Ceramic Coatings",
-    title: "Why Your DIY Coating is Hazing — The Science of Flash Times",
-    excerpt: "Five critical environment and temperature mistakes that turn a premium 9H ceramic coating into a cloudy, streaky mess.",
-    image: "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "5 min read",
-    date: "Jun 18, 2026",
-  },
-  {
-    category: "Car Body Kits",
-    title: "The 3mm Panel Gap Nightmare: Profiling Raw Dry Carbon Aero",
-    excerpt: "Why high-end carbon fiber kits never fit perfectly straight out of the box, and the custom profiling secrets to making them flush.",
-    image: "https://images.pexels.com/photos/707046/pexels-photo-707046.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "9 min read",
-    date: "Jun 15, 2026",
-  },
-  {
-    category: "Restoration",
-    title: "Bringing a Rust-Eaten '71 Datsun Back from the Dead: 40 Days, No Shortcuts",
-    excerpt: "From deep frame rot and media blasting to metal fabrication: a complete teardown of what we saved and what we had to rebuild.",
-    image: "https://i.pinimg.com/736x/a9/21/58/a921580c2d9d86f860cf2415e4d203db.jpg",
-    readTime: "8 min read",
-    date: "Jun 12, 2026",
-  },
-  {
-    category: "Exhaust",
-    title: "Straight Pipes vs Valvetronic Systems: Designing the Perfect Tone",
-    excerpt: "Analyzing backpressure dynamics, drone cancellation frequencies, and how to get an aggressive exhaust note without losing low-end torque.",
-    image: "https://images.pexels.com/photos/190574/pexels-photo-190574.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "7 min read",
-    date: "Jun 09, 2026",
-  },
-  {
-    category: "Paints",
-    title: "Multi-Stage OEM Color Matching: The Art of Spraying Liquid Metallics",
-    excerpt: "How digital spectrophotometers and custom binder ratios help us match faded original factory paint with flawless precision.",
-    image: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "11 min read",
-    date: "Jun 06, 2026",
-  },
-  {
-    category: "Refurbish",
-    title: "Alloy Wheel Structural Repair: Straightening, Machining, and Balancing",
-    excerpt: "The exact engineering process required to fix severe curb rashes, hairline barrel cracks, and out-of-round performance wheels.",
-    image: "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "10 min read",
-    date: "Jun 03, 2026",
-  },
-  {
-    category: "Upholstery",
-    title: "Restoring Vintage Leather: Stitching Alcantara & Custom Seat Rebuilding",
-    excerpt: "Replacing collapsed bolster foam and applying high-density French seams to a completely worn out 90s sports car interior.",
-    image: "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "6 min read",
-    date: "May 29, 2026",
-  },
-  {
-    category: "Accessories",
-    title: "Thermal Management: Wrapping Exhaust Manifolds vs Ceramic Shields",
-    excerpt: "A deep dive into keeping engine bay temperatures critically low to prevent intake air temp sensor heat-soak loops.",
-    image: "https://i.pinimg.com/736x/e4/d4/dc/e4d4dc26636bfe9861c6fbbb22ab4089.jpg",
-    readTime: "8 min read",
-    date: "May 25, 2026",
-  }
-];
-
-const POSTS = [
-  {
-    category: "Car Body Kits",
-    title: "Wide-Body vs Subtle Aero: Choosing a Kit That Fits Your Track Intent",
-    excerpt: "A practical, data-backed framework for matching aerodynamic downforce to how you actually drive on the street and circuit.",
-    image: "https://images.pexels.com/photos/707046/pexels-photo-707046.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "7 min read",
-    date: "Jun 15, 2026",
-  },
-  {
-    category: "Ceramic Coatings",
-    title: "The Ultimate Guide to Graphene vs Quartz Coatings: Which Wins?",
-    excerpt: "Breaking down water spot resistance, slickness factors, and real-world durability indexes over a 24-month testing period.",
-    image: "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "4 min read",
-    date: "Jun 12, 2026",
-  },
-  {
-    category: "Restoration",
-    title: "Dry Ice Blasting: How We Safely Remove Decades of Undercarriage Grime",
-    excerpt: "Why traditional high-pressure washing risks electrical damage, and how kinetic freeze tech restores metal components to factory finish.",
-    image: "https://images.pexels.com/photos/3849160/pexels-photo-3849160.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    readTime: "9 min read",
-    date: "Jun 9, 2026",
-  },
-  {
-    category: "PPF",
-    title: "Matte Paint Protection Film: Transforming Gloss Finishes Safely",
-    excerpt: "How to achieve a seamless satin look while adding a heavy-duty layer of chemical and rock chip protection to factory clear coats.",
-    image: "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "6 min read",
-    date: "Jun 06, 2026",
-  },
-  {
-    category: "Tuning & Mapping",
-    title: "Understanding Octane Knock: Why Bad Fuel Kills Aggressive Tunes",
-    excerpt: "How modern ECUs pull ignition timing to prevent low-speed pre-ignition (LSPI) and how to log data safely using OBD tools.",
-    image: "https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "8 min read",
-    date: "Jun 03, 2026",
-  },
-  {
-    category: "Exhaust",
-    title: "Titanium vs Stainless Steel: Weighing the Cost of Exhaust Upgrades",
-    excerpt: "Analyzing acoustic notes, structural heat dissipation, and the exact power-to-weight advantages of exotic exhaust alloys.",
-    image: "https://images.pexels.com/photos/190574/pexels-photo-190574.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "5 min read",
-    date: "May 30, 2026",
-  },
-  {
-    category: "Paints",
-    title: "The Physics of Orange Peel: How to Achieve a True Mirror Finish",
-    excerpt: "Why factory paint jobs have textures and the specialized wet sanding processes required to safely flatten clear coats.",
-    image: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "10 min read",
-    date: "May 26, 2026",
-  },
-  {
-    category: "Refurbish",
-    title: "Diamond Cut Wheels: How Many Times Can You Re-Machine Them?",
-    excerpt: "How computer-controlled CNC lathes profile alloy rims and the structural safety margins you need to calculate beforehand.",
-    image: "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "7 min read",
-    date: "May 22, 2026",
-  },
-  {
-    category: "Upholstery",
-    title: "Alcantara Maintenance 101: Preventing Sweat and Oil Matting",
-    excerpt: "A simple detailing routine using specialized low-pH cleaners to keep your performance steering wheel and buckets feeling brand new.",
-    image: "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=600",
-    readTime: "5 min read",
-    date: "May 18, 2026",
-  },
-];
+import { Link } from "react-router-dom";
+import { ALL_POSTS } from "../../data/blog"; // apne actual path ke hisaab se adjust karein
 
 export default function BlogGrid() {
   const sliderRef = useRef(null);
+
+  // ALL_POSTS ke pehle 10 items → featured horizontal slider
+  // baaki items → lower "Technical Logs" grid
+  const FEATURED_SLIDES = ALL_POSTS.slice(0, 10);
+  const POSTS = ALL_POSTS.slice(10);
 
   const scroll = (direction) => {
     if (sliderRef.current) {
@@ -223,9 +71,10 @@ export default function BlogGrid() {
           className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10 sm:pb-16 -mx-4 xs:-mx-5 sm:mx-0 px-4 xs:px-5 sm:px-0"
         >
           {FEATURED_SLIDES.map((slide, i) => (
-            <div
-              key={i}
-              className="w-[85%] xs:w-[75%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 snap-start group cursor-pointer"
+            <Link
+              to={`/blog/${slide.slug}`}
+              key={slide.slug || i}
+              className="w-[85%] xs:w-[75%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 snap-start group cursor-pointer block"
             >
               <div className="aspect-[16/10] overflow-hidden bg-[#161616] mb-4 sm:mb-5 border border-[#222]">
                 <img
@@ -250,7 +99,7 @@ export default function BlogGrid() {
                   <span className="flex items-center gap-1"><Clock size={12} /> {slide.readTime}</span>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 
@@ -267,7 +116,11 @@ export default function BlogGrid() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
             {POSTS.map((post, i) => (
-              <a href="#" key={i} className="group block space-y-3 sm:space-y-4 pb-4">
+              <Link
+                to={`/blog/${post.slug}`}
+                key={post.slug || i}
+                className="group block space-y-3 sm:space-y-4 pb-4"
+              >
                 <div className="aspect-[4/3] overflow-hidden bg-[#161616] border border-[#222]">
                   <img
                     src={post.image}
@@ -296,7 +149,7 @@ export default function BlogGrid() {
                     {post.readTime}
                   </div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
