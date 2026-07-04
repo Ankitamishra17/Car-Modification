@@ -90,9 +90,10 @@ const stats = [
 
 export default function FranchisePage() {
   return (
-    <div className="bg-[#0B0B0B] text-[#F0F0F0] min-h-screen" style={body}>
+
+    <div className="bg-[#0B0B0B] text-[#F0F0F0] min-h-screen " style={body}>
       {/* ---------------- HERO / BANNER ---------------- */}
-      <section className="relative overflow-hidden min-h-[92vh] md:min-h-screen flex items-end">
+      <section className="relative overflow-hidden min-h-[92vh] md:min-h-screen flex items-end max-w-7xl mx-auto">
         {/* Background photograph */}
         <div className="absolute inset-0">
           <img
@@ -129,7 +130,7 @@ export default function FranchisePage() {
         </motion.div>
 
         {/* Copy block */}
-        <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-10 pb-40 md:pb-48 w-full">
+        <div className="relative max-w-7xl mx-auto px-36 md:px-12 pt-10 pb-40 md:pb-48 w-full">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
