@@ -1,6 +1,7 @@
 import FormSection from "../components/franchise/FormSection";
 import HeroSection from "../components/franchise/HeroSectcion";
 import OurProcess from "../components/franchise/OurProcess";
+import OurStory from "../components/franchise/OurStory";
 import WhyChoose from "../components/franchise/WhyChoose";
 
 
@@ -9,6 +10,7 @@ export default function Home() {
     <>
     <HeroSection/>
     <OurProcess/>
+    <OurStory/>
     <WhyChoose/>
     <FormSection/>
     </>

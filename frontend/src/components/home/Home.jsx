@@ -203,9 +203,11 @@ export default function Hero() {
           width: "100%",
           margin: "0 auto",
           padding: "56px 40px 80px",
+                         
+
         }}
       >
-        <div style={{ maxWidth: 580 }}>
+        <div style={{ maxWidth: 580,  fontStyle:"itallic" }}>
           {/* Eyebrow */}
           <div
             style={{
@@ -231,6 +233,7 @@ export default function Hero() {
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize: 11,
                 fontWeight: 600,
+                fontStyle: "italic",
                 letterSpacing: "0.28em",
                 textTransform: "uppercase",
                 color: "#8C8C8C",
@@ -247,6 +250,7 @@ export default function Hero() {
               fontSize: "clamp(52px, 7vw, 90px)",
               lineHeight: 0.95,
               margin: 0,
+              
             }}
           >
             <span style={{ color: "#F0F0F0", display: "block", WebkitTextStroke: "2px rgba(255,255,255,0.85)" }}>

@@ -57,7 +57,7 @@ export default function ValuesSection() {
       `}</style>
 
       {/* Luxury Radial Glow Background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#8C8C8C]/5 rounded-full filter blur-[120px] pointer-events-none" />
+      {/* <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#8C8C8C]/5 rounded-full filter blur-[120px] pointer-events-none" /> */}
 
       <div className="mx-auto max-w-7xl relative z-10">
         

@@ -2,7 +2,7 @@ import React from "react";
 import { Phone, Mail, MapPin, ArrowRight } from "lucide-react";
 
 /**
- * Footer — AutoLuxe
+ * Footer — DETTAGLI AUTO
  *
  * Palette (fixed):
  *   Primary BG      #0B0B0B
@@ -45,7 +45,7 @@ const QUICK_LINKS = [
 
 const CONTACT_INFO = [
   { icon: Phone,  value: "+91-72-71-939393", href: "tel:+917271939393" },
-  { icon: Mail,   value: "hello@autoluxe.in", href: "mailto:hello@autoluxe.in" },
+  { icon: Mail,   value: "hello@DETTAGLI AUTO.in", href: "mailto:hello@DETTAGLI AUTO.in" },
   { icon: MapPin, value: "12 cities across India", href: "#locations" },
 ];
 
@@ -144,7 +144,7 @@ export default function Footer() {
 
         .ftr-root {
           font-family: 'Jost', sans-serif;
-          background: #0B0B0B;
+          background: #1a1a1a;
           width: 100%;
           position: relative;
           overflow: hidden;
@@ -174,7 +174,7 @@ export default function Footer() {
 
         .ftr-inner {
           position: relative;
-          max-width: 1280px;
+          max-width: 1240px;
           margin: 0 auto;
           padding: 56px 20px 0;
         }
@@ -415,23 +415,15 @@ export default function Footer() {
       <footer className="ftr-root">
         <div className="ftr-top-line" />
 
-        {/* Ambient glows */}
-        <div className="ftr-glow ftr-glow-left" />
-        <div className="ftr-glow ftr-glow-right" />
+     
 
         <div className="ftr-inner">
           <div className="ftr-grid">
 
             {/* ── Col 1: Brand ── */}
             <div>
-              <a href="#home" className="ftr-logo" aria-label="AutoLuxe home">
-                <div className="ftr-logo-shield">
-                  <ShieldIcon />
-                </div>
-                <div>
-                  <div className="ftr-logo-name">AUTO<span>LUXE</span></div>
-                  <div className="ftr-logo-tagline">Beyond The Luxury</div>
-                </div>
+              <a href="#home" className="ftr-logo" aria-label="DETTAGLI AUTO home">
+              <img src="/logo.png" alt="DETTAGLI AUTO logo" className="h-20 w-35" />
               </a>
 
               <p className="ftr-brand-desc">
@@ -505,7 +497,7 @@ export default function Footer() {
         <div className="ftr-bottom">
           {/* Copyright */}
           <div className="ftr-copy">
-            © {year} <a href="#home">AutoLuxe</a>. All rights reserved.
+            © {year} <a href="#home">DETTAGLI AUTO</a>. All rights reserved.
           </div>
 
           {/* Social icons */}

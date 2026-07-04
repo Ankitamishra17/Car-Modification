@@ -1,10 +1,35 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import {
   FiChevronRight,
   FiPhone,
   FiMail,
+  FiMapPin,
+  FiClock,
+  FiActivity,
 } from "react-icons/fi";
+
+/**
+ * DETTAGLI AUTO — FRANCHISE PAGE
+ * -------------------------------------------------------------
+ * Colors:
+ *   Primary BG      #0B0B0B
+ *   Alt Section BG  #0F0F0F
+ *   Primary Text    #F0F0F0
+ *   Silver Accent   #C0C0C0
+ *   Muted Silver    #8C8C8C
+ *   Signal Red      #C8102E   <- new: used only for "live/scan" moments
+ *
+ * Fonts:
+ *   Bebas Neue  -> headings (industrial, tall, automotive)
+ *   DM Sans     -> labels / CTAs / eyebrows
+ *   Jost        -> body copy
+ *
+ * Signature element: the page reads like a diagnostic bay readout —
+ * the hero is framed like a scanner viewfinder over a real studio shot,
+ * and that same HUD language carries into the "Build Spec" sheet below.
+ * -------------------------------------------------------------
+ */
 
 const display = { fontFamily: "'Bebas Neue', sans-serif" };
 const label = { fontFamily: "'DM Sans', sans-serif" };
@@ -33,60 +58,110 @@ function Shine() {
   );
 }
 
+// Corner bracket — the recurring "viewfinder / scanner" motif
+function Bracket({ position }) {
+  const pos = {
+    "top-left": "top-6 left-6 border-t-2 border-l-2",
+    "top-right": "top-6 right-6 border-t-2 border-r-2",
+    "bottom-left": "bottom-6 left-6 border-b-2 border-l-2",
+    "bottom-right": "bottom-6 right-6 border-b-2 border-r-2",
+  };
+  return (
+    <span
+      className={`absolute w-8 h-8 md:w-10 md:h-10 border-[#C0C0C0]/50 ${pos[position]}`}
+    />
+  );
+}
+
 const specs = [
-  { label: "Franchise Fee", value: "₹8,00,000 – ₹12,00,000" },
-  { label: "Studio Area Required", value: "1,200 – 1,800 sq. ft." },
-  { label: "Total Setup Investment", value: "₹35,00,000 – ₹55,00,000" },
-  { label: "Estimated ROI Period", value: "18 – 24 Months" },
-  { label: "Franchise Term", value: "5 Years, Renewable" },
+  { code: "S.01", label: "Franchise Fee", value: "₹8,00,000 – ₹12,00,000" },
+  { code: "S.02", label: "Studio Area Required", value: "1,200 – 1,800 sq. ft." },
+  { code: "S.03", label: "Total Setup Investment", value: "₹35,00,000 – ₹55,00,000" },
+  { code: "S.04", label: "Estimated ROI Period", value: "18 – 24 Months" },
+  { code: "S.05", label: "Franchise Term", value: "5 Years, Renewable" },
+];
+
+const stats = [
+  { n: "12+", l: "Cities" },
+  { n: "5 Yrs", l: "Franchise Term" },
+  { n: "18–24 Mo", l: "Avg. ROI" },
+  { n: "100%", l: "Setup Support" },
 ];
 
 export default function FranchisePage() {
   return (
-    <div className="bg-[#0B0B0B] text-[#F0F0F0] min-h-screen relative overflow-hidden px-0" style={body}>
-      
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
-      `}</style>
-
-      {/* ---------------- HERO ---------------- */}
-      <section className="relative overflow-hidden border-b border-[#3D3D3D]/30">
-        <div
-          className="absolute -top-40 -left-20 w-[700px] h-[700px] rounded-full opacity-[0.10] pointer-events-none"
-          style={{
-            background: "radial-gradient(circle, #C0C0C0, transparent 70%)",
-          }}
-        />
-
-        {/* Background image */}
+    <div className="bg-[#0B0B0B] text-[#F0F0F0] min-h-screen" style={body}>
+      {/* ---------------- HERO / BANNER ---------------- */}
+      <section className="relative overflow-hidden min-h-[92vh] md:min-h-screen flex items-end">
+        {/* Background photograph */}
         <div className="absolute inset-0">
           <img
-            src="/banner/14.png"
-            alt="franchise"
-            className="h-full w-full object-cover"
+            src="https://images.unsplash.com/photo-1722385640799-4ee84eb90038?fm=jpg&q=80&w=2400&auto=format&fit=crop"
+            alt=""
+            className="w-full h-full object-cover object-center scale-105"
           />
+          {/* Left-to-right read gradient so copy stays legible */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0B0B0B] via-[#0B0B0B]/85 to-[#0B0B0B]/25" />
+          {/* Bottom fade so the floating stats dock reads clean */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/10 to-transparent" />
+          {/* Subtle vignette */}
+        
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-32 lg:-mt-[40px] pb-24 md:pt-40 md:pb-32 grid md:grid-cols-2 gap-14 items-center">
-          
-          {/* LEFT — Text Panel */}
+
+        {/* Slow horizontal scan line — ambient diagnostic motion */}
+    
+
+        {/* Live status readout, top-right of frame */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="absolute top-10 right-10 md:top-14 md:right-14 hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-[#8C8C8C]"
+          style={label}
+        >
+          <FiActivity size={12} className="text-[#C8102E]" />
+          <span className="relative flex h-1.5 w-1.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8102E]/60" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#C8102E]" />
+          </span>
+          Studios Live · 12 Cities
+        </motion.div>
+
+        {/* Copy block */}
+        <div className="relative max-w-7xl mx-auto px-6 md:px-12 pt-10 pb-40 md:pb-48 w-full">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="max-w-2xl"
           >
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="inline-flex items-center gap-3 uppercase tracking-[0.3em] text-xs text-[#8C8C8C] mb-7 border border-[#8C8C8C]/30 px-4 py-2"
+              style={label}
+            >
+              <span className="w-1.5 h-1.5 rounded-full bg-[#C8102E]" />
+              Now Expanding Nationwide
+            </motion.p>
+
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="text-[13vw] md:text-[4.2rem] lg:text-[6rem] leading-[0.95] tracking-wide uppercase"
+              className="text-[15vw] sm:text-[7rem] md:text-[6rem] lg:text-[7.5rem] leading-[0.88] tracking-wide"
               style={display}
             >
-              <span style={{ WebkitTextStroke: "1px rgba(255,255,255,0.8)", color: "transparent" }}>
-                Franchise
-              </span>
-              <br />
-              <span style={{ WebkitTextStroke: "1px rgba(255,255,255,0.8)", color: "transparent" }}>
+              <span className="block text-[#F0F0F0]">Franchise</span>
+              <span
+                className="block"
+                style={{
+                  WebkitTextStroke: "2px rgba(240,240,240,0.9)",
+                  color: "transparent",
+                }}
+              >
                 Opportunity
               </span>
             </motion.h1>
@@ -95,21 +170,18 @@ export default function FranchisePage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="mt-8 text-[#8C8C8C] text-base md:text-[15px] font-light leading-relaxed max-w-xl"
+              className="mt-8 text-[#C0C0C0] text-base md:text-lg max-w-lg border-l-2 border-[#C8102E]/70 pl-5"
               style={body}
             >
               If you're passionate about automobiles and seeking a promising
-              business opportunity, Dettagli Auto franchise partnerships offer 
-              unmatched scale. As a leader in premium body shop and detailing services with
-              a strong structural reputation, Dettagli Auto is a brand that has captivated 
-              car enthusiasts nationwide.
+              business opportunity, partner with Dettagli Auto.
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.55 }}
-              className="mt-10"
+              className="mt-10 flex flex-wrap items-center gap-5"
             >
               <a
                 href="#apply"
@@ -120,78 +192,46 @@ export default function FranchisePage() {
                 <FiChevronRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                 <Shine />
               </a>
+              <span className="text-xs text-[#8C8C8C] uppercase tracking-[0.15em]" style={label}>
+                Response within 2 business days
+              </span>
             </motion.div>
           </motion.div>
-
-          {/* RIGHT — Premium Car Asset Block */}
-          <motion.div
-            initial={{ opacity: 0, x: 40, scale: 0.96 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex flex-col items-center group"
-          >
-            <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[70%] rounded-full opacity-20 pointer-events-none transition-opacity duration-700 group-hover:opacity-30"
-              style={{
-                background: "radial-gradient(circle, #C0C0C0, transparent 70%)",
-              }}
-            />
-
-            <motion.img
-              src="https://i.pinimg.com/1200x/5e/8f/1d/5e8f1d5bc95da3002d86a46d8b1befc2.jpg"
-              alt="Dettagli Auto franchise studio car"
-              className="relative z-10 w-full h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)] filter grayscale-[20%] transition-all duration-700 group-hover:grayscale-0 group-hover:scale-[1.02]"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            />
-
-            {/* Floor Reflection Line */}
-            <div
-              className="relative z-0 w-[85%] h-24 -mt-6 opacity-15 transition-opacity duration-700 group-hover:opacity-25"
-              style={{
-                backgroundImage: "url(https://i.pinimg.com/1200x/5e/8f/1d/5e8f1d5bc95da3002d86a46d8b1befc2.jpg)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                transform: "scaleY(-1)",
-                WebkitMaskImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), transparent)",
-                maskImage: "linear-gradient(to bottom, rgba(0,0,0,0.5), transparent)",
-                filter: "blur(3px)",
-              }}
-            />
-          </motion.div>
         </div>
+
+        {/* Floating stats dock — replaces the separate stats section, overlaps the hero's bottom edge */}
+        <motion.div
+          initial="hidden"
+          animate="show"
+          variants={stagger}
+          className="relative z-10 w-full px-6 md:px-12 pb-8 md:pb-10"
+        >
+          <div className="max-w-6xl mx-auto border border-[#8C8C8C]/25 bg-[#0B0B0B]/70 backdrop-blur-md grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[#8C8C8C]/20">
+            {stats.map((s, i) => (
+              <motion.div
+                key={i}
+                variants={fadeUp}
+                className="relative py-7 md:py-8 text-center px-2 group"
+              >
+                <span className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#C8102E]/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                <div className="text-3xl md:text-4xl" style={display}>
+                  {s.n}
+                </div>
+                <div
+                  className="text-xs uppercase tracking-[0.2em] text-[#8C8C8C] mt-2"
+                  style={label}
+                >
+                  {s.l}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </section>
 
-      {/* ---------------- QUICK STATS ---------------- */}
-      <section className="border-b border-[#3D3D3D]/30 bg-[#090909]">
-        <div className="max-w-7xl mx-auto px-0 grid grid-cols-2 md:grid-cols-4 divide-x divide-[#3D3D3D]/30 border-x border-[#3D3D3D]/30">
-          {[
-            { n: "12+", l: "Cities OPERATIONAL" },
-            { n: "5 Yrs", l: "Franchise Term" },
-            { n: "18–24 Mo", l: "Avg. ROI Period" },
-            { n: "100%", l: "Setup Support" },
-          ].map((s, i) => (
-            <div 
-              key={i} 
-              className="group relative py-12 text-center px-4 overflow-hidden transition-all duration-500 cursor-default"
-            >
-              {/* Subtle grid background card hover panels */}
-              <div className="absolute inset-0 bg-[#121212] scale-y-0 origin-top group-hover:scale-y-100 transition-transform duration-500 ease-out -z-10" />
-              
-              <div className="text-3xl md:text-4xl text-[#8C8C8C] group-hover:text-white transition-colors duration-300 tracking-wide" style={display}>
-                {s.n}
-              </div>
-              <div className="text-[9px] uppercase tracking-[0.25em] text-[#555555] group-hover:text-[#8C8C8C] mt-2 transition-colors duration-300" style={label}>
-                {s.l}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ---------------- SPEC SHEET (Signature Element) ---------------- */}
-      <section className="border-b border-[#3D3D3D]/30 bg-[#0F0F0F]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-24">
+      {/* ---------------- SPEC SHEET (signature element) ---------------- */}
+      <section className="border-b border-[#8C8C8C]/20 bg-[#0F0F0F]">
+        <div className="max-w-7xl mx-auto px-18 py-28">
           <motion.div
             initial="hidden"
             whileInView="show"
@@ -199,14 +239,14 @@ export default function FranchisePage() {
             variants={fadeUp}
             className="mb-14 space-y-3"
           >
-            <div className="flex items-center gap-3">
-              <span className="h-px w-6 bg-[#8C8C8C]" />
-              <span className="proc-title text-[10px] font-bold uppercase tracking-[0.25em] text-[#8C8C8C]">
-                Investment Allocation Matrix
-              </span>
-            </div>
-            <h2 className="text-6xl md:text-7xl tracking-wide uppercase text-white" style={display}>
-              THE BUILD SPECIFICATION
+            <p
+              className="uppercase tracking-[0.3em] text-xs text-[#8C8C8C] mb-4"
+              style={label}
+            >
+              Investment Sheet
+            </p>
+            <h2 className="text-4xl md:text-5xl" style={display}>
+              THE BUILD SPEC.
             </h2>
           </motion.div>
 
@@ -222,17 +262,24 @@ export default function FranchisePage() {
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className="group relative flex items-center justify-between px-6 md:px-10 py-6 transition-all duration-500 ease-in-out cursor-default"
+                className={`group relative flex items-center justify-between gap-6 px-6 md:px-10 py-6 overflow-hidden ${
+                  i !== specs.length - 1 ? "border-b border-[#8C8C8C]/20" : ""
+                }`}
               >
-                {/* Horizontal Sliding background layout block indicator */}
-                <div className="absolute inset-0 bg-[#141414] scale-y-0 origin-bottom transition-transform duration-500 ease-out -z-10" />
-
-                <span className="flex items-center gap-4 text-[#8C8C8C] group-hover:text-[#8C8C8C] uppercase text-[11px] font-medium tracking-[0.20em] transition-colors duration-300" style={label}>
-                  <span className="w-3 h-px bg-[#3D3D3D] group-hover:bg-[#8C8C8C] transition-colors duration-300" />
+                <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#C8102E] -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+                <span
+                  className="flex items-center gap-4 text-[#8C8C8C] uppercase text-xs tracking-[0.2em]"
+                  style={label}
+                >
+                  <span className="text-[#4d4d4d]" style={display}>
+                    {s.code}
+                  </span>
                   {s.label}
                 </span>
-                
-                <span className="text-lg md:text-xl text-[#B8B8B8] group-hover:text-white transition-colors duration-300 tracking-wide uppercase" style={display}>
+                <span
+                  className="text-lg md:text-xl text-[#F0F0F0] text-right"
+                  style={display}
+                >
                   {s.value}
                 </span>
 
@@ -241,31 +288,33 @@ export default function FranchisePage() {
               </motion.div>
             ))}
           </motion.div>
-          
-          <p className="text-[12px] font-light text-[#555555] mt-6" style={body}>
-            // Note: Figures are indicative and vary by target micro-market city, studio setup parameters, and site terrain structural realities. Final numbers confirmed inside documentation phase.
+          <p className="text-xs text-[#8C8C8C] mt-6" style={body}>
+            Figures are indicative and vary by city, studio size, and site
+            conditions — final numbers confirmed during the site visit.
           </p>
         </div>
       </section>
 
       {/* ---------------- CLOSING CONTACT STRIP ---------------- */}
-      <section className="bg-[#0B0B0B]">
-        <div
-          className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-[13px] text-[#666666] font-light"
-          style={body}
-        >
-          <span className="tracking-wide uppercase text-[11px] font-mono">// Growth Engine: Dettagli Auto Corporate Operations Team</span>
-          <div className="flex items-center gap-8">
-            <a href="tel:+910000000000" className="flex items-center gap-2 hover:text-white transition-colors duration-300">
-              <FiPhone size={12} className="text-[#3D3D3D]" /> <span>+91 00000 00000</span>
-            </a>
-            <a href="mailto:franchise@dettagliauto.com" className="flex items-center gap-2 hover:text-white transition-colors duration-300">
-              <FiMail size={12} className="text-[#3D3D3D]" /> <span>franchise@dettagliauto.com</span>
-            </a>
+      {/* <section className="border-t border-[#8C8C8C]/20">
+        <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-center justify-between gap-6 text-sm text-[#8C8C8C]" style={body}>
+          <span className="flex items-center gap-2 uppercase tracking-[0.15em] text-xs" style={label}>
+            <FiMapPin size={14} className="text-[#C0C0C0]" />
+            Franchise Enquiries — Dettagli Auto Growth Team
+          </span>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <span className="flex items-center gap-2">
+              <FiPhone size={14} /> +91 00000 00000
+            </span>
+            <span className="flex items-center gap-2">
+              <FiMail size={14} /> franchise@dettagliauto.com
+            </span>
+            <span className="flex items-center gap-2">
+              <FiClock size={14} /> Mon–Sat, 10am–7pm
+            </span>
           </div>
         </div>
-      </section>
-
+      </section> */}
     </div>
   );
 }
