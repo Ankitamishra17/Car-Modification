@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 const SERVICES = [
   {
     id: 1,
+    slug:"paint-protection-film",
     title: "PPF ",
     desc: "Paint protection that keeps the shine permanent. Our nano-ceramic technology bonds to your paintwork at a molecular level, delivering hydrophobic protection that lasts years.",
     tag: "Protection",
@@ -11,6 +12,7 @@ const SERVICES = [
   },
   {
     id: 2,
+    slug:"restore",
     title: "Restore",
     desc: "Bring tired metal back to factory-fresh form. From rust treatment to full panel restoration, we return every vehicle to its original glory — or better.",
     tag: "Restoration",
@@ -18,6 +20,7 @@ const SERVICES = [
   },
   {
     id: 3,
+    slug:"upholstery",
     title: "Upholstery",
     desc: "Interior trim and full-body paint, done by hand. Custom leather stitching, premium paint correction and colour-matched refinishing for a truly bespoke result.",
     tag: "Interior & Exterior",
@@ -25,6 +28,7 @@ const SERVICES = [
   },
   {
     id: 4,
+    slug:"car-body-kits",
     title: "Car Body Kits",
     desc: "Aggressive lines and a sound to match. We design and fit custom body kits, splitters, diffusers and exhaust systems that transform your vehicle's presence.",
     tag: "Styling",
@@ -32,6 +36,7 @@ const SERVICES = [
   },
   {
     id: 5,
+    slug:"tuning-mapping",
     title: "Tuning & Mapping",
     desc: "Tuned performance, fitted exactly to you. ECU remapping, dyno tuning and performance accessories — every modification calibrated for your specific driving style.",
     tag: "Performance",
@@ -39,6 +44,7 @@ const SERVICES = [
   },
   {
     id: 6,
+    slug:"exhaust",
     title: "Exhaust",
     desc: "Exhaust cleaning and restoration. We remove soot, rust and corrosion to restore the original colour and function of your exhaust system.",
     tag: "Maintenance",
@@ -46,6 +52,7 @@ const SERVICES = [
   },
   {
     id: 7,
+    slug:"paints",
     title: " Paints",
     desc: "We use the highest quality paints and materials to ensure a perfect finish. We offer a range of services including paint correction, touch ups and full repaints.",
     tag: "Paint",
@@ -53,6 +60,7 @@ const SERVICES = [
   },
   {
     id: 8,
+    slug:"refurbish",
     title: "Refurbish ",
     desc: "We offer a range of services including paint correction, touch ups and full repaints.",
     tag: "Refurbish",
@@ -60,6 +68,7 @@ const SERVICES = [
   },
   {
     id: 9,
+    slug:"ceramic-coating",
     title: "Ceramic Coating",
     desc: "We offer a range of services including paint correction, touch ups and full repaints.",
     tag: "Ceramic Coating",
@@ -494,12 +503,12 @@ Dodici discipline. Un solo standard, senza compromessi. Ogni intervento è esegu
                     <span className="svc-card-tag">{svc.tag}</span>
                     <div className="svc-card-title">{svc.title.trim()}</div>
                     <div className="svc-card-desc">{svc.desc}</div>
-                    <Link to="/contact" className="svc-card-link">
-                      Book this service
-                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
-                    </Link>
+                  <Link to={`/services/${svc.slug}`} className="svc-card-link">
+  Book this service
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 12h14M12 5l7 7-7 7" />
+  </svg>
+</Link>
                   </div>
                   <span className="svc-card-num">{pad(svc.id)}</span>
                 </div>
