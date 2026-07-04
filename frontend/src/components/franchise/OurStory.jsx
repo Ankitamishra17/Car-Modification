@@ -99,30 +99,31 @@ export default function OurStory() {
 
       {/* ---------------- BUILD LOG WORKFLOW SECTION ---------------- */}
       <section className="border-b border-[#3D3D3D]/30 relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-24">
-          {/* Workflow Layout Split Container */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-            {/* Left Column: Minimal Workflow Navigation Block */}
-            <div className="lg:col-span-4 lg:sticky lg:top-24 flex flex-col justify-start h-auto lg:h-[calc(100vh-12rem)] overflow-hidden">
-              {/* Eyebrow Label (Optional: Keeps the mechanical anchor, remove if not needed) */}
-              <div className="flex items-center gap-3 mb-6 lg:mb-12">
-                <span className="h-px w-6 bg-[#C8102E]" />
+        {/* Main Parent Container - Stretch Max Width for more breathing space */}
+        <div className="max-w-[90rem] mx-auto px-4 sm:px-8 lg:px-12 py-24">
+          {/* Layout Split Grid: 3-to-9 Ratio for Wider Right Section */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Left Column: Fixed/Sticky Minimal Navigation Block (Narrowed down) */}
+            <div className="lg:col-span-3 lg:sticky lg:top-28 flex flex-col justify-start h-auto lg:h-[70vh] relative select-none pointer-events-none">
+              {/* Small Accent Header Stamp */}
+              <div className="flex items-center gap-3 ml-15">
+                <span className="h-px w-6 bg-white" />
                 <span
-                  className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#C8102E]"
+                  className="text-[10px] font-bold uppercase tracking-[0.3em] text-white"
                   style={label}
                 >
                   Log Matrix
                 </span>
               </div>
 
-              {/* Outlined Vertical Text Layout */}
-              <div className="select-none pointer-events-none pl-1">
+              {/* Outlined Vertical Text Layer */}
+              <div className="absolute left-25 top-0 origin-left rotate-90 whitespace-nowrap pl-1">
                 <div
-                  className="text-[80px] md:text-[100px] lg:text-[110px] font-black tracking-[0.12em] text-transparent uppercase leading-none whitespace-nowrap"
+                  className="text-[100px] md:text-[115px] lg:text-[125px] font-black tracking-[0.12em] text-transparent uppercase leading-none"
                   style={{
                     ...display,
-                    WebkitTextStroke: "1px rgba(255, 255, 255, 0.28)",
-                    writingMode: "vertical-lr", // Native vertical flow standard translation
+                    WebkitTextStroke: "1px rgba(255, 255, 255, 0.22)",
+                    transformOrigin: "0 0",
                   }}
                 >
                   BUILD HISTORY
@@ -130,36 +131,36 @@ export default function OurStory() {
               </div>
             </div>
 
-            {/* Right Column: Workflow Phase Feed */}
+            {/* Right Column: Workflow Phase Feed (EXPANDED WIDTH) */}
             <motion.div
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-100px" }}
               variants={stagger}
-              className="lg:col-span-8 border border-[#3D3D3D]/30 divide-y divide-[#3D3D3D]/20 bg-[#121212]/10"
+              className="lg:col-span-9 border border-[#3D3D3D]/30 divide-y divide-[#3D3D3D]/20 bg-[#121212]/10 w-full"
             >
               {log.map((entry, i) => (
                 <motion.div
                   key={i}
                   variants={fadeUp}
-                  className="group relative grid grid-cols-1 sm:grid-cols-12 gap-4 p-6 md:p-8 transition-all duration-500 ease-in-out cursor-default overflow-hidden"
+                  className="group relative grid grid-cols-1 sm:grid-cols-12 gap-6 p-6 md:p-8 lg:p-10 transition-all duration-500 ease-in-out cursor-default overflow-hidden"
                 >
                   {/* Workflow Hover Sliding Fill */}
                   <div className="absolute inset-0 bg-[#141414] scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-500 ease-out -z-10" />
 
                   {/* Left Active Accent Bar */}
-                  <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#3D3D3D]/40 group-hover:bg-[#C8102E] transition-colors duration-300" />
+                  <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#8C8C8C] scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
 
                   {/* Step Code Block */}
                   <div className="sm:col-span-2 flex items-baseline gap-2 sm:flex-col sm:gap-0 select-none">
                     <span
-                      className="text-2xl md:text-3xl text-[#3D3D3D] group-hover:text-[#C8102E] transition-colors duration-300 leading-none"
+                      className="text-2xl md:text-3xl lg:text-4xl text-[#3D3D3D] group-hover:text-white transition-colors duration-300 leading-none"
                       style={display}
                     >
                       {entry.step}
                     </span>
                     <span
-                      className="text-[10px] font-mono tracking-wider text-[#555555] uppercase sm:mt-1"
+                      className="text-[10px] font-mono tracking-wider text-[#555555] uppercase sm:mt-1.5"
                       style={label}
                     >
                       Phase
@@ -167,37 +168,37 @@ export default function OurStory() {
                   </div>
 
                   {/* Metadata Stamp Block */}
-                  <div className="sm:col-span-3 select-none">
+                  <div className="sm:col-span-2 select-none">
                     <div
-                      className="text-2xl md:text-3xl text-[#8C8C8C] group-hover:text-white transition-colors duration-300 tracking-wide leading-none"
+                      className="text-2xl md:text-3xl lg:text-4xl text-[#8C8C8C] group-hover:text-white transition-colors duration-300 tracking-wide leading-none"
                       style={display}
                     >
                       {entry.year}
                     </div>
                     <div
-                      className="text-[9px] text-[#555555] group-hover:text-[#8C8C8C] uppercase tracking-[0.15em] mt-1 transition-colors duration-300"
+                      className="text-[9px] text-[#555555] group-hover:text-[#8C8C8C] uppercase tracking-[0.15em] mt-1.5 transition-colors duration-300"
                       style={label}
                     >
                       {entry.odo}
                     </div>
                   </div>
 
-                  {/* Content Sheet Block */}
-                  <div className="sm:col-span-7 space-y-1.5 pt-1 sm:pt-0">
+                  {/* Content Sheet Block (Takes up the rest of the expanded row space smoothly) */}
+                  <div className="sm:col-span-8 space-y-2 pt-1 sm:pt-0">
                     <div className="flex items-center justify-between gap-4">
                       <h3
-                        className="text-lg md:text-xl tracking-wide text-[#B8B8B8] group-hover:text-white transition-colors duration-300 uppercase"
+                        className="text-lg md:text-xl lg:text-2xl tracking-wide text-[#B8B8B8] group-hover:text-white transition-colors duration-300 uppercase"
                         style={display}
                       >
                         {entry.title}
                       </h3>
                       <FiArrowRight
-                        size={14}
-                        className="text-[#3D3D3D] group-hover:text-[#C8102E] translate-x-[-10px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"
+                        size={16}
+                        className="text-[#3D3D3D] group-hover:text-white translate-x-[-10px] opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300"
                       />
                     </div>
                     <p
-                      className="text-[#666666] group-hover:text-[#8C8C8C] leading-relaxed text-[13px] font-light transition-colors duration-300"
+                      className="text-[#666666] group-hover:text-[#8C8C8C] leading-relaxed text-[13px] lg:text-[14px] font-light transition-colors duration-300 max-w-4xl"
                       style={body}
                     >
                       {entry.text}
