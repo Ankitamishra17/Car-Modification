@@ -91,7 +91,7 @@ function OurProcess() {
           </div>
 
           <h2 className="proc-heading text-[3.5rem] sm:text-[5rem] lg:text-[5.5rem] leading-[0.9] text-white tracking-wide uppercase">
-            {renderFormattedHeading("FIVE STEPS TO *LAUNCH*.")}
+            {renderFormattedHeading("FIVE STEPS TO *LAUNCH*")}
           </h2>
         </motion.div>
 

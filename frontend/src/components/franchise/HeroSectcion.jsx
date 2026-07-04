@@ -58,6 +58,15 @@ export default function FranchisePage() {
           }}
         />
 
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img
+            src="/banner/14.png"
+            alt="franchise"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 pt-32 lg:-mt-[40px] pb-24 md:pt-40 md:pb-32 grid md:grid-cols-2 gap-14 items-center">
           
           {/* LEFT — Text Panel */}
