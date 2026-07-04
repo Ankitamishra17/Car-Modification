@@ -171,7 +171,7 @@ export const SERVICES = [
       heading: "INVISIBLE PROTECTION. VISIBLE PERFECTION.",
 
       images: [
-        "https://images.pexels.com/photos/10126665/pexels-photo-10126665.jpeg",
+        "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
 
         "https://images.pexels.com/photos/4489760/pexels-photo-4489760.jpeg",
 
@@ -381,80 +381,79 @@ export const SERVICES = [
       phone: "+080-77976595",
     },
   },
-
   {
-    slug: "restore",
-    href: "/services/restore",
+    slug: "paints",
+    href: "/services/paints",
 
-    name: "RESTORE",
-    breadcrumb: "Services / Restore",
+    name: "PAINTS",
+    breadcrumb: "Services / Paints",
 
     title: "PAINT",
+
     highlight: "PERFECTION.",
 
     description:
       "Before protection comes perfection. Our paint correction process restores clarity, depth and flawless reflections by carefully refining every painted surface.",
 
-    image: "/banner/restore.png",
-
+    image: "/banner/paint.png",
     whatIsIt: {
-      subtitle: "Surface Refinement",
+      subtitle: "Carrozzeria",
 
-      heading: "RESTORE CLARITY. REVEAL TRUE DEPTH.",
+      heading: "PERFECT COLOUR. FLAWLESS FINISH.",
 
       tabs: [
         {
-          id: "paint-correction",
-          label: "Paint Correction",
+          id: "refinishing",
+          label: "Paint Refinishing",
 
           features: [
             {
               icon: Shield,
-              title: "Swirl Mark Removal",
-              desc: "Safely removes swirl marks, light scratches and holograms while preserving the paint.",
+              title: "Precision Colour Matching",
+              desc: "Every paint formula is matched to exact manufacturer specifications for seamless repairs.",
             },
             {
               icon: Droplets,
-              title: "Oxidation & Water Spot Removal",
-              desc: "Eliminates oxidation, water spotting and surface contamination for a cleaner finish.",
+              title: "Premium Surface Preparation",
+              desc: "Every panel is carefully prepared to ensure flawless adhesion and a long-lasting finish.",
             },
             {
               icon: Zap,
-              title: "Enhanced Gloss & Depth",
-              desc: "Restores exceptional clarity, colour depth and mirror-like reflections.",
+              title: "Factory-Quality Finish",
+              desc: "Advanced refinishing techniques restore exceptional gloss, clarity and uniformity.",
             },
             {
               icon: Clock,
-              title: "Precision Refinement",
-              desc: "Each stage is carefully measured to maximise results while maintaining paint integrity.",
+              title: "Lasting Durability",
+              desc: "Professional paint systems deliver outstanding resistance against weathering and daily wear.",
             },
           ],
         },
 
         {
-          id: "process",
-          label: "Professional Refinement",
+          id: "craftsmanship",
+          label: "Our Process",
 
           features: [
             {
               icon: Shield,
-              title: "Machine Polishing",
-              desc: "Multi-stage machine polishing tailored to the condition of your vehicle.",
+              title: "Local & Complete Repairs",
+              desc: "From minor panel repairs to complete vehicle repainting, every project receives the same meticulous attention.",
             },
             {
               icon: Droplets,
-              title: "Paint Preservation",
-              desc: "Only the minimum amount of clear coat is refined to maintain long-term durability.",
+              title: "Advanced Paint Systems",
+              desc: "Premium refinishing products ensure exceptional colour consistency and finish quality.",
             },
             {
               icon: Zap,
-              title: "Expert Assessment",
-              desc: "Every vehicle receives an individual correction plan based on paint condition.",
+              title: "Attention to Detail",
+              desc: "Every surface is refined and inspected to achieve an original factory-inspired appearance.",
             },
             {
               icon: Clock,
-              title: "Protection Ready",
-              desc: "Creates the perfect foundation for ceramic coating or Paint Protection Film.",
+              title: "Seamless Results",
+              desc: "The objective is simple—an immaculate finish that appears entirely original.",
             },
           ],
         },
@@ -462,94 +461,94 @@ export const SERVICES = [
     },
 
     packagesSection: {
-      subtitle: "Correction Packages",
+      subtitle: "Refinishing Packages",
 
-      heading: "CHOOSE YOUR LEVEL OF REFINEMENT.",
+      heading: "CHOOSE YOUR REFINISHING SERVICE.",
 
       packages: [
         {
-          name: "Essential Correction",
-          type: "Single-Stage Polish",
-          price: "OMR 90",
+          name: "Panel Refresh",
+          type: "Local Paint Repair",
+          price: "OMR 70",
           duration: "1 Day",
           highlight: false,
 
           features: [
-            "Light swirl mark removal",
-            "Gloss enhancement",
-            "Surface refinement",
-            "Paint preparation",
+            "Single panel refinishing",
+            "Precision colour matching",
+            "Minor scratch & chip repair",
+            "Factory-quality finish",
           ],
         },
 
         {
-          name: "Precision Correction",
-          type: "Multi-Stage Paint Correction",
+          name: "Precision Refinish",
+          type: "Multi-Panel Refinishing",
           price: "OMR 180",
-          duration: "2 Days",
+          duration: "2–3 Days",
           highlight: true,
 
           features: [
-            "Swirl & hologram removal",
-            "Oxidation correction",
-            "Enhanced colour depth",
-            "Mirror-like finish",
+            "Multiple panel refinishing",
+            "Advanced paint preparation",
+            "Manufacturer colour matching",
+            "High-gloss finish",
           ],
         },
 
         {
-          name: "Signature Refinement",
-          type: "Complete Paint Restoration",
-          price: "OMR 320",
-          duration: "3 Days",
+          name: "Signature Carrozzeria",
+          type: "Complete Vehicle Repaint",
+          price: "OMR 650",
+          duration: "5–7 Days",
           highlight: false,
 
           features: [
-            "Comprehensive paint correction",
-            "Maximum clarity & reflections",
-            "Surface perfection",
-            "Ready for ceramic coating or PPF",
+            "Complete vehicle repaint",
+            "Premium paint system",
+            "Factory-standard refinishing",
+            "Exceptional gloss & durability",
           ],
         },
       ],
     },
     processSection: {
-      subtitle: "Correction Process",
+      subtitle: "Refinishing Process",
 
-      heading: "PERFECTION THROUGH PRECISION.",
+      heading: "CRAFTED TO FACTORY STANDARDS.",
 
       process: [
         {
           step: "01",
-          title: "Paint Inspection",
-          desc: "Every panel is inspected under specialist lighting to identify defects and paint condition.",
+          title: "Vehicle Assessment",
+          desc: "Every panel is inspected to determine repair requirements and colour specifications.",
         },
         {
           step: "02",
           title: "Surface Preparation",
-          desc: "The vehicle is washed, decontaminated and prepared for machine refinement.",
+          desc: "Damaged areas are repaired, sanded and carefully prepared before refinishing begins.",
         },
         {
           step: "03",
-          title: "Paint Correction",
-          desc: "Swirl marks, oxidation, holograms and imperfections are safely removed through multi-stage polishing.",
+          title: "Colour Matching",
+          desc: "Paint is mixed and matched precisely to manufacturer colour standards.",
         },
         {
           step: "04",
-          title: "Surface Refinement",
-          desc: "The finish is refined to maximise clarity, gloss and reflection without compromising paint integrity.",
+          title: "Paint Application",
+          desc: "Professional refinishing techniques ensure a smooth, uniform and flawless finish.",
         },
         {
           step: "05",
-          title: "Final Inspection",
-          desc: "The corrected finish is inspected to ensure exceptional depth, clarity and a flawless result.",
+          title: "Final Finishing",
+          desc: "The surface is polished, refined and inspected to deliver an immaculate factory-quality appearance.",
         },
       ],
     },
     gallerySection: {
-      subtitle: "Transformation",
+      subtitle: "Refinishing Results",
 
-      heading: "FROM IMPERFECTION TO PERFECTION.",
+      heading: "A FINISH THAT LOOKS ORIGINAL.",
 
       images: [
         "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -560,10 +559,10 @@ export const SERVICES = [
       ],
     },
     ctaSection: {
-      title: "RESTORE THE TRUE BEAUTY OF YOUR PAINT.",
+      title: "RESTORE YOUR VEHICLE'S ORIGINAL FINISH.",
 
       description:
-        "Book a consultation with our paint correction specialists and experience exceptional clarity, depth and flawless reflections.",
+        "Book a consultation with our refinishing specialists and experience precision colour matching, exceptional craftsmanship and a flawless factory-quality finish.",
 
       buttonText: "Book a Consultation",
 
@@ -951,77 +950,105 @@ export const SERVICES = [
     },
   },
   {
-    slug: "paints",
-    href: "/services/paints",
+    slug: "restore",
 
-    name: "PAINTS",
-    breadcrumb: "Services / Paints",
+    href: "/services/restore",
+
+    name: "RESTORE",
+
+    breadcrumb: "Services / Restore",
 
     title: "AUTOMOTIVE",
+
     highlight: "REFINISHING.",
 
     description:
       "Refinishing is as much an art as it is a science. Every surface is meticulously prepared, refinished and colour-matched to manufacturer standards for an impeccable factory-quality finish.",
 
-    image: "/banner/paint.png",
-    whatIsIt: {
-      subtitle: "Carrozzeria",
+    image: "/banner/restore.png",
 
-      heading: "PERFECT COLOUR. FLAWLESS FINISH.",
+    whatIsIt: {
+      subtitle: "Surface Refinement",
+
+      heading: "RESTORE CLARITY. REVEAL TRUE DEPTH.",
 
       tabs: [
         {
-          id: "refinishing",
-          label: "Paint Refinishing",
+          id: "paint-correction",
+
+          label: "Paint Correction",
 
           features: [
             {
               icon: Shield,
-              title: "Precision Colour Matching",
-              desc: "Every paint formula is matched to exact manufacturer specifications for seamless repairs.",
+
+              title: "Swirl Mark Removal",
+
+              desc: "Safely removes swirl marks, light scratches and holograms while preserving the paint.",
             },
+
             {
               icon: Droplets,
-              title: "Premium Surface Preparation",
-              desc: "Every panel is carefully prepared to ensure flawless adhesion and a long-lasting finish.",
+
+              title: "Oxidation & Water Spot Removal",
+
+              desc: "Eliminates oxidation, water spotting and surface contamination for a cleaner finish.",
             },
+
             {
               icon: Zap,
-              title: "Factory-Quality Finish",
-              desc: "Advanced refinishing techniques restore exceptional gloss, clarity and uniformity.",
+
+              title: "Enhanced Gloss & Depth",
+
+              desc: "Restores exceptional clarity, colour depth and mirror-like reflections.",
             },
+
             {
               icon: Clock,
-              title: "Lasting Durability",
-              desc: "Professional paint systems deliver outstanding resistance against weathering and daily wear.",
+
+              title: "Precision Refinement",
+
+              desc: "Each stage is carefully measured to maximise results while maintaining paint integrity.",
             },
           ],
         },
 
         {
-          id: "craftsmanship",
-          label: "Our Process",
+          id: "process",
+
+          label: "Professional Refinement",
 
           features: [
             {
               icon: Shield,
-              title: "Local & Complete Repairs",
-              desc: "From minor panel repairs to complete vehicle repainting, every project receives the same meticulous attention.",
+
+              title: "Machine Polishing",
+
+              desc: "Multi-stage machine polishing tailored to the condition of your vehicle.",
             },
+
             {
               icon: Droplets,
-              title: "Advanced Paint Systems",
-              desc: "Premium refinishing products ensure exceptional colour consistency and finish quality.",
+
+              title: "Paint Preservation",
+
+              desc: "Only the minimum amount of clear coat is refined to maintain long-term durability.",
             },
+
             {
               icon: Zap,
-              title: "Attention to Detail",
-              desc: "Every surface is refined and inspected to achieve an original factory-inspired appearance.",
+
+              title: "Expert Assessment",
+
+              desc: "Every vehicle receives an individual correction plan based on paint condition.",
             },
+
             {
               icon: Clock,
-              title: "Seamless Results",
-              desc: "The objective is simple—an immaculate finish that appears entirely original.",
+
+              title: "Protection Ready",
+
+              desc: "Creates the perfect foundation for ceramic coating or Paint Protection Film.",
             },
           ],
         },
@@ -1029,94 +1056,131 @@ export const SERVICES = [
     },
 
     packagesSection: {
-      subtitle: "Refinishing Packages",
+      subtitle: "Correction Packages",
 
-      heading: "CHOOSE YOUR REFINISHING SERVICE.",
+      heading: "CHOOSE YOUR LEVEL OF REFINEMENT.",
 
       packages: [
         {
-          name: "Panel Refresh",
-          type: "Local Paint Repair",
-          price: "OMR 70",
+          name: "Essential Correction",
+
+          type: "Single-Stage Polish",
+
+          price: "OMR 90",
+
           duration: "1 Day",
+
           highlight: false,
 
           features: [
-            "Single panel refinishing",
-            "Precision colour matching",
-            "Minor scratch & chip repair",
-            "Factory-quality finish",
+            "Light swirl mark removal",
+
+            "Gloss enhancement",
+
+            "Surface refinement",
+
+            "Paint preparation",
           ],
         },
 
         {
-          name: "Precision Refinish",
-          type: "Multi-Panel Refinishing",
+          name: "Precision Correction",
+
+          type: "Multi-Stage Paint Correction",
+
           price: "OMR 180",
-          duration: "2–3 Days",
+
+          duration: "2 Days",
+
           highlight: true,
 
           features: [
-            "Multiple panel refinishing",
-            "Advanced paint preparation",
-            "Manufacturer colour matching",
-            "High-gloss finish",
+            "Swirl & hologram removal",
+
+            "Oxidation correction",
+
+            "Enhanced colour depth",
+
+            "Mirror-like finish",
           ],
         },
 
         {
-          name: "Signature Carrozzeria",
-          type: "Complete Vehicle Repaint",
-          price: "OMR 650",
-          duration: "5–7 Days",
+          name: "Signature Refinement",
+
+          type: "Complete Paint Restoration",
+
+          price: "OMR 320",
+
+          duration: "3 Days",
+
           highlight: false,
 
           features: [
-            "Complete vehicle repaint",
-            "Premium paint system",
-            "Factory-standard refinishing",
-            "Exceptional gloss & durability",
+            "Comprehensive paint correction",
+
+            "Maximum clarity & reflections",
+
+            "Surface perfection",
+
+            "Ready for ceramic coating or PPF",
           ],
         },
       ],
     },
-    processSection: {
-      subtitle: "Refinishing Process",
 
-      heading: "CRAFTED TO FACTORY STANDARDS.",
+    processSection: {
+      subtitle: "Correction Process",
+
+      heading: "PERFECTION THROUGH PRECISION.",
 
       process: [
         {
           step: "01",
-          title: "Vehicle Assessment",
-          desc: "Every panel is inspected to determine repair requirements and colour specifications.",
+
+          title: "Paint Inspection",
+
+          desc: "Every panel is inspected under specialist lighting to identify defects and paint condition.",
         },
+
         {
           step: "02",
+
           title: "Surface Preparation",
-          desc: "Damaged areas are repaired, sanded and carefully prepared before refinishing begins.",
+
+          desc: "The vehicle is washed, decontaminated and prepared for machine refinement.",
         },
+
         {
           step: "03",
-          title: "Colour Matching",
-          desc: "Paint is mixed and matched precisely to manufacturer colour standards.",
+
+          title: "Paint Correction",
+
+          desc: "Swirl marks, oxidation, holograms and imperfections are safely removed through multi-stage polishing.",
         },
+
         {
           step: "04",
-          title: "Paint Application",
-          desc: "Professional refinishing techniques ensure a smooth, uniform and flawless finish.",
+
+          title: "Surface Refinement",
+
+          desc: "The finish is refined to maximise clarity, gloss and reflection without compromising paint integrity.",
         },
+
         {
           step: "05",
-          title: "Final Finishing",
-          desc: "The surface is polished, refined and inspected to deliver an immaculate factory-quality appearance.",
+
+          title: "Final Inspection",
+
+          desc: "The corrected finish is inspected to ensure exceptional depth, clarity and a flawless result.",
         },
       ],
     },
-    gallerySection: {
-      subtitle: "Refinishing Results",
 
-      heading: "A FINISH THAT LOOKS ORIGINAL.",
+    gallerySection: {
+      subtitle: "Transformation",
+
+      heading: "FROM IMPERFECTION TO PERFECTION.",
 
       images: [
         "https://images.pexels.com/photos/6870296/pexels-photo-6870296.jpeg",
@@ -1126,11 +1190,12 @@ export const SERVICES = [
         "https://images.pexels.com/photos/5233262/pexels-photo-5233262.jpeg",
       ],
     },
+
     ctaSection: {
-      title: "RESTORE YOUR VEHICLE'S ORIGINAL FINISH.",
+      title: "RESTORE THE TRUE BEAUTY OF YOUR PAINT.",
 
       description:
-        "Book a consultation with our refinishing specialists and experience precision colour matching, exceptional craftsmanship and a flawless factory-quality finish.",
+        "Book a consultation with our paint correction specialists and experience exceptional clarity, depth and flawless reflections.",
 
       buttonText: "Book a Consultation",
 

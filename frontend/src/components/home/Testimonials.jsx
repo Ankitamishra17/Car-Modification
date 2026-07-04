@@ -65,7 +65,7 @@ function SignalBars({ strength = 5, max = 5, active = false }) {
           className={`w-[3px] rounded-sm transition-colors duration-300 ${
             i < strength
               ? active
-                ? "bg-[#C8102E]"
+                ? "bg-white"
                 : "bg-[#8C8C8C]"
               : "bg-[#3D3D3D]"
           }`}
@@ -195,7 +195,7 @@ export default function Testimonials() {
                 className="flex items-center gap-2.5 sm:gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-[#8C8C8C]"
                 style={label}
               >
-                <span className="text-[#C8102E]" style={display}>
+                <span className="text-white" style={display}>
                   {current.code}
                 </span>
                 {current.city}, Oman
@@ -285,7 +285,7 @@ export default function Testimonials() {
                   }`}
                 >
                   <span
-                    className={`absolute left-0 top-0 bottom-0 w-[3px] bg-[#C8102E] transition-transform duration-300 origin-top ${
+                    className={`absolute left-0 top-0 bottom-0 w-[3px] bg-white transition-transform duration-300 origin-top ${
                       isActive ? "scale-y-100" : "scale-y-0"
                     }`}
                   />
@@ -295,7 +295,7 @@ export default function Testimonials() {
                       style={label}
                     >
                       <span
-                        className={isActive ? "text-[#C8102E]" : "text-[#4d4d4d]"}
+                        className={isActive ? "text-white" : "text-[#4d4d4d]"}
                         style={display}
                       >
                         {t.code}
