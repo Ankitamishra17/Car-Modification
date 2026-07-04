@@ -23,7 +23,7 @@ const HOURS = [
 
 export default function ContactLocation() {
   return (
-    <section className="relative isolate overflow-hidden bg-[#0B0B0B] px-4 py-20 sm:px-8 lg:px-10">
+    <section className="relative isolate overflow-hidden bg-[#0B0B0B] px-4 py-14 sm:px-6 sm:py-16 lg:px-10 lg:py-20">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
@@ -95,6 +95,28 @@ export default function ContactLocation() {
           transition: background 0.2s, transform 0.2s;
         }
         .cl-cta:hover { background: #FFFFFF; transform: translateY(-1px); }
+
+        /* ===== Responsive tuning ===== */
+        @media (max-width: 1024px) {
+          .cl-wrap { min-height: 420px; }
+        }
+
+        @media (max-width: 640px) {
+          .cl-wrap { min-height: 0; border-radius: 16px; }
+          .cl-pin {
+            top: 16px; left: 16px;
+            padding: 7px 12px;
+            gap: 6px;
+          }
+          .cl-pin span { font-size: 10px !important; letter-spacing: 0.1em !important; }
+          .cl-card { padding: 18px; border-radius: 14px; }
+          .cl-row { padding: 8px 0; }
+          .cl-cta { width: 100%; justify-content: center; padding: 13px 20px; }
+        }
+
+        @media (max-width: 400px) {
+          .cl-wrap { border-radius: 14px; }
+        }
       `}</style>
 
       <div className="mx-auto max-w-7xl">
@@ -111,22 +133,24 @@ export default function ContactLocation() {
           </div>
 
           {/* Bottom content */}
-          <div className="relative z-10 flex w-full flex-col gap-8 p-7 sm:p-10 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-lg">
-              <h2 className="cl-heading text-[2.6rem] leading-[0.95] text-white sm:text-[3.4rem]">
-                COME SEE THE<br />SHOP FLOOR.
+          <div className="relative z-10 flex w-full flex-col gap-6 p-5 sm:gap-8 sm:p-8 md:p-10 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-lg pt-16 sm:pt-14 lg:pt-0">
+              <h2 className="cl-heading text-[2rem] leading-[0.95] text-white sm:text-[2.8rem] lg:text-[3.4rem]">
+                COME SEE THE
+                <br />
+                SHOP FLOOR.
               </h2>
-              <p className="cl-sub mt-4 max-w-md text-[14.5px] font-light leading-relaxed text-[#B8B8B8]">
+              <p className="cl-sub mt-3 max-w-md text-[13.5px] font-light leading-relaxed text-[#B8B8B8] sm:mt-4 sm:text-[14.5px]">
                 Sector 32 Industrial Area, Gurugram, Haryana 122001 — walk-ins
                 welcome, appointments get priority.
               </p>
-              <button className="cl-cta mt-6">
+              <button className="cl-cta mt-5 sm:mt-6">
                 <Navigation size={14} /> Get directions
               </button>
             </div>
 
             {/* Hours card */}
-            <div className="cl-card w-full max-w-xs flex-shrink-0">
+            <div className="cl-card w-full max-w-full flex-shrink-0 sm:max-w-xs">
               <div className="mb-3 flex items-center gap-2">
                 <Clock size={14} color="#8C8C8C" />
                 <span className="cl-title text-[11px] font-semibold uppercase tracking-[0.15em] text-[#B8B8B8]">
@@ -135,13 +159,19 @@ export default function ContactLocation() {
               </div>
               {HOURS.map(({ day, time }) => (
                 <div className="cl-row" key={day}>
-                  <span className="cl-sub text-[13.5px] text-[#B8B8B8]">{day}</span>
-                  <span className="cl-sub text-[13.5px] text-white">{time}</span>
+                  <span className="cl-sub text-[13px] text-[#B8B8B8] sm:text-[13.5px]">
+                    {day}
+                  </span>
+                  <span className="cl-sub text-[13px] text-white sm:text-[13.5px]">
+                    {time}
+                  </span>
                 </div>
               ))}
               <div className="mt-4 flex items-center gap-2 border-t border-[#2A2A2A] pt-4">
                 <Phone size={13} color="#8C8C8C" />
-                <span className="cl-sub text-[13px] text-[#B8B8B8]">+91 98765 43210</span>
+                <span className="cl-sub text-[13px] text-[#B8B8B8]">
+                  +91 98765 43210
+                </span>
               </div>
             </div>
           </div>
