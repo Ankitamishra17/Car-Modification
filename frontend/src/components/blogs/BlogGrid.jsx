@@ -1,312 +1,313 @@
-import { useState } from "react";
-import { ArrowUpRight, Clock, Flame } from "lucide-react";
+import { useState, useRef } from "react";
+import { ArrowLeft, ArrowRight, Clock, ArrowUpRight } from "lucide-react";
 
-/**
- * BlogGrid — AutoLuxe
- * Continues directly below BlogHero.
- *
- * Palette (fixed):
- *   Primary BG      #0B0B0B
- *   Secondary BG    #1A1A1A
- *   Section BG      #2A2A2A
- *   Borders         #3D3D3D
- *   Primary Text    #FFFFFF
- *   Secondary Text  #B8B8B8
- *   Accent          #8C8C8C (metallic silver — buttons / hover)
- *
- * Type system:
- *   Main heading    Bebas Neue
- *   Title/labels     DM Sans
- *   Sub/body text    Jost
- *
- * Structure:
- *  1. Featured post — large left card + 2 stacked side cards
- *  2. Standard grid — 3-column card grid with category tag, read time
- *  3. "Load more" ghost button
- */
-
-const FEATURED = {
-  category: "Restoration",
-  title: "Bringing a rust-eaten '71 Datsun back from the dead — 40 days, no shortcuts.",
-  excerpt:
-    "From frame rot to fresh paint: the full teardown, the parts we couldn't save, and the one mistake that cost us a week.",
-  image:
-    "https://images.pexels.com/photos/3849160/pexels-photo-3849160.jpeg?auto=compress&cs=tinysrgb&w=1200",
-  readTime: "12 min read",
-  date: "Jun 24, 2026",
-  author: "Marco Reyes",
-};
-
-const SIDE_FEATURED = [
+// Combined Featured items for an exact equal-size horizontal layout
+const FEATURED_SLIDES = [
   {
-    category: "Tuning",
-    title: "Stage 2 vs Stage 3: when more boost stops being worth it",
-    image:
-      "https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "PPF",
+    title: "Self-Healing TPU Film vs Highway Gravel: 3 Years of Real-World Torture",
+    excerpt: "We peeled back the paint protection film from a client's daily-driven supercar to see if the factory clear coat actually survived.",
+    image: "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=600",
+    readTime: "12 min read",
+    date: "Jun 24, 2026",
+  },
+  {
+    category: "Tuning & Mapping",
+    title: "Stage 2 vs Stage 3 ECU Maps: When More Boost Stops Being Worth It",
+    excerpt: "Exploring ignition timing adjustments, fuel trim thresholds, and where standard engine internals reach their absolute limit.",
+    image: "https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=600",
     readTime: "6 min read",
     date: "Jun 21, 2026",
   },
   {
-    category: "PPF & Coatings",
-    title: "Ceramic vs PPF: what we actually recommend to clients",
-    image:
-      "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "Ceramic Coatings",
+    title: "Why Your DIY Coating is Hazing — The Science of Flash Times",
+    excerpt: "Five critical environment and temperature mistakes that turn a premium 9H ceramic coating into a cloudy, streaky mess.",
+    image: "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=600",
     readTime: "5 min read",
     date: "Jun 18, 2026",
   },
+  {
+    category: "Car Body Kits",
+    title: "The 3mm Panel Gap Nightmare: Profiling Raw Dry Carbon Aero",
+    excerpt: "Why high-end carbon fiber kits never fit perfectly straight out of the box, and the custom profiling secrets to making them flush.",
+    image: "https://images.pexels.com/photos/707046/pexels-photo-707046.jpeg?auto=compress&cs=tinysrgb&w=600",
+    readTime: "9 min read",
+    date: "Jun 15, 2026",
+  },
+  {
+    category: "Restoration",
+    title: "Bringing a Rust-Eaten '71 Datsun Back from the Dead: 40 Days, No Shortcuts",
+    excerpt: "From deep frame rot and media blasting to metal fabrication: a complete teardown of what we saved and what we had to rebuild.",
+    image: "https://i.pinimg.com/736x/a9/21/58/a921580c2d9d86f860cf2415e4d203db.jpg",
+    readTime: "8 min read",
+    date: "Jun 12, 2026",
+  },
+  {
+    category: "Exhaust",
+    title: "Straight Pipes vs Valvetronic Systems: Designing the Perfect Tone",
+    excerpt: "Analyzing backpressure dynamics, drone cancellation frequencies, and how to get an aggressive exhaust note without losing low-end torque.",
+    image: "https://images.pexels.com/photos/190574/pexels-photo-190574.jpeg?auto=compress&cs=tinysrgb&w=600",
+    readTime: "7 min read",
+    date: "Jun 09, 2026",
+  },
+  {
+    category: "Paints",
+    title: "Multi-Stage OEM Color Matching: The Art of Spraying Liquid Metallics",
+    excerpt: "How digital spectrophotometers and custom binder ratios help us match faded original factory paint with flawless precision.",
+    image: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=600",
+    readTime: "11 min read",
+    date: "Jun 06, 2026",
+  },
+  {
+    category: "Refurbish",
+    title: "Alloy Wheel Structural Repair: Straightening, Machining, and Balancing",
+    excerpt: "The exact engineering process required to fix severe curb rashes, hairline barrel cracks, and out-of-round performance wheels.",
+    image: "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=600",
+    readTime: "10 min read",
+    date: "Jun 03, 2026",
+  },
+  {
+    category: "Upholstery",
+    title: "Restoring Vintage Leather: Stitching Alcantara & Custom Seat Rebuilding",
+    excerpt: "Replacing collapsed bolster foam and applying high-density French seams to a completely worn out 90s sports car interior.",
+    image: "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=600",
+    readTime: "6 min read",
+    date: "May 29, 2026",
+  },
+  {
+    category: "Accessories",
+    title: "Thermal Management: Wrapping Exhaust Manifolds vs Ceramic Shields",
+    excerpt: "A deep dive into keeping engine bay temperatures critically low to prevent intake air temp sensor heat-soak loops.",
+    image: "https://i.pinimg.com/736x/e4/d4/dc/e4d4dc26636bfe9861c6fbbb22ab4089.jpg",
+    readTime: "8 min read",
+    date: "May 25, 2026",
+  }
 ];
 
 const POSTS = [
   {
-    category: "Body Kits",
-    title: "Wide-body or subtle? Choosing a kit that fits your car's intent",
-    excerpt: "A practical framework for matching aero to how you actually drive.",
-    image:
-      "https://images.pexels.com/photos/707046/pexels-photo-707046.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "Car Body Kits",
+    title: "Wide-Body vs Subtle Aero: Choosing a Kit That Fits Your Track Intent",
+    excerpt: "A practical, data-backed framework for matching aerodynamic downforce to how you actually drive on the street and circuit.",
+    image: "https://images.pexels.com/photos/707046/pexels-photo-707046.jpeg?auto=compress&cs=tinysrgb&w=600",
     readTime: "7 min read",
     date: "Jun 15, 2026",
-    hot: true,
   },
   {
-    category: "Tips & Tricks",
-    title: "Why your ceramic coating is hazing — and how to fix it",
-    excerpt: "Five causes we see every week, ranked from most to least common.",
-    image:
-      "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "Ceramic Coatings",
+    title: "The Ultimate Guide to Graphene vs Quartz Coatings: Which Wins?",
+    excerpt: "Breaking down water spot resistance, slickness factors, and real-world durability indexes over a 24-month testing period.",
+    image: "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=600",
     readTime: "4 min read",
     date: "Jun 12, 2026",
   },
   {
     category: "Restoration",
-    title: "Sourcing NOS parts in 2026: forums are dead, here's what works",
-    excerpt: "Our actual supplier list, with the dead ends removed.",
-    image:
-      "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=600",
+    title: "Dry Ice Blasting: How We Safely Remove Decades of Undercarriage Grime",
+    excerpt: "Why traditional high-pressure washing risks electrical damage, and how kinetic freeze tech restores metal components to factory finish.",
+    image: "https://images.pexels.com/photos/3849160/pexels-photo-3849160.jpeg?auto=compress&cs=tinysrgb&w=1200",
     readTime: "9 min read",
     date: "Jun 9, 2026",
   },
   {
-    category: "Tuning",
-    title: "Dyno day: what the numbers don't tell you about a build",
-    excerpt: "Peak horsepower is the least interesting line on the sheet.",
-    image:
-      "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "PPF",
+    title: "Matte Paint Protection Film: Transforming Gloss Finishes Safely",
+    excerpt: "How to achieve a seamless satin look while adding a heavy-duty layer of chemical and rock chip protection to factory clear coats.",
+    image: "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=600",
     readTime: "6 min read",
-    date: "Jun 6, 2026",
+    date: "Jun 06, 2026",
   },
   {
-    category: "PPF & Coatings",
-    title: "Self-healing film, tested: three years of rock chips later",
-    excerpt: "We tracked one customer's hood film since 2023. Here's what survived.",
-    image:
-      "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "Tuning & Mapping",
+    title: "Understanding Octane Knock: Why Bad Fuel Kills Aggressive Tunes",
+    excerpt: "How modern ECUs pull ignition timing to prevent low-speed pre-ignition (LSPI) and how to log data safely using OBD tools.",
+    image: "https://images.pexels.com/photos/120049/pexels-photo-120049.jpeg?auto=compress&cs=tinysrgb&w=600",
     readTime: "8 min read",
-    date: "Jun 3, 2026",
-    hot: true,
+    date: "Jun 03, 2026",
   },
   {
-    category: "Body Kits",
-    title: "Fitment week: the small gaps nobody warns you about",
-    excerpt: "Panel alignment, clearance, and the patience it actually takes.",
-    image:
-      "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=600",
+    category: "Exhaust",
+    title: "Titanium vs Stainless Steel: Weighing the Cost of Exhaust Upgrades",
+    excerpt: "Analyzing acoustic notes, structural heat dissipation, and the exact power-to-weight advantages of exotic exhaust alloys.",
+    image: "https://images.pexels.com/photos/190574/pexels-photo-190574.jpeg?auto=compress&cs=tinysrgb&w=600",
     readTime: "5 min read",
     date: "May 30, 2026",
   },
+  {
+    category: "Paints",
+    title: "The Physics of Orange Peel: How to Achieve a True Mirror Finish",
+    excerpt: "Why factory paint jobs have textures and the specialized wet sanding processes required to safely flatten clear coats.",
+    image: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=600",
+    readTime: "10 min read",
+    date: "May 26, 2026",
+  },
+  {
+    category: "Refurbish",
+    title: "Diamond Cut Wheels: How Many Times Can You Re-Machine Them?",
+    excerpt: "How computer-controlled CNC lathes profile alloy rims and the structural safety margins you need to calculate beforehand.",
+    image: "https://images.pexels.com/photos/3729464/pexels-photo-3729464.jpeg?auto=compress&cs=tinysrgb&w=600",
+    readTime: "7 min read",
+    date: "May 22, 2026",
+  },
+  {
+    category: "Upholstery",
+    title: "Alcantara Maintenance 101: Preventing Sweat and Oil Matting",
+    excerpt: "A simple detailing routine using specialized low-pH cleaners to keep your performance steering wheel and buckets feeling brand new.",
+    image: "https://images.pexels.com/photos/210019/pexels-photo-210019.jpeg?auto=compress&cs=tinysrgb&w=600",
+    readTime: "5 min read",
+    date: "May 18, 2026",
+  },
 ];
 
-function Tag({ children }) {
-  return (
-    <span className="bg-title inline-block rounded-full border border-[#3D3D3D] bg-[#1A1A1A] px-3 py-1 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-[#8C8C8C]">
-      {children}
-    </span>
-  );
-}
-
-function Meta({ date, readTime }) {
-  return (
-    <div className="bg-sub flex items-center gap-2 text-[11.5px] text-[#B8B8B8]/70">
-      <span>{date}</span>
-      <span className="h-1 w-1 rounded-full bg-[#B8B8B8]/40" />
-      <span className="flex items-center gap-1">
-        <Clock size={11} /> {readTime}
-      </span>
-    </div>
-  );
-}
-
 export default function BlogGrid() {
-  const [hoveredCard, setHoveredCard] = useState(null);
+  const sliderRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (sliderRef.current) {
+      const { scrollLeft, clientWidth } = sliderRef.current;
+      const scrollTo = direction === "left" ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+      sliderRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
+    }
+  };
 
   return (
-    <section className="relative bg-[#0B0B0B] px-4 py-16 sm:px-8 sm:py-20 lg:px-10">
+    <section className="bg-[#0B0B0B] text-white px-4 xs:px-5 sm:px-8 lg:px-12 py-14 sm:py-18 lg:py-24 select-none">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&family=Jost:wght@300;400;500&display=swap');
+        
+        .font-display { font-family: 'Bebas Neue', sans-serif; }
+        .font-label { font-family: 'DM Sans', sans-serif; }
+        .font-body { font-family: 'Jost', sans-serif; }
 
-        .bg-heading { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.01em; }
-        .bg-title   { font-family: 'DM Sans', sans-serif; }
-        .bg-sub     { font-family: 'Jost', sans-serif; }
-
-        .bg-card {
-          background: #1A1A1A;
-          border: 1px solid #3D3D3D;
-          border-radius: 14px;
-          overflow: hidden;
-          transition: border-color 0.25s, transform 0.25s, background 0.25s;
-        }
-        .bg-card:hover {
-          border-color: #8C8C8C;
-          background: #202020;
-          transform: translateY(-3px);
-        }
-        .bg-img-wrap { overflow: hidden; position: relative; }
-        .bg-img-wrap img {
-          transition: transform 0.5s ease;
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .bg-card:hover .bg-img-wrap img { transform: scale(1.06); }
-
-        .bg-arrow {
-          width: 30px; height: 30px;
-          border-radius: 999px;
-          border: 1px solid #3D3D3D;
-          display: flex; align-items: center; justify-content: center;
-          color: #8C8C8C;
-          transition: all 0.2s;
-          flex-shrink: 0;
-        }
-        .bg-card:hover .bg-arrow {
-          background: #8C8C8C;
-          color: #0B0B0B;
-          transform: rotate(45deg);
-        }
-
-        .bg-loadmore {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px; font-weight: 600;
-          letter-spacing: 0.08em; text-transform: uppercase;
-          color: #FFFFFF;
-          border: 1px solid #3D3D3D;
-          border-radius: 999px;
-          padding: 13px 36px;
-          background: transparent;
-          cursor: pointer;
-          transition: all 0.25s;
-        }
-        .bg-loadmore:hover {
-          border-color: #8C8C8C;
-          background: #1A1A1A;
-          color: #8C8C8C;
-        }
+        /* Hide default scrollbars */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
 
-      <div className="mx-auto max-w-7xl">
-        {/* Section heading */}
-        <div className="mb-10 flex items-end justify-between gap-4">
+      <div className="mx-auto max-w-7xl px-0 sm:px-6 lg:px-12">
+
+        {/* ── SECTION HEADER ── */}
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#222] pb-5 sm:pb-6 mb-8 sm:mb-12 gap-4">
           <div>
-            <div className="bg-title mb-3 flex items-center gap-3">
-              <span className="h-px w-10 bg-[#8C8C8C]" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#B8B8B8]">
-                Latest
-              </span>
-            </div>
-            <h2 className="bg-heading text-[2.2rem] text-white sm:text-[2.8rem]">
-              FRESH OFF THE FLOOR.
+            <span className="font-label text-[9px] xs:text-[10px] uppercase tracking-[0.2em] xs:tracking-[0.25em] text-[#8C8C8C] block mb-2">
+              Featured Spotlights
+            </span>
+            <h2 className="font-display text-4xl xs:text-5xl sm:text-6xl lg:text-7xl tracking-wide uppercase">
+              Curated Stories<span className="text-[#8C8C8C]">.</span>
             </h2>
+          </div>
+
+          {/* Slider Controllers */}
+          <div className="flex gap-3 self-end sm:self-auto">
+            <button
+              onClick={() => scroll("left")}
+              aria-label="Scroll left"
+              className="h-9 w-9 sm:h-10 sm:w-10 border border-[#2A2A2A] hover:border-[#8C8C8C] flex items-center justify-center transition-colors bg-[#111]/30"
+            >
+              <ArrowLeft size={16} className="text-[#8C8C8C]" />
+            </button>
+            <button
+              onClick={() => scroll("right")}
+              aria-label="Scroll right"
+              className="h-9 w-9 sm:h-10 sm:w-10 border border-[#2A2A2A] hover:border-[#8C8C8C] flex items-center justify-center transition-colors bg-[#111]/30"
+            >
+              <ArrowRight size={16} className="text-[#8C8C8C]" />
+            </button>
           </div>
         </div>
 
-        {/* Featured row */}
-        <div className="mb-14 grid grid-cols-1 gap-5 lg:grid-cols-3">
-          {/* Large featured card */}
-          <a
-            href="#"
-            className="bg-card group relative col-span-1 flex flex-col lg:col-span-2"
-            onMouseEnter={() => setHoveredCard("featured")}
-            onMouseLeave={() => setHoveredCard(null)}
-          >
-            <div className="bg-img-wrap h-[260px] sm:h-[340px]">
-              <img src={FEATURED.image} alt={FEATURED.title} />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-transparent to-transparent" />
-            </div>
-            <div className="flex flex-1 flex-col gap-4 p-6 sm:p-7">
-              <Tag>{FEATURED.category}</Tag>
-              <h3 className="bg-sub text-[1.35rem] font-medium leading-snug text-white sm:text-[1.6rem]">
-                {FEATURED.title}
-              </h3>
-              <p className="bg-sub text-[13.5px] font-light leading-relaxed text-[#B8B8B8]">
-                {FEATURED.excerpt}
-              </p>
-              <div className="mt-auto flex items-center justify-between pt-2">
-                <Meta date={FEATURED.date} readTime={FEATURED.readTime} />
-                <div className="bg-arrow">
-                  <ArrowUpRight size={15} />
+        {/* ── PART 1: SLIDE ROW (EQUAL SIZE SLIDERS) ── */}
+        <div
+          ref={sliderRef}
+          className="flex gap-4 sm:gap-6 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-10 sm:pb-16 -mx-4 xs:-mx-5 sm:mx-0 px-4 xs:px-5 sm:px-0"
+        >
+          {FEATURED_SLIDES.map((slide, i) => (
+            <div
+              key={i}
+              className="w-[85%] xs:w-[75%] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 snap-start group cursor-pointer"
+            >
+              <div className="aspect-[16/10] overflow-hidden bg-[#161616] mb-4 sm:mb-5 border border-[#222]">
+                <img
+                  src={slide.image}
+                  alt={slide.title}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                />
+              </div>
+              <div className="space-y-2.5 sm:space-y-3">
+                <span className="font-label text-[9px] sm:text-[10px] font-semibold uppercase tracking-widest text-[#8C8C8C] block">
+                  // {slide.category}
+                </span>
+                <h3 className="font-display text-xl sm:text-2xl uppercase tracking-wide leading-tight group-hover:text-[#B8B8B8] transition-colors">
+                  {slide.title}
+                </h3>
+                <p className="font-body text-[#8C8C8C] text-[13px] sm:text-[13.5px] font-light leading-relaxed line-clamp-2">
+                  {slide.excerpt}
+                </p>
+                <div className="font-body text-[11px] sm:text-xs text-[#555] pt-1 flex items-center gap-2">
+                  <span>{slide.date}</span>
+                  <span>•</span>
+                  <span className="flex items-center gap-1"><Clock size={12} /> {slide.readTime}</span>
                 </div>
               </div>
             </div>
-          </a>
+          ))}
+        </div>
 
-          {/* Side stacked cards */}
-          <div className="flex flex-col gap-5">
-            {SIDE_FEATURED.map((post, i) => (
-              <a href="#" key={i} className="bg-card group flex flex-1 gap-4 p-4 sm:p-5">
-                <div className="bg-img-wrap h-[88px] w-[88px] flex-shrink-0 rounded-lg sm:h-[100px] sm:w-[100px]">
-                  <img src={post.image} alt={post.title} />
+        {/* ── PART 2: CORE LOWER GRID (PERFECT SYMMETRIC MATRIX) ── */}
+        <div className="border-t border-[#222] pt-10 sm:pt-16 mt-2 sm:mt-4">
+          <div className="mb-6 sm:mb-10">
+            <span className="font-label text-[9px] xs:text-[10px] uppercase tracking-[0.2em] xs:tracking-[0.25em] text-[#8C8C8C] block mb-1">
+              Deep Dives
+            </span>
+            <h3 className="font-display text-4xl xs:text-5xl sm:text-6xl lg:text-7xl uppercase tracking-wide">
+              Technical Logs
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
+            {POSTS.map((post, i) => (
+              <a href="#" key={i} className="group block space-y-3 sm:space-y-4 pb-4">
+                <div className="aspect-[4/3] overflow-hidden bg-[#161616] border border-[#222]">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                  />
                 </div>
-                <div className="flex flex-1 flex-col justify-between py-0.5">
-                  <div>
-                    <span className="bg-title text-[10px] font-semibold uppercase tracking-[0.1em] text-[#8C8C8C]">
+
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="font-label text-[9px] sm:text-[10px] tracking-widest text-[#8C8C8C] uppercase font-semibold">
                       {post.category}
                     </span>
-                    <h4 className="bg-sub mt-1.5 text-[13.5px] font-medium leading-snug text-white">
-                      {post.title}
-                    </h4>
+                    <ArrowUpRight size={14} className="text-[#444] group-hover:text-white transition-colors shrink-0" />
                   </div>
-                  <Meta date={post.date} readTime={post.readTime} />
+
+                  <h4 className="font-display text-lg sm:text-xl uppercase tracking-wide leading-snug group-hover:text-[#B8B8B8] transition-colors">
+                    {post.title}
+                  </h4>
+
+                  <p className="font-body text-[#8C8C8C] text-[12.5px] sm:text-[13px] font-light leading-relaxed line-clamp-2">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="font-body text-[10px] sm:text-[11px] text-[#555] pt-1">
+                    {post.readTime}
+                  </div>
                 </div>
               </a>
             ))}
           </div>
         </div>
 
-        {/* Standard grid */}
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {POSTS.map((post, i) => (
-            <a href="#" key={i} className="bg-card group flex flex-col">
-              <div className="bg-img-wrap h-[180px]">
-                <img src={post.image} alt={post.title} />
-                {post.hot && (
-                  <div className="bg-title absolute left-3 top-3 flex items-center gap-1 rounded-full bg-[#0B0B0B]/80 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#8C8C8C] backdrop-blur-sm">
-                    <Flame size={10} /> Trending
-                  </div>
-                )}
-              </div>
-              <div className="flex flex-1 flex-col gap-3 p-5">
-                <Tag>{post.category}</Tag>
-                <h3 className="bg-sub text-[15.5px] font-medium leading-snug text-white">
-                  {post.title}
-                </h3>
-                <p className="bg-sub text-[12.5px] font-light leading-relaxed text-[#B8B8B8]/80">
-                  {post.excerpt}
-                </p>
-                <div className="mt-auto flex items-center justify-between pt-2">
-                  <Meta date={post.date} readTime={post.readTime} />
-                  <div className="bg-arrow">
-                    <ArrowUpRight size={15} />
-                  </div>
-                </div>
-              </div>
-            </a>
-          ))}
+        {/* ── FOOTER BUTTON ── */}
+        <div className="mt-12 sm:mt-16 flex justify-center">
+          <button className="font-label border border-[#2A2A2A] text-white bg-transparent px-6 sm:px-8 py-2.5 sm:py-3 text-[10px] sm:text-[11px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] uppercase hover:bg-white hover:text-[#0B0B0B] hover:border-white transition-all duration-300 w-full xs:w-auto">
+            View All Publications
+          </button>
         </div>
 
-        {/* Load more */}
-        <div className="mt-12 flex justify-center">
-          <button className="bg-loadmore">Load more articles</button>
-        </div>
       </div>
     </section>
   );

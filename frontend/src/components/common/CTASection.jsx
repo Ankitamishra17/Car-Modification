@@ -75,7 +75,7 @@ export default function BottomCTA({
               {/* Action Tracking Label */}
               <div className="flex items-center gap-3">
                 <span className="h-px w-4 bg-[#8C8C8C]" />
-                <span className="cta-title text-[9px] font-bold uppercase tracking-[0.25em] text-[#8C8C8C]">
+                <span className="cta-title text-[9px] text-nowrap font-bold uppercase tracking-[0.25em] text-[#8C8C8C]">
                   NEXT STEP // INITIATION ENGINE
                 </span>
               </div>
@@ -98,7 +98,7 @@ export default function BottomCTA({
                   href={buttonLink}
                   className="group relative inline-flex items-center justify-between gap-6 bg-white px-8 py-4 text-xs font-mono tracking-widest text-[#0B0B0B] uppercase font-bold transition-all duration-300 hover:bg-[#8C8C8C]"
                 >
-                  <span>{buttonText || "START PROJECT"}</span>
+                  <span className="text-nowrap">{buttonText || "START PROJECT"}</span>
                   <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                 </a>
 

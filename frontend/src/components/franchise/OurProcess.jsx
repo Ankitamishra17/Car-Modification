@@ -51,8 +51,7 @@ export default function OurProcess({ display, label, body }) {
       `}</style>
 
       {/* ---------------- PROCESS MATRIX SECTION ---------------- */}
-      <section className="bg-[#0B0B0B] text-[#F0F0F0] px-4 sm:px-8 lg:px-12 py-28 relative overflow-hidden">
-        
+      <section className="bg-[#0B0B0B] text-[#F0F0F0] px-4 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-28 relative overflow-hidden">
         {/* Subtle Architectural Background Grid lines */}
         <div className="absolute inset-0 bg-[radial-gradient(#333_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.15] pointer-events-none" />
 
@@ -62,7 +61,7 @@ export default function OurProcess({ display, label, body }) {
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          className="mb-14 space-y-3 max-w-7xl mx-auto px-12"
+          className="mb-10 sm:mb-12 lg:mb-14 space-y-3 max-w-7xl mx-auto"
         >
           <div className="flex items-center gap-3">
             <span className="h-px w-6 bg-[#8C8C8C]" />
@@ -73,8 +72,8 @@ export default function OurProcess({ display, label, body }) {
               How It Works / Execution Matrix
             </span>
           </div>
-          <h2 
-            className="text-5xl md:text-6xl lg:text-7xl font-normal tracking-wide text-white uppercase leading-none" 
+          <h2
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal tracking-wide text-white uppercase leading-none"
             style={{ ...display, fontFamily: "'Bebas Neue', sans-serif" }}
           >
             FIVE STEPS TO LAUNCH<span className="text-[#8C8C8C]">.</span>
@@ -87,17 +86,17 @@ export default function OurProcess({ display, label, body }) {
           whileInView="show"
           viewport={{ once: true }}
           variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-5 border border-[#3D3D3D]/30 divide-y md:divide-y-0 md:divide-x divide-[#3D3D3D]/30 bg-[#121212]/20 max-w-7xl mx-30 backdrop-blur-sm"
+          className="grid grid-cols-1 md:grid-cols-5 border border-[#3D3D3D]/30 divide-y md:divide-y-0 md:divide-x divide-[#3D3D3D]/30 bg-[#121212]/20 max-w-7xl mx-auto backdrop-blur-sm"
         >
           {steps.map((s, i) => (
             <motion.div
               key={s.n}
               variants={fadeUp}
-              className="group relative p-8 lg:p-10 transition-all duration-500 ease-in-out cursor-default overflow-hidden min-h-[280px] flex flex-col justify-between"
+              className="group relative p-6 sm:p-8 lg:p-10 transition-all duration-500 ease-in-out cursor-default overflow-hidden min-h-[220px] sm:min-h-[250px] lg:min-h-[280px] flex flex-col justify-between"
             >
               {/* Modern Hover Sliding Background Fill */}
               <div className="absolute inset-0 bg-[#141414] scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-500 ease-out -z-10" />
-              
+
               {/* Top Row Indicators */}
               <div className="flex items-center justify-between w-full select-none">
                 <div
@@ -106,7 +105,7 @@ export default function OurProcess({ display, label, body }) {
                 >
                   {s.n}
                 </div>
-                <div 
+                <div
                   className="text-[10px] font-mono tracking-widest text-[#555555] uppercase"
                   style={label}
                 >
@@ -115,7 +114,7 @@ export default function OurProcess({ display, label, body }) {
               </div>
 
               {/* Main Content Info Block */}
-              <div className="mt-12 space-y-3 relative z-10">
+              <div className="mt-8 sm:mt-10 lg:mt-12 space-y-3 relative z-10">
                 <h3
                   className="uppercase text-lg lg:text-xl font-normal tracking-wide text-[#B8B8B8] group-hover:text-white transition-colors duration-300"
                   style={{ ...display, fontFamily: "'Bebas Neue', sans-serif" }}
@@ -132,7 +131,6 @@ export default function OurProcess({ display, label, body }) {
 
               {/* Decorative Subtle Corner Accent Node */}
               <div className="absolute bottom-0 right-0 w-1.5 h-1.5 bg-[#3D3D3D]/40 group-hover:bg-[#8C8C8C] transition-colors duration-300" />
-              
             </motion.div>
           ))}
         </motion.div>
