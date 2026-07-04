@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-
 import {
   FiShield,
   FiTrendingUp,
@@ -66,8 +65,6 @@ function Shine({ className = "" }) {
   );
 }
 
-
-
 const specs = [
   { label: "Franchise Fee", value: "₹8,00,000 – ₹12,00,000" },
   { label: "Studio Area Required", value: "1,200 – 1,800 sq. ft." },
@@ -75,8 +72,6 @@ const specs = [
   { label: "Estimated ROI Period", value: "18 – 24 Months" },
   { label: "Franchise Term", value: "5 Years, Renewable" },
 ];
-
-
 
 const cities = [
   "Delhi NCR",
@@ -90,20 +85,26 @@ const cities = [
 ];
 
 export default function FranchisePage() {
-  
-
   return (
     <div className="bg-[#0B0B0B] text-[#F0F0F0] min-h-screen" style={body}>
       {/* ---------------- HERO ---------------- */}
 
       <section className="relative overflow-hidden border-b border-[#8C8C8C]/20">
-       
-        <div
+        {/* <div
           className="absolute -top-40 -left-20 w-[700px] h-[700px] rounded-full opacity-[0.10]"
           style={{
             background: "radial-gradient(circle, #C0C0C0, transparent 70%)",
           }}
-        />
+        /> */}
+
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img
+            src="/banner/14.png"
+            alt="franchise"
+            className="h-full w-full object-cover"
+          />
+        </div>
 
         <div className="relative max-w-7xl mx-auto px-6 pt-32  lg:-mt-[120px] pb-24 md:pt-40 md:pb-32 grid md:grid-cols-2 gap-14 items-center">
           {/* LEFT — text */}
@@ -112,8 +113,6 @@ export default function FranchisePage() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-
-
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
@@ -152,10 +151,8 @@ export default function FranchisePage() {
               style={body}
             >
               If you're passionate about automobiles and seeking a promising
-              business opportunity, Dettagli Auto franchise partnerships
-              across county or city name. As a leader in body shop and detailing services with
-              a strong reputation and social media presence, Dettagli Auto is a
-              brand that has captivated car enthusiasts nationwide.
+              business opportunity, Dettagli Auto franchise partnerships across
+              county or city name.
             </motion.p>
 
             <motion.div
@@ -175,51 +172,6 @@ export default function FranchisePage() {
               </a>
             </motion.div>
           </motion.div>
-
-          {/* RIGHT — premium car image */}
-          <motion.div
-            initial={{ opacity: 0, x: 40, scale: 0.96 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex flex-col items-center"
-          >
-            {/* ambient glow behind the car */}
-            <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[70%] rounded-full opacity-30 pointer-events-none"
-              style={{
-                background: "radial-gradient(circle, #C0C0C0, transparent 70%)",
-              }}
-            />
-
-            {/* corner ticks — automotive blueprint feel */}
-            {/* <span className="absolute -top-3 -left-3 w-8 h-8 border-t border-l border-[#C0C0C0]/50" /> */}
-            {/* <span className="absolute -bottom-3 -right-3 w-8 h-8 border-b border-r border-[#C0C0C0]/50" /> */}
-
-            <motion.img
-              src="https://i.pinimg.com/1200x/5e/8f/1d/5e8f1d5bc95da3002d86a46d8b1befc2.jpg"
-              alt="Dettagli Auto franchise studio car"
-              className="relative z-10 w-full h-auto object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]"
-              animate={{ y: [0, -12, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            />
-
-            {/* floor reflection */}
-            <div
-              className="relative z-0 w-[85%] h-24 -mt-6 opacity-25"
-              style={{
-                backgroundImage:
-                  "url(https://i.pinimg.com/1200x/5e/8f/1d/5e8f1d5bc95da3002d86a46d8b1befc2.jpg)",
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                transform: "scaleY(-1)",
-                WebkitMaskImage:
-                  "linear-gradient(to bottom, rgba(0,0,0,0.5), transparent)",
-                maskImage:
-                  "linear-gradient(to bottom, rgba(0,0,0,0.5), transparent)",
-                filter: "blur(2px)",
-              }}
-            />
-          </motion.div>
         </div>
       </section>
 
@@ -233,16 +185,19 @@ export default function FranchisePage() {
             { n: "100%", l: "Setup Support" },
           ].map((s, i) => (
             <div key={i} className="py-10 text-center px-2">
-              <div className="text-3xl md:text-4xl" style={display}>{s.n}</div>
-              <div className="text-xs uppercase tracking-[0.2em] text-[#8C8C8C] mt-2" style={label}>
+              <div className="text-3xl md:text-4xl" style={display}>
+                {s.n}
+              </div>
+              <div
+                className="text-xs uppercase tracking-[0.2em] text-[#8C8C8C] mt-2"
+                style={label}
+              >
                 {s.l}
               </div>
             </div>
           ))}
         </div>
       </section>
-
-     
 
       {/* ---------------- SPEC SHEET (signature element) ---------------- */}
       <section className="border-y border-[#8C8C8C]/20 bg-[#0F0F0F]">
@@ -254,7 +209,10 @@ export default function FranchisePage() {
             variants={fadeUp}
             className="mb-14"
           >
-            <p className="uppercase tracking-[0.3em] text-xs text-[#8C8C8C] mb-4" style={label}>
+            <p
+              className="uppercase tracking-[0.3em] text-xs text-[#8C8C8C] mb-4"
+              style={label}
+            >
               Investment Sheet
             </p>
             <h2 className="text-4xl md:text-5xl" style={display}>
@@ -277,23 +235,28 @@ export default function FranchisePage() {
                   i !== specs.length - 1 ? "border-b border-[#8C8C8C]/20" : ""
                 }`}
               >
-                <span className="flex items-center gap-4 text-[#8C8C8C] uppercase text-xs tracking-[0.2em]" style={label}>
+                <span
+                  className="flex items-center gap-4 text-[#8C8C8C] uppercase text-xs tracking-[0.2em]"
+                  style={label}
+                >
                   <span className="w-2 h-px bg-[#8C8C8C]" />
                   {s.label}
                 </span>
-                <span className="text-lg md:text-xl text-[#F0F0F0]" style={display}>
+                <span
+                  className="text-lg md:text-xl text-[#F0F0F0]"
+                  style={display}
+                >
                   {s.value}
                 </span>
               </motion.div>
             ))}
           </motion.div>
           <p className="text-xs text-[#8C8C8C] mt-6" style={body}>
-            Figures are indicative and vary by city, studio size, and site conditions — final numbers confirmed during the site visit.
+            Figures are indicative and vary by city, studio size, and site
+            conditions — final numbers confirmed during the site visit.
           </p>
         </div>
       </section>
-
-     
 
       {/* ---------------- EXPANSION CITIES ---------------- */}
       {/* <section className="border-t border-[#8C8C8C]/20">
@@ -331,8 +294,6 @@ export default function FranchisePage() {
           </motion.div>
         </div>
       </section> */}
-
-      
 
       {/* ---------------- CLOSING CONTACT STRIP ---------------- */}
       <section className="border-t border-[#8C8C8C]/20">
