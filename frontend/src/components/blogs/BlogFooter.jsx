@@ -112,69 +112,7 @@ export default function BlogFooter() {
           </div>
         </div>
 
-        {/* ── STANDARD STRUCTURAL FOOTER MAP ── */}
-        <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-6 gap-10 md:gap-8 pb-16 border-b border-neutral-900">
-          {/* Brand/Identity Meta info */}
-          <div className="col-span-2 space-y-5">
-            <h3 className="font-['Bebas_Neue'] text-3xl tracking-wider text-neutral-100">
-              AUTOLUXE<span className="text-neutral-600">.</span>
-            </h3>
-            <p className="text-neutral-400 font-light text-sm leading-relaxed max-w-xs">
-              Performance detailing, architectural paint films, and fine automotive mechanical execution engineered to limits.
-            </p>
-            <div className="flex gap-2 pt-2">
-              <a href="#" className="w-9 h-9 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:border-neutral-500 hover:bg-neutral-900 transition-all duration-200">
-                <InstagramIcon />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:border-neutral-500 hover:bg-neutral-900 transition-all duration-200">
-                <YoutubeIcon />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:border-neutral-500 hover:bg-neutral-900 transition-all duration-200">
-                <XIcon />
-              </a>
-            </div>
-          </div>
-
-          {/* Dynamic Link Generation Grid */}
-          {Object.entries(FOOTER_LINKS).map(([title, links]) => (
-            <div key={title} className="space-y-4">
-              <h4 className="font-['DM_Sans'] text-xs font-bold uppercase tracking-widest text-neutral-400">
-                {title}
-              </h4>
-              <ul className="space-y-2.5">
-                {links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-sm font-light text-neutral-500 hover:text-white transition-colors duration-200">
-                      {link}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-
-          {/* Location / Meta Context Info Column */}
-          <div className="col-span-2 md:col-span-1 space-y-4">
-            <h4 className="font-['DM_Sans'] text-xs font-bold uppercase tracking-widest text-neutral-400">
-              HQ Location
-            </h4>
-            <div className="flex gap-2 text-neutral-500 text-sm font-light leading-relaxed">
-              <MapPin size={16} className="text-neutral-600 flex-shrink-0 mt-0.5" />
-              <span>
-                Bay Area Industrial Complex Block C, Suite 404
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Rights Bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-center pt-8 gap-4 text-xs font-light text-neutral-600">
-          <p>&copy; {new Date().getFullYear()} AutoLuxe Studio Inc. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-neutral-400 transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-neutral-400 transition-colors">Terms of Service</a>
-          </div>
-        </div>
+       
 
       </div>
     </footer>
