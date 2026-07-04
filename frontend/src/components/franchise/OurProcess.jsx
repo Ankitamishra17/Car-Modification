@@ -19,8 +19,8 @@ const steps = [
   },
   {
     n: "04",
-    title: "Setup & Training",
-    text: "Studio build-out, equipment install, and technician certification.",
+    title: "Setup & Launch",
+    text: "Studio build-out, team training, and grand opening backed by regional marketing.",
   },
   {
     n: "05",
@@ -30,22 +30,52 @@ const steps = [
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 35 },
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
   },
 };
-const display = { fontFamily: "'Bebas Neue', sans-serif" };
-const label = { fontFamily: "'DM Sans', sans-serif" };
-const body = { fontFamily: "'Jost', sans-serif" };
+
 const stagger = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
+  show: { transition: { staggerChildren: 0.1 } },
+};
+const display = {
+  fontFamily: "'Marcellus', serif",
+};
+
+const label = {
+  fontFamily: "'Jost', sans-serif",
+  fontWeight: 500,
+};
+
+const body = {
+  fontFamily: "'Jost', sans-serif",
+  fontWeight: 400,
 };
 
 function OurProcess() {
+  
+  const renderFormattedHeading = (text) => {
+    if (!text) return "";
+    const parts = text.split(/\*(.*?)\*/g);
+    return parts.map((part, index) => 
+      index % 2 === 1 ? (
+        <span
+          key={index}
+          className="inline-block mx-2 sm:mx-4"
+          style={{ WebkitTextStroke: "1px #8C8C8C", color: "transparent" }}
+        >
+          {part}
+        </span>
+      ) : (
+        part
+      )
+    );
+  };
+
   return (
     <>
       {/* ---------------- PROCESS ---------------- */}
@@ -55,7 +85,7 @@ function OurProcess() {
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="mb-16 max-w-2xl"
+          className="mb-20 space-y-4 max-w-5xl"
         >
           <p
             className="uppercase tracking-[0.3em] text-xs text-[#8C8C8C] mb-4"

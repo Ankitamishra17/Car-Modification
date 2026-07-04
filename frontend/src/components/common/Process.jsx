@@ -1,10 +1,7 @@
 import React from "react";
 
 /**
- * Process — AutoLuxe Studio Step-by-Step Dynamic Template
- *
- * Usage in data arrays:
- * heading: "OUR *PRECISION* WORKFLOW *PROCESS*" -> 'PRECISION' and 'PROCESS' will become outlined strokes.
+ * Process — AutoLuxe Premium 4-Step Ultra-Wide Layout
  */
 
 export default function Process({ 
@@ -34,11 +31,12 @@ export default function Process({
     );
   };
 
-  // Safe fallback to prevent layout breakages across views if array is empty
-  if (!process || process.length === 0) return null;
+  // Enforcing the 4-step structure limit safely
+  const activeSteps = process.slice(0, 5);
+  if (activeSteps.length === 0) return null;
 
   return (
-    <section className="bg-[#0B0B0B] px-4 py-24 sm:px-8 lg:px-16 relative overflow-hidden">
+    <section className="bg-[#0B0B0B] px-4 py-10 sm:px-8 lg:px-16 relative overflow-hidden">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
@@ -47,10 +45,10 @@ export default function Process({
         .proc-sub     { font-family: 'Jost', sans-serif; }
       `}</style>
 
-      <div className="mx-auto max-w-7xl relative z-10">
+      <div className="mx-auto max-w-7xl relative z-10 px-12">
 
         {/* Dynamic Header Block */}
-        <div className="mb-20 space-y-4 max-w-5xl">
+        <div className="mb-24 space-y-4 max-w-5xl">
           {subtitle && (
             <div className="flex items-center gap-3">
               <span className="h-px w-6 bg-[#8C8C8C]" />
@@ -67,43 +65,63 @@ export default function Process({
           )}
         </div>
 
-        {/* Process Steps Grid */}
-        <div className="relative">
-          {/* Studio Top Connecting Horizontal Line (Visible on Large Screens) */}
-          <div className="absolute top-[21px] left-0 right-0 h-px bg-[#3D3D3D]/30 hidden lg:block z-0" />
+        {/* Zero-Gap Optimized Core Grid Matrix */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
+          
+          {/* Left Column: Higher & Max Scale Studio Vertical Text */}
+          <div className="hidden lg:block lg:col-span-2 sticky top-24 select-none pointer-events-none">
+            <span 
+              className="proc-heading text-[10rem] leading-[0.75] text-[#1F1F1F] tracking-widest uppercase block rotate-90 origin-left translate-x-10 -translate-y-8" 
+              style={{ WebkitTextStroke: "1px #2D2D2D", color: "transparent" }}
+            >
+              WORKFLOW
+            </span>
+          </div>
 
-          <div className={`grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-${Math.min(process.length, 5)}`}>
-            {process.map((item, i) => (
+          {/* Right Column: Premium Active Row Engine (Expanded to take full remaining screen estate) */}
+          <div className="col-span-1 lg:col-span-10 border-t border-[#3D3D3D]/30 divide-y divide-[#3D3D3D]/30">
+            {activeSteps.map((item, i) => (
               <div
                 key={item.step || i}
-                className="group relative flex flex-col gap-4 z-10"
+                className="group relative py-10 sm:py-12 transition-all duration-500 ease-in-out cursor-default"
               >
-                {/* Sharp Squared Studio Step Counter */}
-                <div className="w-11 h-11 bg-[#1A1A1A] border border-[#3D3D3D] group-hover:border-[#8C8C8C] flex items-center justify-center text-white text-xs font-mono tracking-wider transition-all duration-300 z-10">
-                  {String(item.step).padStart(2, '0')}
-                </div>
+                {/* Background Hover Slide In Panel */}
+                <div className="absolute inset-0 bg-[#121212] scale-y-0 origin-bottom group-hover:scale-y-100 transition-transform duration-500 ease-out -z-10" />
 
-                {/* Content Block */}
-                <div className="space-y-2 mt-2">
-                  <div className="flex items-center gap-2">
-                    <span className="text-[10px] font-mono text-[#3D3D3D] group-hover:text-[#8C8C8C] transition-colors duration-300">
-                      // PHASE
+                <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-start relative z-10 px-4 sm:px-6">
+                  
+                  {/* Row Serial Number Block */}
+                  <div className="sm:col-span-2 flex items-center gap-4 sm:flex-col sm:items-start sm:gap-1">
+                    <span className="proc-heading text-[2.5rem] leading-none text-[#4E4E4E] group-hover:text-white transition-colors duration-300">
+                      {String(item.step || i + 1).padStart(2, '0')}
                     </span>
-                    <h4 className="proc-title text-[14px] font-bold uppercase tracking-wider text-white group-hover:text-[#8C8C8C] transition-colors duration-300">
+                    <span className="text-[9px] font-mono tracking-widest text-[#3D3D3D] group-hover:text-[#8C8C8C]">
+                      // PHASE_STG
+                    </span>
+                  </div>
+
+                  {/* Row Core Title Block */}
+                  <div className="sm:col-span-4">
+                    <h4 className="proc-title text-[16px] font-bold uppercase tracking-wider text-white group-hover:text-[#8C8C8C] transition-colors duration-300 sm:mt-2">
                       {item.title}
                     </h4>
                   </div>
 
-                  <p className="proc-sub text-[13px] leading-relaxed font-light text-[#B8B8B8] pr-4 group-hover:text-white transition-colors duration-300">
-                    {item.desc}
-                  </p>
+                  {/* Row Narrative/Description Block */}
+                  <div className="sm:col-span-6">
+                    <p className="proc-sub text-[14px] leading-relaxed font-light text-[#B8B8B8] group-hover:text-white transition-colors duration-300">
+                      {item.desc}
+                    </p>
+                  </div>
+
                 </div>
-                
-                {/* Decorative bottom line on mobile hover */}
-                <div className="h-px bg-[#8C8C8C] w-0 group-hover:w-12 transition-all duration-500 mt-2 block lg:hidden" />
+
+                {/* Left Border Accent Indicator */}
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#8C8C8C] scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
               </div>
             ))}
           </div>
+
         </div>
 
       </div>

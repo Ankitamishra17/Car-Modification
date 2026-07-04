@@ -19,7 +19,7 @@ export const SERVICES = [
     description:
       "PPF guards your paint from stone chips, road debris and scratches.",
 
-    image: "/banner/ppf.jpg",
+    image: "/banner/ppf.png",
 
     whatIsIt: {
       subtitle: "What's the difference",
@@ -193,7 +193,7 @@ export const SERVICES = [
     description:
       "Advanced ceramic coating for gloss and hydrophobic protection.",
 
-    image: "/banner/ceramic.jpg",
+    image: "/banner/ceramic.png",
 
      whatIsIt: {
       subtitle: "What's the difference",
@@ -887,7 +887,7 @@ export const SERVICES = [
     description:
       "Complete restoration for classic and modern vehicles.",
 
-    image: "/banner/restore.jpg",
+    image: "/banner/paint.png",
      whatIsIt: {
       subtitle: "What's the difference",
       heading: "PPF OR CERAMIC — OR BOTH?",
@@ -1403,7 +1403,7 @@ export const SERVICES = [
     description:
       "Complete restoration for classic and modern vehicles.",
 
-    image: "/banner/restore.jpg",
+    image: "/banner/mapping.png",
      whatIsIt: {
       subtitle: "What's the difference",
       heading: "PPF OR CERAMIC — OR BOTH?",

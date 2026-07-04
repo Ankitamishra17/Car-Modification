@@ -2,9 +2,7 @@ import React from "react";
 
 /**
  * BeforeAfter — AutoLuxe Premium Transformation Gallery Component
- *
- * Usage in data arrays:
- * heading: "VISUAL *BEFORE* AND *AFTER* RESULTS" -> 'BEFORE' and 'AFTER' will become outlined strokes.
+ * Target Words for Stroke: "THE" and "STUDIO"
  */
 
 export default function BeforeAfter({ 
@@ -13,25 +11,28 @@ export default function BeforeAfter({
   images = [] 
 }) {
 
-  // Purely dynamic text formatter that converts any text inside asterisks (*TEXT*) into ultra-luxury strokes
+  // Auto-detects "THE" and "STUDIO" inside any heading string and converts them to outline stroke
   const renderFormattedHeading = (text) => {
     if (!text) return "";
     
-    const parts = text.split(/\*(.*?)\*/g);
+    // Split by exact matches of words THE or STUDIO (case-insensitive)
+    const parts = text.split(/\b(THE|STUDIO)\b/gi);
     
-    return parts.map((part, index) => 
-      index % 2 === 1 ? (
-        <span
-          key={index}
-          className="inline-block mx-2 sm:mx-4"
-          style={{ WebkitTextStroke: "1px #8C8C8C", color: "transparent" }}
-        >
-          {part}
-        </span>
-      ) : (
-        part
-      )
-    );
+    return parts.map((part, index) => {
+      const upperPart = part.toUpperCase();
+      if (upperPart === "THE" || upperPart === "STUDIO") {
+        return (
+          <span
+            key={index}
+            className="inline-block"
+            style={{ WebkitTextStroke: "1px #8C8C8C", color: "transparent" }}
+          >
+            {upperPart}
+          </span>
+        );
+      }
+      return part;
+    });
   };
 
   // Safe fallback if images array is empty or undefined
@@ -47,7 +48,7 @@ export default function BeforeAfter({
         .gal-sub     { font-family: 'Jost', sans-serif; }
       `}</style>
 
-      <div className="mx-auto max-w-7xl relative z-10">
+      <div className="mx-auto max-w-7xl relative z-10 px-12">
 
         {/* Dynamic Header Block */}
         <div className="mb-16 space-y-4 max-w-5xl">

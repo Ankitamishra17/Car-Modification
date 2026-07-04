@@ -50,12 +50,10 @@ const stagger = {
 };
 
 // Reusable metallic-sweep hover shine — echoes a polished panel catching light
-function Shine({ className = "" }) {
+function Shine() {
   return (
-    <span
-      className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
-    >
-      <span className="absolute -inset-y-full -left-1/2 w-1/3 rotate-12 bg-gradient-to-r from-transparent via-[#F0F0F0]/15 to-transparent translate-x-[-160%] group-hover:translate-x-[420%] transition-transform duration-[1100ms] ease-out" />
+    <span className="pointer-events-none absolute inset-0 overflow-hidden">
+      <span className="absolute -inset-y-full -left-1/2 w-1/3 rotate-12 bg-gradient-to-r from-transparent via-[#F0F0F0]/25 to-transparent translate-x-[-160%] group-hover:translate-x-[420%] transition-transform duration-[1200ms] ease-out" />
     </span>
   );
 }
@@ -187,11 +185,11 @@ export default function FranchisePage() {
             >
               <a
                 href="#apply"
-                className="group relative inline-flex items-center gap-2 overflow-hidden bg-[#F0F0F0] text-[#0B0B0B] px-8 py-4 uppercase text-sm tracking-widest"
+                className="group relative inline-flex items-center gap-6 overflow-hidden bg-[#F0F0F0] text-[#0B0B0B] px-8 py-4 uppercase text-xs font-bold tracking-widest transition-all duration-300 hover:bg-[#8C8C8C]"
                 style={label}
               >
-                Book a Free Consultation Call
-                <FiChevronRight size={16} />
+                <span>Book a Free Consultation Call</span>
+                <FiChevronRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
                 <Shine />
               </a>
               <span className="text-xs text-[#8C8C8C] uppercase tracking-[0.15em]" style={label}>
@@ -239,7 +237,7 @@ export default function FranchisePage() {
             whileInView="show"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="mb-14"
+            className="mb-14 space-y-3"
           >
             <p
               className="uppercase tracking-[0.3em] text-xs text-[#8C8C8C] mb-4"
@@ -252,12 +250,13 @@ export default function FranchisePage() {
             </h2>
           </motion.div>
 
+          {/* Matrix Dynamic Interactive Container */}
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={stagger}
-            className="border border-[#8C8C8C]/25"
+            className="border border-[#3D3D3D]/40 divide-y divide-[#3D3D3D]/30 bg-[#121212]/30"
           >
             {specs.map((s, i) => (
               <motion.div
@@ -283,6 +282,9 @@ export default function FranchisePage() {
                 >
                   {s.value}
                 </span>
+
+                {/* Left Active Luxury Accent Vertical Pin Indicator */}
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#8C8C8C] scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
               </motion.div>
             ))}
           </motion.div>

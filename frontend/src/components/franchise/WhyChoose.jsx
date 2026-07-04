@@ -60,7 +60,7 @@ export default function WhyChoose() {
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="mb-16 max-w-2xl"
+          className="mb-16 max-w-7xl px-12"
           
         >
           <p

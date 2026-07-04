@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronDown, Menu, X, Phone } from "lucide-react";
 import { SERVICES } from "../../data/services";
+import { Link } from "react-router-dom";
 /**
  * Header — AutoLuxe
  * Palette (fixed):
@@ -29,15 +30,13 @@ import { SERVICES } from "../../data/services";
 //     href: "/services/ppf-ceramic-coating",
 //     desc: "Paint protection that keeps the shine permanent.",
 //   },
-  
 
 //    {
 //     name: "Ceramic Coating",
 //     href: "/services/ppf-ceramic-coating",
 //     desc: "Paint protection that keeps the shine permanent.",
 //   },
-  
-  
+
 //   {
 //     name: "Refurbish Vehicle ",
 //     href: "/services/refurbish-vehicle-restore",
@@ -358,7 +357,6 @@ export default function Header() {
             onClick={(e) => handleNav(e, "#home")}
           >
             <img src="/logo.png" alt="AutoLuxe logo" className="h-20 w-35" />
-           
           </a>
 
           {/* Desktop Nav */}
@@ -392,14 +390,14 @@ export default function Header() {
                       <ul className="hdr-dropdown-list">
                         {SERVICES.map((svc, i) => (
                           <li className="hdr-dropdown-item" key={svc.name}>
-                            <a
-                              href={svc.href}
+                            <Link
+                              to={svc.href}
                               role="menuitem"
                               onClick={(e) => handleNav(e, svc.href)}
                             >
                               <span className="di-name">{svc.name}</span>
                               <span className="di-desc">{svc.desc}</span>
-                            </a>
+                            </Link>
                             {i < SERVICES.length - 1 && (
                               <div className="hdr-dropdown-divider" />
                             )}
@@ -412,14 +410,17 @@ export default function Header() {
               }
 
               return (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   className="hdr-nav-link"
-                  onClick={(e) => handleNav(e, link.href)}
+                  onClick={() => {
+                    setMobileOpen(false);
+                    setServicesOpen(false);
+                  }}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
           </nav>
@@ -493,12 +494,12 @@ export default function Header() {
                       <ul>
                         {SERVICES.map((svc) => (
                           <li key={svc.name}>
-                            <a
-                              href={svc.href}
+                            <Link
+                              to={svc.href}
                               onClick={(e) => handleNav(e, svc.href)}
                             >
                               {svc.name}
-                            </a>
+                            </Link>
                           </li>
                         ))}
                       </ul>
@@ -508,14 +509,14 @@ export default function Header() {
               }
 
               return (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.href}
                   className="hdr-mob-link"
-                  onClick={(e) => handleNav(e, link.href)}
+                  onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               );
             })}
 
