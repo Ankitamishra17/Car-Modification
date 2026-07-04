@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-
+import { Link } from "react-router-dom";
 const STATS = [
   { value: "5+", label: "Years of excellence" },
   { value: "4", label: "Cities served" },
@@ -443,7 +443,7 @@ export default function Hero() {
               marginTop: 8,
             }}
           >
-            <a href="#contact" className="hero-btn-primary">
+            <Link to="/contact" className="hero-btn-primary">
               Book a Service
               <svg
                 className="hero-arrow"
@@ -459,10 +459,10 @@ export default function Hero() {
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
-            </a>
-            <a href="#services" className="hero-btn-ghost">
+            </Link>
+            <Link to="/services" className="hero-btn-ghost">
               Explore Services
-            </a>
+            </Link>
           </div>
 
           {/* Stats — desktop row */}
@@ -497,8 +497,8 @@ export default function Hero() {
       </div>
 
       {/* Scroll cue */}
-      <a
-        href="#about"
+      <Link
+        to="/about"
         aria-label="Scroll to next section"
         style={{
           position: "absolute",
@@ -528,7 +528,7 @@ export default function Hero() {
           Scroll
         </span>
         <div className="hero-scroll-line" />
-      </a>
+      </Link>
     </section>
   );
 }

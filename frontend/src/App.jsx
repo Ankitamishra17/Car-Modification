@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import Franchise from "./pages/Franchise";
 
 import ServicePage from "./pages/services/ServicePage";
+import BlogDetailPage from "./components/common/blog";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/blog" element={<Blogs />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/franchise" element={<Franchise />} />
+        <Route path="/blog/:slug" element={<BlogDetailPage />} />
        
       
         <Route path="/services/:slug" element={<ServicePage />} />

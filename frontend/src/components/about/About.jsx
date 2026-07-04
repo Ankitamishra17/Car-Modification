@@ -1,5 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+const MotionLink = motion(Link);
 
 export function ExperienceCallout() {
   return (
@@ -15,22 +17,41 @@ export function ExperienceCallout() {
           viewport={{ once: true }}
           className="text-center space-y-6"
         >
-          <h2 className="text-5xl md:text-6xl font-light text-[#F5EBE0]" style={{ fontFamily: "Georgia, serif" }}>
-            We believe that <span className="text-[#D4AF37]">preserving</span> a vehicle is about more than maintaining its appearance.
+          <h2
+            className="text-5xl md:text-6xl font-light text-[#F5EBE0]"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
+            We believe that <span className="text-[#D4AF37]">preserving</span> a
+            vehicle is about more than maintaining its appearance.
           </h2>
 
-          <p className="text-xl text-[#F5EBE0]/75 leading-relaxed max-w-3xl mx-auto pt-6" style={{ fontFamily: "Georgia, serif" }}>
-            It is about safeguarding its character, protecting its value and honouring the engineering behind every automobile, whether it is a cherished daily driver, a grand tourer, a supercar or a collector's masterpiece.
+          <p
+            className="text-xl text-[#F5EBE0]/75 leading-relaxed max-w-3xl mx-auto pt-6"
+            style={{ fontFamily: "Georgia, serif" }}
+          >
+            It is about safeguarding its character, protecting its value and
+            honouring the engineering behind every automobile, whether it is a
+            cherished daily driver, a grand tourer, a supercar or a collector's
+            masterpiece.
           </p>
 
           <div className="pt-12">
-            <p className="text-[#D4AF37] text-sm font-medium tracking-widest uppercase" style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}>
+            <p
+              className="text-[#D4AF37] text-sm font-medium tracking-widest uppercase"
+              style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
+            >
               Since 2020
             </p>
-            <p className="text-3xl md:text-4xl font-light text-[#F5EBE0] mt-3" style={{ fontFamily: "Georgia, serif" }}>
+            <p
+              className="text-3xl md:text-4xl font-light text-[#F5EBE0] mt-3"
+              style={{ fontFamily: "Georgia, serif" }}
+            >
               Because perfection is never accidental.
             </p>
-            <div className="flex flex-col items-center gap-2 mt-4 text-[#F5EBE0]/70" style={{ fontFamily: "Georgia, serif" }}>
+            <div
+              className="flex flex-col items-center gap-2 mt-4 text-[#F5EBE0]/70"
+              style={{ fontFamily: "Georgia, serif" }}
+            >
               <p>It is crafted.</p>
               <p>It is refined.</p>
               <p>It is preserved.</p>
@@ -69,22 +90,21 @@ export function FinalCTA() {
           Welcome to Dettagli Auto.
         </motion.p>
 
-        <motion.a
+        <MotionLink
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.4, duration: 0.6 }}
           viewport={{ once: true }}
-          href="/contact"
+          to="/contact"
           className="inline-block mt-8 px-8 py-4 rounded-full border border-[#D4AF37] text-[#D4AF37] text-base font-medium transition-all duration-300 hover:bg-[#D4AF37] hover:text-[#0A0A0A] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)]"
           style={{ fontFamily: "'Bai Jamjuree', sans-serif" }}
         >
           Experience Excellence
-        </motion.a>
+        </MotionLink>
       </div>
     </section>
   );
 }
-
 
 // ===== MAIN ABOUT PAGE =====
 export default function AboutPage() {
@@ -100,4 +120,3 @@ export default function AboutPage() {
     </main>
   );
 }
-

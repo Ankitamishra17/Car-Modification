@@ -184,7 +184,7 @@ export const SERVICES = [
     slug: "ceramic-coating",
     href: "/services/ceramic-coating",
 
-    name: "Ceramic Coating",
+    name: "CERAMIC COATING",
     breadcrumb: "Services / Ceramic Coating",
 
     title: "CERAMIC SHINE",
@@ -358,7 +358,7 @@ export const SERVICES = [
     slug: "restore",
     href: "/services/restore",
 
-    name: "Restore",
+    name: "RESTORE",
     breadcrumb: "Services / Restore",
 
     title: "BRING IT BACK",
@@ -533,7 +533,7 @@ export const SERVICES = [
       href: "/services/refurbish",
    
 
-    name: "Refurbish",
+    name: "REFURBISH",
     breadcrumb: "Services / Refurbish",
 
     title: "BRING IT BACK",
@@ -706,7 +706,7 @@ export const SERVICES = [
     slug: "upholstery",
     href: "/services/upholstery",
 
-    name: "Upholstery ",
+    name: "UPHOLSTERY ",
     breadcrumb: "Services / Upholstery",
 
     title: "BRING IT BACK",
@@ -878,7 +878,7 @@ export const SERVICES = [
     slug: "paints",
     href: "/services/paints",
 
-    name: "Paints",
+    name: "PAINTS",
     breadcrumb: "Services / Paints",
 
     title: "BRING IT BACK",
@@ -1050,7 +1050,7 @@ export const SERVICES = [
     slug: "car-body-kits",
     href: "/services/car-body-kits",
 
-    name: "Car Body Kits",
+    name: "CAR BODY KITS",
     breadcrumb: "Services / Car Body Kits",
 
     title: "BRING IT BACK",
@@ -1222,7 +1222,7 @@ export const SERVICES = [
     slug: "exhaust",
     href: "/services/exhaust",
 
-    name: "Exhaust",
+    name: "EXHAUST",
     breadcrumb: "Services / Exhaust",
 
     title: "BRING IT BACK",
@@ -1394,7 +1394,7 @@ export const SERVICES = [
     slug: "tuning-mapping",
     href: "/services/tuning-mapping",
 
-    name: "Tuning & Mapping",
+    name: "TUNING & MAPPING",
     breadcrumb: "Services / Tuning & Mapping",
 
     title: "BRING IT BACK",
@@ -1566,7 +1566,7 @@ export const SERVICES = [
     slug: "accessories",
     href: "/services/accessories",
 
-    name: "Accessories",
+    name: "ACCESSORIES",
     breadcrumb: "Services / Accessories",
 
     title: "BRING IT BACK",

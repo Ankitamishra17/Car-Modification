@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const IMG_MAIN =
   "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=1000";
@@ -337,7 +338,7 @@ export default function About() {
             <p className="da-subtitle">
            Ogni automobile d'eccezione racconta una storia. La nostra missione è preservarla.
             </p>
-            <a href="/services/ppf" className="da-cta">
+            <Link to="/services/ppf" className="da-cta">
               Explore Our Services
               <svg
                 className="da-arrow"
@@ -352,7 +353,7 @@ export default function About() {
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </a>
+            </Link>
           </motion.div>
         </div>
 

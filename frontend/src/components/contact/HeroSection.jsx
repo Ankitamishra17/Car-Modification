@@ -1,4 +1,5 @@
 import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function ContactHero() {
   return (
@@ -67,8 +68,8 @@ export default function ContactHero() {
 
           {/* CTA Buttons */}
           <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="group inline-flex items-center gap-3 bg-white px-8 py-4 font-[DM_Sans] text-sm font-semibold uppercase tracking-wider text-black transition-all duration-300 hover:bg-[#D5D5D5]"
             >
               Get In Touch
@@ -76,7 +77,7 @@ export default function ContactHero() {
                 size={18}
                 className="transition-transform duration-300 group-hover:translate-x-1"
               />
-            </a>
+            </Link>
 
             <a
               href="tel:+919876543210"

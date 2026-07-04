@@ -8,6 +8,7 @@ import {
   FiClock,
   FiActivity,
 } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 /**
  * DETTAGLI AUTO — FRANCHISE PAGE
@@ -201,9 +202,9 @@ export default function FranchisePage() {
               transition={{ duration: 0.7, delay: 0.55 }}
               className="mt-7 sm:mt-10 flex flex-col xs:flex-row xs:flex-wrap items-start xs:items-center gap-3.5 sm:gap-5"
             >
-              <a
-                href="#apply"
-                className="group relative inline-flex w-full xs:w-auto items-center justify-center gap-3 sm:gap-6 overflow-hidden bg-[#F0F0F0] text-[#0B0B0B] px-5 sm:px-8 py-3.5 sm:py-4 uppercase text-[11px] sm:text-xs font-bold tracking-widest transition-all duration-300 hover:bg-[#8C8C8C]"
+              <Link
+                to="/contact"
+                className="group relative inline-flex items-center gap-3 sm:gap-6 overflow-hidden bg-[#F0F0F0] text-[#0B0B0B] px-5 sm:px-8 py-3.5 sm:py-4 uppercase text-[11px] sm:text-xs font-bold tracking-widest transition-all duration-300 hover:bg-[#8C8C8C]"
                 style={label}
               >
                 <span>Book a Free Consultation Call</span>
@@ -212,7 +213,7 @@ export default function FranchisePage() {
                   className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0"
                 />
                 <Shine />
-              </a>
+              </Link>
               <span
                 className="text-[10px] sm:text-xs text-[#8C8C8C] uppercase tracking-[0.15em]"
                 style={label}
