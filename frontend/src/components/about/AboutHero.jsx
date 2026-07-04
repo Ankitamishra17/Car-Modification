@@ -35,7 +35,7 @@ export default function AboutHero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src="/banner/16.png"
+          src="/banner/refurbish.png"
           alt="Our Story"
           className="h-full w-full object-cover"
         />

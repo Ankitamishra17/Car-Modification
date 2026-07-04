@@ -97,7 +97,7 @@ export default function FranchisePage() {
         {/* Background photograph */}
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1722385640799-4ee84eb90038?fm=jpg&q=80&w=2400&auto=format&fit=crop"
+            src="/banner/franchise.png"
             alt=""
             className="w-full h-full object-cover object-center scale-105"
           />
