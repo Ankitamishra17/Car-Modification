@@ -54,13 +54,13 @@ export default function WhyChoose() {
   return (
     <>
       {/* ---------------- WHY PARTNER ---------------- */}
-      <section className=" bg-[#0B0B0B] max-w-7xl mx-auto px-6 py-28">
+      <section className=" bg-[#0B0B0B] px-32 py-28">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="mb-16 max-w-2xl"
+          className="mb-16 max-w-7xl px-12"
           
         >
           <p
