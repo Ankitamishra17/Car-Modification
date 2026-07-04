@@ -57,7 +57,7 @@ function SignalBars({ strength = 5, max = 5 }) {
         <span
           key={i}
           className={`w-[3px] rounded-sm transition-colors duration-300 ${
-            i < strength ? "bg-[#C8102E]" : "bg-[#3D3D3D]"
+            i < strength ? "bg-[#ffffff]" : "bg-[#3D3D3D]"
           }`}
           style={{ height: `${35 + i * 16}%` }}
         />
@@ -140,7 +140,7 @@ export default function Testimonials() {
               className="inline-flex items-center gap-2 uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs text-[#8C8C8C]"
               style={label}
             >
-              <FiActivity size={12} className="text-[#C8102E] shrink-0" />
+              <FiActivity size={12} className="text-[#ffffff] shrink-0" />
               Incoming Signals · Sultanate of Oman
             </p>
             <h2
@@ -216,8 +216,8 @@ export default function Testimonials() {
                   </div>
                 </div>
                 <span className="relative flex h-1.5 w-1.5 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8102E]/60" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#C8102E]" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffffff]/60" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#ffffff]" />
                 </span>
               </div>
             </motion.div>
