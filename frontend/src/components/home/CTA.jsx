@@ -106,7 +106,7 @@ export default function CTA() {
 
                 {/* Text */}
                 <div className="min-w-0">
-                  <div className="cta-title text-[11.5px] font-medium uppercase tracking-[0.18em] text-[#B8B8B8]/70">
+                  <div className="cta-title text-[10.5px] font-medium uppercase tracking-[0.18em] text-[#B8B8B8]/70">
                     {label}
                   </div>
                   <div className="cta-sub mt-0.5 text-[15px] font-medium text-white transition-colors duration-300 group-hover:text-[#8C8C8C]">

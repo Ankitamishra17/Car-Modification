@@ -37,50 +37,29 @@ const SERVICES = [
     tag: "Performance",
     img: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80&auto=format&fit=crop",
   },
-  // {
-  //   id: 6,
-  //   title: "Paint Protection Film",
-  //   desc: "Self-healing PPF film applied with precision to every panel. Near-invisible armour that protects against stone chips, scratches and environmental contaminants.",
-  //   tag: "Protection",
-  //   img: "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=1200&q=80&auto=format&fit=crop",
-  // },
-  // {
-  //   id: 7,
-  //   title: "Paint Correction & Polishing",
-  //   desc: "Multi-stage machine polishing to eliminate swirl marks, oxidation and fine scratches. We restore depth and clarity to your paintwork before any protective coating.",
-  //   tag: "Detailing",
-  //   img: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=1200&q=80&auto=format&fit=crop",
-  // },
-  // {
-  //   id: 8,
-  //   title: "Deep Interior Detailing",
-  //   desc: "Steam cleaning, leather conditioning, headliner refresh and odour elimination. A complete interior reset that leaves every surface spotless and protected.",
-  //   tag: "Detailing",
-  //   img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop",
-  // },
   {
-    id: 9,
+    id: 6,
     title: "Exhaust",
     desc: "Exhaust cleaning and restoration. We remove soot, rust and corrosion to restore the original colour and function of your exhaust system.",
     tag: "Maintenance",
     img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop",
   },
   {
-    id: 10,
+    id: 7,
     title: " Paints",
     desc: "We use the highest quality paints and materials to ensure a perfect finish. We offer a range of services including paint correction, touch ups and full repaints.",
     tag: "Paint",
     img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop",
   },
   {
-    id: 11,
+    id: 8,
     title: "Refurbish ",
     desc: "We offer a range of services including paint correction, touch ups and full repaints.",
     tag: "Refurbish",
     img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop",
   },
   {
-    id: 12,
+    id: 9,
     title: "Ceramic Coating",
     desc: "We offer a range of services including paint correction, touch ups and full repaints.",
     tag: "Ceramic Coating",
@@ -90,8 +69,16 @@ const SERVICES = [
 
 const fadeUp = (delay = 0) => ({
   hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1], delay } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1], delay },
+  },
 });
+
+// ===== 3D tilt config =====
+const MAX_TILT = 12; // degrees
+const SCALE_HOVER = 1.035;
 
 export default function Services() {
   const headRef = useRef(null);
@@ -103,13 +90,18 @@ export default function Services() {
 
   const tags = useMemo(() => {
     const seen = [];
-    SERVICES.forEach((s) => { if (!seen.includes(s.tag)) seen.push(s.tag); });
+    SERVICES.forEach((s) => {
+      if (!seen.includes(s.tag)) seen.push(s.tag);
+    });
     return ["All", ...seen];
   }, []);
 
   const filtered = useMemo(
-    () => (activeTag === "All" ? SERVICES : SERVICES.filter((s) => s.tag === activeTag)),
-    [activeTag]
+    () =>
+      activeTag === "All"
+        ? SERVICES
+        : SERVICES.filter((s) => s.tag === activeTag),
+    [activeTag],
   );
 
   const pad = (n) => String(n).padStart(2, "0");
@@ -132,12 +124,47 @@ export default function Services() {
     const el = trackRef.current;
     if (!el) return;
     const card = el.querySelector(".svc-card");
-    const step = card ? card.getBoundingClientRect().width + 20 : el.clientWidth * 0.8;
+    const step = card
+      ? card.getBoundingClientRect().width + 20
+      : el.clientWidth * 0.8;
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
 
+  // ===== 3D tilt handlers (direct DOM manipulation, no re-render on mousemove) =====
+  const handleTiltMove = useCallback((e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;  // 0 -> 1
+    const py = (e.clientY - rect.top) / rect.height;  // 0 -> 1
+
+    const rotateY = (px - 0.5) * MAX_TILT * 2;       // left/right
+    const rotateX = (0.5 - py) * MAX_TILT * 2;       // up/down
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${SCALE_HOVER}, ${SCALE_HOVER}, ${SCALE_HOVER})`;
+
+    const glare = card.querySelector(".svc-card-glare");
+    if (glare) {
+      glare.style.opacity = "1";
+      glare.style.background = `radial-gradient(circle at ${px * 100}% ${py * 100}%, rgba(255,255,255,0.18), transparent 55%)`;
+    }
+  }, []);
+
+  const handleTiltLeave = useCallback((e) => {
+    const card = e.currentTarget;
+    card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
+    const glare = card.querySelector(".svc-card-glare");
+    if (glare) glare.style.opacity = "0";
+  }, []);
+
   return (
-    <section style={{ background: "#1A1A1A", position: "relative", overflow: "hidden", padding: "100px 0 110px" }}>
+    <section
+      style={{
+        background: "#1A1A1A",
+        position: "relative",
+        overflow: "hidden",
+        padding: "100px 0 110px",
+      }}
+    >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
@@ -150,7 +177,7 @@ export default function Services() {
           column-gap: 48px; align-items: end;
           margin-bottom: 40px;
         }
-        @media (max-width: 900px) { .svc-headrow { grid-template-columns: 1fr; row-gap: 18px; } }
+        @media (max-width: 900px) { .svc-headrow { grid-template-columns: 1fr; row-gap: 18px; margin-bottom: 28px; } }
 
         .svc-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
         .svc-eyebrow-line { width: 32px; height: 1px; background: #8C8C8C; flex-shrink: 0; }
@@ -181,6 +208,7 @@ export default function Services() {
           color: rgba(240,240,240,0.4);
           max-width: 440px; margin: 0 0 4px;
         }
+        @media (max-width: 520px) { .svc-subtitle { font-size: 13px; } }
         .svc-count {
           font-family: 'DM Sans', sans-serif;
           font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em;
@@ -190,10 +218,17 @@ export default function Services() {
 
         /* ===== Filter chips ===== */
         .svc-chips {
-          display: flex; flex-wrap: wrap; gap: 10px;
+          display: flex; flex-wrap: nowrap; gap: 10px;
           margin-bottom: 32px;
           padding-bottom: 28px;
           border-bottom: 1px solid rgba(192,192,192,0.1);
+          overflow-x: auto;
+          scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
+        }
+        .svc-chips::-webkit-scrollbar { display: none; }
+        @media (max-width: 640px) {
+          .svc-chips { flex-wrap: nowrap; margin-bottom: 24px; padding-bottom: 20px; margin-left: -16px; margin-right: -16px; padding-left: 16px; padding-right: 16px; }
         }
         .svc-chip {
           font-family: 'DM Sans', sans-serif;
@@ -202,51 +237,86 @@ export default function Services() {
           color: rgba(240,240,240,0.5);
           background: transparent;
           border: 1px solid rgba(192,192,192,0.18);
-          border-radius: 20px; padding: 8px 16px;
+          border-radius: 0px; padding: 8px 16px;
           cursor: pointer; white-space: nowrap;
+          flex-shrink: 0;
           transition: background 0.2s, border-color 0.2s, color 0.2s;
         }
         .svc-chip:hover { border-color: rgba(192,192,192,0.5); color: #F0F0F0; }
         .svc-chip.active { background: #C0C0C0; border-color: #C0C0C0; color: #0B0B0B; }
 
-        /* ===== Filmstrip ===== */
+        /* ===== Filmstrip wrapper (holds track + floating arrows) ===== */
+        .svc-track-wrap { position: relative; }
+        @media (max-width: 640px) {
+          .svc-track-wrap { margin-left: -16px; margin-right: -16px; }
+        }
+
         .svc-track {
           display: flex; gap: 20px;
           overflow-x: auto; scroll-snap-type: x mandatory;
-          padding: 4px 4px 8px;
+          padding: 20px 4px 28px;
           scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
         }
         .svc-track::-webkit-scrollbar { display: none; }
+        @media (max-width: 640px) {
+          .svc-track { padding-left: 16px; padding-right: 16px; }
+        }
 
-        .svc-card {
-          position: relative; flex: 0 0 auto;
+        /* Wrapper gives each card its own 3D perspective context */
+        .svc-card-wrap {
+          flex: 0 0 auto;
           width: clamp(260px, 30vw, 340px);
           height: 460px;
-          border-radius: 8px; overflow: hidden;
+          perspective: 1000px;
           scroll-snap-align: start;
-          border: 1px solid rgba(192,192,192,0.1);
-          background: #111;
-          box-shadow: 0 24px 48px -22px rgba(0,0,0,0.7);
         }
         @media (max-width: 640px) {
-          .svc-card { width: 78vw; height: 440px; }
+          .svc-card-wrap { width: 78vw; height: 440px; }
+        }
+
+        .svc-card {
+          position: relative;
+          width: 100%; height: 100%;
+          border-radius: 8px; overflow: hidden;
+          border: 1px solid rgba(192,192,192,0.1);
+          background: #111;
+          box-shadow: 0 11px 15px -8px rgba(0,0,0,0.2);
+          transform-style: preserve-3d;
+          transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1);
+          transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+          will-change: transform;
+        }
+        .svc-card:hover {
+          box-shadow: 0 10px 15px -3px rgba(0,0,0,0.85), 0 0 0 1px rgba(192,192,192,0.25);
         }
 
         .svc-card-img {
           width: 100%; height: 100%; object-fit: cover; display: block;
           opacity: 0.55; filter: grayscale(20%);
-          transition: opacity 0.4s, transform 0.6s ease;
+          transition: opacity 0.4s;
+          transform: translateZ(0px);
         }
-        .svc-card:hover .svc-card-img { opacity: 0.68; transform: scale(1.04); }
+        .svc-card:hover .svc-card-img { opacity: 0.68; }
         .svc-card-overlay {
           position: absolute; inset: 0;
           background: linear-gradient(to top, rgba(5,5,5,0.98) 0%, rgba(5,5,5,0.6) 46%, rgba(5,5,5,0.1) 100%);
+        }
+        .svc-card-glare {
+          position: absolute; inset: 0;
+          opacity: 0;
+          transition: opacity 0.25s ease;
+          pointer-events: none;
+          mix-blend-mode: overlay;
         }
         .svc-card-topline {
           position: absolute; top: 0; left: 0; right: 0; height: 1.5px;
           background: linear-gradient(to right, transparent, #8C8C8C, transparent);
         }
-        .svc-card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 26px 24px 28px; }
+        .svc-card-content {
+          position: absolute; bottom: 0; left: 0; right: 0; padding: 26px 24px 28px;
+          transform: translateZ(40px);
+        }
         .svc-card-tag {
           display: inline-block;
           font-family: 'DM Sans', sans-serif;
@@ -283,6 +353,30 @@ export default function Services() {
           font-family: 'Bebas Neue', sans-serif;
           font-size: 52px; color: rgba(192,192,192,0.08);
           line-height: 1; pointer-events: none; user-select: none; letter-spacing: 0.02em;
+          transform: translateZ(20px);
+        }
+
+        /* ===== Floating overlay arrows (mobile-focused, sits on track) ===== */
+        .svc-float-arrow {
+          position: absolute; top: 50%; transform: translateY(-50%);
+          width: 38px; height: 38px; border-radius: 4px;
+          border: 1px solid rgba(192,192,192,0.3);
+          background: rgba(11,11,11,0.55);
+          backdrop-filter: blur(6px);
+          -webkit-backdrop-filter: blur(6px);
+          color: #F0F0F0;
+          display: none;
+          align-items: center; justify-content: center;
+          cursor: pointer; z-index: 3;
+          transition: background 0.25s, border-color 0.25s, opacity 0.25s;
+        }
+        .svc-float-arrow.left { left: 8px; }
+        .svc-float-arrow.right { right: 8px; }
+        .svc-float-arrow:disabled { opacity: 0; pointer-events: none; }
+        .svc-float-arrow:active { background: #C0C0C0; color: #0B0B0B; }
+
+        @media (max-width: 900px) {
+          .svc-float-arrow { display: flex; }
         }
 
         /* ===== Controls: progress rail + arrows ===== */
@@ -291,7 +385,7 @@ export default function Services() {
           align-items: center; gap: 24px;
           margin-top: 28px;
         }
-        @media (max-width: 560px) { .svc-controls { grid-template-columns: 1fr; gap: 16px; } }
+        @media (max-width: 640px) { .svc-controls { grid-template-columns: 1fr; gap: 14px; margin-top: 20px; } }
 
         .svc-rail { position: relative; height: 2px; background: rgba(192,192,192,0.12); border-radius: 2px; }
         .svc-rail-fill {
@@ -301,15 +395,17 @@ export default function Services() {
         }
 
         .svc-navrow { display: flex; align-items: center; gap: 14px; justify-content: flex-end; }
-        @media (max-width: 560px) { .svc-navrow { justify-content: space-between; } }
+        @media (max-width: 640px) { .svc-navrow { justify-content: center; } }
         .svc-counter {
           font-family: 'DM Sans', sans-serif;
           font-size: 12px; font-weight: 600;
           letter-spacing: 0.1em; color: rgba(192,192,192,0.45);
           min-width: 52px; text-align: center;
         }
+
+        /* Hide the bottom round arrow buttons on mobile since floating arrows already handle nav */
         .svc-arrow {
-          width: 40px; height: 40px; border-radius: 50%;
+          width: 40px; height: 40px; border-radius: 4px;
           border: 1px solid rgba(192,192,192,0.25);
           background: rgba(192,192,192,0.04);
           color: #8C8C8C;
@@ -321,34 +417,54 @@ export default function Services() {
         .svc-arrow:hover { background: #C0C0C0; border-color: #C0C0C0; color: #0B0B0B; }
         .svc-arrow:disabled { opacity: 0.3; cursor: default; }
         .svc-arrow:disabled:hover { background: rgba(192,192,192,0.04); border-color: rgba(192,192,192,0.25); color: #8C8C8C; }
+        @media (max-width: 900px) { .svc-arrow { display: none; } }
       `}</style>
 
       <div className="svc-inner">
         {/* Header */}
         <div ref={headRef} className="svc-headrow">
           <div>
-            <motion.div className="svc-eyebrow" variants={fadeUp(0)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
+            <motion.div
+              className="svc-eyebrow"
+              variants={fadeUp(0)}
+              initial="hidden"
+              animate={headInView ? "visible" : "hidden"}
+            >
               <span className="svc-eyebrow-line" />
               <span className="svc-eyebrow-text">What We Offer</span>
             </motion.div>
             <motion.p className="svc-title-ghost" variants={fadeUp(0.06)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
-              OUR SERVICES
+              PREMIUM PROTECTION
             </motion.p>
-            <motion.h2 className="svc-title" variants={fadeUp(0.12)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
+            <motion.h2
+              className="svc-title"
+              variants={fadeUp(0.12)}
+              initial="hidden"
+              animate={headInView ? "visible" : "hidden"}
+            >
               Our <span>Services</span>
             </motion.h2>
           </div>
 
-          <motion.div className="svc-headmeta" variants={fadeUp(0.2)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
+          <motion.div
+            className="svc-headmeta"
+            variants={fadeUp(0.2)}
+            initial="hidden"
+            animate={headInView ? "visible" : "hidden"}
+          >
             <p className="svc-subtitle">
-              Twelve disciplines. One unwavering standard. Every procedure carried out with precision and respect for the automobile.
-            </p>
+Dodici discipline. Un solo standard, senza compromessi. Ogni intervento è eseguito con precisione assoluta e nel massimo rispetto dell'automobile.            </p>
             <span className="svc-count"><b>{pad(filtered.length)}</b> services{activeTag !== "All" ? ` — ${activeTag}` : ""}</span>
           </motion.div>
         </div>
 
         {/* Filter chips */}
-        <motion.div className="svc-chips" variants={fadeUp(0.26)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
+        <motion.div
+          className="svc-chips"
+          variants={fadeUp(0.26)}
+          initial="hidden"
+          animate={headInView ? "visible" : "hidden"}
+        >
           {tags.map((t) => (
             <button
               key={t}
@@ -364,22 +480,29 @@ export default function Services() {
         <motion.div variants={fadeUp(0.32)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
           <div className="svc-track" ref={trackRef} onScroll={updateProgress}>
             {filtered.map((svc, i) => (
-              <div className="svc-card" key={svc.id}>
-                <img className="svc-card-img" src={svc.img} alt={svc.title} loading={i < 3 ? "eager" : "lazy"} />
-                <div className="svc-card-overlay" />
-                <div className="svc-card-topline" />
-                <div className="svc-card-content">
-                  <span className="svc-card-tag">{svc.tag}</span>
-                  <div className="svc-card-title">{svc.title.trim()}</div>
-                  <div className="svc-card-desc">{svc.desc}</div>
-                  <a href="#contact" className="svc-card-link">
-                    Book this service
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </a>
+              <div className="svc-card-wrap" key={svc.id}>
+                <div
+                  className="svc-card"
+                  onMouseMove={handleTiltMove}
+                  onMouseLeave={handleTiltLeave}
+                >
+                  <img className="svc-card-img" src={svc.img} alt={svc.title} loading={i < 3 ? "eager" : "lazy"} />
+                  <div className="svc-card-overlay" />
+                  <div className="svc-card-glare" />
+                  <div className="svc-card-topline" />
+                  <div className="svc-card-content">
+                    <span className="svc-card-tag">{svc.tag}</span>
+                    <div className="svc-card-title">{svc.title.trim()}</div>
+                    <div className="svc-card-desc">{svc.desc}</div>
+                    <a href="#contact" className="svc-card-link">
+                      Book this service
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </a>
+                  </div>
+                  <span className="svc-card-num">{pad(svc.id)}</span>
                 </div>
-                <span className="svc-card-num">{pad(svc.id)}</span>
               </div>
             ))}
           </div>
@@ -387,17 +510,51 @@ export default function Services() {
           {/* Controls */}
           <div className="svc-controls">
             <div className="svc-rail">
-              <div className="svc-rail-fill" style={{ width: `${Math.max(6, progress * 100)}%` }} />
+              <div
+                className="svc-rail-fill"
+                style={{ width: `${Math.max(6, progress * 100)}%` }}
+              />
             </div>
             <div className="svc-navrow">
-              <span className="svc-counter">{pad(Math.round(progress * (filtered.length - 1)) + 1)} / {pad(filtered.length)}</span>
-              <button className="svc-arrow" onClick={() => scrollByCards(-1)} disabled={progress <= 0.01} aria-label="Scroll left">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <span className="svc-counter">
+                {pad(Math.round(progress * (filtered.length - 1)) + 1)} /{" "}
+                {pad(filtered.length)}
+              </span>
+              <button
+                className="svc-arrow"
+                onClick={() => scrollByCards(-1)}
+                disabled={progress <= 0.01}
+                aria-label="Scroll left"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M19 12H5M12 19l-7-7 7-7" />
                 </svg>
               </button>
-              <button className="svc-arrow" onClick={() => scrollByCards(1)} disabled={progress >= 0.99} aria-label="Scroll right">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <button
+                className="svc-arrow"
+                onClick={() => scrollByCards(1)}
+                disabled={progress >= 0.99}
+                aria-label="Scroll right"
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </button>
