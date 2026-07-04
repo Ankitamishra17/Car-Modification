@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /**
  * Packages — AutoLuxe Highly Reusable Dynamic Component (Dual-Stroke Engine)
@@ -9,20 +10,15 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
  * heading: "THE *ULTIMATE* LUXURY *PPF* PROTECTION" -> 'ULTIMATE' and 'PPF' will become outlined strokes.
  */
 
-export default function Packages({ 
-  subtitle, 
-  heading, 
-  packages = [] 
-}) {
-
+export default function Packages({ subtitle, heading, packages = [] }) {
   // Purely dynamic text formatter that converts any text inside asterisks (*TEXT*) into ultra-luxury strokes
   const renderFormattedHeading = (text) => {
     if (!text) return "";
-    
+
     // Captures text inside asterisks pairs sequentially
     const parts = text.split(/\*(.*?)\*/g);
-    
-    return parts.map((part, index) => 
+
+    return parts.map((part, index) =>
       // Odd indices represent values caught within asterisks wrappers
       index % 2 === 1 ? (
         <span
@@ -34,7 +30,7 @@ export default function Packages({
         </span>
       ) : (
         part
-      )
+      ),
     );
   };
 
@@ -52,7 +48,6 @@ export default function Packages({
       `}</style>
 
       <div className="mx-auto max-w-7xl relative z-10 px-2">
-
         {/* Dynamic Header Block */}
         <div className="mb-16 space-y-4 max-w-5xl">
           {subtitle && (
@@ -72,11 +67,13 @@ export default function Packages({
         </div>
 
         {/* Dynamic Responsive Grid Layout */}
-        <div className={`grid grid-cols-1 gap-8 items-stretch
+        <div
+          className={`grid grid-cols-1 gap-8 items-stretch
           ${packages.length === 1 ? "max-w-md mx-auto" : ""}
           ${packages.length === 2 ? "md:grid-cols-2 max-w-7xl mx-auto" : ""}
           ${packages.length >= 3 ? "md:grid-cols-3" : ""}
-        `}>
+        `}
+        >
           {packages.map((pkg, i) => (
             <div
               key={pkg.name || i}
@@ -123,7 +120,11 @@ export default function Packages({
 
                 {pkg.duration && (
                   <p className="pkg-sub mt-2 text-[#B8B8B8]/80 text-xs font-light">
-                    Approx. <span className="text-white font-medium">{pkg.duration}</span> turnaround time
+                    Approx.{" "}
+                    <span className="text-white font-medium">
+                      {pkg.duration}
+                    </span>{" "}
+                    turnaround time
                   </p>
                 )}
 
@@ -147,8 +148,9 @@ export default function Packages({
 
               {/* Action Button */}
               <div className="p-8 pt-0">
-                <button
-                  className={`pkg-title w-full py-4 rounded-none text-xs font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all duration-300
+                <Link
+                  to="/contact"
+                  className={`group w-full py-4 rounded-none text-xs font-bold uppercase tracking-[0.2em] flex items-center justify-center gap-3 transition-all duration-300
                   ${
                     pkg.highlight
                       ? "bg-[#8C8C8C] text-[#0B0B0B] hover:bg-white"
@@ -156,8 +158,11 @@ export default function Packages({
                   }`}
                 >
                   <span>{pkg.buttonText || "GET A QUOTE"}</span>
-                  <ArrowRight size={13} className="transition-transform duration-300 group-hover:translate-x-1" />
-                </button>
+                  <ArrowRight
+                    size={13}
+                    className="transition-transform duration-300 group-hover:translate-x-1"
+                  />
+                </Link>
               </div>
 
               {/* Hover Side Border Effect */}
@@ -165,7 +170,6 @@ export default function Packages({
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

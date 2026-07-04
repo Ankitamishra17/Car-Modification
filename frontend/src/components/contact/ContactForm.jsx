@@ -93,7 +93,7 @@ export default function ContactHero() {
           background: #8C8C8C;
           color: #0B0B0B;
           border: none;
-          border-radius: 999px;
+         
           padding: 14px 0;
           width: 100%;
           cursor: pointer;
