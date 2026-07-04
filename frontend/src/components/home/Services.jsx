@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef, useMemo, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
-
+import { Link } from "react-router-dom";
 const SERVICES = [
   {
     id: 1,
@@ -494,12 +494,12 @@ Dodici discipline. Un solo standard, senza compromessi. Ogni intervento è esegu
                     <span className="svc-card-tag">{svc.tag}</span>
                     <div className="svc-card-title">{svc.title.trim()}</div>
                     <div className="svc-card-desc">{svc.desc}</div>
-                    <a href="#contact" className="svc-card-link">
+                    <Link to="/contact" className="svc-card-link">
                       Book this service
                       <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                   <span className="svc-card-num">{pad(svc.id)}</span>
                 </div>

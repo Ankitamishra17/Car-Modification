@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 /**
  * CTA — AutoLuxe
@@ -53,8 +54,8 @@ export default function CTA() {
         </p>
 
         <div className="mt-10 flex justify-center">
-          <a
-            href="/contact"
+          <Link
+            to="/contact"
             className="cta2-title group inline-flex items-center gap-3 bg-[#8C8C8C] text-[#0B0B0B] px-8 py-4 font-semibold transition-all duration-300 hover:bg-white"
           >
             Get Free Consultation
@@ -62,7 +63,7 @@ export default function CTA() {
               size={20}
               className="group-hover:translate-x-1 transition"
             />
-          </a>
+          </Link>
         </div>
       </div>
     </section>
