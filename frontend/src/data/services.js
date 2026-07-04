@@ -7,156 +7,159 @@ import {
 
 export const SERVICES = [
   {
-    slug: "ppf",
-    href: "/services/ppf",
+  slug: "ppf",
+  href: "/services/ppf",
 
-    name: "PPF",
-    breadcrumb: "Services / PPF",
+  name: "PPF",
+  breadcrumb: "Services / Paint Protection Film",
 
-    title: "PAINT PROTECTION",
-    highlight: "THAT LASTS.",
+  title: "PAINT PROTECTION",
+  highlight: "REDEFINED.",
 
-    description:
-      "PPF guards your paint from stone chips, road debris and scratches.",
+  description:
+    "True protection should never be seen. Our Paint Protection Film creates an almost invisible shield that preserves your vehicle's finish against everyday damage while maintaining flawless clarity.",
 
-    image: "/banner/ppf.png",
+  image: "/banner/ppf.png",
 
-    whatIsIt: {
-      subtitle: "What's the difference",
-      heading: "PPF OR CERAMIC — OR BOTH?",
+  whatIsIt: {
+    subtitle: "Invisible Protection",
+    heading: "ENGINEERED TO PRESERVE EVERY DETAIL.",
 
-      tabs: [
-        {
-          id: "ppf",
-          label: "Paint Protection Film",
+    tabs: [
+      {
+        id: "ppf",
+        label: "Paint Protection Film",
 
-          features: [
-            {
-              icon: Shield,
-              title: "Self-Healing Film",
-              desc: "Minor scratches and swirl marks disappear on their own under heat.",
-            },
-            {
-              icon: Droplets,
-              title: "Hydrophobic Surface",
-              desc: "Water, mud, and road grime bead off instantly.",
-            },
-            {
-              icon: Zap,
-              title: "UV & Chemical Resistance",
-              desc: "Blocks UV rays and resists chemicals.",
-            },
-            {
-              icon: Clock,
-              title: "10-Year Warranty",
-              desc: "Backed by a decade-long manufacturer warranty.",
-            },
-          ],
-        },
+        features: [
+          {
+            icon: Shield,
+            title: "Virtually Invisible Protection",
+            desc: "An ultra-clear protective film that preserves your vehicle's original paint without altering its appearance.",
+          },
+          {
+            icon: Zap,
+            title: "Stone Chip & Debris Resistance",
+            desc: "Protects against stone chips, road debris, surface abrasions, and daily driving hazards.",
+          },
+          {
+            icon: Droplets,
+            title: "Self-Healing & Hydrophobic",
+            desc: "Heat-activated self-healing technology removes light scratches while the hydrophobic surface repels water and contaminants.",
+          },
+          {
+            icon: Clock,
+            title: "Long-Term Paint Preservation",
+            desc: "Provides lasting protection against UV exposure, environmental contamination, and paint deterioration.",
+          },
+        ],
+      },
 
-        {
-          id: "ceramic",
-          label: "Ceramic Coating",
+      {
+        id: "craftsmanship",
+        label: "Precision Installation",
 
-          features: [
-            {
-              icon: Shield,
-              title: "9H Hardness Rating",
-              desc: "Forms a glass-hard protective layer.",
-            },
-            {
-              icon: Droplets,
-              title: "Permanent Hydrophobics",
-              desc: "Repels water and dirt effortlessly.",
-            },
-            {
-              icon: Zap,
-              title: "Showroom Gloss",
-              desc: "Enhances paint depth and clarity.",
-            },
-            {
-              icon: Clock,
-              title: "5-Year Protection",
-              desc: "Professional protection that lasts years.",
-            },
-          ],
-        },
-      ],
-    },
-    
+        features: [
+          {
+            icon: Shield,
+            title: "Precision-Cut Film",
+            desc: "Every film is digitally precision-cut for an accurate fit with minimal trimming.",
+          },
+          {
+            icon: Droplets,
+            title: "Hand-Finished Detailing",
+            desc: "Each edge is carefully wrapped and hand-finished by certified technicians.",
+          },
+          {
+            icon: Zap,
+            title: "Factory Finish Preservation",
+            desc: "Maintains exceptional optical clarity while protecting the originality of your factory paint.",
+          },
+          {
+            icon: Clock,
+            title: "Certified Installation",
+            desc: "Installed with meticulous attention to detail for a seamless, premium finish.",
+          },
+        ],
+      },
+    ],
+  },
+
   packagesSection: {
-    subtitle: "Pricing",
+    subtitle: "Protection Packages",
 
-    heading:
-      "CHOOSE YOUR LEVEL OF PROTECTION.",
+    heading: "SELECT THE RIGHT LEVEL OF COVERAGE.",
 
     packages: [
       {
-        name: "Essential Shield",
-        type: "Ceramic Coating",
+        name: "Front Impact Protection",
+        type: "Partial PPF",
         price: "₹18,000",
         duration: "1 Day",
         highlight: false,
 
         features: [
-          "Full exterior paint coating",
-          "1-year warranty",
-          "Hydrophobic treatment",
+          "Front bumper protection",
+          "Bonnet leading edge",
+          "Mirror protection",
+          "High-impact area coverage",
         ],
       },
 
       {
-        name: "Guard Pro",
-        type: "PPF + Ceramic",
+        name: "Complete Vehicle Protection",
+        type: "Full Body PPF",
         price: "₹55,000",
-        duration: "2-3 Days",
+        duration: "2–3 Days",
         highlight: true,
 
         features: [
-          "Partial PPF",
-          "Full ceramic coating",
-          "5-year warranty",
+          "Full body Paint Protection Film",
+          "Self-healing technology",
+          "Hydrophobic finish",
+          "Long-term paint preservation",
         ],
       },
     ],
   },
-   processSection: {
-    subtitle: "How it works",
 
-    heading: "WHAT HAPPENS TO YOUR CAR?",
+  processSection: {
+    subtitle: "Installation Process",
+
+    heading: "PRECISION IN EVERY STEP.",
 
     process: [
       {
         step: "01",
-        title: "Inspection",
-        desc: "We examine every panel under lighting to document existing damage before we touch the car."
+        title: "Vehicle Assessment",
+        desc: "We carefully inspect every panel to evaluate paint condition before installation.",
       },
       {
         step: "02",
-        title: "Decontamination",
-        desc: "Clay bar, iron fallout removal, and a full paint decontamination wash."
+        title: "Surface Preparation",
+        desc: "The vehicle undergoes thorough washing, decontamination, and paint cleansing for a flawless surface.",
       },
       {
         step: "03",
-        title: "Paint Correction",
-        desc: "Swirls and scratches are polished out so the protective layer bonds to a perfect surface."
+        title: "Precision Film Cutting",
+        desc: "PPF is digitally precision-cut to perfectly match your vehicle's contours.",
       },
       {
         step: "04",
-        title: "Application",
-        desc: "Film or coating is applied in our climate-controlled studio, panel by panel."
+        title: "Expert Installation",
+        desc: "Certified technicians hand-install each panel with exceptional precision and edge finishing.",
       },
       {
         step: "05",
-        title: "Curing & QC",
-        desc: "The car cures fully before a final quality inspection under LED lighting."
-      }
-    ]
+        title: "Final Inspection",
+        desc: "Every installation is carefully inspected to ensure flawless alignment, clarity, and finish.",
+      },
+    ],
   },
-   gallerySection: {
-    subtitle: "Results",
 
-    heading: "BEFORE & AFTER THE STUDIO.",
+  gallerySection: {
+    subtitle: "Gallery",
+
+    heading: "INVISIBLE PROTECTION. VISIBLE PERFECTION.",
 
     images: [
       "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -166,171 +169,175 @@ export const SERVICES = [
       "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
     ],
   },
+
   ctaSection: {
-    title: "READY TO PROTECT YOUR PAINT?",
+    title: "PROTECT YOUR PAINT. PRESERVE ITS PERFECTION.",
 
     description:
-      "Book a free consultation — we'll inspect your car and recommend the right package.",
+      "Book a consultation with our certified specialists and discover the ideal Paint Protection Film solution for your vehicle.",
 
-    buttonText: "Book Free Consultation",
+    buttonText: "Book a Consultation",
 
     buttonLink: "/contact",
 
     phone: "+919876543210",
   },
-  },
+},
 
   {
-    slug: "ceramic-coating",
-    href: "/services/ceramic-coating",
+  slug: "ceramic-coating",
+  href: "/services/ceramic-coating",
 
-    name: "Ceramic Coating",
-    breadcrumb: "Services / Ceramic Coating",
+  name: "Ceramic Coating",
+  breadcrumb: "Services / Ceramic Coating",
 
-    title: "CERAMIC SHINE",
-    highlight: "FOREVER.",
+  title: "CERAMIC PROTECTION",
+  highlight: "PERFECTED.",
 
-    description:
-      "Advanced ceramic coating for gloss and hydrophobic protection.",
+  description:
+    "A ceramic coating should enhance rather than conceal. Our advanced ceramic protection systems intensify gloss, enrich colour depth, and provide long-lasting protection against everyday elements.",
 
-    image: "/banner/ceramic.png",
+  image: "/banner/ceramic.png",
 
-     whatIsIt: {
-      subtitle: "What's the difference",
-      heading: "PPF OR CERAMIC — OR BOTH?",
+  whatIsIt: {
+    subtitle: "Advanced Protection",
+    heading: "ENGINEERED FOR LASTING BRILLIANCE.",
 
-      tabs: [
-        {
-          id: "ppf",
-          label: "Paint Protection Film",
+    tabs: [
+      {
+        id: "ceramic",
+        label: "Ceramic Coating",
 
-          features: [
-            {
-              icon: Shield,
-              title: "Self-Healing Film",
-              desc: "Minor scratches and swirl marks disappear on their own under heat.",
-            },
-            {
-              icon: Droplets,
-              title: "Hydrophobic Surface",
-              desc: "Water, mud, and road grime bead off instantly.",
-            },
-            {
-              icon: Zap,
-              title: "UV & Chemical Resistance",
-              desc: "Blocks UV rays and resists chemicals.",
-            },
-            {
-              icon: Clock,
-              title: "10-Year Warranty",
-              desc: "Backed by a decade-long manufacturer warranty.",
-            },
-          ],
-        },
+        features: [
+          {
+            icon: Shield,
+            title: "Advanced Molecular Barrier",
+            desc: "Creates an invisible protective layer that shields paint against oxidation, UV rays, and environmental contaminants.",
+          },
+          {
+            icon: Droplets,
+            title: "Hydrophobic Performance",
+            desc: "Water, dirt, and road grime effortlessly slide away, making maintenance significantly easier.",
+          },
+          {
+            icon: Zap,
+            title: "Enhanced Gloss & Colour Depth",
+            desc: "Intensifies paint clarity, richness, and depth for a refined, showroom-quality finish.",
+          },
+          {
+            icon: Clock,
+            title: "Long-Term Protection",
+            desc: "Professional ceramic technology designed to preserve your vehicle's appearance for years.",
+          },
+        ],
+      },
 
-        {
-          id: "ceramic",
-          label: "Ceramic Coating",
+      {
+        id: "complete-care",
+        label: "Complete Vehicle Care",
 
-          features: [
-            {
-              icon: Shield,
-              title: "9H Hardness Rating",
-              desc: "Forms a glass-hard protective layer.",
-            },
-            {
-              icon: Droplets,
-              title: "Permanent Hydrophobics",
-              desc: "Repels water and dirt effortlessly.",
-            },
-            {
-              icon: Zap,
-              title: "Showroom Gloss",
-              desc: "Enhances paint depth and clarity.",
-            },
-            {
-              icon: Clock,
-              title: "5-Year Protection",
-              desc: "Professional protection that lasts years.",
-            },
-          ],
-        },
-      ],
-    },
-    
+        features: [
+          {
+            icon: Shield,
+            title: "Multi-Surface Protection",
+            desc: "Protection extends beyond paint to wheels, glass, leather, dashboard components, and interior trims.",
+          },
+          {
+            icon: Droplets,
+            title: "Chemical & UV Resistance",
+            desc: "Defends against harsh chemicals, oxidation, UV exposure, and environmental fallout.",
+          },
+          {
+            icon: Zap,
+            title: "Tailored Application",
+            desc: "Every ceramic coating is selected and applied according to your vehicle and driving lifestyle.",
+          },
+          {
+            icon: Clock,
+            title: "Effortless Maintenance",
+            desc: "Keeps your vehicle cleaner for longer while reducing washing time and preserving its finish.",
+          },
+        ],
+      },
+    ],
+  },
+
   packagesSection: {
-    subtitle: "Pricing",
+    subtitle: "Protection Packages",
 
-    heading:
-      "CHOOSE YOUR LEVEL OF PROTECTION.",
+    heading: "CHOOSE YOUR CERAMIC PROTECTION.",
 
     packages: [
       {
-        name: "Essential Shield",
-        type: "Ceramic Coating",
+        name: "Essential Ceramic",
+        type: "Paint Protection",
         price: "₹18,000",
         duration: "1 Day",
         highlight: false,
 
         features: [
-          "Full exterior paint coating",
-          "1-year warranty",
-          "Hydrophobic treatment",
+          "Exterior ceramic coating",
+          "Enhanced gloss finish",
+          "Hydrophobic protection",
+          "Paint surface protection",
         ],
       },
 
       {
-        name: "Guard Pro",
-        type: "PPF + Ceramic",
+        name: "Complete Ceramic Care",
+        type: "Full Vehicle Protection",
         price: "₹55,000",
-        duration: "2-3 Days",
+        duration: "2 Days",
         highlight: true,
 
         features: [
-          "Partial PPF",
-          "Full ceramic coating",
-          "5-year warranty",
+          "Paint ceramic coating",
+          "Wheel & glass protection",
+          "Leather & interior treatment",
+          "Complete vehicle preservation",
         ],
       },
     ],
   },
-   processSection: {
-    subtitle: "How it works",
 
-    heading: "WHAT HAPPENS TO YOUR CAR.",
+  processSection: {
+    subtitle: "Application Process",
+
+    heading: "CRAFTED FOR A PERFECT FINISH.",
 
     process: [
       {
         step: "01",
-        title: "Inspection",
-        desc: "We examine every panel under lighting to document existing damage before we touch the car."
+        title: "Vehicle Inspection",
+        desc: "Every surface is carefully assessed to determine the preparation required before coating.",
       },
       {
         step: "02",
-        title: "Decontamination",
-        desc: "Clay bar, iron fallout removal, and a full paint decontamination wash."
+        title: "Surface Preparation",
+        desc: "The vehicle undergoes a complete wash, decontamination, and paint cleansing process.",
       },
       {
         step: "03",
-        title: "Paint Correction",
-        desc: "Swirls and scratches are polished out so the protective layer bonds to a perfect surface."
+        title: "Paint Refinement",
+        desc: "Paint imperfections are corrected to ensure maximum bonding and exceptional gloss.",
       },
       {
         step: "04",
-        title: "Application",
-        desc: "Film or coating is applied in our climate-controlled studio, panel by panel."
+        title: "Ceramic Application",
+        desc: "Our ceramic coating is carefully applied panel by panel with meticulous attention to detail.",
       },
       {
         step: "05",
-        title: "Curing & QC",
-        desc: "The car cures fully before a final quality inspection under LED lighting."
-      }
-    ]
+        title: "Curing & Final Inspection",
+        desc: "The coating is allowed to cure before a comprehensive quality inspection ensures a flawless finish.",
+      },
+    ],
   },
-   gallerySection: {
-    subtitle: "Results",
 
-    heading: "BEFORE & AFTER THE STUDIO.",
+  gallerySection: {
+    subtitle: "Gallery",
+
+    heading: "EXCEPTIONAL GLOSS. LASTING PROTECTION.",
 
     images: [
       "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -340,171 +347,174 @@ export const SERVICES = [
       "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
     ],
   },
+
   ctaSection: {
-    title: "READY TO PROTECT YOUR PAINT?",
+    title: "EXPERIENCE LASTING BRILLIANCE.",
 
     description:
-      "Book a free consultation — we'll inspect your car and recommend the right package.",
+      "Book a consultation with our specialists to discover the ideal ceramic coating solution tailored to your vehicle and lifestyle.",
 
-    buttonText: "Book Free Consultation",
+    buttonText: "Book a Consultation",
 
     buttonLink: "/contact",
 
     phone: "+919876543210",
   },
-  },
-
+},
   {
-    slug: "restore",
-    href: "/services/restore",
+  slug: "restore",
+  href: "/services/restore",
 
-    name: "Restore",
-    breadcrumb: "Services / Restore",
+  name: "Restore",
+  breadcrumb: "Services / Vehicle Restoration",
 
-    title: "BRING IT BACK",
-    highlight: "TO LIFE.",
+  title: "VEHICLE RESTORATION",
+  highlight: "REIMAGINED.",
 
-    description:
-      "Complete restoration for classic and modern vehicles.",
+  description:
+    "Every automobile carries its own history. Our restoration programme revives ageing and neglected vehicles while preserving their originality, craftsmanship, and timeless character.",
 
-    image: "/banner/restore.jpg",
+  image: "/banner/restore.jpg",
 
-     whatIsIt: {
-      subtitle: "What's the difference",
-      heading: "PPF OR CERAMIC — OR BOTH?",
+  whatIsIt: {
+    subtitle: "Craftsmanship",
+    heading: "RESTORING HISTORY. PRESERVING ORIGINALITY.",
 
-      tabs: [
-        {
-          id: "ppf",
-          label: "Paint Protection Film",
-
-          features: [
-            {
-              icon: Shield,
-              title: "Self-Healing Film",
-              desc: "Minor scratches and swirl marks disappear on their own under heat.",
-            },
-            {
-              icon: Droplets,
-              title: "Hydrophobic Surface",
-              desc: "Water, mud, and road grime bead off instantly.",
-            },
-            {
-              icon: Zap,
-              title: "UV & Chemical Resistance",
-              desc: "Blocks UV rays and resists chemicals.",
-            },
-            {
-              icon: Clock,
-              title: "10-Year Warranty",
-              desc: "Backed by a decade-long manufacturer warranty.",
-            },
-          ],
-        },
-
-        {
-          id: "ceramic",
-          label: "Ceramic Coating",
-
-          features: [
-            {
-              icon: Shield,
-              title: "9H Hardness Rating",
-              desc: "Forms a glass-hard protective layer.",
-            },
-            {
-              icon: Droplets,
-              title: "Permanent Hydrophobics",
-              desc: "Repels water and dirt effortlessly.",
-            },
-            {
-              icon: Zap,
-              title: "Showroom Gloss",
-              desc: "Enhances paint depth and clarity.",
-            },
-            {
-              icon: Clock,
-              title: "5-Year Protection",
-              desc: "Professional protection that lasts years.",
-            },
-          ],
-        },
-      ],
-    },
-    
-  packagesSection: {
-    subtitle: "Pricing",
-
-    heading:
-      "CHOOSE YOUR LEVEL OF PROTECTION.",
-
-    packages: [
+    tabs: [
       {
-        name: "Essential Shield",
-        type: "Ceramic Coating",
-        price: "₹18,000",
-        duration: "1 Day",
-        highlight: false,
+        id: "restoration",
+        label: "Vehicle Restoration",
 
         features: [
-          "Full exterior paint coating",
-          "1-year warranty",
-          "Hydrophobic treatment",
+          {
+            icon: Shield,
+            title: "Comprehensive Restoration",
+            desc: "Complete restoration services designed to return your vehicle to its finest condition.",
+          },
+          {
+            icon: Droplets,
+            title: "Paint Restoration",
+            desc: "Revives faded finishes, removes imperfections, and restores the original brilliance of your paintwork.",
+          },
+          {
+            icon: Zap,
+            title: "Interior Refurbishment",
+            desc: "Leather, upholstery, trims, and cabin components are restored with exceptional attention to detail.",
+          },
+          {
+            icon: Clock,
+            title: "Authentic Preservation",
+            desc: "Every restoration respects the vehicle's original design, heritage, and engineering.",
+          },
         ],
       },
 
       {
-        name: "Guard Pro",
-        type: "PPF + Ceramic",
-        price: "₹55,000",
-        duration: "2-3 Days",
-        highlight: true,
+        id: "craftsmanship",
+        label: "Our Approach",
 
         features: [
-          "Partial PPF",
-          "Full ceramic coating",
-          "5-year warranty",
+          {
+            icon: Shield,
+            title: "Individual Assessment",
+            desc: "Every restoration project begins with a detailed evaluation tailored to the vehicle's condition.",
+          },
+          {
+            icon: Droplets,
+            title: "Trim & Surface Renewal",
+            desc: "Exterior trims, chrome, plastics, and detailing elements are carefully renewed.",
+          },
+          {
+            icon: Zap,
+            title: "Protective Finishing",
+            desc: "Restored surfaces receive professional protection to preserve their appearance for years to come.",
+          },
+          {
+            icon: Clock,
+            title: "Respect for Heritage",
+            desc: "Our objective is never to alter the character of the automobile—but to reveal it once again.",
+          },
         ],
       },
     ],
   },
-   processSection: {
-    subtitle: "How it works",
 
-    heading: "WHAT HAPPENS TO YOUR CAR.",
+  packagesSection: {
+    subtitle: "Restoration Packages",
+
+    heading: "CHOOSE THE RIGHT RESTORATION PROGRAMME.",
+
+    packages: [
+      {
+        name: "Essential Revival",
+        type: "Exterior Restoration",
+        price: "₹18,000",
+        duration: "1–2 Days",
+        highlight: false,
+
+        features: [
+          "Paint restoration",
+          "Trim rejuvenation",
+          "Exterior detailing",
+          "Protective finish",
+        ],
+      },
+
+      {
+        name: "Complete Heritage",
+        type: "Full Vehicle Restoration",
+        price: "₹55,000",
+        duration: "3–5 Days",
+        highlight: true,
+
+        features: [
+          "Complete paint restoration",
+          "Interior refurbishment",
+          "Trim & surface renewal",
+          "Premium protective treatments",
+        ],
+      },
+    ],
+  },
+
+  processSection: {
+    subtitle: "Restoration Process",
+
+    heading: "REVIVING EVERY DETAIL.",
 
     process: [
       {
         step: "01",
-        title: "Inspection",
-        desc: "We examine every panel under lighting to document existing damage before we touch the car."
+        title: "Detailed Assessment",
+        desc: "We inspect every aspect of the vehicle to understand its condition and restoration requirements.",
       },
       {
         step: "02",
-        title: "Decontamination",
-        desc: "Clay bar, iron fallout removal, and a full paint decontamination wash."
+        title: "Preparation",
+        desc: "The vehicle is thoroughly cleaned, decontaminated, and prepared for restoration work.",
       },
       {
         step: "03",
-        title: "Paint Correction",
-        desc: "Swirls and scratches are polished out so the protective layer bonds to a perfect surface."
+        title: "Restoration",
+        desc: "Paint, trim, interior surfaces, and detailing elements are meticulously restored.",
       },
       {
         step: "04",
-        title: "Application",
-        desc: "Film or coating is applied in our climate-controlled studio, panel by panel."
+        title: "Refinement",
+        desc: "Every component is carefully refined to achieve a cohesive, factory-inspired finish.",
       },
       {
         step: "05",
-        title: "Curing & QC",
-        desc: "The car cures fully before a final quality inspection under LED lighting."
-      }
-    ]
+        title: "Final Preservation",
+        desc: "Protective treatments are applied before a comprehensive quality inspection ensures exceptional results.",
+      },
+    ],
   },
-   gallerySection: {
-    subtitle: "Results",
 
-    heading: "BEFORE & AFTER THE STUDIO.",
+  gallerySection: {
+    subtitle: "Gallery",
+
+    heading: "REVIVING AUTOMOTIVE HERITAGE.",
 
     images: [
       "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
@@ -514,19 +524,20 @@ export const SERVICES = [
       "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
     ],
   },
+
   ctaSection: {
-    title: "READY TO PROTECT YOUR PAINT?",
+    title: "RESTORE YOUR VEHICLE'S ORIGINAL CHARACTER.",
 
     description:
-      "Book a free consultation — we'll inspect your car and recommend the right package.",
+      "Consult with our restoration specialists and discover how we can return your automobile to a condition worthy of its heritage.",
 
-    buttonText: "Book Free Consultation",
+    buttonText: "Book a Consultation",
 
     buttonLink: "/contact",
 
     phone: "+919876543210",
   },
-  },
+},
   
   {
       slug: "refurbish",
