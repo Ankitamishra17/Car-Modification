@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useState } from "react";
 
 const STATS = [
@@ -130,27 +129,124 @@ export default function Hero() {
         .hero-bg-desktop { display: block; }
         .hero-bg-mobile { display: none; }
         .hero-subtitle { display: block; }
+        .hero-mobile-overlay { display: none; }
 
         @media (max-width: 768px) {
           .hero-bg-desktop { display: none; }
           .hero-bg-mobile { display: block; }
-          .hero-subtitle { display: none; }
+          .hero-mobile-overlay { display: block; }
           .hero-stats { display: none; }
-          .hero-eyebrow { display: none !important; }
           .hero-badge { display: none !important; }
           .hero-btn-ghost { display: none; }
+
+          /* Section: content starts from top instead of center, dvh avoids mobile browser UI jump */
+          .hero-section {
+            min-height: 100dvh;
+            align-items: flex-start !important;
+            padding-top: 90px;
+          }
+
+          /* Content wrapper: full width so centering works */
+          .hero-content-wrap {
+            padding: 0 18px !important;
+          }
+
+          /* Text block: center everything */
+          .hero-inner {
+            max-width: 100% !important;
+            text-align: center !important;
+          }
+
+          /* Eyebrow: keep as a compact centered label instead of hiding it, drop the line rule */
+          .hero-eyebrow {
+            display: flex !important;
+            justify-content: center !important;
+            margin-bottom: 14px !important;
+          }
+          .hero-eyebrow > span:first-child { display: none !important; }
+          .hero-eyebrow > span:last-child {
+            font-size: 10px !important;
+            letter-spacing: 0.22em !important;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.75);
+          }
+
+          .hero-inner h1 {
+            text-shadow: 0 6px 28px rgba(0,0,0,0.55);
+          }
+          .hero-inner h1 span {
+            text-align: center !important;
+            font-size: clamp(46px, 13vw, 68px) !important;
+            line-height: 0.98 !important;
+            -webkit-text-stroke: 0 !important;
+          }
+
+          /* Subheading: bring it back, sized and weighted for a small, high-contrast screen */
+          .hero-subtitle {
+            display: block !important;
+            font-size: 14.5px !important;
+            line-height: 1.7 !important;
+            max-width: 300px !important;
+            margin: 18px auto 26px !important;
+            color: rgba(240,240,240,0.78) !important;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+          }
+
           .hero-btn-primary {
             background: transparent;
             color: #F0F0F0;
-            border: 1px solid rgba(255,255,255,0.4);
+            border: 1px solid rgba(255,255,255,0.5);
             box-shadow: none;
+            font-size: 13px;
+            padding: 13px 28px;
           }
           .hero-btn-primary:hover {
             background: rgba(255,255,255,0.08);
             box-shadow: none;
           }
-          .hero-section { min-height: 100vh; }
+
+          /* CTA row: center the button */
+          .hero-cta {
+            justify-content: center !important;
+            margin-top: 18px !important;
+          }
+
+          /* Stats: swap the desktop row for a compact centered summary line under the CTA */
+          .hero-mobile-stats {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeUp 0.75s ease-out 0.82s forwards;
+          }
+          .hero-mobile-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            padding: 0 12px;
+          }
+          .hero-mobile-stat + .hero-mobile-stat {
+            border-left: 1px solid rgba(255,255,255,0.15);
+          }
+          .hero-mobile-stat-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
+            line-height: 1;
+            color: #F0F0F0;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+          }
+          .hero-mobile-stat-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 8px;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: rgba(240,240,240,0.55);
+          }
         }
+
+        .hero-mobile-stats { display: none; }
       `}</style>
 
       {/* ── Background ── */}
@@ -168,16 +264,29 @@ export default function Hero() {
         />
         <img
           className="hero-bg-mobile"
-          src="/banner/M BANNER.png"
+          src="/banner/mobile2.png"
           alt="Car detailing studio"
           style={{
             width: "100%",
-            height: "100%",
+            height: "100dvh",
             objectFit: "cover",
-            filter: "grayscale(40%) brightness(0.6)",
+            objectPosition: "center 20%",
+            filter: "grayscale(40%) brightness(0.55)",
           }}
         />
       </div>
+
+      {/* Mobile-only gradient overlay for text contrast */}
+      <div
+        className="hero-mobile-overlay"
+        style={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 1,
+          background:
+            "linear-gradient(180deg, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.4) 32%, rgba(0,0,0,0.28) 55%, rgba(11,11,11,0.85) 100%)",
+        }}
+      />
 
       {/* Silver ambient glow */}
       <div
@@ -232,6 +341,7 @@ export default function Hero() {
 
       {/* ── Content ── */}
       <div
+        className="hero-content-wrap"
         style={{
           position: "relative",
           zIndex: 2,
@@ -241,7 +351,7 @@ export default function Hero() {
           padding: "56px 40px 80px",
         }}
       >
-        <div style={{ maxWidth: 580, fontStyle: "itallic" }}>
+        <div className="hero-inner" style={{ maxWidth: 580 }}>
           {/* Eyebrow */}
           <div
             className="hero-eyebrow"
@@ -282,8 +392,8 @@ export default function Hero() {
           <h1
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: "clamp(52px, 7vw, 90px)",
-              lineHeight: 0.95,
+              fontSize: "clamp(52px, 9vw, 90px)",
+              lineHeight: 0.9,
               margin: 0,
             }}
           >
@@ -299,9 +409,6 @@ export default function Hero() {
             <span style={{ color: "#F0F0F0", display: "block" }}>
               A FINISH IT WAS
             </span>
-            {/* <span style={{ color: "transparent", display: "block", WebkitTextStroke: "2px rgba(255,255,255,0.85)" }}>
-              BUILT TO WEAR
-            </span> */}
           </h1>
 
           {/* Subheading — Jost */}
@@ -325,6 +432,7 @@ export default function Hero() {
 
           {/* CTAs */}
           <div
+            className="hero-cta"
             style={{
               display: "flex",
               alignItems: "center",
@@ -332,7 +440,7 @@ export default function Hero() {
               flexWrap: "wrap",
               opacity: 0,
               animation: "fadeUp 0.75s ease-out 0.68s forwards",
-              marginTop:8
+              marginTop: 8,
             }}
           >
             <a href="#contact" className="hero-btn-primary">
@@ -357,7 +465,7 @@ export default function Hero() {
             </a>
           </div>
 
-          {/* Stats */}
+          {/* Stats — desktop row */}
           <div
             className="hero-stats"
             style={{
@@ -372,6 +480,16 @@ export default function Hero() {
               <div className="hero-stat" key={s.label}>
                 <span className="hero-stat-value">{s.value}</span>
                 <span className="hero-stat-label">{s.label}</span>
+              </div>
+            ))}
+          </div>
+
+          {/* Stats — compact mobile summary line, same position in the flow as the row above */}
+          <div className="hero-mobile-stats">
+            {STATS.map((s) => (
+              <div className="hero-mobile-stat" key={s.label}>
+                <span className="hero-mobile-stat-value">{s.value}</span>
+                <span className="hero-mobile-stat-label">{s.label}</span>
               </div>
             ))}
           </div>

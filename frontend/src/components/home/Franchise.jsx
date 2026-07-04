@@ -137,7 +137,7 @@ export default function Franchise() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B]/60 via-transparent to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-4 py-3">
               <span className="fr-title text-[11px] font-medium uppercase tracking-[0.18em] text-white/80 sm:text-[12.5px]">
-                A live AutoLuxe studio
+                A live Dettagli Auto
               </span>
               <span className="h-1.5 w-1.5 rounded-full bg-[#8C8C8C]" />
             </div>
@@ -145,7 +145,7 @@ export default function Franchise() {
         </div>
 
         {/* ── Floating investment plate — bridges hero and body ── */}
-        <div className="relative z-10 mt-6 sm:-mt-10 sm:mt-0">
+        <div className="relative z-10 mt-[2.5rem] ">
           {/* Mobile scrollable row */}
           <div className="flex gap-3 overflow-x-auto pb-1 sm:hidden">
             {INVESTMENT.map(({ icon: Icon, value, label }) => (

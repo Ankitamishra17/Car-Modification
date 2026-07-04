@@ -20,9 +20,9 @@ import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
  */
 
 const CONTACT_INFO = [
-  { icon: Phone, label: "Call the shop", value: "+91 98765 43210" },
-  { icon: Mail, label: "Email us", value: "hello@autoluxe.in" },
-  { icon: MapPin, label: "Visit us", value: "Sector 32, Gurugram, Haryana" },
+  { icon: Phone, label: "Call the shop", value: "080779 76595" },
+  { icon: Mail, label: "Email us", value: "dettagliauto251@gmail.com" },
+  { icon: MapPin, label: "Visit us", value: "C, 32, Block C, Lajpat Nagar II, Lajpat Nagar, New Delhi, Delhi 110024" },
 ];
 
 export default function ContactHero() {
