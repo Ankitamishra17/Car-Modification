@@ -7,8 +7,8 @@ import {
 
 export const SERVICES = [
   {
-    slug: "ppf",
-    href: "/services/ppf",
+    slug: "paint-protection-film",
+    href: "/services/paint-protection-film",
 
     name: "PPF",
     breadcrumb: "Services / PPF",

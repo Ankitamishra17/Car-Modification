@@ -118,15 +118,11 @@ export default function CraftsmanshipPhilosophy() {
               className="lg:col-span-4 pr-4 sm:pr-12 lg:pr-10 pb-10 sm:pb-16 lg:pb-0 space-y-5 sm:space-y-6"
             >
               <p className="cp-sub text-[15px] sm:text-lg font-light leading-relaxed text-[#B8B8B8]">
-                Each surface is examined, every material understood, every
-                procedure executed with meticulous attention to detail. Our
-                technicians combine years of expertise with industry-leading
-                technique.
+             From invisible paint protection to complete vehicle restoration, every process is performed with patience, precision and uncompromising attention to detail.
               </p>
               <p className="cp-sub text-sm font-light leading-relaxed text-[#B8B8B8]/60">
-                From preparation to final inspection, we focus on precision,
-                durability, and results that hold up — cutting-edge technology,
-                premium-grade products, skilled hands.
+               
+Our philosophy combines traditional craftsmanship with modern technology, allowing every vehicle to receive an individual approach based upon its condition, intended use and the expectations of its owner.
               </p>
             </motion.div>
 

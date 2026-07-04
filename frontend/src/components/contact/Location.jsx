@@ -141,7 +141,7 @@ export default function ContactLocation() {
                 SHOP FLOOR.
               </h2>
               <p className="cl-sub mt-3 max-w-md text-[13.5px] font-light leading-relaxed text-[#B8B8B8] sm:mt-4 sm:text-[14.5px]">
-                Sector 32 Industrial Area, Gurugram, Haryana 122001 — walk-ins
+             C, 32, Block C, Lajpat Nagar II, Lajpat Nagar, New Delhi, Delhi 110024
                 welcome, appointments get priority.
               </p>
               <button className="cl-cta mt-5 sm:mt-6">
