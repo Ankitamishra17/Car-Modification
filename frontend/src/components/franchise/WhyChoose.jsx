@@ -54,13 +54,13 @@ export default function WhyChoose() {
   return (
     <>
       {/* ---------------- WHY PARTNER ---------------- */}
-      <section className=" bg-[#0B0B0B] max-w-7xl mx-auto px-12 py-28">
+      <section className=" bg-[#1A1A1A] ">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="mb-16 max-w-7xl px-12"
+          className="mb-16 max-w-7xl mx-auto px-12 py-12"
           
         >
           <p
@@ -79,13 +79,13 @@ export default function WhyChoose() {
           whileInView="show"
           viewport={{ once: true }}
           variants={stagger}
-          className="grid md:grid-cols-2 gap-px bg-[#8C8C8C]/20"
+          className="grid md:grid-cols-2 gap-px bg-[#1A1A1A] max-w-7xl mx-auto px-6"
         >
           {benefits.map(({ icon: Icon, title, text }, i) => (
             <motion.div
               key={i}
               variants={fadeUp}
-              className="group relative bg-[#0B0B0B] p-8 overflow-hidden"
+              className="group relative bg-[#1A1A1A] p-8 overflow-hidden max-w-7xl mx-auto"
             >
               <Icon className="text-[#C0C0C0]" size={26} strokeWidth={1.5} />
               <h3

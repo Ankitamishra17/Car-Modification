@@ -79,13 +79,13 @@ function OurProcess() {
   return (
     <>
       {/* ---------------- PROCESS ---------------- */}
-      <section className="bg-[#0B0B0B] text-[#F0F0F0] max-w-7xl mx-auto px-12 py-28">
+      <section className="bg-[#0B0B0B] text-[#F0F0F0] px-12 py-28">
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
           variants={fadeUp}
-          className="mb-20 space-y-4 max-w-5xl"
+          className="mb-20 space-y-4  max-w-7xl mx-auto px-12"
         >
           <p
             className="uppercase tracking-[0.3em] text-xs text-[#8C8C8C] mb-4"
@@ -103,7 +103,7 @@ function OurProcess() {
           whileInView="show"
           viewport={{ once: true }}
           variants={stagger}
-          className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-8"
+          className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-8  max-w-7xl mx-auto px-12"
         >
           {steps.map((s, i) => (
             <motion.div
