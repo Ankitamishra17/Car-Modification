@@ -258,7 +258,7 @@ export default function BlogGrid() {
             <span className="font-label text-[10px] uppercase tracking-[0.25em] text-[#8C8C8C] block mb-1">
               Deep Dives
             </span>
-            <h3 className="font-display text-7xl uppercase tracking-wide">
+            <h3 className="font-display text-5xl  sm:text-3xl md:text-5xl lg:text-7xl  uppercase tracking-wide">
               Technical Logs
             </h3>
           </div>

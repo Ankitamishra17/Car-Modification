@@ -161,7 +161,11 @@ export default function BlogHero() {
           INSIGHTS FROM THE<br />
           <span
             className="text-[#8C8C8C]"
-            style={{ textShadow: "0 0 40px rgba(140,140,140,0.35)" }}
+            // style={{ textShadow: "0 0 40px rgba(140,140,140,0.35)" }}
+            style={{
+            WebkitTextStroke: "1px rgba(255,255,255,0.25)",
+            color: "transparent",
+          }}
           >
             DETAIL FLOOR.
           </span>
@@ -175,39 +179,9 @@ export default function BlogHero() {
 
         
 
-        {/* Search bar */}
-        <div className="bh-anim-5 mt-8">
-          <div className="bh-search">
-            <Search size={16} strokeWidth={2} color="#8C8C8C" />
-            <input
-              type="text"
-              placeholder="Search articles — PPF, ceramic, restoration…"
-              value={searchVal}
-              onChange={(e) => setSearchVal(e.target.value)}
-            />
-            {searchVal && (
-              <button
-                onClick={() => {}}
-                className="bh-title flex shrink-0 items-center gap-1.5 rounded-full bg-[#8C8C8C] px-4 py-1.5 text-[12px] font-semibold text-[#0B0B0B] transition-all hover:bg-white"
-              >
-                Search <ArrowRight size={12} />
-              </button>
-            )}
-          </div>
-        </div>
+       
 
-        {/* Category pills */}
-        <div className="bh-anim-6 mt-6 flex flex-wrap gap-2">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              className={`bh-cat-btn${activeCategory === cat ? " active" : ""}`}
-              onClick={() => setActiveCategory(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+       
       </div>
 
       {/* ── Scroll indicator ── */}
