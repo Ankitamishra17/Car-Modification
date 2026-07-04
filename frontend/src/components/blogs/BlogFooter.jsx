@@ -83,7 +83,7 @@ export default function BlogFooter() {
             <div className="lg:col-span-5 w-full">
               {submitted ? (
                 <div className="font-['DM_Sans'] text-sm font-medium border border-neutral-700 bg-neutral-900/80 backdrop-blur-md text-white rounded-xl p-5 text-center shadow-lg">
-                  ⚡ Connection established — First transmission lands Sunday.
+                   Connection established — First transmission lands Sunday.
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-3">

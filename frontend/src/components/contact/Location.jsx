@@ -88,7 +88,7 @@ export default function ContactLocation() {
           color: #0B0B0B;
           background: #8C8C8C;
           border: none;
-          border-radius: 999px;
+         
           padding: 13px 26px;
           display: inline-flex; align-items: center; gap: 8px;
           cursor: pointer;
@@ -141,11 +141,18 @@ export default function ContactLocation() {
                 SHOP FLOOR.
               </h2>
               <p className="cl-sub mt-3 max-w-md text-[13.5px] font-light leading-relaxed text-[#B8B8B8] sm:mt-4 sm:text-[14.5px]">
-               "C, 32, Block C, Lajpat Nagar II, Lajpat Nagar, New Delhi, Delhi 110024
+                C, 32, Block C, Lajpat Nagar II, Lajpat Nagar, New Delhi, Delhi
+                110024
               </p>
-              <button className="cl-cta mt-5 sm:mt-6">
-                <Navigation size={14} /> Get directions
-              </button>
+              <a
+                href="https://www.google.com/maps/search/?api=1&query=C+32+Block+C+Lajpat+Nagar+II+New+Delhi+Delhi+110024"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cl-cta mt-5 sm:mt-6 inline-flex items-center gap-2"
+              >
+                <Navigation size={14} />
+                Get Directions
+              </a>
             </div>
 
             {/* Hours card */}
