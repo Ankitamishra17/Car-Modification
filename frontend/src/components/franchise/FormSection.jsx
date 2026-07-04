@@ -69,7 +69,7 @@ export default function FormSection() {
   const requiredKeys = ["name", "phone", "city"];
   const filledCount = useMemo(
     () => requiredKeys.filter((k) => form[k].trim().length > 0).length,
-    [form]
+    [form],
   );
   const pct = filledCount / requiredKeys.length;
   const radius = 22;
@@ -79,9 +79,11 @@ export default function FormSection() {
   return (
     <>
       {/* ---------------- APPLICATION FORM ---------------- */}
-      <section id="apply" className="border-t border-[#8C8C8C]/20 bg-[#0F0F0F] relative overflow-hidden">
+      <section
+        id="apply"
+        className="border-t border-[#8C8C8C]/20 bg-[#0F0F0F] relative overflow-hidden"
+      >
         {/* faint ambient sheen across the banner */}
-    
 
         <div className="max-w-7xl mx-auto px-12 py-28 relative">
           {/* Header row — eyebrow, headline, and the reference tag sit together
@@ -138,7 +140,12 @@ export default function FormSection() {
                 <>
                   {/* completion dial */}
                   <div className="flex items-center gap-3 mb-8">
-                    <svg width="56" height="56" viewBox="0 0 56 56" className="shrink-0 -rotate-90">
+                    <svg
+                      width="56"
+                      height="56"
+                      viewBox="0 0 56 56"
+                      className="shrink-0 -rotate-90"
+                    >
                       <circle
                         cx="28"
                         cy="28"
@@ -181,7 +188,11 @@ export default function FormSection() {
                     {fields.map((f) => {
                       const isActive = focused === f.name || form[f.name];
                       return (
-                        <motion.div key={f.name} variants={fadeUp} className="relative">
+                        <motion.div
+                          key={f.name}
+                          variants={fadeUp}
+                          className="relative"
+                        >
                           <label
                             className={`absolute left-11 uppercase tracking-[0.2em] text-[10px] transition-all duration-200 ${
                               isActive
@@ -203,7 +214,9 @@ export default function FormSection() {
                             onChange={handleChange}
                             onFocus={() => setFocused(f.name)}
                             onBlur={() => setFocused(null)}
-                            placeholder={isActive ? "" : f.ph + (f.required ? " *" : "")}
+                            placeholder={
+                              isActive ? "" : f.ph + (f.required ? " *" : "")
+                            }
                             className="w-full bg-transparent border border-[#8C8C8C]/30 pl-11 pr-5 pt-6 pb-2 text-sm text-[#ffffff] focus:outline-none focus:border-[#C0C0C0] placeholder:text-[#8C8C8C] transition-colors"
                             style={body}
                           />
@@ -263,12 +276,13 @@ export default function FormSection() {
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="relative flex flex-col items-center"
+              className="relative flex flex-col items-center h-[550px] md:h-[650px]"
             >
               <div
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[70%] rounded-full opacity-30 pointer-events-none"
                 style={{
-                  background: "radial-gradient(circle, #C0C0C0, transparent 70%)",
+                  background:
+                    "radial-gradient(circle, #C0C0C0, transparent 70%)",
                 }}
               />
 
@@ -278,9 +292,13 @@ export default function FormSection() {
               <motion.img
                 src="https://images.pexels.com/photos/28380934/pexels-photo-28380934.jpeg"
                 alt="Dettagli Auto franchise studio car"
-                className="relative z-10 w-full h-full object-contain drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]"
+                className="relative z-10 w-full h-full object-cover drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]"
                 animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
               />
 
               <p
