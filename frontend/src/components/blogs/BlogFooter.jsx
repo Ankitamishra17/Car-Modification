@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ArrowRight, MapPin } from "lucide-react";
 
-/* ── Custom social SVG icons (stroke uses currentColor so they pick up hover color) ── */
+/* ── Custom Social Icons ── */
 const InstagramIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
     <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" />
@@ -23,36 +23,6 @@ const XIcon = () => (
   </svg>
 );
 
-const PinterestIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-    <circle cx="12" cy="12" r="9.5" />
-    <path d="M9 19c.6-2 1.5-5.7 1.9-7.5M12 7.8c2.3 0 3.8 1.6 3.8 3.7 0 2.6-1.3 4.7-3.4 4.7-1 0-1.8-.6-2.1-1.3" strokeLinecap="round" />
-  </svg>
-);
-
-/**
- * BlogFooter — AutoLuxe
- * Continues below BlogGrid.
- *
- * Palette (fixed):
- *   Primary BG      #0B0B0B
- *   Secondary BG    #1A1A1A
- *   Section BG      #2A2A2A
- *   Borders         #3D3D3D
- *   Primary Text    #FFFFFF
- *   Secondary Text  #B8B8B8
- *   Accent          #8C8C8C (metallic silver — buttons / hover)
- *
- * Type system:
- *   Main heading    Bebas Neue
- *   Title/labels     DM Sans
- *   Sub/body text    Jost
- *
- * Structure:
- *  1. Newsletter CTA band (bordered card, silver glow)
- *  2. Footer — brand + nav columns + socials + bottom bar
- */
-
 const FOOTER_LINKS = {
   Journal: ["PPF & Coatings", "Restoration", "Tuning", "Body Kits", "Tips & Tricks"],
   Studio: ["About", "Our Work", "Careers", "Contact"],
@@ -70,117 +40,142 @@ export default function BlogFooter() {
   };
 
   return (
-    <footer className="relative overflow-hidden bg-[#0B0B0B] px-4 pb-10 pt-4 sm:px-8 lg:px-10">
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
+    <footer className="relative bg-[#080808] text-white pt-20 pb-12 px-6 sm:px-12 overflow-hidden font-['Jost',sans-serif]">
+      {/* Dynamic Font Loader to avoid text flickering */}
+      <style dangerouslySetInnerHTML={{__html: `
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@500;600;700&family=Jost:wght@300;400;500;600&display=swap');
+      `}} />
 
-        .fl-heading { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.01em; }
-        .fl-title   { font-family: 'DM Sans', sans-serif; }
-        .fl-sub     { font-family: 'Jost', sans-serif; }
+      <div className="max-w-7xl mx-auto">
+        
+        {/* ── HIGH-END INDUSTRIAL NEWSLETTER HERO CARD ── */}
+        <div className="relative rounded-2xl border border-neutral-800 bg-[#121212] overflow-hidden p-8 sm:p-12 lg:p-16 mb-20 shadow-2xl">
+          {/* Immersive Image Layer with Dark Radial Gradients */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=1200" 
+              alt="Studio Workshop Ambient" 
+              className="w-full h-full object-cover grayscale opacity-20 brightness-[0.4] scale-105 transform hover:scale-100 transition-transform duration-1000 ease-out"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-[#121212]/90 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent" />
+          </div>
 
-        .fl-input {
-          flex: 1;
-          background: transparent;
-          border: none;
-          outline: none;
-          font-family: 'Jost', sans-serif;
-          font-size: 14px;
-          color: #FFFFFF;
-          padding: 14px 0;
-        }
-        .fl-input::placeholder { color: #6E6E6E; }
-
-        .fl-search {
-          display: flex; align-items: center;
-          background: #1A1A1A;
-          border: 1px solid #3D3D3D;
-          border-radius: 999px;
-          padding: 0 6px 0 22px;
-          gap: 10px;
-          transition: border-color 0.2s;
-        }
-        .fl-search:focus-within { border-color: #8C8C8C; }
-
-        .fl-submit {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px; font-weight: 600;
-          letter-spacing: 0.05em; text-transform: uppercase;
-          background: #8C8C8C;
-          color: #0B0B0B;
-          border: none;
-          border-radius: 999px;
-          padding: 11px 22px;
-          cursor: pointer;
-          display: flex; align-items: center; gap: 6px;
-          flex-shrink: 0;
-          transition: background 0.2s;
-        }
-        .fl-submit:hover { background: #FFFFFF; }
-
-        .fl-social {
-          width: 38px; height: 38px;
-          border-radius: 999px;
-          border: 1px solid #3D3D3D;
-          display: flex; align-items: center; justify-content: center;
-          color: #B8B8B8;
-          transition: all 0.2s;
-        }
-        .fl-social:hover {
-          border-color: #8C8C8C;
-          color: #FFFFFF;
-          background: #1A1A1A;
-        }
-
-        .fl-link {
-          font-family: 'Jost', sans-serif;
-          font-size: 13.5px;
-          color: #B8B8B8;
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-        .fl-link:hover { color: #FFFFFF; }
-      `}</style>
-
-      <div className="mx-auto max-w-7xl">
-        {/* ── Newsletter band ── */}
-        <div className="relative mb-16 overflow-hidden rounded-2xl border border-[#3D3D3D] bg-[#1A1A1A] px-6 py-10 sm:px-12 sm:py-14">
-          <div className="pointer-events-none absolute -right-24 -top-24 h-[300px] w-[300px] rounded-full bg-[#8C8C8C]/10 blur-[100px]" />
-          <div className="relative flex flex-col items-start gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-md">
-              <div className="fl-title mb-3 flex items-center gap-3">
-                <span className="h-px w-10 bg-[#8C8C8C]" />
-                <span className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#B8B8B8]">
-                  Stay sharp
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            {/* Typography Section */}
+            <div className="lg:col-span-7 space-y-4">
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-[1px] bg-neutral-500 block" />
+                <span className="font-['DM_Sans'] text-[10px] sm:text-xs font-bold tracking-[0.3em] text-neutral-400 uppercase">
+                  Weekly Intelligence
                 </span>
               </div>
-              <h2 className="fl-heading text-[2.1rem] leading-tight text-white sm:text-[2.6rem]">
-                ONE EMAIL A WEEK. NO FLUFF, JUST WHAT WE LEARNED.
+              <h2 className="font-['Bebas_Neue'] text-4xl sm:text-5xl md:text-6xl tracking-wide leading-none text-neutral-100">
+                ONE EMAIL A WEEK. <br />
+                <span className="text-neutral-500">NO FLUFF, JUST CORE CRAFT.</span>
               </h2>
+              <p className="font-light text-neutral-400 text-sm max-w-md leading-relaxed">
+                Raw data logs, clear coat failure teardowns, and engineering dispatch briefs straight from our bays.
+              </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="w-full max-w-md flex-shrink-0">
+            {/* Form Input Container Section */}
+            <div className="lg:col-span-5 w-full">
               {submitted ? (
-                <div className="fl-title flex items-center gap-2 rounded-full border border-[#8C8C8C]/50 bg-[#2A2A2A] px-6 py-4 text-[14px] text-white">
-                  You're in — first issue lands Sunday.
+                <div className="font-['DM_Sans'] text-sm font-medium border border-neutral-700 bg-neutral-900/80 backdrop-blur-md text-white rounded-xl p-5 text-center shadow-lg">
+                  ⚡ Connection established — First transmission lands Sunday.
                 </div>
               ) : (
-                <div className="fl-search">
-                  <input
-                    type="email"
-                    required
-                    placeholder="your@email.com"
-                    className="fl-input"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <button type="submit" className="fl-submit">
-                    Subscribe <ArrowRight size={13} />
-                  </button>
-                </div>
+                <form onSubmit={handleSubmit} className="space-y-3">
+                  <div className="flex flex-col sm:flex-row gap-3 bg-neutral-950/60 p-2 rounded-xl border border-neutral-800 focus-within:border-neutral-600 backdrop-blur-md transition-colors duration-300">
+                    <input
+                      type="email"
+                      required
+                      placeholder="Enter premium partner email"
+                      className="flex-1 bg-transparent border-none outline-none font-light text-sm text-white px-4 py-3 placeholder-neutral-600 w-full"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <button 
+                      type="submit" 
+                      className="font-['DM_Sans'] bg-white text-black hover:bg-neutral-200 font-semibold text-xs tracking-wider uppercase px-6 py-3 rounded-lg transition-all duration-200 flex items-center justify-center gap-2 whitespace-nowrap shadow-md"
+                    >
+                      Subscribe <ArrowRight size={14} />
+                    </button>
+                  </div>
+                  <p className="text-[11px] text-neutral-600 font-light pl-2">
+                    Zero spam. Unsubscribe anytime in one single click.
+                  </p>
+                </form>
               )}
-            </form>
+            </div>
           </div>
         </div>
+
+        {/* ── STANDARD STRUCTURAL FOOTER MAP ── */}
+        <div className="grid grid-cols-2 md:grid-cols-5 lg:grid-cols-6 gap-10 md:gap-8 pb-16 border-b border-neutral-900">
+          {/* Brand/Identity Meta info */}
+          <div className="col-span-2 space-y-5">
+            <h3 className="font-['Bebas_Neue'] text-3xl tracking-wider text-neutral-100">
+              AUTOLUXE<span className="text-neutral-600">.</span>
+            </h3>
+            <p className="text-neutral-400 font-light text-sm leading-relaxed max-w-xs">
+              Performance detailing, architectural paint films, and fine automotive mechanical execution engineered to limits.
+            </p>
+            <div className="flex gap-2 pt-2">
+              <a href="#" className="w-9 h-9 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:border-neutral-500 hover:bg-neutral-900 transition-all duration-200">
+                <InstagramIcon />
+              </a>
+              <a href="#" className="w-9 h-9 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:border-neutral-500 hover:bg-neutral-900 transition-all duration-200">
+                <YoutubeIcon />
+              </a>
+              <a href="#" className="w-9 h-9 rounded-full border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:border-neutral-500 hover:bg-neutral-900 transition-all duration-200">
+                <XIcon />
+              </a>
+            </div>
+          </div>
+
+          {/* Dynamic Link Generation Grid */}
+          {Object.entries(FOOTER_LINKS).map(([title, links]) => (
+            <div key={title} className="space-y-4">
+              <h4 className="font-['DM_Sans'] text-xs font-bold uppercase tracking-widest text-neutral-400">
+                {title}
+              </h4>
+              <ul className="space-y-2.5">
+                {links.map((link) => (
+                  <li key={link}>
+                    <a href="#" className="text-sm font-light text-neutral-500 hover:text-white transition-colors duration-200">
+                      {link}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          {/* Location / Meta Context Info Column */}
+          <div className="col-span-2 md:col-span-1 space-y-4">
+            <h4 className="font-['DM_Sans'] text-xs font-bold uppercase tracking-widest text-neutral-400">
+              HQ Location
+            </h4>
+            <div className="flex gap-2 text-neutral-500 text-sm font-light leading-relaxed">
+              <MapPin size={16} className="text-neutral-600 flex-shrink-0 mt-0.5" />
+              <span>
+                Bay Area Industrial Complex Block C, Suite 404
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Rights Bar */}
+        <div className="flex flex-col sm:flex-row justify-between items-center pt-8 gap-4 text-xs font-light text-neutral-600">
+          <p>&copy; {new Date().getFullYear()} AutoLuxe Studio Inc. All rights reserved.</p>
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-neutral-400 transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-neutral-400 transition-colors">Terms of Service</a>
+          </div>
+        </div>
+
       </div>
     </footer>
   );
