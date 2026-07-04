@@ -38,28 +38,28 @@ const SERVICES = [
     img: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80&auto=format&fit=crop",
   },
   {
-    id: 9,
+    id: 6,
     title: "Exhaust",
     desc: "Exhaust cleaning and restoration. We remove soot, rust and corrosion to restore the original colour and function of your exhaust system.",
     tag: "Maintenance",
     img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop",
   },
   {
-    id: 10,
+    id: 7,
     title: " Paints",
     desc: "We use the highest quality paints and materials to ensure a perfect finish. We offer a range of services including paint correction, touch ups and full repaints.",
     tag: "Paint",
     img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop",
   },
   {
-    id: 11,
+    id: 8,
     title: "Refurbish ",
     desc: "We offer a range of services including paint correction, touch ups and full repaints.",
     tag: "Refurbish",
     img: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=80&auto=format&fit=crop",
   },
   {
-    id: 12,
+    id: 9,
     title: "Ceramic Coating",
     desc: "We offer a range of services including paint correction, touch ups and full repaints.",
     tag: "Ceramic Coating",
@@ -75,6 +75,10 @@ const fadeUp = (delay = 0) => ({
     transition: { duration: 0.7, ease: [0.4, 0, 0.2, 1], delay },
   },
 });
+
+// ===== 3D tilt config =====
+const MAX_TILT = 12; // degrees
+const SCALE_HOVER = 1.035;
 
 export default function Services() {
   const headRef = useRef(null);
@@ -125,6 +129,32 @@ export default function Services() {
       : el.clientWidth * 0.8;
     el.scrollBy({ left: dir * step, behavior: "smooth" });
   };
+
+  // ===== 3D tilt handlers (direct DOM manipulation, no re-render on mousemove) =====
+  const handleTiltMove = useCallback((e) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const px = (e.clientX - rect.left) / rect.width;  // 0 -> 1
+    const py = (e.clientY - rect.top) / rect.height;  // 0 -> 1
+
+    const rotateY = (px - 0.5) * MAX_TILT * 2;       // left/right
+    const rotateX = (0.5 - py) * MAX_TILT * 2;       // up/down
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${SCALE_HOVER}, ${SCALE_HOVER}, ${SCALE_HOVER})`;
+
+    const glare = card.querySelector(".svc-card-glare");
+    if (glare) {
+      glare.style.opacity = "1";
+      glare.style.background = `radial-gradient(circle at ${px * 100}% ${py * 100}%, rgba(255,255,255,0.18), transparent 55%)`;
+    }
+  }, []);
+
+  const handleTiltLeave = useCallback((e) => {
+    const card = e.currentTarget;
+    card.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1)";
+    const glare = card.querySelector(".svc-card-glare");
+    if (glare) glare.style.opacity = "0";
+  }, []);
 
   return (
     <section
@@ -224,7 +254,7 @@ export default function Services() {
         .svc-track {
           display: flex; gap: 20px;
           overflow-x: auto; scroll-snap-type: x mandatory;
-          padding: 4px 4px 8px;
+          padding: 20px 4px 28px;
           scrollbar-width: none;
           -webkit-overflow-scrolling: touch;
         }
@@ -233,39 +263,60 @@ export default function Services() {
           .svc-track { padding-left: 16px; padding-right: 16px; }
         }
 
-        .svc-card {
-          position: relative; flex: 0 0 auto;
+        /* Wrapper gives each card its own 3D perspective context */
+        .svc-card-wrap {
+          flex: 0 0 auto;
           width: clamp(260px, 30vw, 340px);
           height: 460px;
-          border-radius: 8px; overflow: hidden;
+          perspective: 1000px;
           scroll-snap-align: start;
-          border: 1px solid rgba(192,192,192,0.1);
-          background: #111;
-          box-shadow: 0 24px 48px -22px rgba(0,0,0,0.7);
         }
         @media (max-width: 640px) {
-          .svc-card { width: 80vw; height: 420px; }
+          .svc-card-wrap { width: 78vw; height: 440px; }
         }
-        @media (max-width: 380px) {
-          .svc-card { width: 84vw; height: 390px; }
+
+        .svc-card {
+          position: relative;
+          width: 100%; height: 100%;
+          border-radius: 8px; overflow: hidden;
+          border: 1px solid rgba(192,192,192,0.1);
+          background: #111;
+          box-shadow: 0 11px 15px -8px rgba(0,0,0,0.2);
+          transform-style: preserve-3d;
+          transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1,1,1);
+          transition: transform 0.15s ease-out, box-shadow 0.3s ease;
+          will-change: transform;
+        }
+        .svc-card:hover {
+          box-shadow: 0 10px 15px -3px rgba(0,0,0,0.85), 0 0 0 1px rgba(192,192,192,0.25);
         }
 
         .svc-card-img {
           width: 100%; height: 100%; object-fit: cover; display: block;
           opacity: 0.55; filter: grayscale(20%);
-          transition: opacity 0.4s, transform 0.6s ease;
+          transition: opacity 0.4s;
+          transform: translateZ(0px);
         }
-        .svc-card:hover .svc-card-img { opacity: 0.68; transform: scale(1.04); }
+        .svc-card:hover .svc-card-img { opacity: 0.68; }
         .svc-card-overlay {
           position: absolute; inset: 0;
           background: linear-gradient(to top, rgba(5,5,5,0.98) 0%, rgba(5,5,5,0.6) 46%, rgba(5,5,5,0.1) 100%);
+        }
+        .svc-card-glare {
+          position: absolute; inset: 0;
+          opacity: 0;
+          transition: opacity 0.25s ease;
+          pointer-events: none;
+          mix-blend-mode: overlay;
         }
         .svc-card-topline {
           position: absolute; top: 0; left: 0; right: 0; height: 1.5px;
           background: linear-gradient(to right, transparent, #8C8C8C, transparent);
         }
-        .svc-card-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 26px 24px 28px; }
-        @media (max-width: 640px) { .svc-card-content { padding: 20px 18px 22px; } }
+        .svc-card-content {
+          position: absolute; bottom: 0; left: 0; right: 0; padding: 26px 24px 28px;
+          transform: translateZ(40px);
+        }
         .svc-card-tag {
           display: inline-block;
           font-family: 'DM Sans', sans-serif;
@@ -302,6 +353,7 @@ export default function Services() {
           font-family: 'Bebas Neue', sans-serif;
           font-size: 52px; color: rgba(192,192,192,0.08);
           line-height: 1; pointer-events: none; user-select: none; letter-spacing: 0.02em;
+          transform: translateZ(20px);
         }
 
         /* ===== Floating overlay arrows (mobile-focused, sits on track) ===== */
@@ -381,13 +433,8 @@ export default function Services() {
               <span className="svc-eyebrow-line" />
               <span className="svc-eyebrow-text">What We Offer</span>
             </motion.div>
-            <motion.p
-              className="svc-title-ghost"
-              variants={fadeUp(0.06)}
-              initial="hidden"
-              animate={headInView ? "visible" : "hidden"}
-            >
-              OUR SERVICES
+            <motion.p className="svc-title-ghost" variants={fadeUp(0.06)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
+              PREMIUM PROTECTION
             </motion.p>
             <motion.h2
               className="svc-title"
@@ -406,13 +453,8 @@ export default function Services() {
             animate={headInView ? "visible" : "hidden"}
           >
             <p className="svc-subtitle">
-              Twelve disciplines. One unwavering standard. Every procedure
-              carried out with precision and respect for the automobile.
-            </p>
-            <span className="svc-count">
-              <b>{pad(filtered.length)}</b> services
-              {activeTag !== "All" ? ` — ${activeTag}` : ""}
-            </span>
+Dodici discipline. Un solo standard, senza compromessi. Ogni intervento è eseguito con precisione assoluta e nel massimo rispetto dell'automobile.            </p>
+            <span className="svc-count"><b>{pad(filtered.length)}</b> services{activeTag !== "All" ? ` — ${activeTag}` : ""}</span>
           </motion.div>
         </div>
 
@@ -435,22 +477,18 @@ export default function Services() {
         </motion.div>
 
         {/* Filmstrip */}
-        <motion.div
-          variants={fadeUp(0.32)}
-          initial="hidden"
-          animate={headInView ? "visible" : "hidden"}
-        >
-          <div className="svc-track-wrap">
-            <div className="svc-track" ref={trackRef} onScroll={updateProgress}>
-              {filtered.map((svc, i) => (
-                <div className="svc-card" key={svc.id}>
-                  <img
-                    className="svc-card-img"
-                    src={svc.img}
-                    alt={svc.title}
-                    loading={i < 3 ? "eager" : "lazy"}
-                  />
+        <motion.div variants={fadeUp(0.32)} initial="hidden" animate={headInView ? "visible" : "hidden"}>
+          <div className="svc-track" ref={trackRef} onScroll={updateProgress}>
+            {filtered.map((svc, i) => (
+              <div className="svc-card-wrap" key={svc.id}>
+                <div
+                  className="svc-card"
+                  onMouseMove={handleTiltMove}
+                  onMouseLeave={handleTiltLeave}
+                >
+                  <img className="svc-card-img" src={svc.img} alt={svc.title} loading={i < 3 ? "eager" : "lazy"} />
                   <div className="svc-card-overlay" />
+                  <div className="svc-card-glare" />
                   <div className="svc-card-topline" />
                   <div className="svc-card-content">
                     <span className="svc-card-tag">{svc.tag}</span>
@@ -458,64 +496,15 @@ export default function Services() {
                     <div className="svc-card-desc">{svc.desc}</div>
                     <a href="#contact" className="svc-card-link">
                       Book this service
-                      <svg
-                        width="13"
-                        height="13"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14M12 5l7 7-7 7" />
                       </svg>
                     </a>
                   </div>
                   <span className="svc-card-num">{pad(svc.id)}</span>
                 </div>
-              ))}
-            </div>
-
-            {/* Floating overlay arrows — visible on tablet/mobile widths */}
-            <button
-              className="svc-float-arrow left"
-              onClick={() => scrollByCards(-1)}
-              disabled={progress <= 0.01}
-              aria-label="Scroll left"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M19 12H5M12 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              className="svc-float-arrow right"
-              onClick={() => scrollByCards(1)}
-              disabled={progress >= 0.99}
-              aria-label="Scroll right"
-            >
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
+              </div>
+            ))}
           </div>
 
           {/* Controls */}
