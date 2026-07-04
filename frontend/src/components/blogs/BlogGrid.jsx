@@ -14,7 +14,10 @@ export default function BlogGrid() {
   const scroll = (direction) => {
     if (sliderRef.current) {
       const { scrollLeft, clientWidth } = sliderRef.current;
-      const scrollTo = direction === "left" ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+      const scrollTo =
+        direction === "left"
+          ? scrollLeft - clientWidth
+          : scrollLeft + clientWidth;
       sliderRef.current.scrollTo({ left: scrollTo, behavior: "smooth" });
     }
   };
@@ -34,7 +37,6 @@ export default function BlogGrid() {
       `}</style>
 
       <div className="mx-auto max-w-7xl px-0 sm:px-6 lg:px-12">
-
         {/* ── SECTION HEADER ── */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between border-b border-[#222] pb-5 sm:pb-6 mb-8 sm:mb-12 gap-4">
           <div>
@@ -96,7 +98,9 @@ export default function BlogGrid() {
                 <div className="font-body text-[11px] sm:text-xs text-[#555] pt-1 flex items-center gap-2">
                   <span>{slide.date}</span>
                   <span>•</span>
-                  <span className="flex items-center gap-1"><Clock size={12} /> {slide.readTime}</span>
+                  <span className="flex items-center gap-1">
+                    <Clock size={12} /> {slide.readTime}
+                  </span>
                 </div>
               </div>
             </Link>
@@ -134,7 +138,10 @@ export default function BlogGrid() {
                     <span className="font-label text-[9px] sm:text-[10px] tracking-widest text-[#8C8C8C] uppercase font-semibold">
                       {post.category}
                     </span>
-                    <ArrowUpRight size={14} className="text-[#444] group-hover:text-white transition-colors shrink-0" />
+                    <ArrowUpRight
+                      size={14}
+                      className="text-[#444] group-hover:text-white transition-colors shrink-0"
+                    />
                   </div>
 
                   <h4 className="font-display text-lg sm:text-xl uppercase tracking-wide leading-snug group-hover:text-[#B8B8B8] transition-colors">
@@ -153,14 +160,6 @@ export default function BlogGrid() {
             ))}
           </div>
         </div>
-
-        {/* ── FOOTER BUTTON ── */}
-        <div className="mt-12 sm:mt-16 flex justify-center">
-          <button className="font-label border border-[#2A2A2A] text-white bg-transparent px-6 sm:px-8 py-2.5 sm:py-3 text-[10px] sm:text-[11px] font-semibold tracking-[0.15em] sm:tracking-[0.2em] uppercase hover:bg-white hover:text-[#0B0B0B] hover:border-white transition-all duration-300 w-full xs:w-auto">
-            View All Publications
-          </button>
-        </div>
-
       </div>
     </section>
   );
