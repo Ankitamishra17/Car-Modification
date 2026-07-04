@@ -117,7 +117,7 @@ export default function Franchise() {
                 Franchise
               </span>
             </div>
-            <h2 className="fr-heading text-[2.2rem] leading-[0.95] text-white sm:text-[2.8rem] lg:text-[3.4rem]">
+            <h2 className="fr-heading text-[2.2rem] leading-[0.95] text-white sm:text-[2.8rem] md:text-[2.8rem] lg:text-[3.4rem]">
               BRING AUTOLUXE TO YOUR CITY
             </h2>
             <p className="fr-sub mt-3 max-w-md text-[14px] font-light leading-relaxed text-[#B8B8B8] sm:text-[15px]">
