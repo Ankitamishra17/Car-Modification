@@ -1,20 +1,21 @@
 import React from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const SERVICES = [
- {svc:"PPF", href:"/ppf"},
- {svc:"Restore", href:"/ppf"},
- {svc:"Exhaust", href:"/ppf"},
- {svc:"Paints", href:"/ppf"},
- {svc:"Refurbish", href:"/ppf"},
+ {svc:"PPF", href:"/services/paint-protection-film"},
+ {svc:"Restore", href:"/services/restore"},
+ {svc:"Exhaust", href:"/services/exhaust"},
+ {svc:"Paints", href:"/services/paints"},
+ {svc:"Refurbish", href:"/services/refurbish"},
 ];
 
 const QUICK_LINKS = [
-  { label: "Home",      href: "#home" },
-  { label: "About Us",  href: "#about" },
-  { label: "Blogs",     href: "#blog" },
-  { label: "Franchise", href: "#franchise" },
-  { label: "Contact",   href: "#contact" },
+  { label: "Home",      href: "/" },
+  { label: "About Us",  href: "/about" },
+  { label: "Blogs",     href: "/blog" },
+  { label: "Franchise", href: "/franchise" },
+  { label: "Contact",   href: "/contact" },
 ];
 
 const CONTACT_INFO = [
@@ -281,9 +282,9 @@ export default function Footer({ display, label, body }) {
 
             {/* ── Col 1: Brand ── */}
             <div>
-              <a href="#home" className="ftr-logo" aria-label="DETTAGLI AUTO home">
+              <Link to="/" className="ftr-logo" aria-label="DETTAGLI AUTO home">
                 <img src="/logo.png" alt="DETTAGLI AUTO logo" className="h-16 w-auto object-contain" />
-              </a>
+              </Link>
               <p className="ftr-brand-desc" style={body}>
                 India's premium auto detailing studio — PPF, ceramic coatings,
                 restoration, and performance upgrades. We protect what moves you.
@@ -299,10 +300,10 @@ export default function Footer({ display, label, body }) {
               <ul className="ftr-link-list">
                 {SERVICES.map(({svc , href}) => (
                   <li key={svc}>
-                    <a href={href} style={body}>
+                    <Link to={href} style={body}>
                       <span className="fl-dot" />
                       {svc}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -317,10 +318,10 @@ export default function Footer({ display, label, body }) {
               <ul className="ftr-link-list">
                 {QUICK_LINKS.map(({ label: linkLabel, href }) => (
                   <li key={linkLabel}>
-                    <a href={href} style={body}>
+                    <Link to={href} style={body}>
                       <span className="fl-dot" />
                       {linkLabel}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -335,12 +336,12 @@ export default function Footer({ display, label, body }) {
               <ul className="ftr-contact-list">
                 {CONTACT_INFO.map(({ icon: Icon, value, href }) => (
                   <li className="ftr-contact-item" key={value}>
-                    <a href={href}>
+                    <Link to={href}>
                       <div className="ftr-contact-icon">
                         <Icon size={14} strokeWidth={2} />
                       </div>
                       <div className="ftr-contact-value" style={body}>{value}</div>
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

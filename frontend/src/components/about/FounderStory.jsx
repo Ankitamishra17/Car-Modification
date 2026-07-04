@@ -42,7 +42,7 @@ export default function FounderStory() {
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
             whileHover={{ scale: 1.01 }}
-            className="lg:col-span-5 relative h-[380px] sm:h-[460px] lg:h-[550px] rounded-2xl overflow-hidden border border-[#3D3D3D]/60 bg-[#1A1A1A] p-8 flex flex-col justify-between group cursor-pointer shadow-2xl shadow-black/50"
+            className="lg:col-span-5 relative h-[380px] sm:h-[460px] lg:h-[550px]  overflow-hidden border border-[#3D3D3D]/60 bg-[#1A1A1A] p-8 flex flex-col justify-between group cursor-pointer shadow-2xl shadow-black/50"
           >
             {/* The Actual Background Image */}
             <img 

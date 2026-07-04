@@ -2,8 +2,8 @@ import { Shield, Droplets, Zap, Clock } from "lucide-react";
 
 export const SERVICES = [
   {
-    slug: "ppf",
-    href: "/services/ppf",
+    slug: "paint-protection-film",
+    href: "/services/paint-protection-film",
 
     name: "PPF",
     breadcrumb: "Services / PPF",
@@ -196,7 +196,7 @@ export const SERVICES = [
     slug: "ceramic-coating",
     href: "/services/ceramic-coating",
 
-    name: "Ceramic Coating",
+    name: "CERAMIC COATING",
     breadcrumb: "Services / Ceramic Coating",
 
     title: "CERAMIC",
@@ -386,7 +386,7 @@ export const SERVICES = [
     slug: "restore",
     href: "/services/restore",
 
-    name: "Restore",
+    name: "RESTORE",
     breadcrumb: "Services / Restore",
 
     title: "PAINT",
@@ -577,7 +577,7 @@ export const SERVICES = [
     slug: "refurbish",
     href: "/services/refurbish",
 
-    name: "Refurbish",
+    name: "REFURBISH",
     breadcrumb: "Services / Refurbish",
 
     title: "VEHICLE",
@@ -766,7 +766,7 @@ export const SERVICES = [
     slug: "upholstery",
     href: "/services/upholstery",
 
-    name: "Upholstery ",
+    name: "UPHOLSTERY ",
     breadcrumb: "Services / Upholstery",
 
     title: "INTERIOR",
@@ -955,7 +955,7 @@ export const SERVICES = [
     slug: "paints",
     href: "/services/paints",
 
-    name: "Paints",
+    name: "PAINTS",
     breadcrumb: "Services / Paints",
 
     title: "AUTOMOTIVE",
@@ -1144,7 +1144,7 @@ export const SERVICES = [
     slug: "car-body-kits",
     href: "/services/car-body-kits",
 
-    name: "Car Body Kits",
+    name: "CAR BODY KITS",
     breadcrumb: "Services / Car Body Kits",
 
     title: "CUSTOM BODY",
@@ -1313,7 +1313,7 @@ export const SERVICES = [
     slug: "exhaust",
     href: "/services/exhaust",
 
-    name: "Exhaust",
+    name: "EXHAUST",
     breadcrumb: "Services / Exhaust",
 
     title: "PERFORMANCE",
@@ -1502,7 +1502,7 @@ export const SERVICES = [
     slug: "tuning-mapping",
     href: "/services/tuning-mapping",
 
-    name: "Tuning & Mapping",
+    name: "TUNING & MAPPING",
     breadcrumb: "Services / Tuning & Mapping",
 
     title: "LA",
@@ -1691,7 +1691,7 @@ export const SERVICES = [
     slug: "accessories",
     href: "/services/accessories",
 
-    name: "Accessories",
+    name: "ACCESSORIES",
     breadcrumb: "Services / Accessories",
 
     title: "DETTAGLI AUTO",

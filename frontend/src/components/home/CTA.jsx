@@ -1,5 +1,5 @@
 import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
-
+import { Link } from "react-router-dom";
 const CONTACT = [
   {
     icon: Phone,
@@ -73,21 +73,21 @@ export default function CTA() {
 
             {/* Action buttons */}
             <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="/contact"
-                className="cta-title group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-br from-[#E4E4E4] to-[#A8A8A8] px-7 py-3.5 text-[14.5px] font-semibold tracking-wide text-[#0B0B0B] shadow-[0_8px_24px_-8px_rgba(200,200,200,0.35)] transition-all duration-300 hover:shadow-[0_12px_32px_-8px_rgba(200,200,200,0.5)] hover:-translate-y-0.5 hover:from-white hover:to-[#C0C0C0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8C8C8C]"
+              <Link
+                to="/contact"
+                className="cta-title group inline-flex shrink-0 items-center justify-center gap-2  bg-gradient-to-br from-[#E4E4E4] to-[#A8A8A8] px-7 py-3.5 text-[14.5px] font-semibold tracking-wide text-[#0B0B0B] shadow-[0_8px_24px_-8px_rgba(200,200,200,0.35)] transition-all duration-300 hover:shadow-[0_12px_32px_-8px_rgba(200,200,200,0.5)] hover:-translate-y-0.5 hover:from-white hover:to-[#C0C0C0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8C8C8C]"
               >
                 Book a free consultation
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
+              </Link>
 
-              <a
-                href="/franchise"
-                className="cta-title group inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-[#3D3D3D] px-7 py-3.5 text-[14.5px] font-semibold tracking-wide text-[#B8B8B8] transition-all duration-300 hover:border-[#8C8C8C] hover:bg-[#1A1A1A] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8C8C8C]"
+              <Link
+                to="/franchise"
+                className="cta-title group inline-flex shrink-0 items-center justify-center gap-2  border border-[#3D3D3D] px-7 py-3.5 text-[14.5px] font-semibold tracking-wide text-[#B8B8B8] transition-all duration-300 hover:border-[#8C8C8C] hover:bg-[#1A1A1A] hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8C8C8C]"
               >
                 Franchise enquiry
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
+              </Link>
             </div>
           </div>
 
