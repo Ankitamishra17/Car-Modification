@@ -367,7 +367,7 @@ export const SERVICES = [
     description:
       "Complete restoration for classic and modern vehicles.",
 
-    image: "/banner/restore.jpg",
+    image: "/banner/restore.png",
 
      whatIsIt: {
       subtitle: "What's the difference",
@@ -1231,7 +1231,7 @@ export const SERVICES = [
     description:
       "Complete restoration for classic and modern vehicles.",
 
-    image: "/banner/restore.jpg",
+    image: "/banner/exhaust.png",
      whatIsIt: {
       subtitle: "What's the difference",
       heading: "PPF OR CERAMIC — OR BOTH?",
