@@ -600,7 +600,7 @@ export default function Header() {
           <div className="hdr-right">
             <div className="hdr-phone">
               <a
-                href="tel:+917271939393"
+                href="tel:080-77976595"
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -661,13 +661,13 @@ export default function Header() {
               >
                 <div className="hdr-mob-drawer-head">
                   <span className="hdr-mob-drawer-title">Menu</span>
-                  <button
+                  {/* <button
                     className="hdr-mob-close"
                     onClick={() => setMobileOpen(false)}
                     aria-label="Close menu"
                   >
                     <X size={18} />
-                  </button>
+                  </button> */}
                 </div>
 
                 <motion.nav

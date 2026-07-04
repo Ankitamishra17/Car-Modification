@@ -274,7 +274,7 @@ export default function OurStory() {
                   {p.value}
                 </span>
 
-                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#C8102E] scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] bg-white scale-y-0 transition-transform duration-300 group-hover:scale-y-100" />
               </motion.div>
             ))}
           </motion.div>
