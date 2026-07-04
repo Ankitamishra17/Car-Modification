@@ -442,14 +442,14 @@ export default function Header() {
                 </div>
                 <div className="hdr-phone-text">
               
-                  <div className="hdr-phone-num">+91-72-71-939393</div>
+                  <div className="hdr-phone-num">080-77976595</div>
                 </div>
               </a>
             </div>
 
             <div className="hdr-cta-strip">
               <a
-                href="tel:+917271939393"
+                href="tel:080-77976595"
                 className="hdr-book-btn"
                 aria-label="Call us"
               >
@@ -520,13 +520,13 @@ export default function Header() {
               );
             })}
 
-            <a href="tel:+917271939393" className="hdr-mob-cta">
+            <a href="tel:080-77976595" className="hdr-mob-cta">
               <div className="hdr-mob-cta-icon">
                 <Phone size={16} strokeWidth={2.5} color="#0B0B0B" />
               </div>
               <div className="hdr-mob-cta-text">
                 <label>Need Help</label>
-                <span>+91-72-71-939393</span>
+                <span>080-77976595</span>
               </div>
             </a>
           </nav>

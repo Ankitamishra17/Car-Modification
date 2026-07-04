@@ -106,7 +106,7 @@ export default function AboutHero() {
             <div className="mt-8 flex flex-wrap gap-x-10 gap-y-6">
               <div>
                 <p className="ah-heading text-3xl sm:text-4xl text-white">
-                  15+
+                  5+
                 </p>
                 <p className="ah-title text-[11px] sm:text-xs uppercase tracking-widest text-[#B8B8B8] mt-1">
                   Years of Excellence

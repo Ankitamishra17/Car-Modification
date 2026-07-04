@@ -85,14 +85,11 @@ export default function Blog() {
   return (
     <section style={{ background: "#0B0B0B", position: "relative", overflow: "hidden", padding: "100px 0 110px" }}>
 
-      {/* Ambient glows — silver */}
-      <div style={{ position: "absolute", right: "10%", top: -60, width: 420, height: 420, borderRadius: "50%", background: "rgba(160,160,160,0.06)", filter: "blur(100px)", pointerEvents: "none" }} />
-      <div style={{ position: "absolute", left: "5%", bottom: -50, width: 300, height: 300, borderRadius: "50%", background: "rgba(160,160,160,0.04)", filter: "blur(80px)", pointerEvents: "none" }} />
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
-        .blog-inner { max-width: 1160px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+        .blog-inner { max-width: 1230px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
         @media (max-width: 520px) { .blog-inner { padding: 0 16px; } }
 
         /* ===== Masthead row: heading left, subtitle + CTA right ===== */

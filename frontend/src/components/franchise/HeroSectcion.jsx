@@ -75,8 +75,16 @@ function Bracket({ position }) {
 
 const specs = [
   { code: "S.01", label: "Franchise Fee", value: "₹8,00,000 – ₹12,00,000" },
-  { code: "S.02", label: "Studio Area Required", value: "1,200 – 1,800 sq. ft." },
-  { code: "S.03", label: "Total Setup Investment", value: "₹35,00,000 – ₹55,00,000" },
+  {
+    code: "S.02",
+    label: "Studio Area Required",
+    value: "1,200 – 1,800 sq. ft.",
+  },
+  {
+    code: "S.03",
+    label: "Total Setup Investment",
+    value: "₹35,00,000 – ₹55,00,000",
+  },
   { code: "S.04", label: "Estimated ROI Period", value: "18 – 24 Months" },
   { code: "S.05", label: "Franchise Term", value: "5 Years, Renewable" },
 ];
@@ -90,7 +98,6 @@ const stats = [
 
 export default function FranchisePage() {
   return (
-
     <div className="bg-[#0B0B0B] text-[#F0F0F0] min-h-screen " style={body}>
       {/* ---------------- HERO / BANNER ---------------- */}
       <section className="relative overflow-hidden min-h-[92vh] md:min-h-screen flex items-end ">
@@ -106,53 +113,54 @@ export default function FranchisePage() {
           {/* Bottom fade so the floating stats dock reads clean */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/10 to-transparent" />
           {/* Subtle vignette */}
-        
         </div>
 
-
         {/* Slow horizontal scan line — ambient diagnostic motion */}
-    
 
         {/* Live status readout, top-right of frame */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="absolute top-10 right-10 md:top-14 md:right-14 hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-[#8C8C8C] "
+          className="absolute top-6 right-6 sm:top-10 sm:right-10 md:top-14 md:right-14 hidden sm:flex items-center gap-2 text-[10px] uppercase tracking-[0.25em] text-[#8C8C8C] "
           style={label}
         >
-          <FiActivity size={12} className="text-[#C8102E]" />
+          <FiActivity size={12} className="text-[#ffffff]" />
           <span className="relative flex h-1.5 w-1.5">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8102E]/60" />
-            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#C8102E]" />
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffffff]/60" />
+            <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#ffffff]" />
           </span>
           Studios Live · 12 Cities
         </motion.div>
 
         {/* Copy block */}
-        <div className="relative max-w-7xl mx-auto px-36 md:px-12 pt-10 pb-40 md:pb-48  w-full">
+        <div className="relative max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 pt-10 pb-32 sm:pb-40 md:pb-48 w-full">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="max-w-2xl pl-15"
+            className="max-w-2xl"
           >
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="inline-flex items-center gap-3 uppercase tracking-[0.3em] text-xs text-[#8C8C8C] mb-7 border border-[#8C8C8C]/30 px-4 py-2"
+              className="inline-flex items-center gap-3 uppercase tracking-[0.3em] text-[10px] sm:text-xs text-[#8C8C8C] mb-6 sm:mb-7 border border-[#8C8C8C]/30 px-3 sm:px-4 py-2"
               style={label}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#C8102E]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#ffffff] flex-shrink-0" />
               Now Expanding Nationwide
             </motion.p>
 
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              className="text-[15vw] sm:text-[7rem] md:text-[6rem] lg:text-[7.5rem] leading-[0.88] tracking-wide"
+              transition={{
+                duration: 0.8,
+                delay: 0.25,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+              className="text-[14vw] sm:text-[5.5rem] md:text-[6.5rem] lg:text-[7.5rem] leading-[0.88] tracking-wide"
               style={display}
             >
               <span className="block text-[#F0F0F0]">Franchise</span>
@@ -171,7 +179,7 @@ export default function FranchisePage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4 }}
-              className="mt-8 text-[#C0C0C0] text-base md:text-lg max-w-lg border-l-2 border-[#C8102E]/70 pl-5"
+              className="mt-6 sm:mt-8 text-[#C0C0C0] text-sm sm:text-base md:text-lg max-w-lg border-l-2 border-[#C8102E]/70 pl-4 sm:pl-5"
               style={body}
             >
               If you're passionate about automobiles and seeking a promising
@@ -182,18 +190,24 @@ export default function FranchisePage() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.55 }}
-              className="mt-10 flex flex-wrap items-center gap-5"
+              className="mt-8 sm:mt-10 flex flex-wrap items-center gap-4 sm:gap-5"
             >
               <a
                 href="#apply"
-                className="group relative inline-flex items-center gap-6 overflow-hidden bg-[#F0F0F0] text-[#0B0B0B] px-8 py-4 uppercase text-xs font-bold tracking-widest transition-all duration-300 hover:bg-[#8C8C8C]"
+                className="group relative inline-flex items-center gap-3 sm:gap-6 overflow-hidden bg-[#F0F0F0] text-[#0B0B0B] px-5 sm:px-8 py-3.5 sm:py-4 uppercase text-[11px] sm:text-xs font-bold tracking-widest transition-all duration-300 hover:bg-[#8C8C8C]"
                 style={label}
               >
                 <span>Book a Free Consultation Call</span>
-                <FiChevronRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                <FiChevronRight
+                  size={14}
+                  className="transition-transform duration-300 group-hover:translate-x-1 flex-shrink-0"
+                />
                 <Shine />
               </a>
-              <span className="text-xs text-[#8C8C8C] uppercase tracking-[0.15em]" style={label}>
+              <span
+                className="text-[10px] sm:text-xs text-[#8C8C8C] uppercase tracking-[0.15em]"
+                style={label}
+              >
                 Response within 2 business days
               </span>
             </motion.div>
@@ -205,21 +219,24 @@ export default function FranchisePage() {
           initial="hidden"
           animate="show"
           variants={stagger}
-          className="relative z-10 w-full px-6 md:px-12 pb-8 md:pb-10"
+          className="relative z-10 w-full px-4 sm:px-6 md:px-12 pb-6 sm:pb-8 md:pb-10"
         >
           <div className="max-w-6xl mx-auto border border-[#8C8C8C]/25 bg-[#0B0B0B]/70 backdrop-blur-md grid grid-cols-2 md:grid-cols-4 divide-x divide-y md:divide-y-0 divide-[#8C8C8C]/20">
             {stats.map((s, i) => (
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className="relative py-7 md:py-8 text-center px-2 group"
+                className="relative py-5 sm:py-7 md:py-8 text-center px-2 group"
               >
                 <span className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-px bg-[#C8102E]/70 scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
-                <div className="text-3xl md:text-4xl" style={display}>
+                <div
+                  className="text-2xl sm:text-3xl md:text-4xl"
+                  style={display}
+                >
                   {s.n}
                 </div>
                 <div
-                  className="text-xs uppercase tracking-[0.2em] text-[#8C8C8C] mt-2"
+                  className="text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[#8C8C8C] mt-1.5 sm:mt-2"
                   style={label}
                 >
                   {s.l}
@@ -232,13 +249,13 @@ export default function FranchisePage() {
 
       {/* ---------------- SPEC SHEET (signature element) ---------------- */}
       <section className="border-b border-[#8C8C8C]/20 bg-[#0F0F0F]">
-        <div className="max-w-7xl mx-auto px-18 py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 lg:px-16 py-16 sm:py-20 md:py-28">
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={fadeUp}
-            className="mb-14 space-y-3"
+            className="mb-10 sm:mb-14 space-y-3"
           >
             <p
               className="uppercase tracking-[0.3em] text-xs text-[#8C8C8C] mb-4"
@@ -246,7 +263,7 @@ export default function FranchisePage() {
             >
               Investment Sheet
             </p>
-            <h2 className="text-4xl md:text-5xl" style={display}>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl" style={display}>
               THE BUILD SPEC.
             </h2>
           </motion.div>
@@ -263,13 +280,13 @@ export default function FranchisePage() {
               <motion.div
                 key={i}
                 variants={fadeUp}
-                className={`group relative flex items-center justify-between gap-6 px-6 md:px-10 py-6 overflow-hidden ${
+                className={`group relative flex flex-col sm:flex-row sm:items-center items-start justify-between gap-2 sm:gap-6 px-5 sm:px-6 md:px-10 py-5 sm:py-6 overflow-hidden ${
                   i !== specs.length - 1 ? "border-b border-[#8C8C8C]/20" : ""
                 }`}
               >
                 <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-white -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
                 <span
-                  className="flex items-center gap-4 text-[#8C8C8C] uppercase text-xs tracking-[0.2em]"
+                  className="flex items-center gap-3 sm:gap-4 text-[#8C8C8C] uppercase text-[11px] sm:text-xs tracking-[0.2em]"
                   style={label}
                 >
                   <span className="text-[#4d4d4d]" style={display}>
@@ -278,7 +295,7 @@ export default function FranchisePage() {
                   {s.label}
                 </span>
                 <span
-                  className="text-lg md:text-xl text-[#F0F0F0] text-right"
+                  className="text-base sm:text-lg md:text-xl text-[#F0F0F0] text-left sm:text-right"
                   style={display}
                 >
                   {s.value}

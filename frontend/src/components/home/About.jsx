@@ -5,7 +5,7 @@ const IMG_MAIN =
   "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=1000";
 
 const SPEC = [
-  { tag: "01", value: "25+", label: "Years of Expertise", note: "Since 1999" },
+  { tag: "01", value: "5+", label: "Years of Expertise", note: "Since 1999" },
   { tag: "02", value: "2020", label: "Studio Established", note: "Founded" },
   { tag: "03", value: "9,000+", label: "Automobiles Detailed", note: "To date" },
 ];

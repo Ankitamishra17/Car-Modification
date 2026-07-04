@@ -66,7 +66,7 @@ export default function BlogFooter() {
             <div className="lg:col-span-7 space-y-4">
               <div className="flex items-center gap-3">
                 <span className="w-8 h-[1px] bg-neutral-500 block" />
-                <span className="font-['DM_Sans'] text-[10px] sm:text-xs font-bold tracking-[0.3em] text-neutral-400 uppercase">
+                <span className="font-['DM_Sans'] text-[10px] text-nowrap sm:text-xs font-bold tracking-[0.3em] text-neutral-400 uppercase">
                   Weekly Intelligence
                 </span>
               </div>
