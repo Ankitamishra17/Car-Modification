@@ -11,8 +11,8 @@ const SPEC = [
 ];
 
 const PARAS = [
-  "Founded in 2020, Dettagli Auto was born from a lifelong passion for automotive craftsmanship and the pursuit of perfection. Behind the brand stands Sheikh Yasir, whose journey in detailing began in 1999 — spanning over twenty-five years across international markets, including the Middle East.",
-  "At Dettagli Auto, detailing is not regarded as a service — it is considered a craft. Every vehicle entrusted to our studio is approached individually, without compromise or haste. Each surface is examined, every material understood, and every procedure executed with meticulous attention to detail.",
+" Founded in 2020, Dettagli Auto was born from a lifelong passion for automotive craftsmanship and the pursuit of perfection. While the company itself is contemporary, its foundations were laid over twodecades earlier.  At Dettagli Auto, detailing is not regarded as a service—it is considered a craft.",  
+"   Behind the brand stands Sheikh Yasir, whose journey in the automotive detailing industry began in 1999. Throughout more than twenty-five years of experience across international markets, including the Middle East, he has cultivated a philosophy founded upon precision,discipline and respect for the automobile.",
   "Since our establishment, we have had the privilege of detailing, restoring and protecting more than 9,000 automobiles. This milestone is not measured simply by numbers, but by the confidence our clients continue to place in our work.",
 ];
 
@@ -335,8 +335,7 @@ export default function About() {
             animate={inView ? "visible" : "hidden"}
           >
             <p className="da-subtitle">
-              Every remarkable automobile tells a story. Our purpose is to
-              preserve it.
+           Ogni automobile d'eccezione racconta una storia. La nostra missione è preservarla.
             </p>
             <a href="#services" className="da-cta">
               Explore Our Services
@@ -383,7 +382,7 @@ export default function About() {
 
               <div className="da-imgtag">
                 <span className="da-imgtag-dot" />
-                <span className="da-imgtag-text">Est. 1999 — Sheikh Yasir</span>
+                <span className="da-imgtag-text">Est. 2020 — Sheikh Yasir</span>
               </div>
 
               <div className="da-badge">

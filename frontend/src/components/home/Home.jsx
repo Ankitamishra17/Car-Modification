@@ -239,7 +239,7 @@ export default function Hero() {
                 color: "#8C8C8C",
               }}
             >
-              Detailing &amp; Performance Studio
+              Studio di &amp; Detailing e Prestazioni
             </span>
           </div>
 

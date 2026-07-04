@@ -282,7 +282,7 @@ export default function OurStory() {
       </section>
 
       {/* ---------------- CLOSING CONTACT STRIP ---------------- */}
-      <section className="bg-[#0B0B0B]">
+      {/* <section className="bg-[#0B0B0B]">
         <div
           className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-6 text-[13px] text-[#666666] font-light border-t border-[#3D3D3D]/10"
           style={body}
@@ -312,7 +312,7 @@ export default function OurStory() {
             </span>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }
