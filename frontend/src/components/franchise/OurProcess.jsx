@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import { motion } from "framer-motion";
 
 const steps = [
@@ -29,7 +29,6 @@ const steps = [
   },
 ];
 
-
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   show: {
@@ -46,22 +45,11 @@ const stagger = {
   show: { transition: { staggerChildren: 0.12 } },
 };
 
-// Reusable metallic-sweep hover shine — echoes a polished panel catching light
-function Shine({ className = "" }) {
-  return (
-    <span
-      className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
-    >
-      <span className="absolute -inset-y-full -left-1/2 w-1/3 rotate-12 bg-gradient-to-r from-transparent via-[#F0F0F0]/15 to-transparent translate-x-[-160%] group-hover:translate-x-[420%] transition-transform duration-[1100ms] ease-out" />
-    </span>
-  );
-}
-
 function OurProcess() {
   return (
     <>
-         {/* ---------------- PROCESS ---------------- */}
-      <section className=" bg-[#0B0B0B] text-[#f0f0f0] max-w-7xl mx-auto px-6 py-28">
+      {/* ---------------- PROCESS ---------------- */}
+      <section className="bg-[#0B0B0B] text-[#F0F0F0] max-w-7xl mx-auto px-12 py-28">
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -69,7 +57,10 @@ function OurProcess() {
           variants={fadeUp}
           className="mb-16 max-w-2xl"
         >
-          <p className="uppercase tracking-[0.3em] text-xs text-[#8C8C8C] mb-4" style={label}>
+          <p
+            className="uppercase tracking-[0.3em] text-xs text-[#8C8C8C] mb-4"
+            style={label}
+          >
             How It Works
           </p>
           <h2 className="text-4xl md:text-5xl" style={display}>
@@ -82,19 +73,66 @@ function OurProcess() {
           whileInView="show"
           viewport={{ once: true }}
           variants={stagger}
-          className="grid md:grid-cols-5 gap-8"
+          className="grid grid-cols-1 md:grid-cols-5 gap-10 md:gap-8"
         >
-          {steps.map((s) => (
-            <motion.div key={s.n} variants={fadeUp} className="border-t border-[#C0C0C0]/40 pt-5">
-              <div className="text-[#8C8C8C] text-sm" style={display}>{s.n}</div>
-              <h3 className="mt-3 uppercase text-sm tracking-wide" style={label}>{s.title}</h3>
-              <p className="mt-2 text-[#8C8C8C] text-sm leading-relaxed" style={body}>{s.text}</p>
+          {steps.map((s, i) => (
+            <motion.div
+              key={s.n}
+              variants={fadeUp}
+              className="relative border-l md:border-l-0 md:border-t border-[#8C8C8C]/30 pl-6 md:pl-0 md:pt-6"
+            >
+              {/* node marker sitting on the connecting rail */}
+              <span
+                className="absolute w-2.5 h-2.5 rotate-45 bg-[#0B0B0B] border border-[#C0C0C0]
+                  -left-[5.5px] top-0
+                  md:left-1/2 md:-translate-x-1/2 md:-top-[5.5px] md:top-auto"
+              />
+
+              <div
+                className="text-[#8C8C8C] text-sm tracking-[0.15em]"
+                style={display}
+              >
+                {s.n} / 05
+              </div>
+              <h3
+                className="mt-3 uppercase text-sm tracking-wide text-[#F0F0F0]"
+                style={label}
+              >
+                {s.title}
+              </h3>
+              <p
+                className="mt-2 text-[#8C8C8C] text-sm leading-relaxed"
+                style={body}
+              >
+                {s.text}
+              </p>
+
+              {i !== steps.length - 1 && (
+                <FiArrow className="hidden md:block absolute -right-6 top-1/2 -translate-y-1/2 text-[#8C8C8C]/40" />
+              )}
             </motion.div>
           ))}
         </motion.div>
       </section>
     </>
-  )
+  );
 }
 
-export default OurProcess
+// small inline connector chevron so the rail reads as a path, not just a divider
+function FiArrow({ className = "" }) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      className={className}
+    >
+      <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export default OurProcess;

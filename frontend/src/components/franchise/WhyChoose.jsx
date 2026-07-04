@@ -54,7 +54,7 @@ export default function WhyChoose() {
   return (
     <>
       {/* ---------------- WHY PARTNER ---------------- */}
-      <section className=" bg-[#0B0B0B] max-w-7xl mx-auto px-6 py-28">
+      <section className=" bg-[#0B0B0B] max-w-7xl mx-auto px-12 py-28">
         <motion.div
           initial="hidden"
           whileInView="show"
