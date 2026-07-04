@@ -44,7 +44,7 @@ const STAGES = [
 
 export default function CraftsmanshipPhilosophy() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#0B0B0B] py-20 sm:py-28 lg:py-32">
+    <section className="relative w-full overflow-hidden bg-[#0B0B0B] py-16 sm:py-24 lg:py-32">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
@@ -58,7 +58,6 @@ export default function CraftsmanshipPhilosophy() {
       <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#3D3D3D]/50 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto flex  lg:pl-5 lg:pr-8">
-
         {/* Spine — desktop only */}
         <div className="hidden lg:flex flex-col items-center justify-between w-16 shrink-0 pb-2">
           <span
@@ -69,15 +68,19 @@ export default function CraftsmanshipPhilosophy() {
           </span>
           <div className="flex flex-col items-center gap-3 my-8">
             {STAGES.map((s) => (
-              <span key={s.n} className="w-1.5 h-1.5 rounded-full bg-[#3D3D3D]" />
+              <span
+                key={s.n}
+                className="w-1.5 h-1.5 rounded-full bg-[#3D3D3D]"
+              />
             ))}
           </div>
-          <span className="cp-heading text-[#8C8C8C] text-xs tracking-widest">04</span>
+          <span className="cp-heading text-[#8C8C8C] text-xs tracking-widest">
+            04
+          </span>
         </div>
 
         {/* Main column */}
-        <div className="flex-1 min-w-0 pl-6 sm:pl-0 lg:pl-12 border-l border-[#3D3D3D]/30 lg:border-l">
-
+        <div className="flex-1 min-w-0 pl-5 sm:pl-8 lg:pl-12 border-l border-[#3D3D3D]/30 lg:border-l">
           {/* Mobile eyebrow (spine hidden below lg) */}
           <div className="flex lg:hidden items-center gap-3 mb-6">
             <span className="h-px w-6 bg-[#8C8C8C]" />
@@ -92,7 +95,7 @@ export default function CraftsmanshipPhilosophy() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             viewport={{ once: true }}
-            className="cp-heading text-[2.75rem] leading-[0.92] text-white sm:text-[4rem] md:text-[4.75rem] lg:text-[5.25rem] tracking-tight max-w-3xl pr-4 sm:pr-12 lg:pr-20"
+            className="cp-heading text-[2.25rem] leading-[0.95] text-white sm:text-[3.25rem] md:text-[4.75rem] lg:text-[5.25rem] tracking-tight max-w-3xl pr-4 sm:pr-12 lg:pr-20"
           >
             EVERY VEHICLE IS APPROACHED{" "}
             <span
@@ -105,26 +108,25 @@ export default function CraftsmanshipPhilosophy() {
           </motion.h2>
 
           {/* Narrative + bleeding image, with overlapping statement plate */}
-          <div className="relative mt-14 lg:mt-20 grid grid-cols-1 lg:grid-cols-12">
-
+          <div className="relative mt-10 sm:mt-14 lg:mt-20 grid grid-cols-1 lg:grid-cols-12">
             {/* Narrative */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
               viewport={{ once: true }}
-              className="lg:col-span-4 pr-4 sm:pr-12 lg:pr-10 pb-16 lg:pb-0 space-y-6"
+              className="lg:col-span-4 pr-4 sm:pr-12 lg:pr-10 pb-10 sm:pb-16 lg:pb-0 space-y-5 sm:space-y-6"
             >
-              <p className="cp-sub text-base sm:text-lg font-light leading-relaxed text-[#B8B8B8]">
+              <p className="cp-sub text-[15px] sm:text-lg font-light leading-relaxed text-[#B8B8B8]">
                 Each surface is examined, every material understood, every
                 procedure executed with meticulous attention to detail. Our
-                technicians combine years of expertise with
-                industry-leading technique.
+                technicians combine years of expertise with industry-leading
+                technique.
               </p>
               <p className="cp-sub text-sm font-light leading-relaxed text-[#B8B8B8]/60">
                 From preparation to final inspection, we focus on precision,
-                durability, and results that hold up — cutting-edge
-                technology, premium-grade products, skilled hands.
+                durability, and results that hold up — cutting-edge technology,
+                premium-grade products, skilled hands.
               </p>
             </motion.div>
 
@@ -154,12 +156,12 @@ export default function CraftsmanshipPhilosophy() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.4 }}
                 viewport={{ once: true }}
-                className="relative lg:absolute lg:-bottom-10 lg:-left-16 w-full sm:w-[85%] lg:w-[360px] mt-6 lg:mt-0 bg-[#1A1A1A] border border-[#3D3D3D]/60 rounded-xl p-6 sm:p-8 shadow-2xl shadow-black/90"
+                className="relative lg:absolute lg:-bottom-10 lg:-left-16 w-full sm:w-[85%] lg:w-[360px] mt-6 lg:mt-0 bg-[#1A1A1A] border border-[#3D3D3D]/60 rounded-xl p-5 sm:p-8 shadow-2xl shadow-black/90"
               >
                 <span className="cp-heading text-[#8C8C8C] text-xs font-semibold tracking-widest uppercase block mb-3">
                   Studio Statement
                 </span>
-                <p className="cp-sub text-xl sm:text-2xl italic font-normal leading-snug text-white">
+                <p className="cp-sub text-lg sm:text-2xl italic font-normal leading-snug text-white">
                   "L'eccellenza è nei dettagli."
                 </p>
                 <p className="cp-sub text-xs font-light uppercase tracking-[0.15em] text-[#B8B8B8] mt-4 pt-4 border-t border-[#3D3D3D]/50">
@@ -170,7 +172,7 @@ export default function CraftsmanshipPhilosophy() {
           </div>
 
           {/* Process timeline — the real sequence, given the most graphic treatment */}
-          <div className="relative mt-24 lg:mt-32 pr-4 sm:pr-12 lg:pr-20">
+          <div className="relative mt-20 sm:mt-24 lg:mt-32 pr-4 sm:pr-12 lg:pr-20">
             <div className="absolute left-0 right-4 sm:right-12 lg:right-20 top-[9px] h-px bg-[#3D3D3D]/50" />
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-8 gap-x-6">
               {STAGES.map((stage, i) => (
@@ -193,7 +195,6 @@ export default function CraftsmanshipPhilosophy() {
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>
