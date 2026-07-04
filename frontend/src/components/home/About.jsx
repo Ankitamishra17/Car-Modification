@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const IMG_MAIN =
-  "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=1000";
+  "/banner/H_about.png";
 
 const SPEC = [
   { tag: "01", value: "5+", label: "Years of Expertise", note: "Since 1999" },

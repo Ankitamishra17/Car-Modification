@@ -171,7 +171,7 @@ export const SERVICES = [
       heading: "INVISIBLE PROTECTION. VISIBLE PERFECTION.",
 
       images: [
-        "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/10126665/pexels-photo-10126665.jpeg",
 
         "https://images.pexels.com/photos/3849168/pexels-photo-3849168.jpeg?auto=compress&cs=tinysrgb&w=800",
 

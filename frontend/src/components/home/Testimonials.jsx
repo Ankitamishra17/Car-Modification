@@ -65,7 +65,7 @@ function SignalBars({ strength = 5, max = 5, active = false }) {
           className={`w-[3px] rounded-sm transition-colors duration-300 ${
             i < strength
               ? active
-                ? "bg-[#C8102E]"
+                ? "bg-white"
                 : "bg-[#8C8C8C]"
               : "bg-[#3D3D3D]"
           }`}
@@ -155,7 +155,7 @@ export default function Testimonials() {
               className="inline-flex items-center gap-2 uppercase tracking-[0.2em] sm:tracking-[0.3em] text-[10px] sm:text-xs text-[#8C8C8C]"
               style={label}
             >
-              <FiActivity size={12} className="text-[#C8102E] shrink-0" />
+              <FiActivity size={12} className="text-[#ffffff] shrink-0" />
               Incoming Signals · Sultanate of Oman
             </p>
             <h2
@@ -195,13 +195,13 @@ export default function Testimonials() {
                 className="flex items-center gap-2.5 sm:gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-[#8C8C8C]"
                 style={label}
               >
-                <span className="text-[#C8102E]" style={display}>
+                <span className="text-white" style={display}>
                   {current.code}
                 </span>
                 {current.city}, Oman
                 <span className="relative flex h-1.5 w-1.5 shrink-0">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C8102E]/60" />
-                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#C8102E]" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#ffffff]/60" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#ffffff]" />
                 </span>
               </span>
               <SignalBars strength={current.strength} active />
@@ -285,7 +285,7 @@ export default function Testimonials() {
                   }`}
                 >
                   <span
-                    className={`absolute left-0 top-0 bottom-0 w-[3px] bg-[#C8102E] transition-transform duration-300 origin-top ${
+                    className={`absolute left-0 top-0 bottom-0 w-[3px] bg-white transition-transform duration-300 origin-top ${
                       isActive ? "scale-y-100" : "scale-y-0"
                     }`}
                   />
@@ -295,7 +295,7 @@ export default function Testimonials() {
                       style={label}
                     >
                       <span
-                        className={isActive ? "text-[#C8102E]" : "text-[#4d4d4d]"}
+                        className={isActive ? "text-white" : "text-[#4d4d4d]"}
                         style={display}
                       >
                         {t.code}
