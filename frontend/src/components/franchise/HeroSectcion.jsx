@@ -289,7 +289,7 @@ export default function FranchisePage() {
               </motion.div>
             ))}
           </motion.div>
-          <p className="text-[11px] xs:text-xs text-[#8C8C8C] mt-5 sm:mt-6" style={body}>
+          <p className="text-[10px] xs:text-xs text-[#8C8C8C] mt-5 sm:mt-6" style={body}>
             Figures are indicative and vary by city, studio size, and site
             conditions — final numbers confirmed during the site visit.
           </p>
