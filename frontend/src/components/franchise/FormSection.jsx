@@ -290,7 +290,7 @@ export default function FormSection() {
               <span className="absolute -bottom-3 -right-3 w-8 h-8 border-b border-r border-[#C0C0C0]/50" />
 
               <motion.img
-                src="https://images.pexels.com/photos/28380934/pexels-photo-28380934.jpeg"
+                src="https://i.pinimg.com/736x/fe/0f/9f/fe0f9fa6452318ec76a863f890918c9f.jpg"
                 alt="Dettagli Auto franchise studio car"
                 className="relative z-10 w-full h-full object-cover drop-shadow-[0_25px_45px_rgba(0,0,0,0.7)]"
                 animate={{ y: [0, -10, 0] }}
