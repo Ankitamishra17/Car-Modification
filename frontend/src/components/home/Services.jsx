@@ -8,7 +8,7 @@ const SERVICES = [
     title: "PPF ",
     desc: "Paint protection that keeps the shine permanent. Our nano-ceramic technology bonds to your paintwork at a molecular level, delivering hydrophobic protection that lasts years.",
     tag: "Protection",
-    img: "https://images.pexels.com/photos/20042056/pexels-photo-20042056.jpeg",
+    img: "https://i.pinimg.com/1200x/19/75/c7/1975c7fb0f3eabefe04c43ee9961571e.jpg",
   },
   {
     id: 2,
@@ -48,7 +48,7 @@ const SERVICES = [
     title: "Exhaust",
     desc: "Exhaust cleaning and restoration. We remove soot, rust and corrosion to restore the original colour and function of your exhaust system.",
     tag: "Maintenance",
-    img: "https://images.pexels.com/photos/14217549/pexels-photo-14217549.jpeg",
+    img: "https://i.pinimg.com/1200x/24/83/67/248367677214e3b4b54659aa55b99235.jpg",
   },
   {
     id: 7,
@@ -56,7 +56,7 @@ const SERVICES = [
     title: " Paints",
     desc: "We use the highest quality paints and materials to ensure a perfect finish. We offer a range of services including paint correction, touch ups and full repaints.",
     tag: "Paint",
-    img: "https://images.pexels.com/photos/11139244/pexels-photo-11139244.jpeg",
+    img: "https://i.pinimg.com/736x/8d/f8/de/8df8decd8a3b119d19c7aa8f297db229.jpg",
   },
   {
     id: 8,
@@ -64,7 +64,7 @@ const SERVICES = [
     title: "Refurbish ",
     desc: "We offer a range of services including paint correction, touch ups and full repaints.",
     tag: "Refurbish",
-    img: "https://images.pexels.com/photos/10894207/pexels-photo-10894207.jpeg",
+    img: "https://i.pinimg.com/736x/ae/62/34/ae6234302e5c7bc85492acdcf8e7cd57.jpg",
   },
   {
     id: 9,
@@ -72,7 +72,7 @@ const SERVICES = [
     title: "Ceramic Coating",
     desc: "We offer a range of services including paint correction, touch ups and full repaints.",
     tag: "Ceramic Coating",
-    img: "https://images.pexels.com/photos/20051458/pexels-photo-20051458.jpeg",
+    img: "https://i.pinimg.com/736x/d6/97/76/d697762ffcff69f3a22f97dfb29a7a2b.jpg",
   },
 ];
 

@@ -402,14 +402,22 @@ export default function Header() {
 
           {/* Right: Phone + mobile buttons */}
           <div className="flex items-center gap-[clamp(6px,1.5vw,12px)] flex-shrink-0">
-            <div className="hidden xl:flex items-center gap-[clamp(6px,1vw,10px)]">
-              {/* First Number */}
+            {/* Full numbers with flags — shown from lg (1024px) up so there is no
+                dead zone between the icon-only mobile button and this block */}
+            <div className="hidden lg:flex items-center gap-[clamp(5px,0.8vw,10px)]">
+              {/* First Number — Oman */}
               <a
                 href="tel:08077976595"
-                className="flex items-center gap-2.5 no-underline"
+                className="flex items-center gap-1.5 no-underline"
               >
+                <img
+                  src="https://flagcdn.com/w40/om.png"
+                  srcSet="https://flagcdn.com/w80/om.png 2x"
+                  alt="Oman flag"
+                  className="w-[clamp(16px,1.2vw,20px)] h-auto rounded-[2px] flex-shrink-0 ring-1 ring-white/15"
+                />
                 <div className="leading-[1.2]">
-                  <div className="text-[clamp(12.5px,1vw,15px)] font-bold text-white tracking-[0.03em] whitespace-nowrap">
+                  <div className="text-[clamp(11.5px,0.9vw,15px)] font-bold text-white tracking-[0.03em] whitespace-nowrap">
                     080-77976595
                   </div>
                 </div>
@@ -418,13 +426,19 @@ export default function Header() {
               {/* Vertical Divider */}
               <div className="w-px h-[22px] bg-white/25 flex-shrink-0" />
 
-              {/* Second Number */}
+              {/* Second Number — India */}
               <a
                 href="tel:+919876543210"
-                className="flex items-center gap-2.5 no-underline"
+                className="flex items-center gap-1.5 no-underline"
               >
+                <img
+                  src="https://flagcdn.com/w40/in.png"
+                  srcSet="https://flagcdn.com/w80/in.png 2x"
+                  alt="India flag"
+                  className="w-[clamp(16px,1.2vw,20px)] h-auto rounded-[2px] flex-shrink-0 ring-1 ring-white/15"
+                />
                 <div className="leading-[1.2]">
-                  <div className="text-[clamp(12.5px,1vw,15px)] font-bold text-white tracking-[0.03em] whitespace-nowrap">
+                  <div className="text-[clamp(11.5px,0.9vw,15px)] font-bold text-white tracking-[0.03em] whitespace-nowrap">
                     +91 98765 43210
                   </div>
                 </div>
@@ -602,22 +616,39 @@ export default function Header() {
                     );
                   })}
 
-                  <motion.a
-                    href="tel:080-77976595"
-                    className="mt-3.5 flex items-center gap-2.5 bg-[#1A1A1A] border border-[#3D3D3D] rounded-lg px-3.5 py-2.5 no-underline"
+                  <motion.div
+                    className="mt-3.5 flex flex-col gap-2"
                     variants={drawerItemVariants}
                   >
-                    <div>
-                      <span className="text-[12px] font-bold text-white tracking-[0.03em]">
+                    <a
+                      href="tel:08077976595"
+                      className="flex items-center gap-2.5 bg-[#1A1A1A] border border-[#3D3D3D] rounded-lg px-3.5 py-2.5 no-underline"
+                    >
+                      <img
+                        src="https://flagcdn.com/w40/om.png"
+                        srcSet="https://flagcdn.com/w80/om.png 2x"
+                        alt="Oman flag"
+                        className="w-5 h-auto rounded-[2px] flex-shrink-0 ring-1 ring-white/15"
+                      />
+                      <span className="text-[13px] font-bold text-white tracking-[0.03em]">
                         080-77976595
                       </span>
-                      ,
-                      <br/>
-                      <span className="text-[12px] font-bold text-white tracking-[0.03em]">
-                        +919876543210
+                    </a>
+                    <a
+                      href="tel:+919876543210"
+                      className="flex items-center gap-2.5 bg-[#1A1A1A] border border-[#3D3D3D] rounded-lg px-3.5 py-2.5 no-underline"
+                    >
+                      <img
+                        src="https://flagcdn.com/w40/in.png"
+                        srcSet="https://flagcdn.com/w80/in.png 2x"
+                        alt="India flag"
+                        className="w-5 h-auto rounded-[2px] flex-shrink-0 ring-1 ring-white/15"
+                      />
+                      <span className="text-[13px] font-bold text-white tracking-[0.03em]">
+                        +91 98765 43210
                       </span>
-                    </div>
-                  </motion.a>
+                    </a>
+                  </motion.div>
                 </motion.nav>
               </motion.div>
             </React.Fragment>

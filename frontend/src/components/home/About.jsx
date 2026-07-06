@@ -381,11 +381,6 @@ export default function About() {
                 transition={{ duration: 1.3, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
               />
 
-              <div className="da-imgtag">
-                <span className="da-imgtag-dot" />
-                <span className="da-imgtag-text">Est. 2020 — Sheikh Yasir</span>
-              </div>
-
               <div className="da-badge">
                 <svg className="da-badge-spin" viewBox="0 0 68 68">
                   <defs>

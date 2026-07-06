@@ -351,42 +351,6 @@ export default function Hero() {
         }}
       >
         <div className="hero-inner" style={{ maxWidth: 580 }}>
-          {/* Eyebrow */}
-          <div
-            className="hero-eyebrow"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-              marginBottom: 18,
-              opacity: 0,
-              animation: "fadeUp 0.7s ease-out 0.1s forwards",
-            }}
-          >
-            <span
-              style={{
-                width: 36,
-                height: 1,
-                background: "#8C8C8C",
-                display: "block",
-                flexShrink: 0,
-              }}
-            />
-            <span
-              style={{
-                fontFamily: "'DM Sans', sans-serif",
-                fontSize: 11,
-                fontWeight: 600,
-                fontStyle: "italic",
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-                color: "#8C8C8C",
-              }}
-            >
-              Studio di &amp; Detailing e Prestazioni
-            </span>
-          </div>
-
           {/* H1 */}
           <h1
             style={{
@@ -403,10 +367,10 @@ export default function Hero() {
                 WebkitTextStroke: "2px rgba(255,255,255,0.85)",
               }}
             >
-              EVERY CAR HAS
+               L’arte della perfezione 
             </span>
             <span style={{ color: "#F0F0F0", display: "block" }}>
-              A FINISH IT WAS
+              su ogni dettaglio
             </span>
           </h1>
 
@@ -425,8 +389,7 @@ export default function Hero() {
               animation: "fadeUp 0.75s ease-out 0.54s forwards",
             }}
           >
-            From ceramic coating to full restoration, body kits to remapped
-            performance — we bring out the car underneath the car.
+            From precision-cut Paint Protection Film (PPF) to complete restorations, bespoke body kits, and precision performance remapping—we redefine automotive excellence, one detail at a time.
           </p>
 
           {/* Stats — desktop row */}
@@ -459,40 +422,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
-      {/* Scroll cue */}
-      <Link
-        to="/about"
-        aria-label="Scroll to next section"
-        style={{
-          position: "absolute",
-          bottom: 28,
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 3,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 7,
-          textDecoration: "none",
-          opacity: 0,
-          animation: "fadeIn 1s ease-out 1.4s forwards",
-        }}
-      >
-        <span
-          style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize: 9.5,
-            fontWeight: 600,
-            letterSpacing: "0.25em",
-            textTransform: "uppercase",
-            color: "rgba(255,255,255,0.28)",
-          }}
-        >
-          Scroll
-        </span>
-        <div className="hero-scroll-line" />
-      </Link>
     </section>
   );
 }
