@@ -6,9 +6,9 @@ const IMG_MAIN =
   "/banner/H_about.png";
 
 const SPEC = [
-  { tag: "01", value: "5+", label: "Years of Expertise", note: "Since 1999" },
+  { tag: "01", value: "26+", label: "Years of Expertise", note: "Since 1999" },
   { tag: "02", value: "2020", label: "Studio Established", note: "Founded" },
-  { tag: "03", value: "9,000+", label: "Automobiles Detailed", note: "To date" },
+  { tag: "03", value: "1,200+", label: "Automobiles Detailed", note: "To date" },
 ];
 
 const PARAS = [
@@ -372,7 +372,7 @@ export default function About() {
 
             <div className="da-imgwrap">
               <motion.img
-                src={IMG_MAIN}
+                src="https://i.pinimg.com/1200x/c8/d7/43/c8d743820802686eb8c5641ef76bf99a.jpg"
                 alt="Dettagli Auto craftsmanship"
                 className="da-img"
                 loading="lazy"

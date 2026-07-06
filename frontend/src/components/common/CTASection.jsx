@@ -58,7 +58,7 @@ export default function BottomCTA({
             {/* LEFT SIDE: Full Height Visual Banner Image Section */}
             <div className="col-span-1 lg:col-span-5 relative min-h-[280px] sm:min-h-[350px] lg:min-h-full overflow-hidden group">
               <img 
-                src="https://i.pinimg.com/1200x/00/7b/8b/007b8b156fbca8623030243e22ad5371.jpg" 
+                src="https://i.pinimg.com/1200x/d6/4e/e2/d64ee28bdd30451b2bf0cc5d4787293d.jpg" 
                 alt="Studio Showcase" 
                 className="absolute inset-0 w-full h-full object-cover filter grayscale-[40%] transition-transform duration-700 ease-out group-hover:scale-105 group-hover:grayscale-[10%]"
               />

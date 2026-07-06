@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 const STATS = [
-  { value: "5+", label: "Years of excellence" },
-  { value: "4", label: "Cities served" },
+  { value: "26+", label: "Years of excellence" },
   { value: "100%", label: "In-house craftsmanship" },
 ];
 
@@ -429,41 +428,6 @@ export default function Hero() {
             From ceramic coating to full restoration, body kits to remapped
             performance — we bring out the car underneath the car.
           </p>
-
-          {/* CTAs */}
-          <div
-            className="hero-cta"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 14,
-              flexWrap: "wrap",
-              opacity: 0,
-              animation: "fadeUp 0.75s ease-out 0.68s forwards",
-              marginTop: 8,
-            }}
-          >
-            <Link to="/contact" className="hero-btn-primary">
-              Book a Service
-              <svg
-                className="hero-arrow"
-                width="15"
-                height="15"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </Link>
-            <Link to="/services" className="hero-btn-ghost">
-              Explore Services
-            </Link>
-          </div>
 
           {/* Stats — desktop row */}
           <div

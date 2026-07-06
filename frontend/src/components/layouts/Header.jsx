@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SERVICES } from "../../data/services";
 import { Link } from "react-router-dom";
 /**
- * Header — AutoLuxe
+ * Header — AutoLuxe (Tailwind CSS version)
  * Palette (fixed):
  *   Primary BG      #0B0B0B
  *   Secondary BG    #1A1A1A
@@ -90,13 +90,25 @@ const drawerNavVariants = {
 
 const drawerItemVariants = {
   hidden: { opacity: 0, x: 24 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] } },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 const mobSubVariants = {
   hidden: { height: 0, opacity: 0 },
-  show: { height: "auto", opacity: 1, transition: { duration: 0.32, ease: [0.22, 1, 0.36, 1] } },
-  exit: { height: 0, opacity: 0, transition: { duration: 0.25, ease: "easeIn" } },
+  show: {
+    height: "auto",
+    opacity: 1,
+    transition: { duration: 0.32, ease: [0.22, 1, 0.36, 1] },
+  },
+  exit: {
+    height: 0,
+    opacity: 0,
+    transition: { duration: 0.25, ease: "easeIn" },
+  },
 };
 
 export default function Header() {
@@ -109,7 +121,11 @@ export default function Header() {
   // Sliding hover highlight for the services dropdown
   const svcListRef = useRef(null);
   const svcItemRefs = useRef([]);
-  const [svcHighlight, setSvcHighlight] = useState({ top: 0, height: 0, opacity: 0 });
+  const [svcHighlight, setSvcHighlight] = useState({
+    top: 0,
+    height: 0,
+    opacity: 0,
+  });
 
   const updateSvcHighlight = (idx) => {
     const el = svcItemRefs.current[idx];
@@ -124,8 +140,7 @@ export default function Header() {
       });
     }
   };
-  const hideSvcHighlight = () =>
-    setSvcHighlight((h) => ({ ...h, opacity: 0 }));
+  const hideSvcHighlight = () => setSvcHighlight((h) => ({ ...h, opacity: 0 }));
 
   useEffect(() => {
     if (!servicesOpen) setSvcHighlight((h) => ({ ...h, opacity: 0 }));
@@ -134,7 +149,11 @@ export default function Header() {
   // Sliding hover/tap highlight for the mobile services accordion
   const mobSvcListRef = useRef(null);
   const mobSvcItemRefs = useRef([]);
-  const [mobSvcHighlight, setMobSvcHighlight] = useState({ top: 0, height: 0, opacity: 0 });
+  const [mobSvcHighlight, setMobSvcHighlight] = useState({
+    top: 0,
+    height: 0,
+    opacity: 0,
+  });
 
   const updateMobSvcHighlight = (idx) => {
     const el = mobSvcItemRefs.current[idx];
@@ -218,304 +237,80 @@ export default function Header() {
 
   return (
     <>
+      {/* Only things Tailwind truly can't express: font import + keyframes */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap');
-
-        .hdr-root *, .hdr-root *::before, .hdr-root *::after { box-sizing: border-box; }
-
-        .hdr-root {
-          font-family: 'Bai Jamjuree', sans-serif;
-          position: sticky; top: 0; z-index: 50; width: 100%;
-          background: #0B0B0B;
-          transition: box-shadow 0.4s, border-color 0.4s;
-          border-bottom: 1px solid #2A2A2A;
-        }
-        .hdr-root.scrolled {
-          box-shadow: 0 4px 30px -8px rgba(140,140,140,0.25);
-          border-bottom-color: #3D3D3D;
-        }
-
-        .hdr-top-line {
-          height: 2px;
-          background: linear-gradient(to right, transparent, #8C8C8C, transparent);
-          opacity: 0.55;
-        }
-
-        .hdr-inner {
-          max-width: 1280px; margin: 0 auto; padding: 0 20px;
-          display: flex; align-items: center; justify-content: space-between;
-          height: 70px; gap: 16px;
-        }
-
-        /* ── Logo ── */
-        .hdr-logo {
-          display: flex; align-items: center; gap: 10px;
-          text-decoration: none; flex-shrink: 0;
-        }
-        .hdr-logo-shield {
-          width: 46px; height: 46px; border: 2px solid #8C8C8C; border-radius: 6px;
-          display: flex; align-items: center; justify-content: center;
-          background: #1A1A1A; transition: background 0.3s; flex-shrink: 0;
-        }
-        .hdr-logo:hover .hdr-logo-shield { background: #2A2A2A; }
-        .hdr-logo-text { display: flex; flex-direction: column; line-height: 1; }
-        .hdr-logo-name {
-          font-size: 22px; font-weight: 700; letter-spacing: 0.06em;
-          color: #FFFFFF; text-transform: uppercase;
-        }
-        .hdr-logo-name span { color: #8C8C8C; }
-        .hdr-logo-tagline {
-          font-size: 9px; letter-spacing: 0.22em;
-          color: #B8B8B8; text-transform: uppercase; margin-top: 3px;
-        }
-
-        /* ── Desktop nav ── */
-        .hdr-nav { display: none; align-items: center; gap: 6px; }
-        @media (min-width: 1024px) { .hdr-nav { display: flex; } }
-
-        .hdr-nav-link {
-          position: relative; display: flex; align-items: center; gap: 4px;
-          padding: 6px 10px; font-size: 13.5px; font-weight: 600;
-          letter-spacing: 0.06em; text-transform: uppercase;
-          color: #ffffff; text-decoration: none;
-          background: none; border: none; cursor: pointer;
-          transition: color 0.25s; white-space: nowrap; font-family: inherit;
-        }
-        .hdr-nav-link::after {
-          content: ''; position: absolute; bottom: 0; left: 10px; right: 10px;
-          height: 2px; background: #B8B8B8;
-          transform: scaleX(0); transform-origin: center;
-          transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
-        }
-        .hdr-nav-link:hover,
-        .hdr-nav-link[data-open="true"] { color: #FFFFFF; }
-        .hdr-nav-link:hover::after,
-        .hdr-nav-link[data-open="true"]::after { transform: scaleX(1); }
-        .hdr-nav-link .chevron { transition: transform 0.3s; }
-        .hdr-nav-link[data-open="true"] .chevron { transform: rotate(180deg); }
-
-        /* ── Dropdown ── */
-        .hdr-dropdown-wrap { position: relative; }
-        .hdr-dropdown {
-          position: absolute; left: 50%; top: calc(100% + 10px);
-          width: 340px;
-          background: #1A1A1A; border: 1px solid #3D3D3D;
-          border-radius: 12px;
-          box-shadow: 0 20px 60px -10px rgba(0,0,0,0.7), 0 0 0 1px rgba(140,140,140,0.05);
-          z-index: 100;
-        }
-        .hdr-dropdown::before {
-          content: ''; position: absolute; top: -6px; left: 50%;
-          transform: translateX(-50%) rotate(45deg);
-          width: 12px; height: 12px; background: #1A1A1A;
-          border-left: 1px solid #3D3D3D;
-          border-top: 1px solid #3D3D3D;
-        }
-        .hdr-dropdown-inner { position: relative; padding: 8px 0; }
-        .hdr-dropdown-highlight {
-          position: absolute; left: 8px; right: 8px;
-          border-radius: 8px;
-          background: linear-gradient(135deg, rgba(140,140,140,0.16), rgba(140,140,140,0.05));
-          border: 1px solid rgba(140,140,140,0.28);
-          pointer-events: none; z-index: 0;
-        }
-        .hdr-dropdown-list { list-style: none; margin: 0; padding: 0; position: relative; z-index: 1; }
-        .hdr-dropdown-item a {
-          position: relative;
-          display: flex; align-items: center; justify-content: space-between; gap: 12px;
-          padding: 11px 18px; text-decoration: none;
-        }
-        .hdr-dropdown-item a:hover .di-name { color: #FFFFFF; }
-        .hdr-dropdown-divider { margin: 0 18px; height: 1px; background: #2A2A2A; position: relative; z-index: 1; }
-        .di-text {
-          display: flex; flex-direction: column; gap: 2px;
-          transition: transform 0.25s ease;
-        }
-        .hdr-dropdown-item a:hover .di-text { transform: translateX(3px); }
-        .di-name {
-          font-family: 'Bai Jamjuree', sans-serif; font-size: 13.5px; font-weight: 600;
-          color: #FFFFFF; transition: color 0.2s; letter-spacing: 0.02em;
-        }
-        .di-desc { font-size: 11.5px; color: #B8B8B8; font-family: Georgia, serif; line-height: 1.4; }
-        .di-arrow {
-          flex-shrink: 0; color: #8C8C8C;
-          opacity: 0; transform: translateX(-6px);
-          transition: opacity 0.25s ease, transform 0.25s ease, color 0.25s ease;
-        }
-        .hdr-dropdown-item a:hover .di-arrow { opacity: 1; transform: translateX(0); color: #FFFFFF; }
-
-        /* ── Right area ── */
-        .hdr-right { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-
-        .hdr-phone { display: none; align-items: center; gap: 10px; }
-        @media (min-width: 1024px) { .hdr-phone { display: flex; } }
-        .hdr-phone-icon {
-          width: 40px; height: 40px; border-radius: 50%; background: #8C8C8C;
-          display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-          animation: ring-pulse 2.5s infinite;
-        }
         @keyframes ring-pulse {
           0%, 100% { box-shadow: 0 0 0 0 rgba(140,140,140,0.5); }
           50%       { box-shadow: 0 0 0 8px rgba(140,140,140,0); }
         }
-        .hdr-phone-text { line-height: 1.2; }
-        .hdr-phone-label { font-size: 10px; color: #B8B8B8; letter-spacing: 0.08em; text-transform: uppercase; }
-        .hdr-phone-num { font-size: 15px; font-weight: 700; color: #FFFFFF; letter-spacing: 0.03em; }
-
-        .hdr-cta-strip { display: flex; align-items: center; }
-        @media (min-width: 1024px) { .hdr-cta-strip { display: none; } }
-        .hdr-book-btn {
-          display: inline-flex; align-items: center; justify-content: center;
-          width: 44px; height: 44px; background: #8C8C8C; border: none;
-          cursor: pointer; border-radius: 6px; color: #0B0B0B; transition: background 0.2s;
-        }
-        .hdr-book-btn:hover { background: #FFFFFF; }
-
-        .hdr-hamburger {
-          display: flex; align-items: center; justify-content: center;
-          width: 40px; height: 40px; background: none;
-          border: 1px solid #3D3D3D; border-radius: 6px;
-          color: #8C8C8C; cursor: pointer;
-          transition: background 0.2s, border-color 0.2s; flex-shrink: 0;
-          position: relative; z-index: 210;
-        }
-        .hdr-hamburger:hover { background: #1A1A1A; border-color: #8C8C8C; }
-        @media (min-width: 1024px) { .hdr-hamburger { display: none; } }
-
-        /* ── Mobile drawer (right-side slide-in) ── */
-        .hdr-mob-overlay {
-          position: fixed; inset: 0; z-index: 190;
-          background: rgba(0,0,0,0.6);
-          backdrop-filter: blur(2px);
-        }
-
-        .hdr-mob-drawer {
-          position: fixed; top: 0; right: 0; bottom: 0; z-index: 200;
-          width: 85vw; max-width: 340px;
-          background: #0B0B0B;
-          border-left: 1px solid #3D3D3D;
-          box-shadow: -20px 0 60px -15px rgba(0,0,0,0.8);
-          display: flex; flex-direction: column;
-          overflow-y: auto;
-        }
-
-        .hdr-mob-drawer-head {
-          display: flex; align-items: center; justify-content: space-between;
-          padding: 18px 20px;
-          border-bottom: 1px solid #2A2A2A;
-          flex-shrink: 0;
-        }
-        .hdr-mob-drawer-title {
-          font-size: 12px; font-weight: 700; letter-spacing: 0.22em;
-          text-transform: uppercase; color: #8C8C8C;
-        }
-        .hdr-mob-close {
-          display: flex; align-items: center; justify-content: center;
-          width: 34px; height: 34px; border-radius: 6px;
-          border: 1px solid #3D3D3D; background: none; color: #B8B8B8;
-          cursor: pointer; transition: color 0.2s, border-color 0.2s;
-        }
-        .hdr-mob-close:hover { color: #FFFFFF; border-color: #8C8C8C; }
-
-        .hdr-mobile-nav { display: flex; flex-direction: column; padding: 8px 20px 16px; }
-
-        .hdr-mob-link {
-          display: block; padding: 13px 0; font-size: 14px; font-weight: 600;
-          letter-spacing: 0.06em; text-transform: uppercase;
-          color: #B8B8B8; text-decoration: none;
-          border-bottom: 1px solid #2A2A2A; transition: color 0.2s;
-        }
-        .hdr-mob-link:hover { color: #FFFFFF; }
-
-        .hdr-mob-accordion { border-bottom: 1px solid #2A2A2A; }
-        .hdr-mob-acc-btn {
-          width: 100%; display: flex; align-items: center; justify-content: space-between;
-          padding: 13px 0; font-size: 14px; font-weight: 600;
-          letter-spacing: 0.06em; text-transform: uppercase;
-          color: #B8B8B8; background: none; border: none;
-          cursor: pointer; font-family: inherit; transition: color 0.2s;
-        }
-        .hdr-mob-acc-btn:hover { color: #FFFFFF; }
-        .hdr-mob-acc-btn .chevron { transition: transform 0.3s; }
-        .hdr-mob-acc-btn.open .chevron { transform: rotate(180deg); }
-        .hdr-mob-acc-btn.open { color: #FFFFFF; }
-
-        .hdr-mob-sub { overflow: hidden; }
-        .hdr-mob-svc-inner { position: relative; padding: 4px 0 8px; }
-        .hdr-mob-svc-highlight {
-          position: absolute; left: 4px; right: 4px;
-          border-radius: 8px;
-          background: linear-gradient(135deg, rgba(140,140,140,0.16), rgba(140,140,140,0.05));
-          border: 1px solid rgba(140,140,140,0.28);
-          pointer-events: none; z-index: 0;
-        }
-        .hdr-mob-svc-list { position: relative; z-index: 1; }
-
-        .hdr-mob-cta {
-          margin-top: 14px; display: flex; align-items: center; gap: 10px;
-          background: #1A1A1A; border: 1px solid #3D3D3D;
-          border-radius: 8px; padding: 10px 14px; text-decoration: none;
-        }
-        .hdr-mob-cta-icon {
-          width: 34px; height: 34px; background: #8C8C8C; border-radius: 50%;
-          display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-        }
-        .hdr-mob-cta-text label { display: block; font-size: 10px; color: #B8B8B8; letter-spacing: 0.1em; text-transform: uppercase; }
-        .hdr-mob-cta-text span { font-size: 15px; font-weight: 700; color: #FFFFFF; letter-spacing: 0.03em; }
-
-        @media (max-width: 400px) {
-          .hdr-logo-name { font-size: 18px; }
-          .hdr-logo-shield { width: 38px; height: 38px; }
-        }
       `}</style>
 
       <motion.header
-        className={`hdr-root${scrolled ? " scrolled" : ""}`}
+        className={`sticky top-0 z-50 w-full bg-[#0B0B0B] transition-[box-shadow,border-color] duration-[400ms] border-b border-[#2A2A2A] font-['Bai_Jamjuree',sans-serif] [&_*]:box-border ${
+          scrolled
+            ? "shadow-[0_4px_30px_-8px_rgba(140,140,140,0.25)] border-b-[#3D3D3D]"
+            : ""
+        }`}
         variants={headerVariants}
         initial="hidden"
         animate="show"
       >
-        <div className="hdr-top-line" />
+        {/* top gradient line */}
+        <div className="h-[2px] bg-gradient-to-r from-transparent via-[#8C8C8C] to-transparent opacity-55" />
 
-        <div className="hdr-inner">
-          {/* Logo */}
-          <Link to
-            ="/"
-            className="hdr-logo"
+        <div className="max-w-7xl mx-auto px-[clamp(14px,4vw,20px)] flex items-center justify-between h-[clamp(60px,8vw,70px)] gap-[clamp(8px,2vw,16px)]">
+          {/* Logo (bigger now) */}
+          <Link
+            to="/"
+            className="flex items-center gap-2.5 no-underline flex-shrink-0 min-w-0"
             aria-label="AutoLuxe home"
             onClick={(e) => handleNav(e, "#home")}
           >
-            <img src="/logo.png" alt="AutoLuxe logo" className="h-20 w-35" />
+            <img
+              src="/logo.png"
+              alt="AutoLuxe logo"
+              className="h-[clamp(48px,8vw,72px)] w-auto max-w-[clamp(160px,36vw,260px)] object-contain block max-[400px]:h-[38px] max-[400px]:max-w-[130px]"
+            />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hdr-nav" aria-label="Primary navigation">
+          <nav
+            className="hidden lg:flex items-center gap-1 flex-wrap justify-end lg:gap-0.5 xl:gap-1"
+            aria-label="Primary navigation"
+          >
             {NAV_LINKS.map((link) => {
               if (link.label === "Services") {
                 return (
-                  <div
-                    key="Services"
-                    className="hdr-dropdown-wrap"
-                    {...svcHover}
-                  >
+                  <div key="Services" className="relative" {...svcHover}>
                     <button
-                      className="hdr-nav-link"
-                      data-open={servicesOpen}
+                      className={`group relative flex items-center gap-1 px-2.5 py-1.5 lg:px-[7px] lg:text-xs xl:px-2.5 xl:text-[13.5px] text-[13.5px] font-semibold tracking-[0.06em] uppercase text-white bg-transparent border-none cursor-pointer transition-colors duration-[250ms] whitespace-nowrap font-inherit ${
+                        servicesOpen ? "text-white" : ""
+                      }`}
                       onClick={() => setServicesOpen((v) => !v)}
                       aria-expanded={servicesOpen}
                       aria-haspopup="true"
                     >
                       Services
                       <ChevronDown
-                        className="chevron"
+                        className={`transition-transform duration-300 ${
+                          servicesOpen ? "rotate-180" : ""
+                        }`}
                         size={14}
                         strokeWidth={2.5}
+                      />
+                      <span
+                        className={`absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-[#B8B8B8] origin-center transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                          servicesOpen
+                            ? "scale-x-100"
+                            : "scale-x-0 group-hover:scale-x-100"
+                        }`}
                       />
                     </button>
                     <AnimatePresence>
                       {servicesOpen && (
                         <motion.div
-                          className="hdr-dropdown"
+                          className="absolute left-1/2 top-[calc(100%+10px)] w-[min(340px,90vw)] bg-[#1A1A1A] border border-[#3D3D3D] rounded-xl shadow-[0_20px_60px_-10px_rgba(0,0,0,0.7),0_0_0_1px_rgba(140,140,140,0.05)] z-[100]"
                           style={{ x: "-50%" }}
                           variants={dropdownVariants}
                           initial="hidden"
@@ -523,13 +318,16 @@ export default function Header() {
                           exit="exit"
                           role="menu"
                         >
+                          {/* caret */}
+                          <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 rotate-45 w-3 h-3 bg-[#1A1A1A] border-l border-t border-[#3D3D3D]" />
+
                           <div
-                            className="hdr-dropdown-inner"
+                            className="relative py-2"
                             ref={svcListRef}
                             onPointerLeave={hideSvcHighlight}
                           >
                             <motion.div
-                              className="hdr-dropdown-highlight"
+                              className="absolute left-2 right-2 rounded-lg bg-gradient-to-br from-[rgba(140,140,140,0.16)] to-[rgba(140,140,140,0.05)] border border-[rgba(140,140,140,0.28)] pointer-events-none z-0"
                               animate={{
                                 top: svcHighlight.top,
                                 height: svcHighlight.height,
@@ -542,10 +340,10 @@ export default function Header() {
                                 mass: 0.6,
                               }}
                             />
-                            <ul className="hdr-dropdown-list">
+                            <ul className="list-none m-0 p-0 relative z-[1]">
                               {SERVICES.map((svc, i) => (
                                 <motion.li
-                                  className="hdr-dropdown-item"
+                                  className="relative"
                                   key={svc.name}
                                   variants={dropdownItemVariants}
                                 >
@@ -555,19 +353,24 @@ export default function Header() {
                                     ref={(el) => (svcItemRefs.current[i] = el)}
                                     onPointerEnter={() => updateSvcHighlight(i)}
                                     onClick={(e) => handleNav(e, svc.href)}
+                                    className="group relative flex items-center justify-between gap-3 px-[18px] py-[11px] no-underline"
                                   >
-                                    <span className="di-text">
-                                      <span className="di-name">{svc.name}</span>
-                                      <span className="di-desc">{svc.desc}</span>
+                                    <span className="flex flex-col gap-0.5 min-w-0 transition-transform duration-[250ms] ease-out group-hover:translate-x-[3px]">
+                                      <span className="font-['Bai_Jamjuree',sans-serif] text-[13.5px] font-semibold text-white tracking-[0.02em]">
+                                        {svc.name}
+                                      </span>
+                                      <span className="text-[11.5px] text-[#B8B8B8] font-serif leading-[1.4]">
+                                        {svc.desc}
+                                      </span>
                                     </span>
                                     <ChevronRight
-                                      className="di-arrow"
+                                      className="flex-shrink-0 text-[#8C8C8C] opacity-0 -translate-x-1.5 transition-all duration-[250ms] ease-out group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-white"
                                       size={16}
                                       strokeWidth={2}
                                     />
                                   </Link>
                                   {i < SERVICES.length - 1 && (
-                                    <div className="hdr-dropdown-divider" />
+                                    <div className="mx-[18px] h-px bg-[#2A2A2A] relative z-[1]" />
                                   )}
                                 </motion.li>
                               ))}
@@ -584,43 +387,54 @@ export default function Header() {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="hdr-nav-link"
+                  className="group relative flex items-center gap-1 px-2.5 py-1.5 lg:px-[7px] lg:text-xs xl:px-2.5 xl:text-[13.5px] text-[13.5px] font-semibold tracking-[0.06em] uppercase text-white no-underline transition-colors duration-[250ms] whitespace-nowrap"
                   onClick={() => {
                     setMobileOpen(false);
                     setServicesOpen(false);
                   }}
                 >
                   {link.label}
+                  <span className="absolute bottom-0 left-2.5 right-2.5 h-0.5 bg-[#B8B8B8] origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]" />
                 </Link>
               );
             })}
           </nav>
 
           {/* Right: Phone + mobile buttons */}
-          <div className="hdr-right">
-            <div className="hdr-phone">
+          <div className="flex items-center gap-[clamp(6px,1.5vw,12px)] flex-shrink-0">
+            <div className="hidden xl:flex items-center gap-[clamp(6px,1vw,10px)]">
+              {/* First Number */}
               <a
-                href="tel:080-77976595"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: 10,
-                  textDecoration: "none",
-                }}
+                href="tel:08077976595"
+                className="flex items-center gap-2.5 no-underline"
               >
-                <div className="hdr-phone-icon">
-                  <Phone size={18} strokeWidth={2.5} color="#0B0B0B" />
+                <div className="leading-[1.2]">
+                  <div className="text-[clamp(12.5px,1vw,15px)] font-bold text-white tracking-[0.03em] whitespace-nowrap">
+                    080-77976595
+                  </div>
                 </div>
-                <div className="hdr-phone-text">
-                  <div className="hdr-phone-num">080-77976595</div>
+              </a>
+
+              {/* Vertical Divider */}
+              <div className="w-px h-[22px] bg-white/25 flex-shrink-0" />
+
+              {/* Second Number */}
+              <a
+                href="tel:+919876543210"
+                className="flex items-center gap-2.5 no-underline"
+              >
+                <div className="leading-[1.2]">
+                  <div className="text-[clamp(12.5px,1vw,15px)] font-bold text-white tracking-[0.03em] whitespace-nowrap">
+                    +91 98765 43210
+                  </div>
                 </div>
               </a>
             </div>
 
-            <div className="hdr-cta-strip">
+            <div className="flex lg:hidden items-center">
               <a
-                href="tel:080-77976595"
-                className="hdr-book-btn"
+                href="tel:08077976595"
+                className="inline-flex items-center justify-center w-10 h-10 bg-[#8C8C8C] border-none cursor-pointer rounded-md text-[#0B0B0B] transition-colors duration-200 hover:bg-white flex-shrink-0"
                 aria-label="Call us"
               >
                 <Phone size={18} strokeWidth={2.5} />
@@ -628,7 +442,7 @@ export default function Header() {
             </div>
 
             <button
-              className="hdr-hamburger"
+              className="flex lg:hidden items-center justify-center w-10 h-10 bg-transparent border border-[#3D3D3D] rounded-md text-[#8C8C8C] cursor-pointer transition-colors duration-200 hover:bg-[#1A1A1A] hover:border-[#8C8C8C] flex-shrink-0 relative z-[210]"
               onClick={() => setMobileOpen((v) => !v)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
@@ -643,7 +457,7 @@ export default function Header() {
           {mobileOpen && (
             <React.Fragment>
               <motion.div
-                className="hdr-mob-overlay"
+                className="fixed inset-0 z-[190] bg-black/60 backdrop-blur-[2px]"
                 variants={overlayVariants}
                 initial="hidden"
                 animate="show"
@@ -651,7 +465,7 @@ export default function Header() {
                 onClick={() => setMobileOpen(false)}
               />
               <motion.div
-                className="hdr-mob-drawer"
+                className="fixed top-0 right-0 bottom-0 z-[200] w-[min(85vw,340px)] min-w-[260px] bg-[#0B0B0B] border-l border-[#3D3D3D] shadow-[-20px_0_60px_-15px_rgba(0,0,0,0.8)] flex flex-col overflow-y-auto"
                 variants={drawerVariants}
                 initial="hidden"
                 animate="show"
@@ -659,19 +473,14 @@ export default function Header() {
                 role="dialog"
                 aria-modal="true"
               >
-                <div className="hdr-mob-drawer-head">
-                  <span className="hdr-mob-drawer-title">Menu</span>
-                  {/* <button
-                    className="hdr-mob-close"
-                    onClick={() => setMobileOpen(false)}
-                    aria-label="Close menu"
-                  >
-                    <X size={18} />
-                  </button> */}
+                <div className="flex items-center justify-between px-5 py-[18px] border-b border-[#2A2A2A] flex-shrink-0">
+                  <span className="text-xs font-bold tracking-[0.22em] uppercase text-[#8C8C8C]">
+                    Menu
+                  </span>
                 </div>
 
                 <motion.nav
-                  className="hdr-mobile-nav"
+                  className="flex flex-col px-[clamp(16px,5vw,20px)] pt-2 pb-4"
                   variants={drawerNavVariants}
                   initial="hidden"
                   animate="show"
@@ -680,18 +489,24 @@ export default function Header() {
                     if (link.label === "Services") {
                       return (
                         <motion.div
-                          className="hdr-mob-accordion"
+                          className="border-b border-[#2A2A2A]"
                           key="Services"
                           variants={drawerItemVariants}
                         >
                           <button
-                            className={`hdr-mob-acc-btn${mobileSvcOpen ? " open" : ""}`}
+                            className={`w-full flex items-center justify-between py-[13px] text-sm font-semibold tracking-[0.06em] uppercase bg-transparent border-none cursor-pointer font-inherit transition-colors duration-200 ${
+                              mobileSvcOpen
+                                ? "text-white"
+                                : "text-[#B8B8B8] hover:text-white"
+                            }`}
                             onClick={() => setMobileSvcOpen((v) => !v)}
                             aria-expanded={mobileSvcOpen}
                           >
                             Services
                             <ChevronDown
-                              className="chevron"
+                              className={`transition-transform duration-300 ${
+                                mobileSvcOpen ? "rotate-180" : ""
+                              }`}
                               size={16}
                               strokeWidth={2.5}
                             />
@@ -699,19 +514,19 @@ export default function Header() {
                           <AnimatePresence initial={false}>
                             {mobileSvcOpen && (
                               <motion.div
-                                className="hdr-mob-sub"
+                                className="overflow-hidden"
                                 variants={mobSubVariants}
                                 initial="hidden"
                                 animate="show"
                                 exit="exit"
                               >
                                 <div
-                                  className="hdr-mob-svc-inner"
+                                  className="relative pt-1 pb-2"
                                   ref={mobSvcListRef}
                                   onPointerLeave={hideMobSvcHighlight}
                                 >
                                   <motion.div
-                                    className="hdr-mob-svc-highlight"
+                                    className="absolute left-1 right-1 rounded-lg bg-gradient-to-br from-[rgba(140,140,140,0.16)] to-[rgba(140,140,140,0.05)] border border-[rgba(140,140,140,0.28)] pointer-events-none z-0"
                                     animate={{
                                       top: mobSvcHighlight.top,
                                       height: mobSvcHighlight.height,
@@ -724,28 +539,41 @@ export default function Header() {
                                       mass: 0.6,
                                     }}
                                   />
-                                  <ul className="hdr-dropdown-list hdr-mob-svc-list">
+                                  <ul className="list-none m-0 p-0 relative z-[1]">
                                     {SERVICES.map((svc, i) => (
-                                      <li className="hdr-dropdown-item" key={svc.name}>
+                                      <li className="relative" key={svc.name}>
                                         <Link
                                           to={svc.href}
-                                          ref={(el) => (mobSvcItemRefs.current[i] = el)}
-                                          onPointerEnter={() => updateMobSvcHighlight(i)}
-                                          onPointerDown={() => updateMobSvcHighlight(i)}
-                                          onClick={(e) => handleNav(e, svc.href)}
+                                          ref={(el) =>
+                                            (mobSvcItemRefs.current[i] = el)
+                                          }
+                                          onPointerEnter={() =>
+                                            updateMobSvcHighlight(i)
+                                          }
+                                          onPointerDown={() =>
+                                            updateMobSvcHighlight(i)
+                                          }
+                                          onClick={(e) =>
+                                            handleNav(e, svc.href)
+                                          }
+                                          className="group relative flex items-center justify-between gap-3 px-[18px] py-[11px] no-underline"
                                         >
-                                          <span className="di-text">
-                                            <span className="di-name">{svc.name}</span>
-                                            <span className="di-desc">{svc.desc}</span>
+                                          <span className="flex flex-col gap-0.5 min-w-0 transition-transform duration-[250ms] ease-out group-hover:translate-x-[3px]">
+                                            <span className="font-['Bai_Jamjuree',sans-serif] text-[13.5px] font-semibold text-white tracking-[0.02em]">
+                                              {svc.name}
+                                            </span>
+                                            <span className="text-[11.5px] text-[#B8B8B8] font-serif leading-[1.4]">
+                                              {svc.desc}
+                                            </span>
                                           </span>
                                           <ChevronRight
-                                            className="di-arrow"
+                                            className="flex-shrink-0 text-[#8C8C8C] opacity-0 -translate-x-1.5 transition-all duration-[250ms] ease-out group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-white"
                                             size={16}
                                             strokeWidth={2}
                                           />
                                         </Link>
                                         {i < SERVICES.length - 1 && (
-                                          <div className="hdr-dropdown-divider" />
+                                          <div className="mx-[18px] h-px bg-[#2A2A2A] relative z-[1]" />
                                         )}
                                       </li>
                                     ))}
@@ -759,10 +587,13 @@ export default function Header() {
                     }
 
                     return (
-                      <motion.div key={link.label} variants={drawerItemVariants}>
+                      <motion.div
+                        key={link.label}
+                        variants={drawerItemVariants}
+                      >
                         <Link
                           to={link.href}
-                          className="hdr-mob-link"
+                          className="block py-[13px] text-sm font-semibold tracking-[0.06em] uppercase text-[#B8B8B8] no-underline border-b border-[#2A2A2A] transition-colors duration-200 hover:text-white"
                           onClick={() => setMobileOpen(false)}
                         >
                           {link.label}
@@ -773,15 +604,18 @@ export default function Header() {
 
                   <motion.a
                     href="tel:080-77976595"
-                    className="hdr-mob-cta"
+                    className="mt-3.5 flex items-center gap-2.5 bg-[#1A1A1A] border border-[#3D3D3D] rounded-lg px-3.5 py-2.5 no-underline"
                     variants={drawerItemVariants}
                   >
-                    <div className="hdr-mob-cta-icon">
-                      <Phone size={16} strokeWidth={2.5} color="#0B0B0B" />
-                    </div>
-                    <div className="hdr-mob-cta-text">
-                      <label>Need Help</label>
-                      <span>080-77976595</span>
+                    <div>
+                      <span className="text-[12px] font-bold text-white tracking-[0.03em]">
+                        080-77976595
+                      </span>
+                      ,
+                      <br/>
+                      <span className="text-[12px] font-bold text-white tracking-[0.03em]">
+                        +919876543210
+                      </span>
                     </div>
                   </motion.a>
                 </motion.nav>
@@ -791,26 +625,5 @@ export default function Header() {
         </AnimatePresence>
       </motion.header>
     </>
-  );
-}
-
-function ShieldIcon() {
-  return (
-    <svg viewBox="0 0 32 36" fill="none" width="26" height="26">
-      <path
-        d="M16 2L3 7v10c0 8.3 5.6 15.7 13 18 7.4-2.3 13-9.7 13-18V7L16 2z"
-        fill="#1A1A1A"
-        stroke="#8C8C8C"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M10 18l4 4 8-8"
-        stroke="#8C8C8C"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }

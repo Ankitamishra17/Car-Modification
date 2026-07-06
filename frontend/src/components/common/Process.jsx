@@ -72,7 +72,7 @@ export default function Process({
           <div className="hidden lg:block lg:col-span-2 sticky top-24 select-none pointer-events-none">
             <span 
               className="proc-heading text-[10rem] leading-[0.75] text-[#1F1F1F] tracking-widest uppercase block rotate-90 origin-left translate-x-10 -translate-y-8" 
-              style={{ WebkitTextStroke: "1px #2D2D2D", color: "transparent" }}
+              style={{ WebkitTextStroke: "1px #6f67679c", color: "transparent" }}
             >
               WORKFLOW
             </span>

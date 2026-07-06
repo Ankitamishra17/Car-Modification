@@ -68,11 +68,8 @@ export default function FounderStory() {
             {/* Bottom Content Area */}
             <div className="relative z-20 space-y-2">
               <div className="w-10 h-px bg-[#8C8C8C] transition-all duration-500 group-hover:w-16" />
-              <p className="fs-title text-xs text-[#B8B8B8]/70 uppercase tracking-widest">
-                Visual Showcase
-              </p>
               <h4 className="fs-title text-xl text-white font-light tracking-tight">
-                Sheikh Yasir <span className="text-[#8C8C8C] font-normal">/ Founder</span>
+                Sheikh Yasir <span className="text-white font-normal">/ Founder</span>
               </h4>
             </div>
           </motion.div>

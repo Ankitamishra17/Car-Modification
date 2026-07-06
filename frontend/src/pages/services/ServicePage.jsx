@@ -32,9 +32,9 @@ export default function ServicePage() {
         heading={service.whatIsIt.heading}
         tabs={service.whatIsIt.tabs}
       />
-      <Packages
+      {/* <Packages
         {...service.packagesSection}
-/>
+/> */}
           <Process 
             {...service.processSection}
           />

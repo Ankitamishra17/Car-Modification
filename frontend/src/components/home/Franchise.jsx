@@ -13,15 +13,15 @@ const IMAGES = {
   studio:
     "https://images.unsplash.com/photo-1632823469850-2f77dd9c7f93?q=80&w=1600&auto=format&fit=crop",
   training:
-    "https://images.unsplash.com/photo-1605437241278-c1806d14a4d9?q=80&w=1200&auto=format&fit=crop",
+    "https://i.pinimg.com/736x/0d/d3/cb/0dd3cb9ace2c521dccd0781bae46a33b.jpg",
   marketing:
-    "https://images.unsplash.com/photo-1632823471799-c3812077da2d?q=80&w=1200&auto=format&fit=crop",
+    "https://i.pinimg.com/736x/e5/bb/e0/e5bbe01fc74eb98fa427b98b430ae06b.jpg",
   supply:
-    "https://images.unsplash.com/photo-1620584898989-d39f7f9ed1b7?q=80&w=1200&auto=format&fit=crop",
+    "https://i.pinimg.com/736x/37/48/67/374867fcc9582e634a7f7fa8c9ee2c9b.jpg",
 };
 
 const INVESTMENT = [
-  { icon: Banknote, value: "OMR 18K–35K", label: "Total investment" },
+  { icon: Banknote, value: "€41–€79", label: "Total investment" },
   { icon: Ruler, value: "1,200+ sq.ft", label: "Minimum space" },
   { icon: TrendingUp, value: "18–24 mo", label: "Avg. payback period" },
 ];

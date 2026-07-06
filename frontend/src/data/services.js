@@ -80,58 +80,58 @@ export const SERVICES = [
       ],
     },
 
-    packagesSection: {
-      subtitle: "Protection Packages",
+    // packagesSection: {
+    //   subtitle: "Protection Packages",
 
-      heading: "CHOOSE YOUR LEVEL OF PROTECTION.",
+    //   heading: "CHOOSE YOUR LEVEL OF PROTECTION.",
 
-      packages: [
-        {
-          name: "Essential Front",
-          type: "Front-End PPF",
-          price: "OMR 180",
-          duration: "1 Day",
-          highlight: false,
+    //   packages: [
+    //     {
+    //       name: "Essential Front",
+    //       type: "Front-End PPF",
+    //       price: "OMR 180",
+    //       duration: "1 Day",
+    //       highlight: false,
 
-          features: [
-            "Front bumper protection",
-            "Partial bonnet coverage",
-            "Headlamp protection",
-            "Mirror protection",
-          ],
-        },
+    //       features: [
+    //         "Front bumper protection",
+    //         "Partial bonnet coverage",
+    //         "Headlamp protection",
+    //         "Mirror protection",
+    //       ],
+    //     },
 
-        {
-          name: "Performance Shield",
-          type: "Extended PPF Coverage",
-          price: "OMR 420",
-          duration: "2 Days",
-          highlight: true,
+    //     {
+    //       name: "Performance Shield",
+    //       type: "Extended PPF Coverage",
+    //       price: "OMR 420",
+    //       duration: "2 Days",
+    //       highlight: true,
 
-          features: [
-            "Complete front-end protection",
-            "A-pillars & roof edge",
-            "Door edge protection",
-            "Self-healing hydrophobic film",
-          ],
-        },
+    //       features: [
+    //         "Complete front-end protection",
+    //         "A-pillars & roof edge",
+    //         "Door edge protection",
+    //         "Self-healing hydrophobic film",
+    //       ],
+    //     },
 
-        {
-          name: "Signature Protection",
-          type: "Full Body PPF",
-          price: "OMR 850",
-          duration: "4–5 Days",
-          highlight: false,
+    //     {
+    //       name: "Signature Protection",
+    //       type: "Full Body PPF",
+    //       price: "OMR 850",
+    //       duration: "4–5 Days",
+    //       highlight: false,
 
-          features: [
-            "Complete vehicle coverage",
-            "Precision-cut premium film",
-            "UV & chemical resistance",
-            "Maximum paint preservation",
-          ],
-        },
-      ],
-    },
+    //       features: [
+    //         "Complete vehicle coverage",
+    //         "Precision-cut premium film",
+    //         "UV & chemical resistance",
+    //         "Maximum paint preservation",
+    //       ],
+    //     },
+    //   ],
+    // },
     processSection: {
       subtitle: "Installation Process",
 
@@ -171,11 +171,11 @@ export const SERVICES = [
       heading: "INVISIBLE PROTECTION. VISIBLE PERFECTION.",
 
       images: [
-        "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/1200x/61/75/db/6175db03c644d7e304ac5fbba775d198.jpg",
 
-        "https://images.pexels.com/photos/4489760/pexels-photo-4489760.jpeg",
+        "https://i.pinimg.com/736x/52/18/5a/52185a7990d2170e0e2977ff5782af18.jpg",
 
-        "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/1200x/a1/dd/6d/a1dd6d567d327c8c3a281fe4b1284621.jpg",
       ],
     },
     ctaSection: {
@@ -270,58 +270,58 @@ export const SERVICES = [
       ],
     },
 
-    packagesSection: {
-      subtitle: "Protection Packages",
+    // packagesSection: {
+    //   subtitle: "Protection Packages",
 
-      heading: "CHOOSE YOUR CERAMIC PROTECTION.",
+    //   heading: "CHOOSE YOUR CERAMIC PROTECTION.",
 
-      packages: [
-        {
-          name: "Essential Ceramic",
-          type: "Exterior Paint Protection",
-          price: "OMR 120",
-          duration: "1 Day",
-          highlight: false,
+    //   packages: [
+    //     {
+    //       name: "Essential Ceramic",
+    //       type: "Exterior Paint Protection",
+    //       price: "OMR 120",
+    //       duration: "1 Day",
+    //       highlight: false,
 
-          features: [
-            "Single-layer ceramic coating",
-            "Enhanced gloss & colour depth",
-            "Hydrophobic paint protection",
-            "UV & oxidation resistance",
-          ],
-        },
+    //       features: [
+    //         "Single-layer ceramic coating",
+    //         "Enhanced gloss & colour depth",
+    //         "Hydrophobic paint protection",
+    //         "UV & oxidation resistance",
+    //       ],
+    //     },
 
-        {
-          name: "Performance Ceramic",
-          type: "Multi-Surface Protection",
-          price: "OMR 220",
-          duration: "2 Days",
-          highlight: true,
+    //     {
+    //       name: "Performance Ceramic",
+    //       type: "Multi-Surface Protection",
+    //       price: "OMR 220",
+    //       duration: "2 Days",
+    //       highlight: true,
 
-          features: [
-            "Multi-layer ceramic coating",
-            "Paint, wheels & glass protection",
-            "Chemical & environmental resistance",
-            "Long-lasting hydrophobic finish",
-          ],
-        },
+    //       features: [
+    //         "Multi-layer ceramic coating",
+    //         "Paint, wheels & glass protection",
+    //         "Chemical & environmental resistance",
+    //         "Long-lasting hydrophobic finish",
+    //       ],
+    //     },
 
-        {
-          name: "Signature Ceramic",
-          type: "Complete Vehicle Protection",
-          price: "OMR 350",
-          duration: "2–3 Days",
-          highlight: false,
+    //     {
+    //       name: "Signature Ceramic",
+    //       type: "Complete Vehicle Protection",
+    //       price: "OMR 350",
+    //       duration: "2–3 Days",
+    //       highlight: false,
 
-          features: [
-            "Complete exterior ceramic coating",
-            "Glass, wheels, leather & interior trim protection",
-            "Maximum gloss enhancement",
-            "Tailored application for your vehicle",
-          ],
-        },
-      ],
-    },
+    //       features: [
+    //         "Complete exterior ceramic coating",
+    //         "Glass, wheels, leather & interior trim protection",
+    //         "Maximum gloss enhancement",
+    //         "Tailored application for your vehicle",
+    //       ],
+    //     },
+    //   ],
+    // },
     processSection: {
       subtitle: "Application Process",
 
@@ -361,11 +361,11 @@ export const SERVICES = [
       heading: "LASTING BRILLIANCE. EVERY DETAIL.",
 
       images: [
-        "https://images.pexels.com/photos/36483359/pexels-photo-36483359.png",
+        "https://i.pinimg.com/736x/29/2a/ef/292aefb2952504bf758e2a77cefa1789.jpg",
 
-        "https://images.pexels.com/photos/25189119/pexels-photo-25189119.jpeg",
+        "https://i.pinimg.com/736x/61/79/7e/61797ee87b1f2c455b10273f7fba0b5d.jpg",
 
-        "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/736x/2d/7a/d6/2d7ad69a281d1f498da2a886287b14e9.jpg",
       ],
     },
     ctaSection: {
@@ -460,58 +460,58 @@ export const SERVICES = [
       ],
     },
 
-    packagesSection: {
-      subtitle: "Refinishing Packages",
+    // packagesSection: {
+    //   subtitle: "Refinishing Packages",
 
-      heading: "CHOOSE YOUR REFINISHING SERVICE.",
+    //   heading: "CHOOSE YOUR REFINISHING SERVICE.",
 
-      packages: [
-        {
-          name: "Panel Refresh",
-          type: "Local Paint Repair",
-          price: "OMR 70",
-          duration: "1 Day",
-          highlight: false,
+    //   packages: [
+    //     {
+    //       name: "Panel Refresh",
+    //       type: "Local Paint Repair",
+    //       price: "OMR 70",
+    //       duration: "1 Day",
+    //       highlight: false,
 
-          features: [
-            "Single panel refinishing",
-            "Precision colour matching",
-            "Minor scratch & chip repair",
-            "Factory-quality finish",
-          ],
-        },
+    //       features: [
+    //         "Single panel refinishing",
+    //         "Precision colour matching",
+    //         "Minor scratch & chip repair",
+    //         "Factory-quality finish",
+    //       ],
+    //     },
 
-        {
-          name: "Precision Refinish",
-          type: "Multi-Panel Refinishing",
-          price: "OMR 180",
-          duration: "2–3 Days",
-          highlight: true,
+    //     {
+    //       name: "Precision Refinish",
+    //       type: "Multi-Panel Refinishing",
+    //       price: "OMR 180",
+    //       duration: "2–3 Days",
+    //       highlight: true,
 
-          features: [
-            "Multiple panel refinishing",
-            "Advanced paint preparation",
-            "Manufacturer colour matching",
-            "High-gloss finish",
-          ],
-        },
+    //       features: [
+    //         "Multiple panel refinishing",
+    //         "Advanced paint preparation",
+    //         "Manufacturer colour matching",
+    //         "High-gloss finish",
+    //       ],
+    //     },
 
-        {
-          name: "Signature Carrozzeria",
-          type: "Complete Vehicle Repaint",
-          price: "OMR 650",
-          duration: "5–7 Days",
-          highlight: false,
+    //     {
+    //       name: "Signature Carrozzeria",
+    //       type: "Complete Vehicle Repaint",
+    //       price: "OMR 650",
+    //       duration: "5–7 Days",
+    //       highlight: false,
 
-          features: [
-            "Complete vehicle repaint",
-            "Premium paint system",
-            "Factory-standard refinishing",
-            "Exceptional gloss & durability",
-          ],
-        },
-      ],
-    },
+    //       features: [
+    //         "Complete vehicle repaint",
+    //         "Premium paint system",
+    //         "Factory-standard refinishing",
+    //         "Exceptional gloss & durability",
+    //       ],
+    //     },
+    //   ],
+    // },
     processSection: {
       subtitle: "Refinishing Process",
 
@@ -551,11 +551,11 @@ export const SERVICES = [
       heading: "A FINISH THAT LOOKS ORIGINAL.",
 
       images: [
-        "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/1200x/dd/15/38/dd153887d7184f76900c524bbebc6d39.jpg",
 
-        "https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
+        "https://i.pinimg.com/736x/8d/f8/de/8df8decd8a3b119d19c7aa8f297db229.jpg",
 
-        "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/1200x/11/13/7c/11137c75a43394448b940bdb949a25c2.jpg",
       ],
     },
     ctaSection: {
@@ -651,58 +651,58 @@ export const SERVICES = [
       ],
     },
 
-    packagesSection: {
-      subtitle: "Restoration Packages",
+    // packagesSection: {
+    //   subtitle: "Restoration Packages",
 
-      heading: "CHOOSE YOUR RESTORATION PROGRAMME.",
+    //   heading: "CHOOSE YOUR RESTORATION PROGRAMME.",
 
-      packages: [
-        {
-          name: "Essential Revival",
-          type: "Exterior Restoration",
-          price: "OMR 180",
-          duration: "2 Days",
-          highlight: false,
+    //   packages: [
+    //     {
+    //       name: "Essential Revival",
+    //       type: "Exterior Restoration",
+    //       price: "OMR 180",
+    //       duration: "2 Days",
+    //       highlight: false,
 
-          features: [
-            "Paint restoration",
-            "Exterior trim renewal",
-            "Surface refinement",
-            "Protective finish",
-          ],
-        },
+    //       features: [
+    //         "Paint restoration",
+    //         "Exterior trim renewal",
+    //         "Surface refinement",
+    //         "Protective finish",
+    //       ],
+    //     },
 
-        {
-          name: "Heritage Restore",
-          type: "Interior & Exterior",
-          price: "OMR 350",
-          duration: "3–4 Days",
-          highlight: true,
+    //     {
+    //       name: "Heritage Restore",
+    //       type: "Interior & Exterior",
+    //       price: "OMR 350",
+    //       duration: "3–4 Days",
+    //       highlight: true,
 
-          features: [
-            "Paint & trim restoration",
-            "Interior refurbishment",
-            "Leather conditioning",
-            "Complete detailing",
-          ],
-        },
+    //       features: [
+    //         "Paint & trim restoration",
+    //         "Interior refurbishment",
+    //         "Leather conditioning",
+    //         "Complete detailing",
+    //       ],
+    //     },
 
-        {
-          name: "Signature Rinascita",
-          type: "Complete Vehicle Restoration",
-          price: "OMR 650",
-          duration: "5–7 Days",
-          highlight: false,
+    //     {
+    //       name: "Signature Rinascita",
+    //       type: "Complete Vehicle Restoration",
+    //       price: "OMR 650",
+    //       duration: "5–7 Days",
+    //       highlight: false,
 
-          features: [
-            "Complete vehicle restoration",
-            "Interior & exterior refinement",
-            "Protective treatments",
-            "Authentic finish preservation",
-          ],
-        },
-      ],
-    },
+    //       features: [
+    //         "Complete vehicle restoration",
+    //         "Interior & exterior refinement",
+    //         "Protective treatments",
+    //         "Authentic finish preservation",
+    //       ],
+    //     },
+    //   ],
+    // },
     processSection: {
       subtitle: "Restoration Process",
 
@@ -741,11 +741,11 @@ export const SERVICES = [
 
       heading: "REVIVING AUTOMOTIVE HERITAGE.",
       images: [
-        "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/1200x/be/ee/fb/beeefb33f78d9a38b6b21eb4d4251b50.jpg",
 
-        "https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
+        "https://i.pinimg.com/736x/07/06/e0/0706e0db560468de6b36f5f48e1bd4a6.jpg",
 
-        "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/736x/5a/1f/71/5a1f718140845c8a45f6bbecf50c915a.jpg",
       ],
     },
     ctaSection: {
@@ -839,58 +839,58 @@ export const SERVICES = [
       ],
     },
 
-    packagesSection: {
-      subtitle: "Interior Packages",
+    // packagesSection: {
+    //   subtitle: "Interior Packages",
 
-      heading: "CHOOSE YOUR RESTORATION PACKAGE.",
+    //   heading: "CHOOSE YOUR RESTORATION PACKAGE.",
 
-      packages: [
-        {
-          name: "Essential Interior",
-          type: "Deep Interior Care",
-          price: "OMR 80",
-          duration: "1 Day",
-          highlight: false,
+    //   packages: [
+    //     {
+    //       name: "Essential Interior",
+    //       type: "Deep Interior Care",
+    //       price: "OMR 80",
+    //       duration: "1 Day",
+    //       highlight: false,
 
-          features: [
-            "Complete interior cleaning",
-            "Leather conditioning",
-            "Dashboard & trim care",
-            "Fabric protection",
-          ],
-        },
+    //       features: [
+    //         "Complete interior cleaning",
+    //         "Leather conditioning",
+    //         "Dashboard & trim care",
+    //         "Fabric protection",
+    //       ],
+    //     },
 
-        {
-          name: "Premium Upholstery",
-          type: "Interior Restoration",
-          price: "OMR 180",
-          duration: "2 Days",
-          highlight: true,
+    //     {
+    //       name: "Premium Upholstery",
+    //       type: "Interior Restoration",
+    //       price: "OMR 180",
+    //       duration: "2 Days",
+    //       highlight: true,
 
-          features: [
-            "Leather restoration",
-            "Alcantara treatment",
-            "Seat & trim refurbishment",
-            "Protective conditioning",
-          ],
-        },
+    //       features: [
+    //         "Leather restoration",
+    //         "Alcantara treatment",
+    //         "Seat & trim refurbishment",
+    //         "Protective conditioning",
+    //       ],
+    //     },
 
-        {
-          name: "Signature Interior",
-          type: "Complete Cabin Restoration",
-          price: "OMR 320",
-          duration: "3 Days",
-          highlight: false,
+    //     {
+    //       name: "Signature Interior",
+    //       type: "Complete Cabin Restoration",
+    //       price: "OMR 320",
+    //       duration: "3 Days",
+    //       highlight: false,
 
-          features: [
-            "Complete interior restoration",
-            "Leather, fabric & Alcantara care",
-            "Dashboard & trim refinement",
-            "Long-lasting interior protection",
-          ],
-        },
-      ],
-    },
+    //       features: [
+    //         "Complete interior restoration",
+    //         "Leather, fabric & Alcantara care",
+    //         "Dashboard & trim refinement",
+    //         "Long-lasting interior protection",
+    //       ],
+    //     },
+    //   ],
+    // },
     processSection: {
       subtitle: "Restoration Process",
 
@@ -930,9 +930,10 @@ export const SERVICES = [
       heading: "LUXURY BEGINS INSIDE.",
 
       images: [
-        "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/736x/e0/b2/5c/e0b25c2f2e009da7eac0089ba7e17892.jpg",
 
-"https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
+        "https://i.pinimg.com/736x/35/cd/bc/35cdbc8b4b8633eb5b91b0253a37296e.jpg",
+
         "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
     },
@@ -1055,79 +1056,79 @@ export const SERVICES = [
       ],
     },
 
-    packagesSection: {
-      subtitle: "Correction Packages",
+    // packagesSection: {
+    //   subtitle: "Correction Packages",
 
-      heading: "CHOOSE YOUR LEVEL OF REFINEMENT.",
+    //   heading: "CHOOSE YOUR LEVEL OF REFINEMENT.",
 
-      packages: [
-        {
-          name: "Essential Correction",
+    //   packages: [
+    //     {
+    //       name: "Essential Correction",
 
-          type: "Single-Stage Polish",
+    //       type: "Single-Stage Polish",
 
-          price: "OMR 90",
+    //       price: "OMR 90",
 
-          duration: "1 Day",
+    //       duration: "1 Day",
 
-          highlight: false,
+    //       highlight: false,
 
-          features: [
-            "Light swirl mark removal",
+    //       features: [
+    //         "Light swirl mark removal",
 
-            "Gloss enhancement",
+    //         "Gloss enhancement",
 
-            "Surface refinement",
+    //         "Surface refinement",
 
-            "Paint preparation",
-          ],
-        },
+    //         "Paint preparation",
+    //       ],
+    //     },
 
-        {
-          name: "Precision Correction",
+    //     {
+    //       name: "Precision Correction",
 
-          type: "Multi-Stage Paint Correction",
+    //       type: "Multi-Stage Paint Correction",
 
-          price: "OMR 180",
+    //       price: "OMR 180",
 
-          duration: "2 Days",
+    //       duration: "2 Days",
 
-          highlight: true,
+    //       highlight: true,
 
-          features: [
-            "Swirl & hologram removal",
+    //       features: [
+    //         "Swirl & hologram removal",
 
-            "Oxidation correction",
+    //         "Oxidation correction",
 
-            "Enhanced colour depth",
+    //         "Enhanced colour depth",
 
-            "Mirror-like finish",
-          ],
-        },
+    //         "Mirror-like finish",
+    //       ],
+    //     },
 
-        {
-          name: "Signature Refinement",
+    //     {
+    //       name: "Signature Refinement",
 
-          type: "Complete Paint Restoration",
+    //       type: "Complete Paint Restoration",
 
-          price: "OMR 320",
+    //       price: "OMR 320",
 
-          duration: "3 Days",
+    //       duration: "3 Days",
 
-          highlight: false,
+    //       highlight: false,
 
-          features: [
-            "Comprehensive paint correction",
+    //       features: [
+    //         "Comprehensive paint correction",
 
-            "Maximum clarity & reflections",
+    //         "Maximum clarity & reflections",
 
-            "Surface perfection",
+    //         "Surface perfection",
 
-            "Ready for ceramic coating or PPF",
-          ],
-        },
-      ],
-    },
+    //         "Ready for ceramic coating or PPF",
+    //       ],
+    //     },
+    //   ],
+    // },
 
     processSection: {
       subtitle: "Correction Process",
@@ -1183,11 +1184,11 @@ export const SERVICES = [
       heading: "FROM IMPERFECTION TO PERFECTION.",
 
       images: [
-        "https://images.pexels.com/photos/6870296/pexels-photo-6870296.jpeg",
+        "https://i.pinimg.com/1200x/a7/23/d4/a723d4a4578f754e642a64d1834e67b8.jpg",
 
-        "https://images.pexels.com/photos/14615263/pexels-photo-14615263.jpeg",
+        "https://i.pinimg.com/1200x/39/16/46/391646333ada41b134f82430e6bbe3ad.jpg",
 
-        "https://images.pexels.com/photos/5233262/pexels-photo-5233262.jpeg",
+        "https://i.pinimg.com/1200x/a9/46/82/a946827601fc5b260c3af04186c6f98e.jpg",
       ],
     },
 
@@ -1276,51 +1277,51 @@ export const SERVICES = [
       ],
     },
 
-    packagesSection: {
-      subtitle: "Styling Packages",
-      heading: "CHOOSE YOUR DESIGNO PACKAGE.",
-      packages: [
-        {
-          name: "Essential Aero",
-          type: "Exterior Enhancement",
-          price: "OMR 150",
-          duration: "1 Day",
-          highlight: false,
-          features: [
-            "Front lip installation",
-            "Rear spoiler installation",
-            "Precision alignment",
-            "Factory-style fitment",
-          ],
-        },
-        {
-          name: "Performance Design",
-          type: "Carbon Fibre Package",
-          price: "OMR 350",
-          duration: "2 Days",
-          highlight: true,
-          features: [
-            "Carbon fibre splitters",
-            "Side skirt enhancements",
-            "Rear diffuser installation",
-            "Premium finishing",
-          ],
-        },
-        {
-          name: "Signature Designo",
-          type: "Complete Body Styling",
-          price: "OMR 750",
-          duration: "3–5 Days",
-          highlight: false,
-          features: [
-            "Complete body styling package",
-            "Carbon fibre enhancements",
-            "Bespoke exterior modifications",
-            "Factory-level integration",
-          ],
-        },
-      ],
-    },
+    // packagesSection: {
+    //   subtitle: "Styling Packages",
+    //   heading: "CHOOSE YOUR DESIGNO PACKAGE.",
+    //   packages: [
+    //     {
+    //       name: "Essential Aero",
+    //       type: "Exterior Enhancement",
+    //       price: "OMR 150",
+    //       duration: "1 Day",
+    //       highlight: false,
+    //       features: [
+    //         "Front lip installation",
+    //         "Rear spoiler installation",
+    //         "Precision alignment",
+    //         "Factory-style fitment",
+    //       ],
+    //     },
+    //     {
+    //       name: "Performance Design",
+    //       type: "Carbon Fibre Package",
+    //       price: "OMR 350",
+    //       duration: "2 Days",
+    //       highlight: true,
+    //       features: [
+    //         "Carbon fibre splitters",
+    //         "Side skirt enhancements",
+    //         "Rear diffuser installation",
+    //         "Premium finishing",
+    //       ],
+    //     },
+    //     {
+    //       name: "Signature Designo",
+    //       type: "Complete Body Styling",
+    //       price: "OMR 750",
+    //       duration: "3–5 Days",
+    //       highlight: false,
+    //       features: [
+    //         "Complete body styling package",
+    //         "Carbon fibre enhancements",
+    //         "Bespoke exterior modifications",
+    //         "Factory-level integration",
+    //       ],
+    //     },
+    //   ],
+    // },
     processSection: {
       subtitle: "Styling Process",
       heading: "DESIGNED WITH ABSOLUTE PRECISION.",
@@ -1357,9 +1358,9 @@ export const SERVICES = [
       heading: "INDIVIDUALITY CRAFTED TO PERFECTION.",
 
       images: [
-       "https://images.pexels.com/photos/12463575/pexels-photo-12463575.jpeg",
-       "https://images.pexels.com/photos/18339945/pexels-photo-18339945.jpeg",
-       "https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
+       "https://i.pinimg.com/1200x/2b/45/b4/2b45b4531338193a290377229128e527.jpg",
+       "https://i.pinimg.com/1200x/bb/33/40/bb3340a321f715c3cc920db455e046d9.jpg",
+       "https://i.pinimg.com/736x/54/33/33/5433338afd19321a991983d8fe811ac9.jpg",
       ],
     },
     ctaSection: {
@@ -1449,58 +1450,58 @@ export const SERVICES = [
       ],
     },
 
-    packagesSection: {
-      subtitle: "Performance Packages",
+    // packagesSection: {
+    //   subtitle: "Performance Packages",
 
-      heading: "CHOOSE YOUR PERFORMANCE UPGRADE.",
+    //   heading: "CHOOSE YOUR PERFORMANCE UPGRADE.",
 
-      packages: [
-        {
-          name: "Essential Performance",
-          type: "ECU Optimization",
-          price: "OMR 180",
-          duration: "1 Day",
-          highlight: false,
+    //   packages: [
+    //     {
+    //       name: "Essential Performance",
+    //       type: "ECU Optimization",
+    //       price: "OMR 180",
+    //       duration: "1 Day",
+    //       highlight: false,
 
-          features: [
-            "ECU calibration",
-            "Improved throttle response",
-            "Performance diagnostics",
-            "Professional tuning",
-          ],
-        },
+    //       features: [
+    //         "ECU calibration",
+    //         "Improved throttle response",
+    //         "Performance diagnostics",
+    //         "Professional tuning",
+    //       ],
+    //     },
 
-        {
-          name: "Performance Plus",
-          type: "Exhaust & Intake",
-          price: "OMR 450",
-          duration: "2 Days",
-          highlight: true,
+    //     {
+    //       name: "Performance Plus",
+    //       type: "Exhaust & Intake",
+    //       price: "OMR 450",
+    //       duration: "2 Days",
+    //       highlight: true,
 
-          features: [
-            "Premium exhaust system",
-            "Performance air intake",
-            "ECU optimization",
-            "Enhanced engine response",
-          ],
-        },
+    //       features: [
+    //         "Premium exhaust system",
+    //         "Performance air intake",
+    //         "ECU optimization",
+    //         "Enhanced engine response",
+    //       ],
+    //     },
 
-        {
-          name: "Signature Prestazioni",
-          type: "Complete Performance Package",
-          price: "OMR 850",
-          duration: "3–4 Days",
-          highlight: false,
+    //     {
+    //       name: "Signature Prestazioni",
+    //       type: "Complete Performance Package",
+    //       price: "OMR 850",
+    //       duration: "3–4 Days",
+    //       highlight: false,
 
-          features: [
-            "Custom ECU calibration",
-            "Performance exhaust",
-            "Premium intake upgrade",
-            "Complete performance tuning",
-          ],
-        },
-      ],
-    },
+    //       features: [
+    //         "Custom ECU calibration",
+    //         "Performance exhaust",
+    //         "Premium intake upgrade",
+    //         "Complete performance tuning",
+    //       ],
+    //     },
+    //   ],
+    // },
     processSection: {
       subtitle: "Engineering Process",
 
@@ -1540,11 +1541,11 @@ export const SERVICES = [
       heading: "POWER. PRECISION. REFINEMENT.",
 
       images: [
-        "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/1200x/df/ec/3d/dfec3d902a1303f715025c8b5cdd30ff.jpg",
 
-        "https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
+        "https://i.pinimg.com/736x/d1/cf/d0/d1cfd0965f67838ea75c27e4a81e761f.jpg",
 
-        "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/736x/3f/2a/c2/3f2ac2d8954133546d9b7dc6bf21b19a.jpg",
       ],
     },
     ctaSection: {
@@ -1638,58 +1639,58 @@ export const SERVICES = [
       ],
     },
 
-    packagesSection: {
-      subtitle: "Collections",
+    // packagesSection: {
+    //   subtitle: "Collections",
 
-      heading: "CHOOSE YOUR CARE COLLECTION.",
+    //   heading: "CHOOSE YOUR CARE COLLECTION.",
 
-      packages: [
-        {
-          name: "Essential Care",
-          type: "Maintenance Kit",
-          price: "OMR 35",
-          duration: "Take Home",
-          highlight: false,
+    //   packages: [
+    //     {
+    //       name: "Essential Care",
+    //       type: "Maintenance Kit",
+    //       price: "OMR 35",
+    //       duration: "Take Home",
+    //       highlight: false,
 
-          features: [
-            "Premium car shampoo",
-            "Microfiber towel",
-            "Quick detail spray",
-            "Tyre dressing",
-          ],
-        },
+    //       features: [
+    //         "Premium car shampoo",
+    //         "Microfiber towel",
+    //         "Quick detail spray",
+    //         "Tyre dressing",
+    //       ],
+    //     },
 
-        {
-          name: "Studio Collection",
-          type: "Professional Detailing Kit",
-          price: "OMR 85",
-          duration: "Take Home",
-          highlight: true,
+    //     {
+    //       name: "Studio Collection",
+    //       type: "Professional Detailing Kit",
+    //       price: "OMR 85",
+    //       duration: "Take Home",
+    //       highlight: true,
 
-          features: [
-            "Ceramic maintenance spray",
-            "Interior cleaner",
-            "Glass cleaner",
-            "Professional applicators",
-          ],
-        },
+    //       features: [
+    //         "Ceramic maintenance spray",
+    //         "Interior cleaner",
+    //         "Glass cleaner",
+    //         "Professional applicators",
+    //       ],
+    //     },
 
-        {
-          name: "Signature Boutique",
-          type: "Luxury Care Collection",
-          price: "OMR 160",
-          duration: "Take Home",
-          highlight: false,
+    //     {
+    //       name: "Signature Boutique",
+    //       type: "Luxury Care Collection",
+    //       price: "OMR 160",
+    //       duration: "Take Home",
+    //       highlight: false,
 
-          features: [
-            "Complete detailing kit",
-            "Premium accessories",
-            "Professional maintenance products",
-            "Luxury storage case",
-          ],
-        },
-      ],
-    },
+    //       features: [
+    //         "Complete detailing kit",
+    //         "Premium accessories",
+    //         "Professional maintenance products",
+    //         "Luxury storage case",
+    //       ],
+    //     },
+    //   ],
+    // },
     processSection: {
       subtitle: "Our Selection",
 
@@ -1729,11 +1730,11 @@ export const SERVICES = [
       heading: "PROFESSIONAL PRODUCTS. CURATED FOR ENTHUSIASTS.",
 
       images: [
-        "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/736x/c4/8e/12/c48e12e5ff8ae6e2a49c9fcf006c86af.jpg",
 
-        "https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
+        "https://i.pinimg.com/736x/ba/38/58/ba38588901d51674cb1854c8e37d1db5.jpg",
 
-        "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/736x/a3/95/5d/a3955d89987846faf6f3d074f9b15195.jpg",
       ],
     },
     ctaSection: {
@@ -1827,58 +1828,58 @@ export const SERVICES = [
       ],
     },
 
-    packagesSection: {
-      subtitle: "Training Programmes",
+    // packagesSection: {
+    //   subtitle: "Training Programmes",
 
-      heading: "CHOOSE YOUR LEARNING PATH.",
+    //   heading: "CHOOSE YOUR LEARNING PATH.",
 
-      packages: [
-        {
-          name: "Foundation Course",
-          type: "Professional Detailing",
-          price: "OMR 180",
-          duration: "2 Days",
-          highlight: false,
+    //   packages: [
+    //     {
+    //       name: "Foundation Course",
+    //       type: "Professional Detailing",
+    //       price: "OMR 180",
+    //       duration: "2 Days",
+    //       highlight: false,
 
-          features: [
-            "Paint correction fundamentals",
-            "Interior detailing",
-            "Professional product knowledge",
-            "Certificate of completion",
-          ],
-        },
+    //       features: [
+    //         "Paint correction fundamentals",
+    //         "Interior detailing",
+    //         "Professional product knowledge",
+    //         "Certificate of completion",
+    //       ],
+    //     },
 
-        {
-          name: "Professional Academy",
-          type: "PPF & Ceramic Training",
-          price: "OMR 450",
-          duration: "5 Days",
-          highlight: true,
+    //     {
+    //       name: "Professional Academy",
+    //       type: "PPF & Ceramic Training",
+    //       price: "OMR 450",
+    //       duration: "5 Days",
+    //       highlight: true,
 
-          features: [
-            "PPF installation",
-            "Ceramic coating systems",
-            "Machine polishing",
-            "Hands-on practical training",
-          ],
-        },
+    //       features: [
+    //         "PPF installation",
+    //         "Ceramic coating systems",
+    //         "Machine polishing",
+    //         "Hands-on practical training",
+    //       ],
+    //     },
 
-        {
-          name: "Master Craftsman",
-          type: "Complete Academy Programme",
-          price: "OMR 850",
-          duration: "10 Days",
-          highlight: false,
+    //     {
+    //       name: "Master Craftsman",
+    //       type: "Complete Academy Programme",
+    //       price: "OMR 850",
+    //       duration: "10 Days",
+    //       highlight: false,
 
-          features: [
-            "Complete detailing curriculum",
-            "Business development",
-            "Advanced restoration techniques",
-            "Professional certification",
-          ],
-        },
-      ],
-    },
+    //       features: [
+    //         "Complete detailing curriculum",
+    //         "Business development",
+    //         "Advanced restoration techniques",
+    //         "Professional certification",
+    //       ],
+    //     },
+    //   ],
+    // },
     processSection: {
       subtitle: "Learning Journey",
 
@@ -1918,11 +1919,11 @@ export const SERVICES = [
       heading: "WHERE KNOWLEDGE BECOMES CRAFTSMANSHIP.",
 
       images: [
-        "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/1200x/ec/de/ee/ecdeee3967050563a9ad0beeeeab65bb.jpg",
 
-        "https://images.pexels.com/photos/22040003/pexels-photo-22040003.jpeg",
+        "https://i.pinimg.com/1200x/fd/dd/04/fddd04ef7721c254e5d7f25347e90e43.jpg",
 
-        "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/736x/3f/29/b0/3f29b020d6cb74aafe5ba6b5ddab36e0.jpg",
       ],
     },
     ctaSection: {

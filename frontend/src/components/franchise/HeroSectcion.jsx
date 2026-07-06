@@ -141,7 +141,7 @@ export default function FranchisePage() {
         </motion.div>
 
         {/* Copy block */}
-        <div className="relative w-full max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 xs:px-5 sm:px-8 md:px-12 lg:px-16 pt-16 sm:pt-10 pb-28 xs:pb-32 sm:pb-40 md:pb-48">
+        <div className="relative w-full max-w-7xl 2xl:max-w-7xl mx-auto px-4 xs:px-5 sm:px-8 md:px-12 lg:px-16 mb-30">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -289,7 +289,7 @@ export default function FranchisePage() {
               </motion.div>
             ))}
           </motion.div>
-          <p className="text-[11px] xs:text-xs text-[#8C8C8C] mt-5 sm:mt-6" style={body}>
+          <p className="text-[10px] xs:text-xs text-[#8C8C8C] mt-5 sm:mt-6" style={body}>
             Figures are indicative and vary by city, studio size, and site
             conditions — final numbers confirmed during the site visit.
           </p>

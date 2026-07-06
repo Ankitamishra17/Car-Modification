@@ -13,18 +13,12 @@ const CONTACT = [
     value: "dettagliauto251@gmail.com",
     href: "mailto:dettagliauto251@gmail.com",
   },
-  {
-    icon: MapPin,
-    label: "Find a studio",
-    value: "6 cities across Oman",
-    href: "#locations",
-  },
 ];
 
 const TRUST = [
   { value: "6+", label: "Studios across Oman" },
-  { value: "6 yrs", label: "In the industry" },
-  { value: "40,000+", label: "Cars protected" },
+  { value: "26+ yrs", label: "In the industry" },
+  { value: "1,200+", label: "Cars protected" },
 ];
 
 export default function CTA() {

@@ -61,7 +61,7 @@ export default function OurProcess({ display, label, body }) {
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
           variants={fadeUp}
-          className="mb-10 sm:mb-12 lg:mb-14 space-y-3 max-w-7xl mx-auto"
+          className="mb-10 sm:mb-12 lg:mb-14 space-y-3 max-w-7xl px-12 mx-auto"
         >
           <div className="flex items-center gap-3">
             <span className="h-px w-6 bg-[#8C8C8C]" />

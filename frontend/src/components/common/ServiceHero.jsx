@@ -102,7 +102,7 @@ export default function ServiceHero({
             className="pt-6 flex flex-wrap gap-4 items-center"
           >
             {/* Primary Filled Metallic Button */}
-            <Link
+            {/* <Link
               to="/contact"
               className="sh-title group relative overflow-hidden bg-white text-black text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-none transition-all duration-300 flex items-center gap-2 hover:bg-[#8C8C8C] hover:text-white"
             >
@@ -111,15 +111,15 @@ export default function ServiceHero({
                 size={14}
                 className="transform transition-transform duration-300 group-hover:translate-x-1"
               />
-            </Link>
+            </Link> */}
 
             {/* Ghost Border Custom Button */}
-            <a
+            {/* <a
               href="tel:08077976595"
               className="sh-title relative border border-[#3D3D3D] text-white text-xs font-bold uppercase tracking-widest px-8 py-4 rounded-none transition-all duration-300 bg-transparent hover:border-white hover:bg-white/5"
             >
               Book Free Consultation
-            </a>
+            </a> */}
           </motion.div>
         </div>
       </div>

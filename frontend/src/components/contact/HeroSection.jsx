@@ -67,7 +67,7 @@ export default function ContactHero() {
           </p>
 
           {/* CTA Buttons */}
-          <div className="mt-10 flex flex-wrap gap-4">
+          {/* <div className="mt-10 flex flex-wrap gap-4">
             <Link
               to="/contact"
               className="group inline-flex items-center gap-3 bg-white px-8 py-4 font-[DM_Sans] text-sm font-semibold uppercase tracking-wider text-black transition-all duration-300 hover:bg-[#D5D5D5]"
@@ -85,7 +85,7 @@ export default function ContactHero() {
             >
               Book Consultation
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
