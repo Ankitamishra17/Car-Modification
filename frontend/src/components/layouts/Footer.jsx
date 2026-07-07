@@ -18,9 +18,60 @@ const QUICK_LINKS = [
   { label: "Contact", href: "/contact" },
 ];
 
+// ── Inline SVG flags (render reliably on every OS/browser, unlike emoji) ──
+const IndiaFlag = (props) => (
+  <svg viewBox="0 0 36 24" width="18" height="12" {...props}>
+    <rect width="36" height="8" y="0" fill="#FF9933" />
+    <rect width="36" height="8" y="8" fill="#FFFFFF" />
+    <rect width="36" height="8" y="16" fill="#138808" />
+    <circle cx="18" cy="12" r="3.2" fill="none" stroke="#000080" strokeWidth="0.5" />
+    <circle cx="18" cy="12" r="0.6" fill="#000080" />
+    {Array.from({ length: 24 }).map((_, i) => {
+      const angle = (i * 15 * Math.PI) / 180;
+      const x1 = 18 + 0.6 * Math.cos(angle);
+      const y1 = 12 + 0.6 * Math.sin(angle);
+      const x2 = 18 + 3.2 * Math.cos(angle);
+      const y2 = 12 + 3.2 * Math.sin(angle);
+      return (
+        <line
+          key={i}
+          x1={x1}
+          y1={y1}
+          x2={x2}
+          y2={y2}
+          stroke="#000080"
+          strokeWidth="0.25"
+        />
+      );
+    })}
+  </svg>
+);
+
+const OmanFlag = (props) => (
+  <svg viewBox="0 0 36 24" width="18" height="12" {...props}>
+    <rect width="36" height="24" fill="#FFFFFF" />
+    <rect width="36" height="8" y="8" fill="#FFFFFF" />
+    <rect width="36" height="8" y="0" fill="#DA020E" />
+    <rect width="36" height="8" y="16" fill="#008000" />
+    <rect width="10" height="24" fill="#DA020E" />
+  </svg>
+);
+
 const CONTACT_INFO = [
-  { icon: Phone, value: "080-77976595", href: "tel:080-77976595" },
-  { icon: Phone, value: "+9180-77976595", href: "tel:+9180-77976595" },
+  {
+    icon: Phone,
+    value: "080-77976595",
+    href: "tel:080-77976595",
+    Flag: IndiaFlag,
+    country: "India",
+  },
+  {
+    icon: Phone,
+    value: "+968 8077976595",
+    href: "tel:+9688077976595",
+    Flag: OmanFlag,
+    country: "Oman",
+  },
   {
     icon: Mail,
     value: "dettagliauto251@gmail.com",
@@ -28,8 +79,7 @@ const CONTACT_INFO = [
   },
   {
     icon: MapPin,
-    value:
-      "Oman",
+    value: "Oman",
     href: "#locations",
   },
 ];
@@ -90,32 +140,6 @@ const SOCIALS = [
       </svg>
     ),
   },
-  // {
-  //   label: "Facebook",
-  //   href: "#",
-  //   svg: (
-  //     <svg viewBox="0 0 24 24" fill="none" width="18" height="18" aria-hidden="true">
-  //       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.75"/>
-  //       <path
-  //         d="M13.5 8H15V5.5h-1.5C12 5.5 10.5 7 10.5 8.5V10H9v2.5h1.5V19H13v-6.5h1.5L15 10h-2V8.5c0-.3.2-.5.5-.5z"
-  //         fill="currentColor"
-  //       />
-  //     </svg>
-  //   ),
-  // },
-
-  // {
-  //   label: "X / Twitter",
-  //   href: "#",
-  //   svg: (
-  //     <svg viewBox="0 0 24 24" fill="none" width="18" height="18" aria-hidden="true">
-  //       <path
-  //         d="M4 4l6.5 7.5L4 20h2l5-5.7L15.5 20H20l-6.8-7.8L19.5 4h-2l-4.7 5.4L8.5 4H4z"
-  //         fill="currentColor"
-  //       />
-  //     </svg>
-  //   ),
-  // },
 ];
 
 export default function Footer({ display, label, body }) {
@@ -237,6 +261,19 @@ export default function Footer({ display, label, body }) {
           border-color: #FFFFFF;
           background: #2A2A2A;
           color: #FFFFFF;
+        }
+        .ftr-contact-value-row {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .ftr-contact-flag {
+          flex-shrink: 0;
+          border-radius: 2px;
+          overflow: hidden;
+          box-shadow: 0 0 0 1px rgba(255,255,255,0.15);
+          display: inline-block;
+          line-height: 0;
         }
         .ftr-contact-value {
           font-size: 14px; font-weight: 400;
@@ -388,14 +425,26 @@ export default function Footer({ display, label, body }) {
                 </div>
               </div>
               <ul className="ftr-contact-list">
-                {CONTACT_INFO.map(({ icon: Icon, value, href }) => (
+                {CONTACT_INFO.map(({ icon: Icon, value, href, Flag, country }) => (
                   <li className="ftr-contact-item" key={value}>
                     <Link to={href}>
                       <div className="ftr-contact-icon">
                         <Icon size={14} strokeWidth={2} />
                       </div>
-                      <div className="ftr-contact-value" style={body}>
-                        {value}
+                      <div className="ftr-contact-value-row">
+                        {Flag && (
+                          <span
+                            className="ftr-contact-flag"
+                            role="img"
+                            aria-label={country}
+                            title={country}
+                          >
+                            <Flag />
+                          </span>
+                        )}
+                        <div className="ftr-contact-value" style={body}>
+                          {value}
+                        </div>
                       </div>
                     </Link>
                   </li>
