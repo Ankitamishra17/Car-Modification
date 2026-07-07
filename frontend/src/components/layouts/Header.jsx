@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ChevronDown, ChevronRight, Menu, X, Phone } from "lucide-react";
+import { ChevronDown, ChevronRight, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SERVICES } from "../../data/services";
 import { Link } from "react-router-dom";
@@ -270,7 +270,7 @@ export default function Header() {
             <img
               src="/logo.png"
               alt="AutoLuxe logo"
-              className="h-[clamp(48px,8vw,72px)] w-auto max-w-[clamp(160px,36vw,260px)] object-contain block max-[400px]:h-[38px] max-[400px]:max-w-[130px]"
+              className="h-[clamp(48px,8vw,72px)] w-auto max-w-[clamp(160px,36vw,260px)] object-contain block max-[400px]:h-[380px] max-[400px]:max-w-[130px]"
             />
           </Link>
 
@@ -403,7 +403,7 @@ export default function Header() {
           {/* Right: Phone + mobile buttons */}
           <div className="flex items-center gap-[clamp(6px,1.5vw,12px)] flex-shrink-0">
             {/* Full numbers with flags — shown from lg (1024px) up so there is no
-                dead zone between the icon-only mobile button and this block */}
+                dead zone between the hamburger button and this block */}
             <div className="hidden lg:flex items-center gap-[clamp(5px,0.8vw,10px)]">
               {/* First Number — Oman */}
               <a
@@ -442,16 +442,6 @@ export default function Header() {
                     +91 98765 43210
                   </div>
                 </div>
-              </a>
-            </div>
-
-            <div className="flex lg:hidden items-center">
-              <a
-                href="tel:08077976595"
-                className="inline-flex items-center justify-center w-10 h-10 bg-[#8C8C8C] border-none cursor-pointer rounded-md text-[#0B0B0B] transition-colors duration-200 hover:bg-white flex-shrink-0"
-                aria-label="Call us"
-              >
-                <Phone size={18} strokeWidth={2.5} />
               </a>
             </div>
 
