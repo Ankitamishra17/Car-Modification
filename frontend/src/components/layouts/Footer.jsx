@@ -467,7 +467,7 @@ export default function Footer({ display, label, body }) {
             . All rights reserved.
           </div>
 
-          {/* Social icons */}
+          {/* Social icons
           <div className="ftr-socials">
             {SOCIALS.map(({ label: socLabel, href, svg }) => (
               <a
@@ -481,7 +481,7 @@ export default function Footer({ display, label, body }) {
                 {svg}
               </a>
             ))}
-          </div>
+          </div> */}
 
           {/* Legal */}
           <div className="ftr-legal">
