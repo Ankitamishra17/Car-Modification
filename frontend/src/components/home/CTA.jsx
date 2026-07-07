@@ -67,7 +67,7 @@ export default function CTA() {
 
             <p className="cta-sub mt-5 max-w-md text-[15px] font-light leading-relaxed text-[#B8B8B8]">
               Book a consultation, ask about a service, or enquire about
-              bringing AutoLuxe to your city — our team responds within one
+              bringing Dettagali Auto to your city — our team responds within one
               business day.
             </p>
 

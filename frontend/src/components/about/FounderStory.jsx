@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 /**
- * FounderStory — AutoLuxe (Enhanced Premium UI)
+ * FounderStory — Dettagali Auto (Enhanced Premium UI)
  *
  * Palette (fixed):
  *   Primary BG       #0B0B0B
@@ -58,12 +58,6 @@ export default function FounderStory() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/40 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-85" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#8C8C8C_0%,transparent_60%)] opacity-[0.05] transition-opacity duration-500 group-hover:opacity-[0.08]" /> */}
 
-            {/* Top Corner Accent */}
-            <div className="relative z-20 self-end border border-[#3D3D3D] px-3 py-1 rounded-full bg-[#0B0B0B]/80 backdrop-blur-md">
-              <p className="fs-title text-[10px] text-[#8C8C8C] tracking-widest uppercase font-medium">
-                Est. 1999
-              </p>
-            </div>
 
             {/* Bottom Content Area */}
             <div className="relative z-20 space-y-2">

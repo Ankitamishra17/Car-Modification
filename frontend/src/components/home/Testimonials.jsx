@@ -79,57 +79,57 @@ function SignalBars({ strength = 5, max = 5, active = false }) {
 const testimonials = [
   {
     code: "T.01",
-    name: "Khalid Al-Farsi",
+    name: "Raghav Garg",
     city: "Muscat",
     vehicle: "Nissan Patrol",
     strength: 5,
     quote:
-      "The ceramic coating job on my Patrol was flawless. Booked a slot in Al Khuwair and the studio ran exactly on the schedule they gave me — no surprises, no upselling.",
+      "Sheik Yasif ji the owner was a very knowledgeable and experienced person. He talked through and explained to me about all the different kind of products and helped me finalise on a matt PPF, which I am very happy about. He also had a close involvement with the working staff giving attention to detail and they also finished the whole job within 1 day. This places way more schematic than other car detailers and also had all the products that are available in the market, having no biases for one company or brand. The best part was the pricing, being very competitive compared to the other brands. Very impressed will surely visit again.",
   },
   {
     code: "T.02",
-    name: "Mariam Al-Zadjali",
+    name: "Suraj Shahani",
     city: "Sohar",
     vehicle: "Toyota Land Cruiser",
     strength: 5,
     quote:
-      "I was skeptical about paint correction on a car that's been through the Batinah heat and dust for years. It came back looking close to showroom. Genuinely impressed.",
+      "Absolutely outstanding car detailing experience! I got my BMW 3 Series detailed here, and the results were nothing short of exceptional. From the very first interaction, it was clear that Mr Sheikh and Mr Jatin bring immense industry knowledge and years of hands-on experience to the table. Every detail was handled with precision, and the process was explained clearly and confidently—something you only get from a true expert. The finish on my BMW is flawless, easily better than showroom condition. You can genuinely see the owner’s passion and deep understanding of premium car care in the final result. Highly recommended for anyone who wants their car treated by someone who truly knows the industry inside out.",
   },
   {
     code: "T.03",
-    name: "Sultan Al-Harthy",
+    name: "Rahul Mehta",
     city: "Salalah",
     vehicle: "BMW X5",
     strength: 4,
     quote:
-      "Good, honest detailing work and the team explained every stage before starting. Wait time was a little longer during Khareef season but worth it.",
+      "One of the best places in Delhi for detailing. Yasir Ji and his team Jatin and others have done the great job. The best place to give your new car without thinking twice. Its my second car in which i have done PPF. Highly recommended. ❤️👍",
   },
   {
     code: "T.04",
-    name: "Aisha Al-Kindi",
+    name: "Hariner Chowdhury",
     city: "Nizwa",
     vehicle: "Mitsubishi Pajero",
     strength: 5,
     quote:
-      "First detailing studio in the region that felt this professional. The interior deep-clean alone was worth the drive from Nizwa. Already booked my next visit.",
+      "Excellent service with awesome staff who was courteous and made me feel at home. Got my Innova Hycross PPF done thru them and there is no better “master” than them. Special call out to Mr. Sheikh, Mr. Khalid and Mr. Jatin …Dettagli Auto gains the name with executives like you. Thanks.",
   },
   {
     code: "T.05",
-    name: "Ahmed Al-Balushi",
+    name: "Sagina Jawa",
     city: "Sur",
     vehicle: "Ford Ranger",
     strength: 5,
     quote:
-      "Straightforward pricing, real before-and-after photos, and my Ranger's paintwork hasn't looked this good since I bought it. Will be back before the next Sur festival.",
+      "I am satisfied with their service. They did PPF coating, Ceramic coating, Car wash, Interior Dry Cleaning and paint job within 24 hours. My car is looking shiny and new. The work they did is flawless and they make sure you are satisfied with their work. Go for their service you will not regret.",
   },
   {
     code: "T.06",
-    name: "Zahra Al-Rawahi",
+    name: "Jai Khosla",
     city: "Muttrah",
     vehicle: "Lexus RX",
     strength: 4,
     quote:
-      "Booked through the Muttrah studio for a full protection package. Clean process, clear timelines, and they actually called to confirm before I arrived.",
+      "One of the best places in Delhi for detailing. Sheikh Yasir and his team comprising of Jatin and others is the perfect place to give your new and old car without thinking twice. Their passion for cars and detailing is the X-factor which makes them different and superior in this new booming industry. The way they treat their customers is a cherry on the cake. Highly recommended. I gave them my Tata Safari dark edition to be converted to Stealth edition (Matt) and what a brilliant job they have done.",
   },
 ];
 

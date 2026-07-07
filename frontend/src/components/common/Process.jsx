@@ -1,7 +1,7 @@
 import React from "react";
 
 /**
- * Process — AutoLuxe Premium 4-Step Ultra-Wide Layout
+ * Process — Dettagali Auto Premium 4-Step Ultra-Wide Layout
  */
 
 export default function Process({ 

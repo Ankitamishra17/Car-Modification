@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SERVICES } from "../../data/services";
 import { Link } from "react-router-dom";
 /**
- * Header — AutoLuxe (Tailwind CSS version)
+ * Header — Dettagali Auto (Tailwind CSS version)
  * Palette (fixed):
  *   Primary BG      #0B0B0B
  *   Secondary BG    #1A1A1A
@@ -264,12 +264,12 @@ export default function Header() {
           <Link
             to="/"
             className="flex items-center gap-2.5 no-underline flex-shrink-0 min-w-0"
-            aria-label="AutoLuxe home"
+            aria-label="Dettagali Auto home"
             onClick={(e) => handleNav(e, "#home")}
           >
             <img
               src="/logo.png"
-              alt="AutoLuxe logo"
+              alt="Dettagali Auto logo"
               className="h-[clamp(48px,8vw,72px)] w-auto max-w-[clamp(160px,36vw,260px)] object-contain block max-[400px]:h-[380px] max-[400px]:max-w-[130px]"
             />
           </Link>

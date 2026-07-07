@@ -3,7 +3,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 /**
- * Packages — AutoLuxe Highly Reusable Dynamic Component (Dual-Stroke Engine)
+ * Packages — Dettagali Auto Highly Reusable Dynamic Component (Dual-Stroke Engine)
  *
  * Usage in data arrays:
  * heading: "CHOOSE *ELITE* SERVICES *OR* COMPROMISE" -> 'ELITE' and 'OR' will become outlined strokes.

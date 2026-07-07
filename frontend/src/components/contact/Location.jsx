@@ -1,7 +1,7 @@
 import { Clock, Navigation, Phone } from "lucide-react";
 
 /**
- * ContactLocation — AutoLuxe
+ * ContactLocation — Dettagali Auto
  * Second section for the contact page: full-width background image
  * (workshop / garage photo) with dark overlay so it's instantly clear
  * this is the "find us" / location part of the Contact page.
@@ -121,7 +121,7 @@ export default function ContactLocation() {
 
       <div className="mx-auto max-w-7xl">
         <div className="cl-wrap">
-          <img src={BG_IMAGE} alt="AutoLuxe garage exterior" />
+          <img src={BG_IMAGE} alt="Dettagali Auto garage exterior" />
           <div className="cl-overlay" />
 
           {/* Location pin badge */}

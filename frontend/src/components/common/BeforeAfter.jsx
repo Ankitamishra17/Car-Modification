@@ -1,7 +1,7 @@
 import React from "react";
 
 /**
- * BeforeAfter — AutoLuxe Premium Transformation Gallery Component
+ * BeforeAfter — Dettagali Auto Premium Transformation Gallery Component
  * Target Words for Stroke: "THE" and "STUDIO"
  */
 

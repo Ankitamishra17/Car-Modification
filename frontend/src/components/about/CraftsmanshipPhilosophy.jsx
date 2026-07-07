@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 /**
- * CraftsmanshipPhilosophy — AutoLuxe — v3 (editorial layout)
+ * CraftsmanshipPhilosophy — Dettagali Auto — v3 (editorial layout)
  *
  * Palette (unchanged):
  *   Primary BG       #0B0B0B

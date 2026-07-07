@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 /**
- * ServiceHero — AutoLuxe (Premium Redesign)
+ * ServiceHero — Dettagali Auto (Premium Redesign)
  *
  * Palette (fixed):
  *   Primary BG       #0B0B0B

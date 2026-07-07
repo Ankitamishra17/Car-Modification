@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 /**
- * MilestoneStats — AutoLuxe (Exact Replica of image_ea27a3.png)
+ * MilestoneStats — Dettagali Auto (Exact Replica of image_ea27a3.png)
  *
  * Palette (fixed):
  *   Primary BG       #0B0B0B
@@ -22,7 +22,7 @@ export default function MilestoneStats() {
   // Screenshot ke matching content ke hisaab se order and data mapping
   const stats = [
     { id: "01", number: "26+", label: "Years of Expertise", tag: "SINCE 1999" },
-    { id: "02", number: "1999", label: "Studio Established", tag: "FOUNDED" },
+    { id: "02", number: "2000", label: "Studio Established", tag: "FOUNDED" },
     { id: "03", number: "1,200+", label: "Automobiles Detailed", tag: "TO DATE" },
   ];
 

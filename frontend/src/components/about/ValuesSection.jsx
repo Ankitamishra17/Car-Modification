@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 /**
- * ValuesSection — AutoLuxe (Premium Grid Redesign)
+ * ValuesSection — Dettagali Auto (Premium Grid Redesign)
  *
  * Palette (fixed):
  *   Primary BG       #0B0B0B

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ArrowUpRight, Phone, Mail, MapPin } from "lucide-react";
 
 /**
- * ContactHero — AutoLuxe
+ * ContactHero — Dettagali Auto
  *
  * Palette (fixed, do not deviate):
  *   Primary BG      #0B0B0B

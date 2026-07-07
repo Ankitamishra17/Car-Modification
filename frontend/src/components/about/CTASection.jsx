@@ -2,7 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 /**
- * CTA — AutoLuxe
+ * CTA — Dettagali Auto
  *
  * Palette (fixed):
  *   Primary BG      #0B0B0B

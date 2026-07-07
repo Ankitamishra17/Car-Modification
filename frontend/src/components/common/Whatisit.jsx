@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 /**
- * WhatIsIt — AutoLuxe (Enhanced Scale & "OR" Text Stroke)
+ * WhatIsIt — Dettagali Auto (Enhanced Scale & "OR" Text Stroke)
  * Now fully responsive: mobile (< 640px), tablet (640–1024px),
  * desktop (1024–1280px), and large desktop (1280px+).
  *

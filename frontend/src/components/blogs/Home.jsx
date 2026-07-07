@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Search, ArrowRight, ChevronDown } from "lucide-react";
 
 /**
- * BlogHero — AutoLuxe
+ * BlogHero — Dettagali Auto
  *
  * Background: Real MP4 video (Pexels free license) plays autoplay/muted/loop.
  * Dark overlay + silver gradient on top so text stays readable.

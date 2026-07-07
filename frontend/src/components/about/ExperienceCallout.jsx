@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 
 /**
- * ExperienceCallout — AutoLuxe (Premium Structural Redesign)
+ * ExperienceCallout — Dettagali Auto (Premium Structural Redesign)
  *
  * Palette (fixed):
  *   Primary BG       #0B0B0B
@@ -87,7 +87,7 @@ export default function ExperienceCallout() {
               className="border-t border-b border-[#3D3D3D]/50 py-6 space-y-2"
             >
               <span className="exc-title text-[10px] text-[#8C8C8C]/50 font-bold tracking-widest uppercase block">
-                Since 1999
+                Since 2020
               </span>
               <p className="exc-heading text-xl sm:text-2xl text-white tracking-wide uppercase">
                 BECAUSE PERFECTION IS NEVER ACCIDENTAL.
