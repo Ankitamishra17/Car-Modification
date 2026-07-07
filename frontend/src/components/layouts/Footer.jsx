@@ -49,9 +49,9 @@ const IndiaFlag = (props) => (
 
 const OmanFlag = (props) => (
   <svg viewBox="0 0 36 24" width="18" height="12" {...props}>
-    <rect width="36" height="24" fill="#FFFFFF" />
-    <rect width="36" height="8" y="8" fill="#FFFFFF" />
-    <rect width="36" height="8" y="0" fill="#DA020E" />
+    <rect width="36" height="24" fill="#DA020E" />
+    <rect width="36" height="8" y="8" fill="#DA020E" />
+    <rect width="36" height="8" y="0" fill="#FFFFFF" />
     <rect width="36" height="8" y="16" fill="#008000" />
     <rect width="10" height="24" fill="#DA020E" />
   </svg>
@@ -60,15 +60,15 @@ const OmanFlag = (props) => (
 const CONTACT_INFO = [
   {
     icon: Phone,
-    value: "080-77976595",
+    value: "+9180-77976595",
     href: "tel:080-77976595",
     Flag: IndiaFlag,
     country: "India",
   },
   {
     icon: Phone,
-    value: "+968 8077976595",
-    href: "tel:+9688077976595",
+    value: "08 8077976595",
+    href: "tel:088077976595",
     Flag: OmanFlag,
     country: "Oman",
   },
