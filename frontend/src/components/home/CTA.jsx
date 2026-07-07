@@ -8,6 +8,12 @@ const CONTACT = [
     href: "tel:08077976595",
   },
   {
+    icon: Phone,
+    label: "Call us",
+    value: "+9180-77976595",
+    href: "tel:+918077976595",
+  },
+  {
     icon: Mail,
     label: "Email us",
     value: "dettagliauto251@gmail.com",

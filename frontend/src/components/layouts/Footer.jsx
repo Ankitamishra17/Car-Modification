@@ -20,6 +20,7 @@ const QUICK_LINKS = [
 
 const CONTACT_INFO = [
   { icon: Phone, value: "080-77976595", href: "tel:080-77976595" },
+  { icon: Phone, value: "+9180-77976595", href: "tel:+9180-77976595" },
   {
     icon: Mail,
     value: "dettagliauto251@gmail.com",
@@ -28,7 +29,7 @@ const CONTACT_INFO = [
   {
     icon: MapPin,
     value:
-      "C, 32, Block C, Lajpat Nagar II, Lajpat Nagar, New Delhi, Delhi 110024",
+      "Oman",
     href: "#locations",
   },
 ];
