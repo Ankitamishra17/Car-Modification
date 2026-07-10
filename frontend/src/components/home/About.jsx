@@ -37,7 +37,7 @@ export default function About() {
         background: "#0B0B0B",
         position: "relative",
         overflow: "hidden",
-        padding: "110px 0 0",
+        padding: "0 40px",
       }}
     >
       <style>{`
