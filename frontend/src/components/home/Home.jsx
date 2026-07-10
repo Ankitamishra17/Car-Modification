@@ -358,6 +358,8 @@ export default function Hero() {
               fontSize: "clamp(52px, 9vw, 90px)",
               lineHeight: 0.9,
               margin: 0,
+              WebkitTextSizeAdjust: "100%",
+              textSizeAdjust: "100%",
             }}
           >
             <span
