@@ -34,29 +34,29 @@ export default function Hero() {
     >
       <style>{`
 
-        // @keyframes fadeUp {
-        //   from { opacity: 0; transform: translateY(16px); }
-        //   to   { opacity: 1; transform: translateY(0); }
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(16px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        @keyframes scrollPulse {
+          0%, 100% { opacity: 0.15; }
+          50% { opacity: 0.5; }
+        }
+        // @keyframes dotPulse {
+        //   0%, 100% { opacity: 0.5; transform: scale(1); }
+        //   50% { opacity: 1; transform: scale(1.35); }
         // }
-        // @keyframes fadeIn {
-        //   from { opacity: 0; }
-        //   to   { opacity: 1; }
-        // }
-        // @keyframes scrollPulse {
-        //   0%, 100% { opacity: 0.15; }
-        //   50% { opacity: 0.5; }
-        // }
-        // // @keyframes dotPulse {
-        // //   0%, 100% { opacity: 0.5; transform: scale(1); }
-        // //   50% { opacity: 1; transform: scale(1.35); }
-        // // }
-        // @media (prefers-reduced-motion: reduce) {
-        //   [style*="animation"] { animation: none !important; opacity: 1 !important; }
-        // }
+        @media (prefers-reduced-motion: reduce) {
+          [style*="animation"] { animation: none !important; opacity: 1 !important; }
+        }
 
         .hero-btn-primary {
           display: inline-flex; align-items: center; gap: 8px;
-          font-family: 'DM Sans', sans-serif;
+          // font-family: 'DM Sans', sans-serif;
           font-size: 13.5px; font-weight: 600;
           letter-spacing: 0.04em;
           padding: 14px 30px; border-radius: 3px;
@@ -76,7 +76,7 @@ export default function Hero() {
 
         .hero-btn-ghost {
           display: inline-flex; align-items: center; gap: 8px;
-          font-family: 'DM Sans', sans-serif;
+          // font-family: 'DM Sans', sans-serif;
           font-size: 13.5px; font-weight: 500;
           letter-spacing: 0.04em;
           padding: 13px 30px; border-radius: 3px;
@@ -103,7 +103,7 @@ export default function Hero() {
         .hero-stats { display: flex; gap: 36px; flex-wrap: wrap; }
         .hero-stat { display: flex; flex-direction: column; gap: 4px; }
         .hero-stat-value {
-          font-family: 'Bebas Neue', sans-serif;
+          // font-family: 'Bebas Neue', sans-serif;
           font-size: 34px; line-height: 1; letter-spacing: 0.01em;
           color: #F0F0F0;
           background: linear-gradient(135deg, #F5F5F5 0%, #9A9A9A 100%);
@@ -112,7 +112,7 @@ export default function Hero() {
           -webkit-text-fill-color: transparent;
         }
         .hero-stat-label {
-          font-family: 'DM Sans', sans-serif;
+          // font-family: 'DM Sans', sans-serif;
           font-size: 10.5px; font-weight: 500;
           letter-spacing: 0.08em; text-transform: uppercase;
           color: rgba(240,240,240,0.42);
@@ -228,14 +228,14 @@ export default function Hero() {
             border-left: 1px solid rgba(255,255,255,0.15);
           }
           .hero-mobile-stat-value {
-            font-family: 'Bebas Neue', sans-serif;
+            // font-family: 'Bebas Neue', sans-serif;
             font-size: 20px;
             line-height: 1;
             color: #F0F0F0;
             text-shadow: 0 2px 10px rgba(0,0,0,0.6);
           }
           .hero-mobile-stat-label {
-            font-family: 'DM Sans', sans-serif;
+            // font-family: 'DM Sans', sans-serif;
             font-size: 8px;
             font-weight: 500;
             letter-spacing: 0.06em;
