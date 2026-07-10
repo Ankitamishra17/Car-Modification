@@ -33,7 +33,6 @@ export default function Hero() {
       aria-label="Hero"
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(16px); }
