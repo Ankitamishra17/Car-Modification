@@ -388,7 +388,7 @@ export default function Hero() {
               maxWidth: 400,
               margin: "22px 0 34px",
               opacity: 0,
-              // animation: "fadeUp 0.75s ease-out 0.54s forwards",
+              animation: "fadeUp 0.75s ease-out 0.54s forwards",
             }}
           >
             From precision-cut Paint Protection Film (PPF) to complete restorations, bespoke body kits, and precision performance remapping—we redefine automotive excellence, one detail at a time.
