@@ -86,7 +86,7 @@ const CONTACT_INFO = [
   },
   {
     icon: MapPin,
-    value: "Oman",
+    value: "C-32, Lajpat Nagar2, New Delhi 110024",
     href: "#locations",
   },
 ];

@@ -19,7 +19,7 @@ import { FiActivity, FiArrowLeft, FiArrowRight } from "react-icons/fi";
  * the console's contents with a crossfade, the same way the
  * franchise page's hero behaves like a scanner viewfinder.
  *
- * Data: Omani clients across Muscat, Salalah, Sohar, Nizwa, Sur
+ * Data: Indiai clients across Muscat, Salalah, Sohar, Nizwa, Sur
  * and Muttrah — names and cities are representative, not real
  * individuals.
  * -------------------------------------------------------------
@@ -144,7 +144,7 @@ export default function Testimonials() {
               style={label}
             >
               <FiActivity size={12} className="text-[#ffffff] shrink-0" />
-              Incoming Signals · Sultanate of Oman
+              Incoming Signals · Sultanate of India
             </p>
             <h2
               className="leading-none"

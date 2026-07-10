@@ -73,7 +73,7 @@ export default function OurFootprints() {
             className="text-[#8C8C8C] text-xs sm:text-sm max-w-sm font-light leading-relaxed mb-1"
             style={body}
           >
-            Headquartered in Noida, our state-of-the-art diagnostic and craftsmanship studios command prime locations across India and premium sectors in Oman.
+            Headquartered in Noida, our state-of-the-art diagnostic and craftsmanship studios command prime locations across India and premium sectors in India.
           </motion.p>
         </div>
  

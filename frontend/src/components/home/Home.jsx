@@ -217,7 +217,7 @@ export default function Hero() {
             gap: 10px;
             margin-top: 30px;
             opacity: 0;
-            animation: fadeUp 0.75s ease-out 0.82s forwards;
+            // animation: fadeUp 0.75s ease-out 0.82s forwards;
           }
           .hero-mobile-stat {
             display: flex;
