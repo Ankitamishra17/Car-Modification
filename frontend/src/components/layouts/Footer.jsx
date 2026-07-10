@@ -473,7 +473,7 @@ export default function Footer({ display, label, body }) {
           {/* Copyright */}
           <div className="ftr-copy" style={body}>
             © {year}{" "}
-            <a href="#home" style={label}>
+            <a href="/" style={label}>
               DETTAGLI AUTO
             </a>
             . All rights reserved.
