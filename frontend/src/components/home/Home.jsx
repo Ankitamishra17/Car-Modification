@@ -50,8 +50,8 @@ export default function Hero() {
         //   0%, 100% { opacity: 0.5; transform: scale(1); }
         //   50% { opacity: 1; transform: scale(1.35); }
         // }
-        @media (prefers-reduced-motion: reduce) {
-          [style*="animation"] { animation: none !important; opacity: 1 !important; }
+        // @media (prefers-reduced-motion: reduce) {
+        //   [style*="animation"] { animation: none !important; opacity: 1 !important; }
         }
 
         .hero-btn-primary {
