@@ -354,11 +354,15 @@ export default function Hero() {
           <h1
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
-              fontSize: "clamp(52px, 9vw, 90px)",
+              // fontSize: "clamp(52px, 9vw, 90px)",
+              fontSize: "90px",
               lineHeight: 0.9,
               margin: 0,
               WebkitTextSizeAdjust: "100%",
               textSizeAdjust: "100%",
+              transition: "none",
+              transform: "none",
+              animation: "none",
             }}
           >
             <span
@@ -368,7 +372,7 @@ export default function Hero() {
                 WebkitTextStroke: "2px rgba(255,255,255,0.85)",
               }}
             >
-               L’arte della perfezione 
+              L’arte della perfezione
             </span>
             <span style={{ color: "#F0F0F0", display: "block" }}>
               su ogni dettaglio
@@ -390,7 +394,9 @@ export default function Hero() {
               animation: "fadeUp 0.75s ease-out 0.54s forwards",
             }}
           >
-            From precision-cut Paint Protection Film (PPF) to complete restorations, bespoke body kits, and precision performance remapping—we redefine automotive excellence, one detail at a time.
+            From precision-cut Paint Protection Film (PPF) to complete
+            restorations, bespoke body kits, and precision performance
+            remapping—we redefine automotive excellence, one detail at a time.
           </p>
 
           {/* Stats — desktop row */}
