@@ -4,8 +4,8 @@ const CONTACT = [
   {
     icon: Phone,
     label: "Call us",
-    value: "080-77976595",
-    href: "tel:08077976595",
+    value: "0124-432 1500",
+    href: "tel:0124-432 1500",
   },
   {
     icon: Phone,

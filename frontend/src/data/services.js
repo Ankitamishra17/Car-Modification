@@ -80,7 +80,6 @@ export const SERVICES = [
       ],
     },
 
-    // packagesSection: {
     //   subtitle: "Protection Packages",
 
     //   heading: "CHOOSE YOUR LEVEL OF PROTECTION.",
@@ -188,7 +187,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+080-77976595",
+      phone: "+9180-77976595",
     },
   },
 
@@ -270,7 +269,6 @@ export const SERVICES = [
       ],
     },
 
-    // packagesSection: {
     //   subtitle: "Protection Packages",
 
     //   heading: "CHOOSE YOUR CERAMIC PROTECTION.",
@@ -378,7 +376,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+080-77976595",
+      phone: "+9180-77976595",
     },
   },
   {
@@ -459,8 +457,6 @@ export const SERVICES = [
         },
       ],
     },
-
-    // packagesSection: {
     //   subtitle: "Refinishing Packages",
 
     //   heading: "CHOOSE YOUR REFINISHING SERVICE.",
@@ -568,7 +564,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+080-77976595",
+      phone: "+9180-77976595",
     },
   },
 
@@ -651,7 +647,6 @@ export const SERVICES = [
       ],
     },
 
-    // packagesSection: {
     //   subtitle: "Restoration Packages",
 
     //   heading: "CHOOSE YOUR RESTORATION PROGRAMME.",
@@ -758,7 +753,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+080-77976595",
+      phone: "+9180-77976595",
     },
   },
   {
@@ -839,7 +834,6 @@ export const SERVICES = [
       ],
     },
 
-    // packagesSection: {
     //   subtitle: "Interior Packages",
 
     //   heading: "CHOOSE YOUR RESTORATION PACKAGE.",
@@ -947,7 +941,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+080-77976595",
+      phone: "+9180-77976595",
     },
   },
   {
@@ -1055,8 +1049,6 @@ export const SERVICES = [
         },
       ],
     },
-
-    // packagesSection: {
     //   subtitle: "Correction Packages",
 
     //   heading: "CHOOSE YOUR LEVEL OF REFINEMENT.",
@@ -1202,7 +1194,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+080-77976595",
+      phone: "+9180-77976595",
     },
   },
   {
@@ -1277,7 +1269,6 @@ export const SERVICES = [
       ],
     },
 
-    // packagesSection: {
     //   subtitle: "Styling Packages",
     //   heading: "CHOOSE YOUR DESIGNO PACKAGE.",
     //   packages: [
@@ -1369,7 +1360,7 @@ export const SERVICES = [
         "Book a consultation with our styling specialists and discover a bespoke body styling solution tailored to your vehicle.",
       buttonText: "Book a Consultation",
       buttonLink: "/contact",
-      phone: "+080-77976595",
+      phone: "+9180-77976595",
     },
   },
   {
@@ -1450,7 +1441,6 @@ export const SERVICES = [
       ],
     },
 
-    // packagesSection: {
     //   subtitle: "Performance Packages",
 
     //   heading: "CHOOSE YOUR PERFORMANCE UPGRADE.",
@@ -1558,7 +1548,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+080-77976595",
+      phone: "+9180-77976595",
     },
   },
   {
@@ -1639,7 +1629,6 @@ export const SERVICES = [
       ],
     },
 
-    // packagesSection: {
     //   subtitle: "Collections",
 
     //   heading: "CHOOSE YOUR CARE COLLECTION.",
@@ -1747,7 +1736,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+080-77976595",
+      phone: "+9180-77976595",
     },
   },
   {
@@ -1828,7 +1817,6 @@ export const SERVICES = [
       ],
     },
 
-    // packagesSection: {
     //   subtitle: "Training Programmes",
 
     //   heading: "CHOOSE YOUR LEARNING PATH.",
@@ -1936,7 +1924,7 @@ export const SERVICES = [
 
       buttonLink: "/contact",
 
-      phone: "+080-77976595",
+      phone: "+9180-77976595",
     },
   },
 ];

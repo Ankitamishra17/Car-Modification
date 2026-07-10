@@ -407,7 +407,7 @@ export default function Header() {
             <div className="hidden lg:flex items-center gap-[clamp(5px,0.8vw,10px)]">
               {/* First Number — Oman */}
               <a
-                href="tel:08077976595"
+                href="tel:0124-432 1500"
                 className="flex items-center gap-1.5 no-underline"
               >
                 <img
@@ -418,7 +418,7 @@ export default function Header() {
                 />
                 <div className="leading-[1.2]">
                   <div className="text-[clamp(11.5px,0.9vw,15px)] font-bold text-white tracking-[0.03em] whitespace-nowrap">
-                    080-77976595
+                    0124-432 1500
                   </div>
                 </div>
               </a>
@@ -428,7 +428,7 @@ export default function Header() {
 
               {/* Second Number — India */}
               <a
-                href="tel:+919876543210"
+                href="tel:+9180-77976595"
                 className="flex items-center gap-1.5 no-underline"
               >
                 <img
@@ -439,7 +439,7 @@ export default function Header() {
                 />
                 <div className="leading-[1.2]">
                   <div className="text-[clamp(11.5px,0.9vw,15px)] font-bold text-white tracking-[0.03em] whitespace-nowrap">
-                    +91 98765 43210
+                    +91 80-77976595
                   </div>
                 </div>
               </a>

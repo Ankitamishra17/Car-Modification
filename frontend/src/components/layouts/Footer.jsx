@@ -24,7 +24,14 @@ const IndiaFlag = (props) => (
     <rect width="36" height="8" y="0" fill="#FF9933" />
     <rect width="36" height="8" y="8" fill="#FFFFFF" />
     <rect width="36" height="8" y="16" fill="#138808" />
-    <circle cx="18" cy="12" r="3.2" fill="none" stroke="#000080" strokeWidth="0.5" />
+    <circle
+      cx="18"
+      cy="12"
+      r="3.2"
+      fill="none"
+      stroke="#000080"
+      strokeWidth="0.5"
+    />
     <circle cx="18" cy="12" r="0.6" fill="#000080" />
     {Array.from({ length: 24 }).map((_, i) => {
       const angle = (i * 15 * Math.PI) / 180;
@@ -61,14 +68,14 @@ const CONTACT_INFO = [
   {
     icon: Phone,
     value: "+9180-77976595",
-    href: "tel:080-77976595",
+    href: "tel:+9180-77976595",
     Flag: IndiaFlag,
     country: "India",
   },
   {
     icon: Phone,
-    value: "08 8077976595",
-    href: "tel:088077976595",
+    value: "0124-432 1500",
+    href: "tel:0124-432 1500",
     Flag: OmanFlag,
     country: "Oman",
   },
@@ -425,30 +432,35 @@ export default function Footer({ display, label, body }) {
                 </div>
               </div>
               <ul className="ftr-contact-list">
-                {CONTACT_INFO.map(({ icon: Icon, value, href, Flag, country }) => (
-                  <li className="ftr-contact-item" key={value}>
-                    <Link to={href}>
-                      <div className="ftr-contact-icon">
-                        <Icon size={14} strokeWidth={2} />
-                      </div>
-                      <div className="ftr-contact-value-row">
-                        {Flag && (
-                          <span
-                            className="ftr-contact-flag"
-                            role="img"
-                            aria-label={country}
-                            title={country}
-                          >
-                            <Flag />
-                          </span>
+                {CONTACT_INFO.map(
+                  ({ icon: Icon, value, href, Flag, country }) => (
+                    <li className="ftr-contact-item" key={value}>
+                      <Link to={href}>
+                        {Icon !== Phone && (
+                          <div className="ftr-contact-icon">
+                            <Icon size={14} strokeWidth={2} />
+                          </div>
                         )}
-                        <div className="ftr-contact-value" style={body}>
-                          {value}
+
+                        <div className="ftr-contact-value-row">
+                          {Flag && (
+                            <span
+                              className="ftr-contact-flag"
+                              role="img"
+                              aria-label={country}
+                              title={country}
+                            >
+                              <Flag />
+                            </span>
+                          )}
+                          <div className="ftr-contact-value" style={body}>
+                            {value}
+                          </div>
                         </div>
-                      </div>
-                    </Link>
-                  </li>
-                ))}
+                      </Link>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           </div>
