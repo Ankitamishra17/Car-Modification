@@ -55,6 +55,15 @@ export default function Hero() {
           [style*="animation"] { animation: none !important; opacity: 1 !important; }
         }
 
+        /* Force the heading to stay static — prevents any external/cascading
+           zoom (scale) animation from being applied to it. */
+        .hero-inner h1,
+        .hero-inner h1 span {
+          animation: none !important;
+          transform: none !important;
+          opacity: 1 !important;
+        }
+
         .hero-btn-primary {
           display: inline-flex; align-items: center; gap: 8px;
           font-family: 'DM Sans', sans-serif;
@@ -358,6 +367,8 @@ export default function Hero() {
               fontSize: "clamp(52px, 9vw, 90px)",
               lineHeight: 0.9,
               margin: 0,
+              animation: "none",
+              transform: "none",
             }}
           >
             <span
@@ -365,11 +376,20 @@ export default function Hero() {
                 color: "#F0F0F0",
                 display: "block",
                 WebkitTextStroke: "2px rgba(255,255,255,0.85)",
+                animation: "none",
+                transform: "none",
               }}
             >
                L’arte della perfezione 
             </span>
-            <span style={{ color: "#F0F0F0", display: "block" }}>
+            <span
+              style={{
+                color: "#F0F0F0",
+                display: "block",
+                animation: "none",
+                transform: "none",
+              }}
+            >
               su ogni dettaglio
             </span>
           </h1>
