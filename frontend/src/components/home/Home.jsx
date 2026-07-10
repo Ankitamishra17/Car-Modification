@@ -55,15 +55,6 @@ export default function Hero() {
           [style*="animation"] { animation: none !important; opacity: 1 !important; }
         }
 
-        /* Force the heading to stay static — prevents any external/cascading
-           zoom (scale) animation from being applied to it. */
-        .hero-inner h1,
-        .hero-inner h1 span {
-          animation: none !important;
-          transform: none !important;
-          opacity: 1 !important;
-        }
-
         .hero-btn-primary {
           display: inline-flex; align-items: center; gap: 8px;
           font-family: 'DM Sans', sans-serif;
@@ -367,8 +358,6 @@ export default function Hero() {
               fontSize: "clamp(52px, 9vw, 90px)",
               lineHeight: 0.9,
               margin: 0,
-              animation: "none",
-              transform: "none",
             }}
           >
             <span
@@ -376,20 +365,11 @@ export default function Hero() {
                 color: "#F0F0F0",
                 display: "block",
                 WebkitTextStroke: "2px rgba(255,255,255,0.85)",
-                animation: "none",
-                transform: "none",
               }}
             >
                L’arte della perfezione 
             </span>
-            <span
-              style={{
-                color: "#F0F0F0",
-                display: "block",
-                animation: "none",
-                transform: "none",
-              }}
-            >
+            <span style={{ color: "#F0F0F0", display: "block" }}>
               su ogni dettaglio
             </span>
           </h1>
@@ -402,11 +382,11 @@ export default function Hero() {
               fontSize: 15.5,
               fontWeight: 300,
               lineHeight: 1.75,
-              color: "rgba(240, 240, 240, 0.88)",
+              color: "rgba(240,240,240,0.62)",
               maxWidth: 400,
               margin: "22px 0 34px",
               opacity: 0,
-              animation: "fadeUp 0.75s ease-out 0.54s forwards",
+              // animation: "fadeUp 0.75s ease-out 0.54s forwards",
             }}
           >
             From precision-cut Paint Protection Film (PPF) to complete restorations, bespoke body kits, and precision performance remapping—we redefine automotive excellence, one detail at a time.
