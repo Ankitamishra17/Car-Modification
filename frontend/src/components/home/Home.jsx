@@ -790,9 +790,8 @@ export default function Hero() {
           {/* H1 */}
           <h1
             style={{
-              // fontFamily:
-              //   "'Bebas Neue', Impact, 'Arial Narrow', 'Franklin Gothic Bold', sans-serif",
-              // fontSize: "clamp(52px, 9vw, 90px)",
+              fontFamily: "'Bebas Neue', sans-serif",
+           
               fontSize: "90px",
               lineHeight: 0.9,
               margin: 0,
