@@ -137,6 +137,7 @@ export default function SidePanel() {
           border-top: 1px solid rgba(255,255,255,0.1);
         }
         .side-box:hover {
+          border; 
           background: rgba(224,224,224,0.08);
           color: #F5F5F5;
         }
@@ -168,27 +169,53 @@ export default function SidePanel() {
 
 .side-box .side-tooltip {
   position: absolute;
-  right: calc(100% + 12px);
+  right: calc(100% + 16px);
   top: 50%;
-  transform: translateY(-50%) translateX(6px);
+  transform: translateY(-50%) translateX(12px) scale(0.95);
+
   white-space: nowrap;
-  font-size: 11px;
+  padding: 10px 16px;
+
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+
   color: #fff;
-  background: rgba(15, 15, 15, 0.95);
-  border: 1px solid rgba(255,255,255,0.12);
-  padding: 7px 12px;
-  border-radius: 4px;
+  background: rgba(15, 15, 15, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(14px);
+
+  border-radius: 8px;
+  box-shadow:
+    0 12px 35px rgba(0,0,0,.35),
+    0 0 0 1px rgba(255,255,255,.05);
+
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: all 0.25s ease;
+
+  transition: all .28s cubic-bezier(.22,1,.36,1);
+}
+  .side-box .side-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -6px;
+  transform: translateY(-50%) rotate(45deg);
+
+  width: 12px;
+  height: 12px;
+
+  background: rgba(15, 15, 15, 0.96);
+  border-top: 1px solid rgba(255,255,255,.12);
+  border-right: 1px solid rgba(255,255,255,.12);
 }
 
 .side-box:hover .side-tooltip {
   opacity: 1;
-  transform: translateY(-50%) translateX(0);
+  visibility: visible;
+  transform: translateY(-50%) translateX(0) scale(1);
 }
 
         @media (max-width: 768px) {
