@@ -34,25 +34,25 @@ export default function Hero() {
     >
       <style>{`
 
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(16px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to   { opacity: 1; }
-        }
-        @keyframes scrollPulse {
-          0%, 100% { opacity: 0.15; }
-          50% { opacity: 0.5; }
-        }
-        // @keyframes dotPulse {
-        //   0%, 100% { opacity: 0.5; transform: scale(1); }
-        //   50% { opacity: 1; transform: scale(1.35); }
+        // @keyframes fadeUp {
+        //   from { opacity: 0; transform: translateY(16px); }
+        //   to   { opacity: 1; transform: translateY(0); }
         // }
+        // @keyframes fadeIn {
+        //   from { opacity: 0; }
+        //   to   { opacity: 1; }
+        // }
+        // @keyframes scrollPulse {
+        //   0%, 100% { opacity: 0.15; }
+        //   50% { opacity: 0.5; }
+        // }
+        // // @keyframes dotPulse {
+        // //   0%, 100% { opacity: 0.5; transform: scale(1); }
+        // //   50% { opacity: 1; transform: scale(1.35); }
+        // // }
         // @media (prefers-reduced-motion: reduce) {
         //   [style*="animation"] { animation: none !important; opacity: 1 !important; }
-        }
+        // }
 
         .hero-btn-primary {
           display: inline-flex; align-items: center; gap: 8px;
