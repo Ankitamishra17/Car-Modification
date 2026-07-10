@@ -46,26 +46,10 @@ export default function FounderStory() {
           >
             {/* The Actual Background Image */}
             <img 
-              src="https://img.magnific.com/premium-photo/man-with-arms-crossed-standing-front-window-dynamic-tech-startup-founder-incorporating-islamic-principles-into-his-innovative-business-model_538213-71092.jpg?semt=ais_hybrid&w=740&q=80" // <-- Apna image link yahan lagayein
+              src="/founder.jpeg"
               alt="Sheikh Yasir - Founder of Dettagli Auto" 
               className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-105  group-hover:grayscale-0"
             />
-
-            {/* Premium Inner Geometric Border (Image ke side me border) */}
-            <div className="absolute inset-4 border border-[#3D3D3D]/40 rounded-xl pointer-events-none z-10 transition-all duration-500 group-hover:border-[#8C8C8C]/40" />
-
-            {/* Dark & Luxury Overlays for Text Contrast
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/40 to-transparent opacity-90 transition-opacity duration-500 group-hover:opacity-85" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,#8C8C8C_0%,transparent_60%)] opacity-[0.05] transition-opacity duration-500 group-hover:opacity-[0.08]" /> */}
-
-
-            {/* Bottom Content Area */}
-            <div className="relative z-20 space-y-2">
-              <div className="w-10 h-px bg-[#8C8C8C] transition-all duration-500 group-hover:w-16" />
-              <h4 className="fs-title text-xl text-white font-light tracking-tight">
-                Sheikh Yasir <span className="text-white font-normal">/ Founder</span>
-              </h4>
-            </div>
           </motion.div>
 
           {/* Right: Text Layout */}

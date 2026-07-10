@@ -79,18 +79,14 @@ function SignalBars({ strength = 5, max = 5, active = false }) {
 const testimonials = [
   {
     code: "T.01",
-    name: "Raghav Garg",
-    city: "Muscat",
-    vehicle: "Nissan Patrol",
+    name: "Tannu Garg",
     strength: 5,
     quote:
-      "Sheik Yasif ji the owner was a very knowledgeable and experienced person. He talked through and explained to me about all the different kind of products and helped me finalise on a matt PPF, which I am very happy about. He also had a close involvement with the working staff giving attention to detail and they also finished the whole job within 1 day. This places way more schematic than other car detailers and also had all the products that are available in the market, having no biases for one company or brand. The best part was the pricing, being very competitive compared to the other brands. Very impressed will surely visit again.",
+      "It was an excellent experience for me using your service. The ppf and ceramic Coatings done by you were one of the best I have ever seen. My car looking shiny and new . They provide a really fast service. I got my car done in under 24 hours. My car looks nice🤩.",
   },
   {
     code: "T.02",
     name: "Suraj Shahani",
-    city: "Sohar",
-    vehicle: "Toyota Land Cruiser",
     strength: 5,
     quote:
       "Absolutely outstanding car detailing experience! I got my BMW 3 Series detailed here, and the results were nothing short of exceptional. From the very first interaction, it was clear that Mr Sheikh and Mr Jatin bring immense industry knowledge and years of hands-on experience to the table. Every detail was handled with precision, and the process was explained clearly and confidently—something you only get from a true expert. The finish on my BMW is flawless, easily better than showroom condition. You can genuinely see the owner’s passion and deep understanding of premium car care in the final result. Highly recommended for anyone who wants their car treated by someone who truly knows the industry inside out.",
@@ -98,8 +94,6 @@ const testimonials = [
   {
     code: "T.03",
     name: "Rahul Mehta",
-    city: "Salalah",
-    vehicle: "BMW X5",
     strength: 4,
     quote:
       "One of the best places in Delhi for detailing. Yasir Ji and his team Jatin and others have done the great job. The best place to give your new car without thinking twice. Its my second car in which i have done PPF. Highly recommended. ❤️👍",
@@ -107,8 +101,6 @@ const testimonials = [
   {
     code: "T.04",
     name: "Hariner Chowdhury",
-    city: "Nizwa",
-    vehicle: "Mitsubishi Pajero",
     strength: 5,
     quote:
       "Excellent service with awesome staff who was courteous and made me feel at home. Got my Innova Hycross PPF done thru them and there is no better “master” than them. Special call out to Mr. Sheikh, Mr. Khalid and Mr. Jatin …Dettagli Auto gains the name with executives like you. Thanks.",
@@ -116,8 +108,6 @@ const testimonials = [
   {
     code: "T.05",
     name: "Sagina Jawa",
-    city: "Sur",
-    vehicle: "Ford Ranger",
     strength: 5,
     quote:
       "I am satisfied with their service. They did PPF coating, Ceramic coating, Car wash, Interior Dry Cleaning and paint job within 24 hours. My car is looking shiny and new. The work they did is flawless and they make sure you are satisfied with their work. Go for their service you will not regret.",
@@ -125,8 +115,6 @@ const testimonials = [
   {
     code: "T.06",
     name: "Jai Khosla",
-    city: "Muttrah",
-    vehicle: "Lexus RX",
     strength: 4,
     quote:
       "One of the best places in Delhi for detailing. Sheikh Yasir and his team comprising of Jatin and others is the perfect place to give your new and old car without thinking twice. Their passion for cars and detailing is the X-factor which makes them different and superior in this new booming industry. The way they treat their customers is a cherry on the cake. Highly recommended. I gave them my Tata Safari dark edition to be converted to Stealth edition (Matt) and what a brilliant job they have done.",

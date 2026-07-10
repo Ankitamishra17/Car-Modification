@@ -21,7 +21,6 @@ const IMAGES = {
 };
 
 const INVESTMENT = [
-  { icon: Banknote, value: "€41–€79", label: "Total investment" },
   { icon: Ruler, value: "1,200+ sq.ft", label: "Minimum space" },
   { icon: TrendingUp, value: "18–24 mo", label: "Avg. payback period" },
 ];
@@ -162,7 +161,7 @@ export default function Franchise() {
           </div>
 
           {/* sm+ glass plate, floats over the seam between hero and body */}
-          <div className="hidden sm:grid sm:grid-cols-3 gap-px overflow-hidden rounded-2xl border border-[#3D3D3D] bg-[#3D3D3D] shadow-[0_24px_60px_-20px_rgba(0,0,0,0.75)] backdrop-blur-sm">
+          <div className="hidden sm:grid sm:grid-cols-2 gap-px overflow-hidden rounded-2xl border border-[#3D3D3D] bg-[#3D3D3D] shadow-[0_24px_60px_-20px_rgba(0,0,0,0.75)] backdrop-blur-sm">
             {INVESTMENT.map(({ icon: Icon, value, label }, i) => (
               <div
                 key={label}

@@ -16,7 +16,7 @@ const SERVICES = [
     title: "Restore",
     desc: "Bring tired metal back to factory-fresh form. From rust treatment to full panel restoration, we return every vehicle to its original glory — or better.",
     tag: "Restoration",
-    img: "https://images.pexels.com/photos/4489707/pexels-photo-4489707.jpeg",
+    img: "https://i.pinimg.com/1200x/75/7d/a6/757da6961b6cf5c6af412b4418b8ddb0.jpg",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const SERVICES = [
     title: "Upholstery",
     desc: "Interior trim and full-body paint, done by hand. Custom leather stitching, premium paint correction and colour-matched refinishing for a truly bespoke result.",
     tag: "Interior & Exterior",
-    img: "https://images.pexels.com/photos/31014447/pexels-photo-31014447.jpeg",
+    img: "https://i.pinimg.com/1200x/94/5c/bc/945cbcb4d7d63f559d9f9f6bb08e304a.jpg",
   },
   {
     id: 4,
@@ -463,7 +463,7 @@ export default function Services() {
           >
             <p className="svc-subtitle">
 Dodici discipline. Un solo standard, senza compromessi. Ogni intervento è eseguito con precisione assoluta e nel massimo rispetto dell'automobile.            </p>
-            <span className="svc-count"><b>{pad(filtered.length)}</b> services{activeTag !== "All" ? ` — ${activeTag}` : ""}</span>
+            {/* <span className="svc-count"><b>{pad(filtered.length)}</b> services{activeTag !== "All" ? ` — ${activeTag}` : ""}</span> */}
           </motion.div>
         </div>
 

@@ -930,11 +930,11 @@ export const SERVICES = [
       heading: "LUXURY BEGINS INSIDE.",
 
       images: [
-        "https://i.pinimg.com/736x/e0/b2/5c/e0b25c2f2e009da7eac0089ba7e17892.jpg",
+        "https://i.pinimg.com/736x/a2/da/69/a2da69e224d896483963926daf521caa.jpg",
 
-        "https://i.pinimg.com/736x/35/cd/bc/35cdbc8b4b8633eb5b91b0253a37296e.jpg",
+        "https://i.pinimg.com/736x/d4/a9/ad/d4a9ad5a50630a49795851f9bc4d1586.jpg",
 
-        "https://images.pexels.com/photos/3954431/pexels-photo-3954431.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://i.pinimg.com/1200x/bb/60/c9/bb60c9e668c8b98c99d7ba64f6ca13ea.jpg",
       ],
     },
     ctaSection: {
