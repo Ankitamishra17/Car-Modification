@@ -370,7 +370,7 @@ export default function FranchisePage() {
                 <div className="relative w-full aspect-video overflow-hidden">
                   <iframe
                     className="w-full h-full"
-                    src="https://youtu.be/yXf9tJDwHws?si=3QNzl5GJVhjy3-Zl"
+                    src="https://www.youtube.com/embed/uAxrZ45Sjxc"
                     title="Dettagli Auto — Franchise"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

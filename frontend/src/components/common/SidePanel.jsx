@@ -9,6 +9,21 @@ import React from "react";
  */
 
 // ── Inline SVG icons (no external icon-library dependency) ──
+const MapIcon = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0z" />
+    <circle cx="12" cy="10" r="3" />
+  </svg>
+);
+
 const PhoneIcon = (props) => (
   <svg
     viewBox="0 0 24 24"
@@ -52,6 +67,12 @@ const YoutubeIcon = (props) => (
 
 const SIDE_LINKS = [
   {
+    label: "Map",
+    href: "https://www.google.com/maps/search/?api=1&query=C+32+Block+C+Lajpat+Nagar+II+New+Delhi+Delhi+110024",
+    Icon: MapIcon,
+    external: true,
+  },
+  {
     label: "Call Us",
     href: "tel:080-77976595",
     Icon: PhoneIcon,
@@ -87,13 +108,13 @@ export default function SidePanel() {
           position: fixed;
           top: 50%;
           right: 2px;
+          overflow: visible;
           transform: translateY(-50%);
           z-index: 50;
           display: flex;
           flex-direction: column;
           border: 1px solid rgba(192,192,192,0.22);
           border-radius: 4px;
-          overflow: hidden;
           background: rgba(11,11,11,0.45);
           backdrop-filter: blur(10px);
           opacity: 0;
@@ -101,6 +122,7 @@ export default function SidePanel() {
         }
         .side-box {
           display: flex;
+          overflow: visible;
           align-items: center;
           justify-content: center;
           width: 60px;
@@ -143,6 +165,31 @@ export default function SidePanel() {
           opacity: 1;
           transform: translateY(-50%) translateX(0);
         }
+
+.side-box .side-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(15, 15, 15, 0.95);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 7px 12px;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.side-box:hover .side-tooltip {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
 
         @media (max-width: 768px) {
           /* Side panel → horizontal bar pinned to the bottom on mobile */
