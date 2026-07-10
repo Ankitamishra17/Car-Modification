@@ -402,11 +402,11 @@ export default function Hero() {
               fontSize: 15.5,
               fontWeight: 300,
               lineHeight: 1.75,
-              color: "rgba(240,240,240,0.62)",
+              color: "rgba(240, 240, 240, 0.88)",
               maxWidth: 400,
               margin: "22px 0 34px",
               opacity: 0,
-              // animation: "fadeUp 0.75s ease-out 0.54s forwards",
+              animation: "fadeUp 0.75s ease-out 0.54s forwards",
             }}
           >
             From precision-cut Paint Protection Film (PPF) to complete restorations, bespoke body kits, and precision performance remapping—we redefine automotive excellence, one detail at a time.
