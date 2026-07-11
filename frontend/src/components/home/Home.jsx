@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/60 to-[#0B0B0B]/20" />
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen w-full flex flex-col items-center lg:items-start justify-center text-center lg:text-left px-5 sm:px-10 md:px-16 lg:px-8 xl:px-28">
+      <div className="relative z-10 min-h-screen w-full flex flex-col items-center lg:items-start justify-start pt-28 sm:pt-32 lg:justify-center text-center lg:text-left px-5 sm:px-10 md:px-16 lg:px-8 xl:px-28">
         <div className="max-w-3xl flex flex-col items-center lg:items-start">
           {/* Eyebrow label */}
           <motion.div
@@ -61,31 +61,30 @@ const Hero = () => {
           </motion.p>
 
           {/* Stats */}
-        {/* Stats */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.7, delay: 0.45 }}
-  className="flex flex-nowrap justify-center lg:justify-start gap-6 sm:gap-12 w-full"
->
-  {STATS.map((stat) => (
-    <div key={stat.label} className="relative text-center lg:text-left shrink-0">
-      <h3
-        className="text-white text-3xl sm:text-5xl md:text-6xl leading-none"
-        style={{ fontFamily: "'Bebas Neue', sans-serif" }}
-      >
-        {stat.value}
-      </h3>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.45 }}
+            className="flex flex-nowrap justify-center lg:justify-start gap-6 sm:gap-12 w-full"
+          >
+            {STATS.map((stat) => (
+              <div key={stat.label} className="relative text-center lg:text-left shrink-0">
+                <h3
+                  className="text-white text-3xl sm:text-5xl md:text-6xl leading-none"
+                  style={{ fontFamily: "'Bebas Neue', sans-serif" }}
+                >
+                  {stat.value}
+                </h3>
 
-      <p
-        className="mt-2 text-[#B8B8B8] text-xs sm:text-base uppercase tracking-wide whitespace-nowrap"
-        style={{ fontFamily: "'Jost', sans-serif" }}
-      >
-        {stat.label}
-      </p>
-    </div>
-  ))}
-</motion.div>
+                <p
+                  className="mt-2 text-[#B8B8B8] text-xs sm:text-base uppercase tracking-wide whitespace-nowrap"
+                  style={{ fontFamily: "'Jost', sans-serif" }}
+                >
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
