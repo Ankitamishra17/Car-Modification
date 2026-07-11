@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/60 to-[#0B0B0B]/20" />
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen w-full flex  flex-col items-center lg:items-start justify-start lg:justify-center text-center lg:text-left px-5 sm:px-10 md:px-16 lg:px-8 xl:px-20 sm:pt-0 pt-30 md:pt-25 lg:pt-0 pb-20 ">
+      <div className="relative z-10 min-h-screen w-full flex  flex-col items-center lg:items-start justify-start lg:justify-center text-center lg:text-left px-5 sm:px-10 md:px-16 lg:px-8 xl:px-20 sm:pt-28 pt-58 md:pt-25 lg:pt-0 xs:pt-28 pb-20 ">
         <div className="max-w-3xl flex flex-col items-center lg:items-start">
           {/* Eyebrow label */}
           <motion.div
