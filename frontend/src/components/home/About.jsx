@@ -43,9 +43,18 @@ export default function About() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
-        .da-section { padding: 80px 40px 0; }
+        .da-section, .da-section *, .da-section *::before, .da-section *::after {
+          box-sizing: border-box;
+        }
+
+        .da-section {
+          padding: 80px 40px 0;
+          max-width: 100vw;
+          overflow-x: hidden;
+        }
         @media (max-width: 600px) { .da-section { padding: 60px 20px 0; } }
-        @media (max-width: 380px) { .da-section { padding: 48px 14px 0; } }
+        @media (max-width: 380px) { .da-section { padding: 44px 16px 0; } }
+        @media (max-width: 340px) { .da-section { padding: 36px 12px 0; } }
 
         .da-wrap { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
         @media (max-width: 520px) { .da-wrap { padding: 0 16px; } }
@@ -74,6 +83,7 @@ export default function About() {
           font-size: 11px; font-weight: 600;
           letter-spacing: 0.26em; text-transform: uppercase; color: #8C8C8C;
         }
+        @media (max-width: 340px) { .da-eyebrow-text { letter-spacing: 0.18em; font-size: 10px; } }
 
         .da-heading {
           font-family: 'Bebas Neue', sans-serif;
@@ -81,13 +91,15 @@ export default function About() {
           color: #F0F0F0; line-height: 0.86;
           margin: 0; letter-spacing: 0.005em;
           white-space: nowrap;
+          max-width: 100%;
         }
         .da-heading span {
           -webkit-text-stroke: 1.5px #C0C0C0;
           color: transparent;
         }
         @media (max-width: 900px) { .da-heading { white-space: normal; } }
-        @media (max-width: 360px) { .da-heading { font-size: 40px; } }
+        @media (max-width: 360px) { .da-heading { font-size: 38px; } }
+        @media (max-width: 340px) { .da-heading { font-size: 34px; } }
 
         .da-subtitle-block {
           display: flex; flex-direction: column; align-items: flex-end;
@@ -123,6 +135,9 @@ export default function About() {
         @media (max-width: 480px) {
           .da-cta { width: 100%; justify-content: center; padding: 13px 20px; }
         }
+        @media (max-width: 340px) {
+          .da-cta { font-size: 11px; padding: 12px 16px; gap: 6px; }
+        }
 
         /* ===== Body row: image + copy ===== */
         .da-body {
@@ -136,6 +151,9 @@ export default function About() {
         }
         @media (max-width: 480px) {
           .da-body { gap: 32px; padding: 36px 0 56px; }
+        }
+        @media (max-width: 340px) {
+          .da-body { gap: 26px; padding: 28px 0 44px; }
         }
 
         /* --- image with corner-bracket frame (precision / viewfinder motif) --- */
@@ -225,6 +243,7 @@ export default function About() {
           margin: 0 0 18px; max-width: 560px;
         }
         @media (max-width: 480px) { .da-para { font-size: 14px; line-height: 1.75; } }
+        @media (max-width: 340px) { .da-para { font-size: 13.5px; line-height: 1.7; } }
 
         .da-quote {
           margin: 8px 0 28px;
@@ -233,6 +252,7 @@ export default function About() {
           background: rgba(192,192,192,0.04);
         }
         @media (max-width: 480px) { .da-quote { padding: 16px 18px; margin: 4px 0 22px; } }
+        @media (max-width: 340px) { .da-quote { padding: 14px 14px; } }
         .da-quote-main {
           font-family: 'Jost', sans-serif;
           font-style: italic; font-weight: 400;
@@ -241,6 +261,7 @@ export default function About() {
           margin-bottom: 8px;
         }
         @media (max-width: 400px) { .da-quote-main { font-size: 19px; } }
+        @media (max-width: 340px) { .da-quote-main { font-size: 17px; } }
         .da-quote-sub {
           font-family: 'DM Sans', sans-serif;
           font-size: 10.5px; font-weight: 600;
@@ -258,6 +279,9 @@ export default function About() {
         .da-closing p span { color: rgba(192,192,192,0.7); }
         @media (max-width: 400px) {
           .da-closing p { font-size: 10.5px; letter-spacing: 0.06em; line-height: 1.9; }
+        }
+        @media (max-width: 340px) {
+          .da-closing p { font-size: 9.5px; letter-spacing: 0.04em; word-spacing: 0; }
         }
 
         /* ===== Signature element: spec plate strip ===== */
@@ -285,6 +309,9 @@ export default function About() {
         }
         @media (max-width: 480px) {
           .da-spec { padding: 24px 2px; }
+        }
+        @media (max-width: 340px) {
+          .da-spec { padding: 20px 2px; }
         }
 
         .da-spec-top {
