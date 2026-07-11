@@ -28,7 +28,7 @@ const fadeUp = (delay = 0) => ({
 
 export default function About() {
   const sectionRef = useRef(null);
-  const inView = useInView(sectionRef, { once: true, margin: "-80px" });
+  const inView = useInView(sectionRef, { once: true,  });
 
   return (
     <section
@@ -43,9 +43,9 @@ export default function About() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
-        .da-section { padding: 0 40px; }
-        @media (max-width: 600px) { .da-section { padding: 0 20px; } }
-        @media (max-width: 380px) { .da-section { padding: 0 14px; } }
+        .da-section { padding: 80px 40px 0; }
+        @media (max-width: 600px) { .da-section { padding: 60px 20px 0; } }
+        @media (max-width: 380px) { .da-section { padding: 48px 14px 0; } }
 
         .da-wrap { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
         @media (max-width: 520px) { .da-wrap { padding: 0 16px; } }

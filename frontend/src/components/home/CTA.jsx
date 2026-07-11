@@ -22,7 +22,7 @@ const CONTACT = [
 ];
 
 const TRUST = [
-  { value: "6+", label: "Studios across India" },
+  { value: "12+", label: "Services we provide" },
   { value: "26+ yrs", label: "In the industry" },
   { value: "1,200+", label: "Cars protected" },
 ];

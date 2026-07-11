@@ -7,7 +7,7 @@ const STATS = [
 
 const Hero = () => {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden bg-[#0B0B0B]">
+    <section className="relative w-full min-h-screen overflow-hidden bg-[#0B0B0B] ">
       {/* Background Image - responsive */}
       <picture className="absolute inset-0 w-full h-full">
         <source media="(max-width: 767px)" srcSet="/banner/mobile2.png" />
@@ -22,7 +22,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-[#0B0B0B] via-[#0B0B0B]/60 to-[#0B0B0B]/20" />
 
       {/* Content */}
-      <div className="relative z-10 min-h-screen w-full flex flex-col items-center lg:items-start justify-start pt-28 sm:pt-32 lg:justify-center text-center lg:text-left px-5 sm:px-10 md:px-16 lg:px-8 xl:px-28">
+      <div className="relative z-10 min-h-screen w-full flex  flex-col items-center lg:items-start justify-start lg:justify-center text-center lg:text-left px-5 sm:px-10 md:px-16 lg:px-8 xl:px-20 sm:pt-0 pt-25 md:pt-0 lg:pt-0 pb-20 ">
         <div className="max-w-3xl flex flex-col items-center lg:items-start">
           {/* Eyebrow label */}
           <motion.div
@@ -35,7 +35,7 @@ const Hero = () => {
 
           {/* Heading */}
           <motion.h1
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.15 }}
             className="text-[#FFFFFF] uppercase leading-[0.95] mb-5 sm:mb-6 text-[clamp(2.25rem,7vw,5.5rem)]"
