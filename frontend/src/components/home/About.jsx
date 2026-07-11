@@ -33,18 +33,23 @@ export default function About() {
   return (
     <section
       ref={sectionRef}
+      className="da-section"
       style={{
         background: "#0B0B0B",
         position: "relative",
         overflow: "hidden",
-        padding: "0 40px",
       }}
     >
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap');
 
+        .da-section { padding: 0 40px; }
+        @media (max-width: 600px) { .da-section { padding: 0 20px; } }
+        @media (max-width: 380px) { .da-section { padding: 0 14px; } }
+
         .da-wrap { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
         @media (max-width: 520px) { .da-wrap { padding: 0 16px; } }
+        @media (max-width: 380px) { .da-wrap { padding: 0; } }
 
         /* ===== Masthead row: heading left, subtitle right, shared baseline ===== */
         .da-masthead {
@@ -56,7 +61,10 @@ export default function About() {
           border-bottom: 1px solid rgba(192,192,192,0.14);
         }
         @media (max-width: 900px) {
-          .da-masthead { grid-template-columns: 1fr; row-gap: 22px; align-items: start; }
+          .da-masthead { grid-template-columns: 1fr; row-gap: 22px; align-items: start; padding-bottom: 40px; }
+        }
+        @media (max-width: 480px) {
+          .da-masthead { padding-bottom: 28px; }
         }
 
         .da-eyebrow { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
@@ -69,7 +77,7 @@ export default function About() {
 
         .da-heading {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: clamp(56px, 9vw, 128px);
+          font-size: clamp(44px, 13vw, 128px);
           color: #F0F0F0; line-height: 0.86;
           margin: 0; letter-spacing: 0.005em;
           white-space: nowrap;
@@ -79,13 +87,14 @@ export default function About() {
           color: transparent;
         }
         @media (max-width: 900px) { .da-heading { white-space: normal; } }
+        @media (max-width: 360px) { .da-heading { font-size: 40px; } }
 
         .da-subtitle-block {
           display: flex; flex-direction: column; align-items: flex-end;
           text-align: right;
           padding-bottom: 6px;
         }
-        @media (max-width: 900px) { .da-subtitle-block { align-items: flex-start; text-align: left; } }
+        @media (max-width: 900px) { .da-subtitle-block { align-items: flex-start; text-align: left; padding-bottom: 0; } }
 
         .da-subtitle {
           font-family: 'Jost', sans-serif;
@@ -95,6 +104,7 @@ export default function About() {
           max-width: 380px;
           margin: 0 0 14px;
         }
+        @media (max-width: 480px) { .da-subtitle { font-size: 14px; max-width: 100%; } }
 
         .da-cta {
           display: inline-flex; align-items: center; gap: 8px;
@@ -110,6 +120,9 @@ export default function About() {
         .da-cta:hover { background: #C0C0C0; color: #0B0B0B; }
         .da-cta:hover .da-arrow { transform: translateX(4px); }
         .da-arrow { transition: transform 0.25s; }
+        @media (max-width: 480px) {
+          .da-cta { width: 100%; justify-content: center; padding: 13px 20px; }
+        }
 
         /* ===== Body row: image + copy ===== */
         .da-body {
@@ -119,7 +132,10 @@ export default function About() {
           padding: 64px 0 96px;
         }
         @media (max-width: 1023px) {
-          .da-body { grid-template-columns: 1fr; gap: 48px; }
+          .da-body { grid-template-columns: 1fr; gap: 48px; padding: 48px 0 72px; }
+        }
+        @media (max-width: 480px) {
+          .da-body { gap: 32px; padding: 36px 0 56px; }
         }
 
         /* --- image with corner-bracket frame (precision / viewfinder motif) --- */
@@ -134,6 +150,13 @@ export default function About() {
         .da-bracket.tr { top: -12px; right: -12px; border-top-width: 1.5px; border-right-width: 1.5px; }
         .da-bracket.bl { bottom: -12px; left: -12px; border-bottom-width: 1.5px; border-left-width: 1.5px; }
         .da-bracket.br { bottom: -12px; right: -12px; border-bottom-width: 1.5px; border-right-width: 1.5px; }
+        @media (max-width: 480px) {
+          .da-bracket { width: 18px; height: 18px; }
+          .da-bracket.tl { top: -8px; left: -8px; }
+          .da-bracket.tr { top: -8px; right: -8px; }
+          .da-bracket.bl { bottom: -8px; left: -8px; }
+          .da-bracket.br { bottom: -8px; right: -8px; }
+        }
 
         .da-imgwrap {
           position: relative; width: 100%;
@@ -146,6 +169,8 @@ export default function About() {
           filter: grayscale(20%) contrast(1.05);
           transition: transform 0.9s cubic-bezier(0.4,0,0.2,1);
         }
+        @media (max-width: 640px) { .da-img { aspect-ratio: 5/6; } }
+        @media (max-width: 400px) { .da-img { aspect-ratio: 1/1; } }
         .da-imgwrap:hover .da-img { transform: scale(1.06); }
         .da-imgwrap::after {
           content: ""; position: absolute; inset: 0;
@@ -172,6 +197,9 @@ export default function About() {
           width: 68px; height: 68px;
           display: flex; align-items: center; justify-content: center;
         }
+        @media (max-width: 480px) {
+          .da-badge { width: 52px; height: 52px; top: 14px; right: 14px; }
+        }
         .da-badge-spin { position: absolute; inset: 0; animation: da-rotate 16s linear infinite; }
         @keyframes da-rotate { to { transform: rotate(360deg); } }
         .da-badge-core {
@@ -182,6 +210,10 @@ export default function About() {
           position: relative; z-index: 1;
         }
         .da-badge-core svg { width: 13px; height: 13px; }
+        @media (max-width: 480px) {
+          .da-badge-core { width: 24px; height: 24px; }
+          .da-badge-core svg { width: 11px; height: 11px; }
+        }
 
         /* --- copy column --- */
         .da-copy { display: flex; flex-direction: column; justify-content: center; }
@@ -192,6 +224,7 @@ export default function About() {
           line-height: 1.85; color: rgba(240,240,240,0.58);
           margin: 0 0 18px; max-width: 560px;
         }
+        @media (max-width: 480px) { .da-para { font-size: 14px; line-height: 1.75; } }
 
         .da-quote {
           margin: 8px 0 28px;
@@ -199,6 +232,7 @@ export default function About() {
           border-left: 1px solid #C0C0C0;
           background: rgba(192,192,192,0.04);
         }
+        @media (max-width: 480px) { .da-quote { padding: 16px 18px; margin: 4px 0 22px; } }
         .da-quote-main {
           font-family: 'Jost', sans-serif;
           font-style: italic; font-weight: 400;
@@ -206,6 +240,7 @@ export default function About() {
           color: #C0C0C0; line-height: 1.35;
           margin-bottom: 8px;
         }
+        @media (max-width: 400px) { .da-quote-main { font-size: 19px; } }
         .da-quote-sub {
           font-family: 'DM Sans', sans-serif;
           font-size: 10.5px; font-weight: 600;
@@ -221,6 +256,9 @@ export default function About() {
           margin: 0;
         }
         .da-closing p span { color: rgba(192,192,192,0.7); }
+        @media (max-width: 400px) {
+          .da-closing p { font-size: 10.5px; letter-spacing: 0.06em; line-height: 1.9; }
+        }
 
         /* ===== Signature element: spec plate strip ===== */
         .da-plate {
@@ -232,6 +270,7 @@ export default function About() {
           display: grid; grid-template-columns: repeat(3, 1fr);
         }
         @media (max-width: 520px) { .da-plate-inner { padding: 0 16px; } }
+        @media (max-width: 380px) { .da-plate-inner { padding: 0 14px; } }
         @media (max-width: 760px) { .da-plate-inner { grid-template-columns: 1fr; } }
 
         .da-spec {
@@ -244,11 +283,15 @@ export default function About() {
           .da-spec { border-left: none; border-top: 1px solid rgba(192,192,192,0.14); padding: 32px 4px; }
           .da-spec:first-child { border-top: none; }
         }
+        @media (max-width: 480px) {
+          .da-spec { padding: 24px 2px; }
+        }
 
         .da-spec-top {
           display: flex; align-items: baseline; justify-content: space-between;
           margin-bottom: 22px;
         }
+        @media (max-width: 480px) { .da-spec-top { margin-bottom: 14px; } }
         .da-spec-tag {
           font-family: 'DM Sans', sans-serif;
           font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em;
@@ -261,7 +304,7 @@ export default function About() {
         }
         .da-spec-value {
           font-family: 'Bebas Neue', sans-serif;
-          font-size: clamp(40px, 4.5vw, 56px);
+          font-size: clamp(36px, 9vw, 56px);
           color: #F0F0F0; line-height: 1; letter-spacing: 0.01em;
           margin-bottom: 10px;
         }
