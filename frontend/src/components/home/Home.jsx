@@ -23,7 +23,7 @@ const Hero = () => {
 
       {/* Content */}
       <div
-        className="relative z-10 min-h-screen w-full flex  flex-col items-center lg:items-start justify-start lg:justify-center text-center lg:text-left px-5 sm:px-10 md:px-16 lg:px-4 xl:px-15 pt-25 xs:pt-25 sm:pt-28 md:pt-32 lg:pt-0 pb-20
+        className="relative z-10 min-h-screen max-w-7xl mx-auto w-full flex  flex-col items-center lg:items-start justify-start lg:justify-center text-center lg:text-left px-6 pt-25 xs:pt-25 sm:pt-28 md:pt-32 lg:pt-0 pb-20
         [@media(max-width:767px)_and_(max-height:700px)]:pt-25
         [@media(max-width:767px)_and_(min-height:701px)_and_(max-height:1000px)]:pt-58
         "

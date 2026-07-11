@@ -52,13 +52,17 @@ export default function About() {
           max-width: 100vw;
           overflow-x: hidden;
         }
-        @media (max-width: 600px) { .da-section { padding: 60px 20px 0; } }
-        @media (max-width: 380px) { .da-section { padding: 44px 16px 0; } }
-        @media (max-width: 340px) { .da-section { padding: 36px 12px 0; } }
+        @media (max-width: 1024px) { .da-section { padding: 68px 28px 0; } }
+        @media (max-width: 768px) { .da-section { padding: 64px 20px 0; } }
+        @media (max-width: 600px) { .da-section { padding: 60px 12px 0; } }
+        @media (max-width: 380px) { .da-section { padding: 44px 8px 0; } }
+        @media (max-width: 340px) { .da-section { padding: 36px 6px 0; } }
 
         .da-wrap { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
-        @media (max-width: 520px) { .da-wrap { padding: 0 16px; } }
-        @media (max-width: 380px) { .da-wrap { padding: 0; } }
+        @media (max-width: 1024px) { .da-wrap { padding: 0 16px; } }
+        @media (max-width: 768px) { .da-wrap { padding: 0 12px; } }
+        @media (max-width: 520px) { .da-wrap { padding: 0 8px; } }
+        @media (max-width: 380px) { .da-wrap { padding: 0 4px; } }
 
         /* ===== Masthead row: heading left, subtitle right, shared baseline ===== */
         .da-masthead {
@@ -435,10 +439,7 @@ export default function About() {
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.9, ease: [0.4, 0, 0.2, 1], delay: 0.2 }}
           >
-            <span className="da-bracket tl" />
-            <span className="da-bracket tr" />
-            <span className="da-bracket bl" />
-            <span className="da-bracket br" />
+         
 
             <div className="da-imgwrap">
               <motion.img

@@ -129,7 +129,7 @@ export default function Testimonials() {
 
   return (
     <section className="relative bg-[#0B0B0B] text-[#F0F0F0] border-b border-[#8C8C8C]/20 overflow-hidden">
-      <div className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 xs:px-5 sm:px-8 md:px-12 lg:px-16 py-14 xs:py-16 sm:py-24 md:py-28">
+      <div className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 xs:px-5 sm:px-8 md:px-12 lg:px-6 py-14 xs:py-16 sm:py-24 md:py-28">
         {/* Section header */}
         <motion.div
           initial="hidden"
